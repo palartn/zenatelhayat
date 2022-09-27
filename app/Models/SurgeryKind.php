@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class SurgeryKind extends Model
 {
     use HasFactory;
+    
 }
