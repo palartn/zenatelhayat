@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('husband_occupation'); // عمل الزوج
             $table->date('husband_dob'); // تاريخ ميلاد الزوج
             $table->integer('husband_pic');  // صورة الزوج
-            $table->blob('notes'); // ملاحظات
+            $table->string('notes'); // ملاحظات
 
             $table->timestamps();
         });
