@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->primary('idc'); //رقم هوية المريض
-            $table->integer('file_no')->unique(); //رقم الملف
+        //    $table->('idc'); //رقم هوية المريض
+        $table->string('username')->unique();
+            $table->string('email')->nullable()->unique();
+            $table->string('password');
             $table->string('patient_fname'); // إسم المريض الأول
             $table->string('patient_sname'); // إسم المريض الثاني
             $table->string('patient_tname'); //  إسم المريض الثالث
@@ -25,14 +27,14 @@ return new class extends Migration
             $table->string('occupation'); // العمل
             $table->string('address'); // العنوان
             $table->integer('mobile'); // جوال
-            $table->integer('mobile_second'); // جوال ثاني
+            $table->integer('mobile_second')->nullable(); // جوال ثاني
             $table->boolean('gender'); // الجنس
-            $table->string('husband_name'); //اسم الزوج
-            $table->string('husband_occupation'); // عمل الزوج
-            $table->date('husband_dob'); // تاريخ ميلاد الزوج
-            $table->integer('husband_pic');  // صورة الزوج
-            $table->string('notes'); // ملاحظات
-
+            $table->string('husband_name')->nullable(); //اسم الزوج
+            $table->string('husband_occupation')->nullable(); // عمل الزوج
+            $table->date('husband_dob')->nullable(); // تاريخ ميلاد الزوج
+            $table->integer('husband_pic')->nullable();  // صورة الزوج
+            $table->text('notes')->nullable(); // ملاحظات
+            $table->softDeletes();
             $table->timestamps();
         });
     }
