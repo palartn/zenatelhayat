@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Hash;
-=======
-use App\Http\Controllers\UserController;
->>>>>>> 069e5e6134aff939dca2794c606ca16ab9f035f7
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +22,7 @@ Route::get('/', function () {
    return view('index');
 })->middleware('auth');
 
-Route::resource('users', UserController::class);
+Route::resource('users',UsersController::class);
 
 Route::get('/dashboard', function () {
 

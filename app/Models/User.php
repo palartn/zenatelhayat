@@ -17,13 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-<<<<<<< HEAD
-    protected $guarded = [];
 
-=======
     protected $gureded = [ ];
     //test gurderd
->>>>>>> 069e5e6134aff939dca2794c606ca16ab9f035f7
 
     /**
      * The attributes that should be hidden for serialization.
