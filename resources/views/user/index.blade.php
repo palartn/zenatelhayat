@@ -41,10 +41,10 @@
 																	<input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-9-check" />
 																</div>
 															</th>
-															<th class="min-w-150px">المستخدمين</th>
-															<th class="min-w-140px">إسم المستخدم</th>
-															<th class="min-w-120px">العنوان</th>
-															<th class="min-w-100px text-end">العمليات</th>
+															<th class="min-w-150px" style="font-family:NotoKufiArabic">المستخدمين</th>
+															<th class="min-w-140px" style="font-family:NotoKufiArabic">إسم المستخدم</th>
+															<th class="min-w-120px" style="font-family:NotoKufiArabic">العنوان</th>
+															<th class="min-w-100px text-end" style="font-family:NotoKufiArabic">العمليات</th>
 														</tr>
 													</thead>
 													<!--end::Table head-->
