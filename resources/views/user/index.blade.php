@@ -68,13 +68,13 @@
 																	</div>
 																	<div class="d-flex justify-content-start flex-column">
 																		<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $users->name }}</a>
-																		<span class="text-muted fw-bold text-muted d-block fs-7">HTML, JS, ReactJS</span>
+																		<span class="text-muted fw-bold text-muted d-block fs-7">{{$users->gender}}</span>
 																	</div>
 																</div>
 															</td>
 															<td>
 																<a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">{{$users->email}}</a>
-																<span class="text-muted fw-bold text-muted d-block fs-7">Web, UI/UX Design</span>
+																<span class="text-muted fw-bold text-muted d-block fs-7">{{$users->updated_at}}</span>
 															</td>
 															<td class="text-end">
 																<div class="d-flex flex-column w-100 me-2">
@@ -98,7 +98,7 @@
 																		</span>
 																		<!--end::Svg Icon-->
 																	</a>
-																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																	<a href="{{route('users.create')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
 																		<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
 																		<span class="svg-icon svg-icon-3">
 																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -108,7 +108,7 @@
 																		</span>
 																		<!--end::Svg Icon-->
 																	</a>
-																	<a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+																	<a href="" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
 																		<!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
 																		<span class="svg-icon svg-icon-3">
 																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
