@@ -5,6 +5,13 @@
   font-family:Cairo;
  
 }
+/* MY FONTS */
+@font-face {
+  src: url(../fonts/NotoKufiArabic-VariableFont_wght.ttf);
+  font-size: revert;
+  font-family:NotoKufiArabic;
+ 
+}
 
 /* devanagari */
 @font-face {

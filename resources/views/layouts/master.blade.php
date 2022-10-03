@@ -1818,7 +1818,7 @@
 								<!--end::Svg Icon-->
 							</span>
 							
-							<span class="menu-title" style="font-family:Cairo">المستخدمين</span>
+							<span class="menu-title" style="font-family:NotoKufiArabic">المستخدمين</span>
 						</a>
 					</div>
 					<div class="menu-item">
