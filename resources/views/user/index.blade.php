@@ -5,10 +5,10 @@
 										<div class="card-header border-0 pt-5">
 											<h3 class="card-title align-items-start flex-column">
 												<span class="card-label fw-bolder fs-3 mb-1">قائمة المستخدمين</span>
-												<span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>
+												<span class="text-muted mt-1 fw-bold fs-7">count(Number)</span>
 											</h3>
-											<div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
-												<a href="{{ route('users.create') }}" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
+											<div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="إضافة مستخدم جديد">
+												<a href="{{ route('users.create') }}" class="btn btn-sm btn-light btn-active-primary">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
 												<span class="svg-icon svg-icon-3">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -17,8 +17,10 @@
 													</svg>
 												</span>
 												<!--end::Svg Icon-->مستخدم جديد</a>
+												
 											</div>
 										</div>
+										
 										<!--end::Header-->
 										<!--begin::Body-->
 										<div class="card-body py-3">
@@ -30,6 +32,11 @@
 													<thead>
 														<tr class="fw-bolder text-muted">
 															<th class="w-25px">
+																@if ($message = Session::get('success'))
+																<div class="alert alert-success">
+																	<p>{{ $message }}</p> --}}
+																</div>
+																@endif
 																<div class="form-check form-check-sm form-check-custom form-check-solid">
 																	<input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-9-check" />
 																</div>
@@ -44,6 +51,10 @@
 													<!--begin::Table body-->
 													<tbody>
 														
+														@foreach ($users as $users)
+													
+														
+
 														<tr>
 															<td>
 																<div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -56,19 +67,19 @@
 																		<img src="assets/media/avatars/150-11.jpg" alt="" />
 																	</div>
 																	<div class="d-flex justify-content-start flex-column">
-																		<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana Simmons</a>
+																		<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $users->name }}</a>
 																		<span class="text-muted fw-bold text-muted d-block fs-7">HTML, JS, ReactJS</span>
 																	</div>
 																</div>
 															</td>
 															<td>
-																<a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">Intertico</a>
+																<a href="#" class="text-dark fw-bolder text-hover-primary d-block fs-6">{{$users->email}}</a>
 																<span class="text-muted fw-bold text-muted d-block fs-7">Web, UI/UX Design</span>
 															</td>
 															<td class="text-end">
 																<div class="d-flex flex-column w-100 me-2">
 																	<div class="d-flex flex-stack mb-2">
-																		<span class="text-muted me-2 fs-7 fw-bold">50%</span>
+																		<span class="text-muted me-2 fs-7 fw-bold">{{ $users->address }}</span>
 																	</div>
 																	<div class="progress h-6px w-100">
 																		<div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -111,7 +122,7 @@
 																</div>
 															</td>
 														</tr>
-														
+														@endforeach
 													<!--end::Table body-->
 												</table>
 												<!--end::Table-->
@@ -127,51 +138,7 @@
 
 
 
-			 <div class="container mt-2">
-				<div class="row">
-					<div class="col-lg-12 margin-tb">
-						<div class="pull-left">
-							<h2>قائمة المستخدمين</h2>
-						</div>
-						<div class="pull-right mb-2">
-							<a class="btn btn-success" href="{{ route('users.create') }}"> مستخدم جديد</a>
-						</div>
-					</div>
-				</div>
-				@if ($message = Session::get('success'))
-					<div class="alert alert-success">
-						<p>{{ $message }}</p> --}}
-					</div>
-				 @endif
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>S.No</th>
-							<th>user Name</th>
-							<th>user Email</th>
-							<th>user Address</th>
-							<th width="280px">Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($users as $users)
-							<tr>
-								<td>{{ $users->id }}</td>
-								<td>{{ $users->name }}</td>
-								<td>{{ $users->email }}</td>
-								<td>{{ $users->address }}</td>
-								<td>
-									<form action="{{ route('users.destroy',$users->id) }}" method="Post">
-										<a class="btn btn-primary" href="{{ route('users.edit',$users->id) }}">Edit</a>
-										@csrf
-										@method('DELETE')
-										<button type="submit" class="btn btn-danger">Delete</button>
-									</form>
-								</td>
-							</tr>
-							@endforeach
-					</tbody>
-				</table>
+			
 				{{-- {!! $users->links() !!} --}}
 			</div>
 

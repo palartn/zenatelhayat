@@ -13,7 +13,8 @@ class UsersController extends Controller
     */
     public function index()
     {
-        $users = User::orderBy('id','desc')->paginate(5);
+       $users = User::orderBy('id','desc')->paginate(5);
+        //$users = User::all();
         return view('user.index', compact('users'));
     }
     
