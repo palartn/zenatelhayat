@@ -52,10 +52,7 @@
 													<tbody>
 														
 														@foreach ($users as $users)
-													
-														
-
-														<tr>
+																										<tr>
 															<td>
 																<div class="form-check form-check-sm form-check-custom form-check-solid">
 																	<input class="form-check-input widget-9-check" type="checkbox" value="1" />
