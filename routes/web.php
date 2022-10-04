@@ -23,6 +23,8 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::resource('users',UsersController::class);
+Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
+
 
 Route::get('/dashboard', function () {
 
