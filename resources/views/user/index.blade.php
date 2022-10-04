@@ -23,15 +23,15 @@
 										
 										<!--end::Header-->
 										<!--begin::Body-->
-										<div class="card-body py-3">
+										<div class="card-body py-3"  style="font-family:NotoKufiArabic">
 											<!--begin::Table container-->
 											<div class="table-responsive">
 												<!--begin::Table-->
 												<table class="table table-striped table-row-bordered gy-5 gs-7" id="kt_datatable" style="margin-top: 13px !important">
 													<thead>
-													<tr class="fw-bold fs-6 text-gray-800">
+													<tr class="fw-bolder text-muted bg-light mb-3">
 														<th>رقم المستخدم</th>
-														<th>اسم </th>
+														<th>اسم المستخدم </th>
 														<th>الايميل</th>
 														<th>العنوان</th>
 														<th>الإجراءات</th>
