@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 	<!--begin::Head-->
 	<head>
-		<base href="">
+			<base href="">
 		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -29,7 +29,7 @@
 		@yield('styles')
 	</head>
 	<!--begin::Body-->
-<body id="kt_body" class="header-tablet-and-mobile-fixed aside-enabled">
+<body style="font-family:NotoKufiArabic" id="kt_body" class="header-tablet-and-mobile-fixed aside-enabled">
 	<!--begin::Main-->
 	<!--begin::Root-->
 	<div class="d-flex flex-column flex-root">
@@ -1820,7 +1820,7 @@
 								<!--end::Svg Icon-->
 							</span>
 							
-							<span class="menu-title" style="font-family:NotoKufiArabic">المستخدمين</span>
+							<span class="menu-title" >المستخدمين</span>
 						</a>
 					</div>
 					<div class="menu-item">

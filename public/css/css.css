@@ -1,9 +1,10 @@
 /* MY FONTS */
 @font-face {
   src: url(../fonts/Cairo-VariableFont_wght.ttf);
-  font-size: revert;
+  /* font-size: revert; */
   font-family:Cairo;
- 
+  font-style: normal;
+
 }
 /* MY FONTS */
 @font-face {

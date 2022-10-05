@@ -29,7 +29,7 @@
 												<!--begin::Table-->
 												<table class="table table-striped table-row-bordered gy-5 gs-7" id="kt_datatable" style="margin-top: 13px !important">
 													<thead>
-													<tr class="fw-bolder text-muted bg-light mb-3">
+													<tr class="fw-bolder  bg-secondary mb-3">
 														<th>رقم المستخدم</th>
 														<th>اسم المستخدم </th>
 														<th>الايميل</th>
@@ -93,6 +93,7 @@
         tr{
             cursor: pointer;
         }
+		
     </style>
 
 @endsection
