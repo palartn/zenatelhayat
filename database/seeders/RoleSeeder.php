@@ -31,7 +31,7 @@ class RoleSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'new@gmail.com',
             'password' =>bcrypt('123456'),
             'address' =>'Gaza',
             'phone' =>'123456',
@@ -71,6 +71,6 @@ class RoleSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ]);
-        $employee->assignRole($accountantRole);
+        $accountant->assignRole($accountantRole);
     }
 }

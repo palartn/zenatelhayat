@@ -18,6 +18,10 @@ class UsersController extends Controller
         //$users = User::all();
         return view('user.index');
     }
+    public function create( )
+    {
+       return view('user.create');
+    }
     public function getData(Request $request)
     {
 

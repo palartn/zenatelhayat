@@ -16,16 +16,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        for ($i = 1; $i <= 100; $i++) {
-            \App\Models\User::create([
-                'name' => "admin{$i}",
-                'email' => "admin{$i}@gmail.com",
-                'password' => Hash::make('123456'),
-                'phone' => "0009752222{$i}",
-                'address' => 'gaza',
+        // for ($i = 1; $i <= 100; $i++) {
+        //     \App\Models\User::create([
+        //         'name' => "admin{$i}",
+        //         'email' => "admin{$i}@gmail.com",
+        //         'password' => Hash::make('123456'),
+        //         'phone' => "0009752222{$i}",
+        //         'address' => 'gaza',
 
-            ]);
-        }
+        //     ]);
+        // }
 
 
         $this->call([

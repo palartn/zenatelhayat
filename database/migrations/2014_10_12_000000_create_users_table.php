@@ -25,6 +25,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
+            $table->boolean('status')->default('1')->comment('1 is active,0 is disable');
         });
     }
 

@@ -110,15 +110,11 @@ var KTDatatablesDataSourceAjaxServer = function() {
                         <i class="las la-trash"></i>\
                     </a>\
 						';
-                        
                     },
-      
-                },
-
+                      },
             ],
         });
     };
-
     return {
 
         //main function to initiate the module
