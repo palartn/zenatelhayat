@@ -1806,6 +1806,7 @@
 						</div>
 					</div>
 					<div class="menu-item">
+						
 						<a class="menu-link active" href='{{ route('users.index') }}'>
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
@@ -1822,6 +1823,7 @@
 							
 							<span class="menu-title" >المستخدمين</span>
 						</a>
+					
 					</div>
 					<div class="menu-item">
 						<a class="menu-link" href="../../demo8/dist/landing.html">
