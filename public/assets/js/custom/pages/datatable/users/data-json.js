@@ -100,11 +100,19 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     orderable: false,
                     render: function(data, type, full, meta) {
                             return '\
-							<a href="javascript:;" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
-								<i class="las la-edit"></i>\
+							<a href="{{javascript:}}" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-warning" title="مشاهدة">\
+								<i class="las la-info"></i>\
 							</a>\
+                            <a href="javascript:;" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
+                            <i class="las la-edit"></i>\
+                        </a>\
+                        <a href="javascript:;" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
+                        <i class="las la-trash"></i>\
+                    </a>\
 						';
+                        
                     },
+      
                 },
 
             ],
