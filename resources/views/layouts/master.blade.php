@@ -46,7 +46,7 @@
 					<div class="header-brand">
 						<!--begin::Logo-->
 						<a href="../../demo8/dist/index.html">
-							<img alt="Logo" src="assets/media/logos/logo-1-dark.svg" class="h-25px h-lg-25px" />
+							<img alt="Logo" src="assets/media/logos/logo.png" width="150px" class="h-25px h-lg-25px" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Aside minimize-->
