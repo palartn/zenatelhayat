@@ -50,7 +50,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                         $(win.document.body)
                             .css( 'direction', 'rtl' )
                             .prepend(
-                                '<div style="display: flex;border-bottom: 1px solid #000;margin-bottom: 20px"><div style="width: 33%;margin-top: auto;margin-bottom: auto;padding-right: 20px"><img src="'+SITEURL+'/assets/media/reports/header-right.png" width="150" /></div><div style="width: 33%;text-align: center;margin: auto"><img style="text-align: center" src="'+SITEURL+'/assets/media/reports/header-center.png" width="50" /></div><div style="margin-right:auto;margin-top:auto;margin-bottom:auto;text-align: center;width: 33%;font-size: 14px;line-height: 25px"><div>الإدارة العامة للشؤون المالية والإدارية</div><div>دائرة اللوازم العامة - المستودعات العامة</div></div></div>'
+                                '<div style="display: flex;border-bottom: 1px solid #000;margin-bottom: 20px"><img src="'+SITEURL+'/assets/media/reports/header-right.png" width="100%" />'
                             );
 
                         $(win.document.body).find( 'table' )
