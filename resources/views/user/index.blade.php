@@ -111,7 +111,7 @@
 											<td>
 												<strong >
 													<span class="glyphicon glyphicon-asterisk text-primary"></span>
-													إسم المستخدم                                                
+													الإسـم                                                
 												</strong>
 											</td>
 											<td class="text-primary" id="user_name">
@@ -122,22 +122,22 @@
 											<td>
 												<strong>
 													<span class="glyphicon glyphicon-user  text-primary"></span>    
-													Name                                                
+													 البريد الإلكتروني                                               
 												</strong>
 											</td>
-											<td class="text-primary">
-												Bootdey     
+											<td class="text-primary" id="user_email">
+												     
 											</td>
 										</tr>
 										<tr>        
 											<td>
 												<strong>
 													<span class="glyphicon glyphicon-cloud text-primary"></span>  
-													Lastname                                                
+													الهاتف                                                
 												</strong>
 											</td>
-											<td class="text-primary">
-												Bootstrap  
+											<td class="text-primary" id="user_phone">
+												  
 											</td>
 										</tr>
 					
@@ -145,93 +145,14 @@
 											<td>
 												<strong>
 													<span class="glyphicon glyphicon-bookmark text-primary"></span> 
-													Username                                                
+													العنوان                                                
 												</strong>
 											</td>
-											<td class="text-primary">
-												bootnipets 
+											<td class="text-primary" id="user_address">
+												 
 											</td>
 										</tr>
 					
-					
-										<tr>        
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-eye-open text-primary"></span> 
-													Role                                                
-												</strong>
-											</td>
-											<td class="text-primary">
-												Admin
-											</td>
-										</tr>
-										<tr>        
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-envelope text-primary"></span> 
-													Email                                                
-												</strong>
-											</td>
-											<td class="text-primary">
-												noreply@email.com  
-											</td>
-										</tr>
-										<tr>        
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-calendar text-primary"></span>
-													created                                                
-												</strong>
-											</td>
-											<td class="text-primary">
-												20 jul 20014
-											</td>
-										</tr>
-										<tr>        
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-calendar text-primary"></span>
-													Modified                                                
-												</strong>
-											</td>
-											<td class="text-primary">
-												 20 jul 20014 20:00:00
-											</td>
-										</tr>                                    
-									</tbody>
-								</table>
-								</div>
-							</div>
-						</div>
-					</div>
-					</div>                     
-				
-                <div class="mb-10">
-                    <label for="" class="form-label">إسـم المستخدم</label>
-                   <input type="text" id="user_name">
-                </div>
-                <div class="mb-10">
-                    <label for="" class="form-label">البريد الإلكتروني</label>
-                   <input type="text" id="user_email">
-                </div>
-                <div class="mb-10">
-                    <label for="" class="form-label">الهاتف</label>
-                   <input type="text" id="user_phone">
-                </div>
-                <div class="mb-10">
-                    <label for="" class="form-label">الجنس</label>
-                   <input type="text" id="user_gender">
-                </div>
-                <div class="mb-10">
-                    <label for="" class="form-label">تاريخ الإنشاء</label>
-                   <input type="text" id="user_created_at">
-                </div>
-                <div class="mb-10">
-                    <label for="" class="form-label">حالة المستخدم</label>
-                   <input type="text" id="user_status">
-                </div>
-
-
             </div>
 
             <div class="modal-footer">

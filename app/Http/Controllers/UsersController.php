@@ -22,6 +22,13 @@ class UsersController extends Controller
     {
        return view('user.create');
     }
+    public function edit($id )
+    {
+        $users = User::get()->where('id',$id);
+       return view('user.edit',compact('users'));
+    
+    }
+
     public function show(User $user)
     {
         return response()->json($user);

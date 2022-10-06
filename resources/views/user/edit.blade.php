@@ -14,12 +14,13 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2>مستخدم جديد</h2>
+			<h2>تعديل المستخدمين</h2>
 		</div>
 		<!--end::Card title-->
 	</div>
 	<!--end::Card header-->
 	<!--begin::Card body-->
+	@foreach ($users as $users)
 	<div class="card-body pt-5">
 		<!--begin::Form-->
 		<form id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#">
@@ -75,7 +76,7 @@
 				</label>
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid" name="name" value="">
+				<input type="text" class="form-control form-control-solid" name="name" value="{{$users->name}}">
 				<!--end::Input-->
 			<div class="fv-plugins-message-container invalid-feedback"></div></div>
 			<!--end::Input group-->
@@ -93,7 +94,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email" class="form-control form-control-solid" name="email" value="">
+						<input type="email" class="form-control form-control-solid" name="email" value="{{$users->email}}">
 						<!--end::Input-->
 					<div class="fv-plugins-message-container invalid-feedback"></div></div>
 					<!--end::Input group-->
@@ -110,7 +111,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="phone" value="">
+						<input type="text" class="form-control form-control-solid" name="phone" value="{{$users->phone}}">
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
@@ -119,6 +120,9 @@
 			</div>
 			<!--end::Row-->
 			<!--begin::Row-->
+
+				
+	
 			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
 				<!--begin::Col-->
 				<div class="col">
@@ -131,7 +135,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="address" value="">
+						<input type="text" class="form-control form-control-solid" name="address" value="{{$users->address}}">
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
@@ -147,9 +151,8 @@
 						<!--end::Label-->
 						<!--begin::Input-->
 						<select class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
-							<option></option>
-							<option value="1">ذكر</option>
-							<option value="2">أنثى</option>
+							<option value="Male">ذكر</option>
+							<option value="Female" selected>أنثى</option>
 						</select>						
 						<!--end::Input-->
 					</div>
@@ -157,7 +160,7 @@
 				</div>
 			</div>
 			<!--end::Row-->
-			
+			@endforeach
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
@@ -165,7 +168,7 @@
 			<div class="d-flex">
 				<!--begin::Button-->
 					<button type="submit" type="submit" class="btn btn-primary   ">
-					<span class="indicator-label btn-lg btn-block">حفظ</span>
+					<span class="indicator-label btn-lg btn-block">تعديل</span>
 					</button>
 				<!--end::Button-->
 			</div>
