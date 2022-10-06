@@ -22,7 +22,8 @@ Route::get('/', function () {
    return view('index');
 })->middleware('auth');
 
-Route::resource('users',UsersController::class);
+Route::resource('users',UsersController::class)->middleware('auth');
+
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
 
 

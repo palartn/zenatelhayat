@@ -100,7 +100,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     orderable: false,
                     render: function(data, type, full, meta) {
                             return '\
-							<a href="{{javascript:}}" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-warning" title="مشاهدة">\
+							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
 								<i class="las la-info"></i>\
 							</a>\
                             <a href="'+SITEURL+'/users/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\

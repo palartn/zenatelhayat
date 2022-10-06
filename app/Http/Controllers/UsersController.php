@@ -22,6 +22,11 @@ class UsersController extends Controller
     {
        return view('user.create');
     }
+    public function show(User $user)
+    {
+        return response()->json($user);
+
+    }
     public function getData(Request $request)
     {
 

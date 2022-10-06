@@ -73,6 +73,59 @@
 	<!--end::Main-->
 	<script>var hostUrl = "assets/";</script>
 
+
+<!--begin::Modal-->
+<div  class="modal fade" tabindex="-1" id="smallModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">معلومات المستخدم</h5>
+
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="svg-icon svg-icon-2x"></span>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-10">
+                    <label for="" class="form-label">إسـم المستخدم</label>
+                   <input type="text" id="user_name">
+                </div>
+                <div class="mb-10">
+                    <label for="" class="form-label">البريد الإلكتروني</label>
+                   <input type="text" id="user_email">
+                </div>
+                <div class="mb-10">
+                    <label for="" class="form-label">الهاتف</label>
+                   <input type="text" id="user_phone">
+                </div>
+                <div class="mb-10">
+                    <label for="" class="form-label">الجنس</label>
+                   <input type="text" id="user_gender">
+                </div>
+                <div class="mb-10">
+                    <label for="" class="form-label">تاريخ الإنشاء</label>
+                   <input type="text" id="user_created_at">
+                </div>
+                <div class="mb-10">
+                    <label for="" class="form-label">حالة المستخدم</label>
+                   <input type="text" id="user_status">
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">خروج</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Modal-->
+
 	@endsection
 
 	@section('styles')
@@ -220,7 +273,39 @@
 				}
 			});
 		});
+
+
 	});
+// استدعاء المودال
+	$(document).on('click', '#smallButton', function(event) {
+            event.preventDefault();
+            let id = $(this).attr('data-attr');
+			// alert(id)
+            $.ajax({
+                url: 'users/'+id,
+             
+                // return the result
+                success: function(result) {
+					//console.log(result)
+                    $('#smallModal').modal("show");
+					$('#user_name').val(result.name);
+					$('#user_email').val(result.email);
+					$('#user_phone').val(result.phone);
+					$('#user_gender').val(result.gender);
+					$('#user_address').val(result.address);
+					$('#user_status').val(result.status);
+					$('#user_created_at').val(result.created_at);
+                    $('#smallBody').html(result).show();
+                },
+            
+                error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                   
+                },
+               
+            })
+        });
 
 </script>
 @endsection
