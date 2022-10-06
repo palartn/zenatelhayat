@@ -150,4 +150,10 @@ class UsersController extends Controller
         exit;
     }
 
+    public function destroy( User $user)
+    {
+       $user->delete();
+       return response()->json($user);
+    }
+
 }

@@ -46,7 +46,7 @@
 					<div class="header-brand">
 						<!--begin::Logo-->
 						<a href="../../demo8/dist/index.html">
-							<img alt="Logo" src="assets/media/logos/logo.png" width="150px" class="h-25px h-lg-25px" />
+							<img alt="Logo" src="{{ asset('assets/media/logos/logo.png')}}" width="150px" class="h-25px h-lg-25px" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Aside minimize-->
@@ -472,7 +472,7 @@
 															<!--end::Section-->
 															<!--begin::Illustration-->
 															<div class="text-center px-4">
-																<img class="mw-100 mh-200px" alt="image" src="assets/media/illustrations/sketchy-1/1.png" />
+																<img class="mw-100 mh-200px" alt="image" src="{{ asset('assets/media/illustrations/sketchy-1/1.png')}}" />
 															</div>
 															<!--end::Illustration-->
 														</div>
@@ -842,7 +842,7 @@
 			<div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
 				<!--begin::Symbol-->
 				<div class="symbol symbol-50px">
-					<img src="assets/media/avatars/150-26.jpg" alt="" />
+					<img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Wrapper-->

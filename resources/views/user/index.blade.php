@@ -7,8 +7,8 @@
 												<span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المستخدمين</span>
 												<span class="text-muted mt-1 fw-bold fs-7">count(Number)</span>
 											</h3>
-											<div style="font-family:NotoKufiArabic" class="card-toolbar"  data-bs-placement="top" data-bs-trigger="hover" >
-												<a href="{{ route('users.create') }}" class="btn btn-sm btn-light btn-active-primary">
+											<div style="font-family:NotoKufiArabic" class="card-toolbar "  data-bs-placement="top" data-bs-trigger="hover" >
+												<a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
 												<span class="svg-icon svg-icon-3" >
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

@@ -103,10 +103,10 @@ var KTDatatablesDataSourceAjaxServer = function() {
 							<a href="{{javascript:}}" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-warning" title="مشاهدة">\
 								<i class="las la-info"></i>\
 							</a>\
-                            <a href="javascript:;" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
+                            <a href="'+SITEURL+'/users/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
                             <i class="las la-edit"></i>\
                         </a>\
-                        <a href="javascript:;" onclick="return updated_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
+                        <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
                         <i class="las la-trash"></i>\
                     </a>\
 						';
@@ -202,6 +202,54 @@ $('#refresh').click(function(){
     oTable.destroy();
     KTDatatablesDataSourceAjaxServer.init();
 });
+
+//  When click deleted
+function deleted_(id) {
+    Swal.fire({
+        title: "هل أنت متأكد؟!",
+        text: "سيتم الحذف الآن!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "نعم, احذف",
+        cancelButtonText: "ليس الآن",
+        customClass: {
+            confirmButton: "btn btn-danger",
+            cancelButton: "btn btn-default"
+        },
+        reverseButtons: true
+    }).then(function(result) {
+        if (result.value) {
+            console.log('sss')
+            $.ajax({
+                type: "DELETE",
+                url: SITEURL + "/users/"+id,
+                success: function (data) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "تم الحذف بنجاح!",
+                        text: "سيتم الإرسال لسلة المهملات",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                    var oTable = $('#kt_datatable').DataTable();
+                    oTable.destroy();
+                    KTDatatablesDataSourceAjaxServer.init();
+                },
+                error: function (data) {
+                    // console.log('Error:', data);
+                    Swal.fire({
+                        icon: "error",
+                        title: "خطأ!",
+                        text: "لم يتم الحذف",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+            });
+        }
+    });
+}
+
 
 
 
