@@ -109,13 +109,13 @@
 									<tbody>
 										<tr>        
 											<td>
-												<strong>
+												<strong >
 													<span class="glyphicon glyphicon-asterisk text-primary"></span>
 													إسم المستخدم                                                
 												</strong>
 											</td>
-											<td class="text-primary">
-												<input type="text" id="user_name">    
+											<td class="text-primary" id="user_name">
+												  
 											</td>
 										</tr>
 										<tr>    
@@ -405,13 +405,13 @@
                 success: function(result) {
 					//console.log(result)
                     $('#smallModal').modal("show");
-					$('#user_name').val(result.name);
-					$('#user_email').val(result.email);
-					$('#user_phone').val(result.phone);
-					$('#user_gender').val(result.gender);
-					$('#user_address').val(result.address);
-					$('#user_status').val(result.status);
-					$('#user_created_at').val(result.created_at);
+					$('#user_name').html(result.name);
+					$('#user_email').html(result.email);
+					$('#user_phone').html(result.phone);
+					$('#user_gender').html(result.gender);
+					$('#user_address').html(result.address);
+					$('#user_status').html(result.status);
+					$('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
                 },
             
