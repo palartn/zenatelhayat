@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
 
-
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
 	<div class="card-header pt-7" id="kt_chat_contacts_header">
@@ -23,11 +22,12 @@
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('users.store')}}">
+            @csrf
 			<!--begin::Input group-->
 			<div class="mb-7">
 				<!--begin::Label-->
-				<label class="fs-6 fw-semibold mb-3">
+				<label class="fs-4 fw-semibold mb-3">
 					<span>رفع الصورة</span>
 					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Allowed file types: png, jpg, jpeg." data-kt-initialized="1"></i>
 				</label>
@@ -35,7 +35,7 @@
 				<!--begin::Image input wrapper-->
 				<div class="mt-1">
 					<!--begin::Image placeholder-->
-					<style>.image-input-placeholder </style>
+					<style>.image-input-placeholder {} </style>
 					<!--end::Image placeholder-->
 					<!--begin::Image input-->
 					<div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
@@ -68,17 +68,38 @@
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
+
+
+
 			<div class="fv-row mb-7 fv-plugins-icon-container">
 				<!--begin::Label-->
-				<label class="fs-6 fw-semibold form-label mt-3">
+
+				<label class="fs-4 fw-semibold form-label mt-3">
 					<span class="required">الإسم</span>
-					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's name." data-kt-initialized="1"></i>
+					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال اسم المستخدم" data-kt-initialized="1"></i>
 				</label>
+
 				<!--end::Label-->
 				<!--begin::Input-->
 				<input type="text" class="form-control form-control-solid" name="name" value="">
 				<!--end::Input-->
-			<div class="fv-plugins-message-container invalid-feedback"></div></div>
+                <div class="col">
+					<!--begin::Input group-->
+					<!--begin::Label-->
+				<label class="fs-4 fw-semibold form-label mt-3">
+					<span class="required">كلمة المرور</span>
+					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال كلمة المرور" data-kt-initialized="1"></i>
+				</label>
+
+				<!--end::Label-->
+				<!--begin::Input-->
+				<input type="password" class="form-control form-control-solid" name="password" value="">
+				<!--end::Input-->
+					<!--end::Input group-->
+				</div>
+			<div class="fv-plugins-message-container invalid-feedback">
+
+            </div>
 			<!--end::Input group-->
 
 			<!--begin::Row-->
@@ -88,7 +109,7 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7 fv-plugins-icon-container">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span class="required">البريد الإلكتروني</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's email." data-kt-initialized="1"></i>
 						</label>
@@ -105,7 +126,7 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>رقم الهاتف</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
 						</label>
@@ -126,7 +147,7 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>العنوان</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's city of residence (optional)." data-kt-initialized="1"></i>
 						</label>
@@ -141,13 +162,13 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>الجنس</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<select class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+						<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
 
 							<option value="1">ذكر</option>
 							<option value="2" selected>أنثى</option>
@@ -158,14 +179,17 @@
 				</div>
 			</div>
 			<!--end::Row-->
-
+            <label class="form-check form-switch form-check-custom form-check-solid">
+                <input class="form-check-input" type="checkbox" value="1" name="status" checked="checked">
+                <span class="form-check-label fw-bold text-muted">فعال</span>
+            </label>
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
 			<!--begin::Action buttons-->
 			<div class="d-flex">
 				<!--begin::Button-->
-					<button type="submit" type="submit" class="btn btn-primary   ">
+					<button type="submit" id="btn" class="btn btn-primary   ">
 					<span class="indicator-label btn-lg btn-block">حفظ</span>
 					</button>
 				<!--end::Button-->

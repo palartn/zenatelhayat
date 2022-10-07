@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -22,11 +23,37 @@ class UsersController extends Controller
     {
        return view('user.create');
     }
+    public function store(Request $request)
+    {
+$name=$request->name;
+$password=$request->password;
+$email=$request->email;
+$address=$request->address;
+$phone=$request->phone;
+$gender=$request->gender;
+$status=$request->status;
+if($status==''){
+$status=0;
+}
+
+$add_user=DB::table('users')->insert([
+    'name'=>$name,
+    'password'=>bcrypt($password),
+    'email'=>$email,
+    'address'=>'123',
+    'phone'=>$phone,
+    'gender'=>$gender,
+    'status'=>$status
+
+]);
+
+
+    }
     public function edit($id )
     {
         $users = User::get()->where('id',$id);
        return view('user.edit',compact('users'));
-    
+
     }
 
     public function show(User $user)
@@ -107,7 +134,7 @@ class UsersController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->where('users.email', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereIn('users.address', $filter_3);
-    
+
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
@@ -138,7 +165,7 @@ class UsersController extends Controller
         $data = [];
         foreach ($items as $item) {
 
-    
+
 
             $data[] = [
                 'id' => $item->id,

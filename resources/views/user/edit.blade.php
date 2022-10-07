@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+
+
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
 	<div class="card-header pt-7" id="kt_chat_contacts_header">
@@ -14,20 +16,20 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2>تعديل المستخدمين</h2>
+			<h2 >مستخدم جديد</h2>
 		</div>
 		<!--end::Card title-->
 	</div>
 	<!--end::Card header-->
 	<!--begin::Card body-->
-	@foreach ($users as $users)
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form id="kt_ecommerce_settings_general_form" class="form fv-plugins-bootstrap5 fv-plugins-framework" action="#">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('users.store')}}">
+            @csrf
 			<!--begin::Input group-->
 			<div class="mb-7">
 				<!--begin::Label-->
-				<label class="fs-6 fw-semibold mb-3">
+				<label class="fs-4 fw-semibold mb-3">
 					<span>رفع الصورة</span>
 					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Allowed file types: png, jpg, jpeg." data-kt-initialized="1"></i>
 				</label>
@@ -35,7 +37,7 @@
 				<!--begin::Image input wrapper-->
 				<div class="mt-1">
 					<!--begin::Image placeholder-->
-					<style>.image-input-placeholder { background-image: url('/metronic8/demo13/assets/media/svg/files/blank-image.svg'); } [data-theme="dark"] .image-input-placeholder { background-image: url('/metronic8/demo13/assets/media/svg/files/blank-image-dark.svg'); }</style>
+					<style>.image-input-placeholder {} </style>
 					<!--end::Image placeholder-->
 					<!--begin::Image input-->
 					<div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
@@ -46,6 +48,8 @@
 						<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-kt-initialized="1">
 							<i class="bi bi-pencil-fill fs-7"></i>
 							<!--begin::Inputs-->
+                            @foreach ($users as $users)
+
 							<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
 							<input type="hidden" name="avatar_remove">
 							<!--end::Inputs-->
@@ -68,19 +72,40 @@
 			</div>
 			<!--end::Input group-->
 			<!--begin::Input group-->
+
+
+
 			<div class="fv-row mb-7 fv-plugins-icon-container">
 				<!--begin::Label-->
-				<label class="fs-6 fw-semibold form-label mt-3">
+
+				<label class="fs-4 fw-semibold form-label mt-3">
 					<span class="required">الإسم</span>
-					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's name." data-kt-initialized="1"></i>
+					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال اسم المستخدم" data-kt-initialized="1"></i>
 				</label>
+
 				<!--end::Label-->
 				<!--begin::Input-->
 				<input type="text" class="form-control form-control-solid" name="name" value="{{$users->name}}">
 				<!--end::Input-->
-			<div class="fv-plugins-message-container invalid-feedback"></div></div>
+                <div class="col">
+					<!--begin::Input group-->
+					<!--begin::Label-->
+				<label class="fs-4 fw-semibold form-label mt-3">
+					<span class="required">كلمة المرور</span>
+					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال كلمة المرور" data-kt-initialized="1"></i>
+				</label>
+
+				<!--end::Label-->
+				<!--begin::Input-->
+				<input type="password" class="form-control form-control-solid" name="password" value="{{$users->name}}">
+				<!--end::Input-->
+					<!--end::Input group-->
+				</div>
+			<div class="fv-plugins-message-container invalid-feedback">
+
+            </div>
 			<!--end::Input group-->
-		
+
 			<!--begin::Row-->
 			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
 				<!--begin::Col-->
@@ -88,7 +113,7 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7 fv-plugins-icon-container">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span class="required">البريد الإلكتروني</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's email." data-kt-initialized="1"></i>
 						</label>
@@ -105,7 +130,7 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>رقم الهاتف</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
 						</label>
@@ -120,16 +145,13 @@
 			</div>
 			<!--end::Row-->
 			<!--begin::Row-->
-
-				
-	
 			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
 				<!--begin::Col-->
 				<div class="col">
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>العنوان</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's city of residence (optional)." data-kt-initialized="1"></i>
 						</label>
@@ -144,31 +166,38 @@
 					<!--begin::Input group-->
 					<div class="fv-row mb-7">
 						<!--begin::Label-->
-						<label class="fs-6 fw-semibold form-label mt-3">
+						<label class="fs-4 fw-semibold form-label mt-3">
 							<span>الجنس</span>
 							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<select class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
-							<option value="Male">ذكر</option>
-							<option value="Female" selected>أنثى</option>
-						</select>						
+						<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+
+
+							<option value="1">{{$gender=$users->gender}}</option>
+							<option value="2">{{$gender=$users->gender}}</option>
+
+						</select>
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
 				</div>
 			</div>
 			<!--end::Row-->
-			@endforeach
+            <label class="form-check form-switch form-check-custom form-check-solid">
+                <input class="form-check-input" type="checkbox" value="1" name="status" checked="checked">
+                <span class="form-check-label fw-bold text-muted">فعال</span>
+            </label>
+            @endforeach
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
 			<!--begin::Action buttons-->
 			<div class="d-flex">
 				<!--begin::Button-->
-					<button type="submit" type="submit" class="btn btn-primary   ">
-					<span class="indicator-label btn-lg btn-block">تعديل</span>
+					<button type="submit" id="btn" class="btn btn-primary   ">
+					<span class="indicator-label btn-lg btn-block">حفظ</span>
 					</button>
 				<!--end::Button-->
 			</div>
@@ -178,5 +207,4 @@
 	</div>
 	<!--end::Card body-->
 </div>
-
-	@endsection
+@endsection

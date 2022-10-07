@@ -217,6 +217,7 @@
 
 <script>
 
+
 	// $('#kt_datepicker').datepicker({
 	// 	todayHighlight: true,
 	// 	templates: {
