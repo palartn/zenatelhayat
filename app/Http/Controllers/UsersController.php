@@ -5,6 +5,9 @@ use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class UsersController extends Controller
 {
@@ -35,7 +38,14 @@ $status=$request->status;
 if($status==''){
 $status=0;
 }
+ $validated = $request->validate([
+            'name'=> 'required',
+            'password'=> 'required',
+            'email' => 'required|unique:Users',
+            'phone' => 'required|min:7',
+            'address' => 'required',
 
+        ]);
 $add_user=DB::table('users')->insert([
     'name'=>$name,
     'password'=>bcrypt($password),
@@ -43,9 +53,12 @@ $add_user=DB::table('users')->insert([
     'address'=>'123',
     'phone'=>$phone,
     'gender'=>$gender,
-    'status'=>$status
+    'status'=>$status]);
 
-]);
+return view('user.create');
+
+// return redirect('/users/create');
+
 
 
     }
@@ -55,6 +68,30 @@ $add_user=DB::table('users')->insert([
        return view('user.edit',compact('users'));
 
     }
+
+
+        public function update(Request $request)
+        {
+            $user = Auth::user();
+            $validated = $request->validate([
+                'name'=> 'required',
+                'password'=> 'required',
+                'email' => 'required|unique:Users',
+                'phone' => 'required|min:7',
+                'address' => 'required',
+
+            ]);
+            $name=$request->name;
+            $password=$request->password;
+            $email=$request->email;
+            $address=$request->address;
+            $phone=$request->phone;
+            $gender=$request->gender;
+            $status=$request->status;
+
+        
+        }
+
 
     public function show(User $user)
     {

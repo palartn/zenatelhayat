@@ -18,6 +18,17 @@
 		</div>
 		<!--end::Card title-->
 	</div>
+
+
+    {{-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif --}}
 	<!--end::Card header-->
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
@@ -76,12 +87,15 @@
 
 				<label class="fs-4 fw-semibold form-label mt-3">
 					<span class="required">الإسم</span>
-					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال اسم المستخدم" data-kt-initialized="1"></i>
+					<i class="fas fa-exclamation-circle ms-1 fs-7 " data-bs-toggle="tooltip" aria-label="الرجاء ادخال اسم المستخدم" data-kt-initialized="1"></i>
 				</label>
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid" name="name" value="">
+				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name"  value="{{ old('name') }}">
+                @error('name')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                @enderror
 				<!--end::Input-->
                 <div class="col">
 					<!--begin::Input group-->
@@ -93,7 +107,10 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid" name="password" value="">
+				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
+                @error('password')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                @enderror
 				<!--end::Input-->
 					<!--end::Input group-->
 				</div>
@@ -115,7 +132,10 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email" class="form-control form-control-solid" name="email" value="">
+						<input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                        @error('email')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
 						<!--end::Input-->
 					<div class="fv-plugins-message-container invalid-feedback"></div></div>
 					<!--end::Input group-->
@@ -132,7 +152,10 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="phone" value="">
+						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}">
+                        @error('phone')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
@@ -153,7 +176,10 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="address" value="">
+						<input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}">
+                        @error('address')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->

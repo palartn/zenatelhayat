@@ -16,7 +16,17 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >مستخدم جديد</h2>
+			<h2 >تعديل بيانات مستخدم</h2>
+{{--
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif --}}
 		</div>
 		<!--end::Card title-->
 	</div>
@@ -85,7 +95,11 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid" name="name" value="{{$users->name}}">
+				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" value="{{$users->name}}">
+                @error('name')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                @enderror
+
 				<!--end::Input-->
                 <div class="col">
 					<!--begin::Input group-->
@@ -97,7 +111,10 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid" name="password" value="{{$users->name}}">
+				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{$users->name}}">
+                @error('password')
+                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                @enderror
 				<!--end::Input-->
 					<!--end::Input group-->
 				</div>
@@ -119,7 +136,12 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email" class="form-control form-control-solid" name="email" value="{{$users->email}}">
+						<input type="email"  class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{$users->email}}">
+                        @error('email')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        {{-- @error('email') <div class="alert alert-danger">{{ $message }}</div> --}}
+
 						<!--end::Input-->
 					<div class="fv-plugins-message-container invalid-feedback"></div></div>
 					<!--end::Input group-->
@@ -136,7 +158,10 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="phone" value="{{$users->phone}}">
+						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$users->phone}}">
+                        @error('phone')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
@@ -158,6 +183,9 @@
 						<!--end::Label-->
 						<!--begin::Input-->
 						<input type="text" class="form-control form-control-solid" name="address" value="{{$users->address}}">
+                        @error('address')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
