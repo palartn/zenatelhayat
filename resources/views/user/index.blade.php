@@ -17,10 +17,10 @@
 													</svg>
 												</span >
 												<!--end::Svg Icon-->مستخدم جديد</a>
-												
+
 											</div>
 										</div>
-										
+
 										<!--end::Header-->
 										<!--begin::Body-->
 										<div class="card-body py-3"  style="font-family:NotoKufiArabic">
@@ -35,11 +35,11 @@
 														<th>الايميل</th>
 														<th>العنوان</th>
 														<th>الإجراءات</th>
-									
+
 													</tr>
 													</thead>
-									
-									
+
+
 												</table>
 												<!--end::Table-->
 											</div>
@@ -48,13 +48,13 @@
 										<!--begin::Body-->
 									</div>
 									<!--end::Tables Widget 9-->
-								
 
 
 
 
 
-			
+
+
 				{{-- {!! $users->links() !!} --}}
 			</div>
 
@@ -93,7 +93,7 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 							<div class="col-md-4">
-								<img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario"> 
+								<img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario">
 								<ul title="Ratings" class="list-inline ratings text-center">
 									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
 									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
@@ -107,57 +107,57 @@
 								<div class="table-responsive">
 								<table class="table table-user-information">
 									<tbody>
-										<tr>        
+										<tr>
 											<td>
 												<strong >
 													<span class="glyphicon glyphicon-asterisk text-primary"></span>
-													الإسـم                                                
+													الإسـم
 												</strong>
 											</td>
 											<td class="text-primary" id="user_name">
-												  
+
 											</td>
 										</tr>
-										<tr>    
+										<tr>
 											<td>
 												<strong>
-													<span class="glyphicon glyphicon-user  text-primary"></span>    
-													 البريد الإلكتروني                                               
+													<span class="glyphicon glyphicon-user  text-primary"></span>
+													 البريد الإلكتروني
 												</strong>
 											</td>
 											<td class="text-primary" id="user_email">
-												     
+
 											</td>
 										</tr>
-										<tr>        
+										<tr>
 											<td>
 												<strong>
-													<span class="glyphicon glyphicon-cloud text-primary"></span>  
-													الهاتف                                                
+													<span class="glyphicon glyphicon-cloud text-primary"></span>
+													الهاتف
 												</strong>
 											</td>
 											<td class="text-primary" id="user_phone">
-												  
+
 											</td>
 										</tr>
-					
-										<tr>        
+
+										<tr>
 											<td>
 												<strong>
-													<span class="glyphicon glyphicon-bookmark text-primary"></span> 
-													العنوان                                                
+													<span class="glyphicon glyphicon-bookmark text-primary"></span>
+													العنوان
 												</strong>
 											</td>
 											<td class="text-primary" id="user_address">
-												 
+
 											</td>
 										</tr>
-					
+
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">خروج</button>
-                
+
             </div>
         </div>
     </div>
@@ -184,7 +184,7 @@
         tr{
             cursor: pointer;
         }
-		
+
     </style>
 
 @endsection
@@ -216,6 +216,7 @@
 <script src="{{ asset('assets/js/custom/iziModal/iziModal.min.js')}}"></script>
 
 <script>
+
 	// $('#kt_datepicker').datepicker({
 	// 	todayHighlight: true,
 	// 	templates: {
@@ -321,7 +322,7 @@
 			// alert(id)
             $.ajax({
                 url: 'users/'+id,
-             
+
                 // return the result
                 success: function(result) {
 					//console.log(result)
@@ -335,13 +336,13 @@
 					$('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
                 },
-            
+
                 error: function(jqXHR, testStatus, error) {
                     console.log(error);
                     alert("Page " + href + " cannot open. Error:" + error);
-                   
+
                 },
-               
+
             })
         });
 

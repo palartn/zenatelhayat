@@ -36,7 +36,7 @@
 		<!--begin::Page-->
 		<div class="page d-flex flex-row flex-column-fluid">
 			<!--begin::Aside-->
-			
+
 			<!--end::Aside-->
 			<!--begin::Wrapper-->
 			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -188,7 +188,7 @@
 											<!--begin::Menu-->
 											<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
 												<!--begin::Heading-->
-												<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/pattern-1.jpg')">
+												<div class="d-flex flex-column bgi-no-repeat rounded-top" >
 													<!--begin::Title-->
 													<h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
 													<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
@@ -840,11 +840,7 @@
 		<div class="aside-toolbar flex-column-auto" id="kt_aside_toolbar">
 			<!--begin::User-->
 			<div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
-				<!--begin::Symbol-->
-				<div class="symbol symbol-50px">
-					<img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="" />
-				</div>
-				<!--end::Symbol-->
+
 				<!--begin::Wrapper-->
 				<div class="aside-user-info flex-row-fluid flex-wrap ms-5">
 					<!--begin::Section-->
@@ -883,7 +879,7 @@
 									<div class="menu-content d-flex align-items-center px-3">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-50px me-5">
-											<img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+											<img alt="Logo" src="" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Username-->
@@ -901,12 +897,12 @@
 								<!--end::Menu separator-->
 								<!--begin::Menu item-->
 								<div class="menu-item px-5">
-									<a href="../../demo8/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+									<a href="#" class="menu-link px-5">My Profile</a>
 								</div>
 								<!--end::Menu item-->
 								<!--begin::Menu item-->
 								<div class="menu-item px-5">
-									<a href="../../demo8/dist/pages/projects/list.html" class="menu-link px-5">
+									<a href="#" class="menu-link px-5">
 										<span class="menu-text">My Projects</span>
 										<span class="menu-badge">
 											<span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
@@ -924,22 +920,22 @@
 									<div class="menu-sub menu-sub-dropdown w-175px py-4">
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
+											<a href="#" class="menu-link px-5">Referrals</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/billing.html" class="menu-link px-5">Billing</a>
+											<a href="#" class="menu-link px-5">Billing</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/statements.html" class="menu-link px-5">Payments</a>
+											<a href="#l" class="menu-link px-5">Payments</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
+											<a href="#" class="menu-link d-flex flex-stack px-5">Statements
 											<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
 										</div>
 										<!--end::Menu item-->
@@ -962,7 +958,7 @@
 								<!--end::Menu item-->
 								<!--begin::Menu item-->
 								<div class="menu-item px-5">
-									<a href="../../demo8/dist/account/statements.html" class="menu-link px-5">My Statements</a>
+									<a href="#" class="menu-link px-5">My Statements</a>
 								</div>
 								<!--end::Menu item-->
 								<!--begin::Menu separator-->
@@ -973,47 +969,47 @@
 									<a href="#" class="menu-link px-5">
 										<span class="menu-title position-relative">Language
 										<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-										<img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
+										<img class="w-15px h-15px rounded-1 ms-2" src="{{asset('assets/media/flags/united-states.svg')}}" alt="" /></span></span>
 									</a>
 									<!--begin::Menu sub-->
 									<div class="menu-sub menu-sub-dropdown w-175px py-4">
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/settings.html" class="menu-link d-flex px-5 active">
+											<a href="#" class="menu-link d-flex px-5 active">
 											<span class="symbol symbol-20px me-4">
-												<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
+												<img class="rounded-1" src="{{asset('assets/media/flags/united-states.svg')}}" alt="" />
 											</span>English</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/settings.html" class="menu-link d-flex px-5">
+											<a href="#" class="menu-link d-flex px-5">
 											<span class="symbol symbol-20px me-4">
-												<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
+												<img class="rounded-1" src="{{asset('assets/media/flags/spain.svg')}}" alt="" />
 											</span>Spanish</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/settings.html" class="menu-link d-flex px-5">
+											<a href="#" class="menu-link d-flex px-5">
 											<span class="symbol symbol-20px me-4">
-												<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
+												<img class="rounded-1" src="{{asset('assets/media/flags/germany.svg')}}" alt="" />
 											</span>German</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/settings.html" class="menu-link d-flex px-5">
+											<a href="#" class="menu-link d-flex px-5">
 											<span class="symbol symbol-20px me-4">
-												<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
+												<img class="rounded-1" src="{{asset('assets/media/flags/japan.svg')}}" alt="" />
 											</span>Japanese</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-3">
-											<a href="../../demo8/dist/account/settings.html" class="menu-link d-flex px-5">
+											<a href="#" class="menu-link d-flex px-5">
 											<span class="symbol symbol-20px me-4">
-												<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
+												<img class="rounded-1" src="{{asset('assets/media/flags/france.svg')}}" alt="" />
 											</span>French</a>
 										</div>
 										<!--end::Menu item-->
@@ -1023,7 +1019,7 @@
 								<!--end::Menu item-->
 								<!--begin::Menu item-->
 								<div class="menu-item px-5 my-1">
-									<a href="../../demo8/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+									<a href="#" class="menu-link px-5">Account Settings</a>
 								</div>
 								<!--end::Menu item-->
 								<!--begin::Menu item-->
@@ -1121,7 +1117,7 @@
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 										<!--begin::Symbol-->
 										<div class="symbol symbol-40px me-4">
-											<img src="assets/media/avatars/150-1.jpg" alt="" />
+											<img src="#" alt="" />
 										</div>
 										<!--end::Symbol-->
 										<!--begin::Title-->
@@ -1135,9 +1131,7 @@
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<img src="assets/media/avatars/150-3.jpg" alt="" />
-										</div>
+
 										<!--end::Symbol-->
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
@@ -1150,9 +1144,7 @@
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<img src="assets/media/avatars/150-8.jpg" alt="" />
-										</div>
+
 										<!--end::Symbol-->
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
@@ -1165,9 +1157,7 @@
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<img src="assets/media/avatars/150-11.jpg" alt="" />
-										</div>
+
 										<!--end::Symbol-->
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
@@ -1179,11 +1169,7 @@
 									<!--end::Item-->
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
-										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<img src="assets/media/avatars/150-12.jpg" alt="" />
-										</div>
-										<!--end::Symbol-->
+
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
 											<span class="fs-6 fw-bold">Edward Kulnic</span>
@@ -1194,17 +1180,7 @@
 									<!--end::Item-->
 									<!--begin::Category title-->
 									<h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Customers</h3>
-									<!--end::Category title-->
-									<!--begin::Item-->
-									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
-										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<span class="symbol-label bg-light">
-												<img class="w-20px h-20px" src="assets/media/svg/brand-logos/volicity-9.svg" alt="" />
-											</span>
-										</div>
-										<!--end::Symbol-->
-										<!--begin::Title-->
+
 										<div class="d-flex flex-column justify-content-start fw-bold">
 											<span class="fs-6 fw-bold">Company Rbranding</span>
 											<span class="fs-7 fw-bold text-muted">UI Design</span>
@@ -1215,11 +1191,7 @@
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<span class="symbol-label bg-light">
-												<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tvit.svg" alt="" />
-											</span>
-										</div>
+
 										<!--end::Symbol-->
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
@@ -1234,7 +1206,7 @@
 										<!--begin::Symbol-->
 										<div class="symbol symbol-40px me-4">
 											<span class="symbol-label bg-light">
-												<img class="w-20px h-20px" src="assets/media/svg/misc/infography.svg" alt="" />
+												<img class="w-20px h-20px" src="" alt="" />
 											</span>
 										</div>
 										<!--end::Symbol-->
@@ -1248,13 +1220,7 @@
 									<!--end::Item-->
 									<!--begin::Item-->
 									<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
-										<!--begin::Symbol-->
-										<div class="symbol symbol-40px me-4">
-											<span class="symbol-label bg-light">
-												<img class="w-20px h-20px" src="assets/media/svg/brand-logos/leaf.svg" alt="" />
-											</span>
-										</div>
-										<!--end::Symbol-->
+
 										<!--begin::Title-->
 										<div class="d-flex flex-column justify-content-start fw-bold">
 											<span class="fs-6 fw-bold">EcoLeaf App Launch</span>
@@ -1268,7 +1234,7 @@
 										<!--begin::Symbol-->
 										<div class="symbol symbol-40px me-4">
 											<span class="symbol-label bg-light">
-												<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tower.svg" alt="" />
+												<img class="w-20px h-20px" src="#" alt="" />
 											</span>
 										</div>
 										<!--end::Symbol-->
@@ -1800,13 +1766,9 @@
 			<div class="hover-scroll-overlay-y px-2 my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="{default: '#kt_aside_toolbar, #kt_aside_footer', lg: '#kt_header, #kt_aside_toolbar, #kt_aside_footer'}" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="5px">
 				<!--begin::Menu-->
 				<div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+
 					<div class="menu-item">
-						<div class="menu-content pb-2">
-							<span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
-						</div>
-					</div>
-					<div class="menu-item">
-						
+
 						<a class="menu-link active" href='{{ route('users.index') }}'>
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
@@ -1820,32 +1782,13 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							
+
 							<span class="menu-title" >المستخدمين</span>
 						</a>
-					
+
 					</div>
-					<div class="menu-item">
-						<a class="menu-link" href="../../demo8/dist/landing.html">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/communication/com001.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path opacity="0.3" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="black" />
-										<path d="M19 10.4C19 10.3 19 10.2 19 10C19 8.9 18.1 8 17 8H16.9C15.6 6.2 14.6 4.29995 13.9 2.19995C13.3 2.09995 12.6 2 12 2C11.9 2 11.8 2 11.7 2C12.4 4.6 13.5 7.10005 15.1 9.30005C15 9.50005 15 9.7 15 10C15 11.1 15.9 12 17 12C17.1 12 17.3 12 17.4 11.9C18.6 13 19.9 14 21.4 14.8C21.4 14.8 21.5 14.8 21.5 14.9C21.7 14.2 21.8 13.5 21.9 12.7C20.9 12.1 19.9 11.3 19 10.4Z" fill="black" />
-										<path d="M12 15C11 13.1 10.2 11.2 9.60001 9.19995C9.90001 8.89995 10 8.4 10 8C10 7.1 9.40001 6.39998 8.70001 6.09998C8.40001 4.99998 8.20001 3.90005 8.00001 2.80005C7.30001 3.10005 6.70001 3.40002 6.20001 3.90002C6.40001 4.80002 6.50001 5.6 6.80001 6.5C6.40001 6.9 6.10001 7.4 6.10001 8C6.10001 9 6.80001 9.8 7.80001 10C8.30001 11.6 9.00001 13.2 9.70001 14.7C7.10001 13.2 4.70001 11.5 2.40001 9.5C2.20001 10.3 2.10001 11.1 2.10001 11.9C4.60001 13.9 7.30001 15.7 10.1 17.2C10.2 18.2 11 19 12 19C12.6 20 13.2 20.9 13.9 21.8C14.6 21.7 15.3 21.5 15.9 21.2C15.4 20.5 14.9 19.8 14.4 19.1C15.5 19.5 16.5 19.9 17.6 20.2C18.3 19.8 18.9 19.2 19.4 18.6C17.6 18.1 15.7 17.5 14 16.7C13.9 15.8 13.1 15 12 15Z" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Landing Page</span>
-						</a>
-					</div>
-					<div class="menu-item">
-						<div class="menu-content pt-8 pb-2">
-							<span class="menu-section text-muted text-uppercase fs-8 ls-1">Crafted</span>
-						</div>
-					</div>
+
+
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 						<span class="menu-link">
 							<span class="menu-icon">
@@ -3096,7 +3039,7 @@
 								</span>
 								<div class="menu-sub menu-sub-accordion">
 									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/apps/support-center/tutorials/list.html">
+										<a class="menu-link" href="#">
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
@@ -3104,7 +3047,7 @@
 										</a>
 									</div>
 									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/apps/support-center/tutorials/post.html">
+										<a class="menu-link" href="#">
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
@@ -3114,7 +3057,7 @@
 								</div>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/support-center/faq.html">
+								<a class="menu-link" href="#">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -3122,7 +3065,7 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/support-center/licenses.html">
+								<a class="menu-link" href="#">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -3130,7 +3073,7 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/support-center/contact.html">
+								<a class="menu-link" href="#">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -3140,7 +3083,7 @@
 						</div>
 					</div>
 					<div class="menu-item">
-						<a class="menu-link" href="../../demo8/dist/apps/calendar.html">
+						<a class="menu-link" href="#">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 								<span class="svg-icon svg-icon-2">
@@ -3244,12 +3187,12 @@
 			<!--end::Aside Menu-->
 		</div>
 		<!--end::Aside menu-->
-		
+
 	</div>
 
 
 @yield('content')
-		
+
 </div>
 <!--end::Wrapper-->
 </div>

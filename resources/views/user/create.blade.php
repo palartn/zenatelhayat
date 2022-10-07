@@ -35,7 +35,7 @@
 				<!--begin::Image input wrapper-->
 				<div class="mt-1">
 					<!--begin::Image placeholder-->
-					<style>.image-input-placeholder { background-image: url('/metronic8/demo13/assets/media/svg/files/blank-image.svg'); } [data-theme="dark"] .image-input-placeholder { background-image: url('/metronic8/demo13/assets/media/svg/files/blank-image-dark.svg'); }</style>
+					<style>.image-input-placeholder </style>
 					<!--end::Image placeholder-->
 					<!--begin::Image input-->
 					<div class="image-input image-input-outline image-input-placeholder image-input-empty image-input-empty" data-kt-image-input="true">
@@ -80,7 +80,7 @@
 				<!--end::Input-->
 			<div class="fv-plugins-message-container invalid-feedback"></div></div>
 			<!--end::Input group-->
-		
+
 			<!--begin::Row-->
 			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
 				<!--begin::Col-->
@@ -148,17 +148,17 @@
 						<!--end::Label-->
 						<!--begin::Input-->
 						<select class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
-							<option></option>
+
 							<option value="1">ذكر</option>
-							<option value="2">أنثى</option>
-						</select>						
+							<option value="2" selected>أنثى</option>
+						</select>
 						<!--end::Input-->
 					</div>
 					<!--end::Input group-->
 				</div>
 			</div>
 			<!--end::Row-->
-			
+
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
