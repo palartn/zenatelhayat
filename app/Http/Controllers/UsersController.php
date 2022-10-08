@@ -46,6 +46,7 @@ $status=0;
             'address' => 'required',
 
         ]);
+        //User::create([]);
 $add_user=DB::table('users')->insert([
     'name'=>$name,
     'password'=>bcrypt($password),
@@ -55,7 +56,7 @@ $add_user=DB::table('users')->insert([
     'gender'=>$gender,
     'status'=>$status]);
 
-return view('user.create');
+return redirect('users/create');
 
 // return redirect('/users/create');
 
@@ -64,7 +65,12 @@ return view('user.create');
     }
     public function edit($id )
     {
-        $users = User::get()->where('id',$id);
+
+       $u = User::find($id);
+       $users = User::get()->where('id',$id);
+       if($u==null){
+        abort(404);
+       }
        return view('user.edit',compact('users'));
 
     }
@@ -89,7 +95,7 @@ return view('user.create');
             $gender=$request->gender;
             $status=$request->status;
 
-        
+
         }
 
 
