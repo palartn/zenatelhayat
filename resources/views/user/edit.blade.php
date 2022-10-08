@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-
+@foreach ($users as $users)
 
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
@@ -34,8 +34,9 @@
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('users.store')}}">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="/users/{{$users->id}}">
             @csrf
+            @method('put')
 			<!--begin::Input group-->
 			<div class="mb-7">
 				<!--begin::Label-->
@@ -58,7 +59,7 @@
 						<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-kt-initialized="1">
 							<i class="bi bi-pencil-fill fs-7"></i>
 							<!--begin::Inputs-->
-                            @foreach ($users as $users)
+
 
 							<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
 							<input type="hidden" name="avatar_remove">

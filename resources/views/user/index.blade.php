@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
 									<div class="card mb-5 mb-xl-8">
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
@@ -23,6 +24,11 @@
 
 										<!--end::Header-->
 										<!--begin::Body-->
+                                        @if (session()->has('success'))
+                                        <div class="alert alert-success  ">
+                                            <h1>{{session()->get('success')}}</h1>
+                                        </div>
+                                        @endif
 										<div class="card-body py-3"  style="font-family:NotoKufiArabic">
 											<!--begin::Table container-->
 											<div class="table-responsive">
@@ -41,6 +47,7 @@
 
 
 												</table>
+
 												<!--end::Table-->
 											</div>
 											<!--end::Table container-->
@@ -70,9 +77,15 @@
 		<!--end::Svg Icon-->
 	</div>
 	<!--end::Scrolltop-->
+
 	<!--end::Main-->
 	<script>var hostUrl = "assets/";</script>
+  @if (session()->has('success'))
+                                        {{session()->get('success')}}
+                                        @endif
+                                        <div class="alert success">
 
+                                        </div>
 
 <!--begin::Modal-->
 <div  class="modal fade" tabindex="-1" id="smallModal">
@@ -347,5 +360,16 @@
             })
         });
 
+</script>
+<script>
+
+$(function() {
+    // setTimeout() function will be fired after page is loaded
+    // it will wait for 5 sec. and then will fire
+    // $("#successMessage").hide() function
+    setTimeout(function() {
+        $("#successMessage").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 @endsection

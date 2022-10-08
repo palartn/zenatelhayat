@@ -76,25 +76,26 @@ return redirect('users/create');
     }
 
 
-        public function update(Request $request)
+        public function update(Request $request,$id)
         {
-            $user = Auth::user();
-            $validated = $request->validate([
-                'name'=> 'required',
-                'password'=> 'required',
-                'email' => 'required|unique:Users',
-                'phone' => 'required|min:7',
+            $user=User::findOrFail($id);
+             $validated = $request->validate([
+               'name'=> 'required',
+                 'password'=> 'required',
+            //    'email' => 'required|unique:Users',
+               'phone' => 'required|min:7',
                 'address' => 'required',
 
-            ]);
-            $name=$request->name;
-            $password=$request->password;
-            $email=$request->email;
-            $address=$request->address;
-            $phone=$request->phone;
-            $gender=$request->gender;
-            $status=$request->status;
+             ]);
 
+            $user->update(['name'=>$name=$request->name,
+            'password'=>$password=$request->password,
+            'email'=>$email=$request->email,
+            'address'=>$address=$request->address,
+            'phone'=>$phone=$request->phone,
+            'gender'=> $gender=$request->gender,
+            'status'=>$status=$request->status,]);
+            return redirect('/users/')->with('success','تم التعديل بنجاح');
 
         }
 
