@@ -25,9 +25,9 @@
 										<!--end::Header-->
 										<!--begin::Body-->
                                      
-										<div class="card-body py-3"  style="font-family:NotoKufiArabic">
+										<div class="card-body py-3 "  style="font-family:NotoKufiArabic">
 											@if (session()->has('success'))
-											<div class="alert alert-success  ">
+											<div class="alert alert-success alert-session-flash  ">
 												<h1>{{session()->get('success')}}</h1>
 											</div>
 											@endif
@@ -368,9 +368,9 @@
 //     }, 5000);
 // });
 
-$('.alert-success').timeout({
-  session: 3000
-});
 
+setTimeout(function() {
+        $('.alert-session-flash').fadeOut('low');
+    }, 3000); // <-- time in milliseconds
 </script>
 @endsection
