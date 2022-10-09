@@ -19,7 +19,11 @@
 		<!--end::Card title-->
 	</div>
 
-
+	@if (session()->has('success'))
+	<div class="alert alert-success alert-session-flash  ">
+		<h1>{{session()->get('success')}}</h1>
+	</div>
+	@endif
     {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -228,3 +232,7 @@
 </div>
 
 	@endsection
+<script>setTimeout(function() {
+	$('.alert-session-flash').fadeOut('low');
+}, 3000); // <-- time in milliseconds
+</script>

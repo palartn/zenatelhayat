@@ -57,7 +57,7 @@ $add_user=DB::table('users')->insert([
     'gender'=>$gender,
     'status'=>$status]);
 
-return redirect('users/create');
+    return redirect()->route('users.create')->with('success','تم الإضافة بنجاح');
 
 // return redirect('/users/create');
 
