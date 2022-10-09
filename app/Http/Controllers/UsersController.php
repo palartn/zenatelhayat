@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class UsersController extends Controller
@@ -63,26 +64,24 @@ return redirect('users/create');
 
 
     }
-    public function edit($id )
+    public function edit(User $user )
     {
 
-       $u = User::find($id);
-       $users = User::get()->where('id',$id);
-       if($u==null){
+       if($user==null){
         abort(404);
        }
-       return view('user.edit',compact('users'));
+       return view('user.edit',compact('user'));
 
     }
 
 
-        public function update(Request $request,$id)
+        public function update(Request $request,User $user)
         {
-            $user=User::findOrFail($id);
+            // $user=User::findOrFail($id);
              $validated = $request->validate([
                'name'=> 'required',
                  'password'=> 'required',
-            //    'email' => 'required|unique:Users',
+             'email' => ['required',Rule::unique('users')->ignore($user->id)],
                'phone' => 'required|min:7',
                 'address' => 'required',
 
@@ -95,7 +94,7 @@ return redirect('users/create');
             'phone'=>$phone=$request->phone,
             'gender'=> $gender=$request->gender,
             'status'=>$status=$request->status,]);
-            return redirect('/users/')->with('success','تم التعديل بنجاح');
+            return redirect()->route('users.index')->with('success','تم التعديل بنجاح');
 
         }
 

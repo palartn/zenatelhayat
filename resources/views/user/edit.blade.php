@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
 
-@foreach ($users as $users)
 
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
@@ -34,7 +33,7 @@
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="/users/{{$users->id}}">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{ route('users.update',$user->id) }}">
             @csrf
             @method('put')
 			<!--begin::Input group-->
@@ -96,7 +95,7 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" value="{{$users->name}}">
+				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" value="{{$user->name}}">
                 @error('name')
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -112,7 +111,7 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{$users->name}}">
+				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{$user->name}}">
                 @error('password')
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -137,7 +136,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email"  class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{$users->email}}">
+						<input type="email"  class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{$user->email}}">
                         @error('email')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -159,7 +158,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$users->phone}}">
+						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$user->phone}}">
                         @error('phone')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -183,7 +182,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="address" value="{{$users->address}}">
+						<input type="text" class="form-control form-control-solid" name="address" value="{{$user->address}}">
                         @error('address')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -204,8 +203,8 @@
 						<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
 
 
-							<option value="1">{{$gender=$users->gender}}</option>
-							<option value="2">{{$gender=$users->gender}}</option>
+							<option value="1">{{$gender=$user->gender}}</option>
+							<option value="2">{{$gender=$user->gender}}</option>
 
 						</select>
 						<!--end::Input-->
@@ -218,7 +217,7 @@
                 <input class="form-check-input" type="checkbox" value="1" name="status" checked="checked">
                 <span class="form-check-label fw-bold text-muted">فعال</span>
             </label>
-            @endforeach
+        
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
