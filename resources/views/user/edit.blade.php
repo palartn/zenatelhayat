@@ -18,7 +18,7 @@
 			<h2 >تعديل بيانات مستخدم</h2>
 {{--
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="text-danger">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -95,9 +95,9 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" value="{{$user->name}}">
+				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name" value="{{$user->name}}" >
                 @error('name')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
 
 				<!--end::Input-->
@@ -111,9 +111,9 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{$user->name}}">
+				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{$user->name}}" required>
                 @error('password')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
 				<!--end::Input-->
 					<!--end::Input group-->
@@ -136,11 +136,11 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email"  class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{$user->email}}">
+						<input type="email"  class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required>
                         @error('email')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        {{-- @error('email') <div class="alert alert-danger">{{ $message }}</div> --}}
+                        {{-- @error('email') <div class="text-danger">{{ $message }}</div> --}}
 
 						<!--end::Input-->
 					<div class="fv-plugins-message-container invalid-feedback"></div></div>
@@ -158,9 +158,9 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$user->phone}}">
+						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$user->phone}}" required>
                         @error('phone')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
 						<!--end::Input-->
 					</div>
@@ -182,9 +182,9 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid" name="address" value="{{$user->address}}">
+						<input type="text" class="form-control form-control-solid" name="address" value="{{$user->address}}" required>
                         @error('address')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
 						<!--end::Input-->
 					</div>
@@ -203,8 +203,8 @@
 						<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
 
 
-							<option value="1">{{$gender=$user->gender}}</option>
-							<option value="2">{{$gender=$user->gender}}</option>
+							<option {{ $user->gender=='Male' ? 'selected' :'' }} value ="Male">ذكر</option>
+							<option {{ $user->gender=='Female' ? 'selected' :'' }} value ="Female">أنثى</option>
 
 						</select>
 						<!--end::Input-->

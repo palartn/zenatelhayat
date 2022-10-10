@@ -17,6 +17,7 @@ class UsersController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
+ 
     public function index()
     {
     //    $users = User::orderBy('id','desc')->paginate(5);
@@ -27,6 +28,7 @@ class UsersController extends Controller
     {
        return view('user.create');
     }
+
     public function store(Request $request)
     {
 $name=$request->name;
@@ -56,6 +58,7 @@ $add_user=DB::table('users')->insert([
     'phone'=>$phone,
     'gender'=>$gender,
     'status'=>$status]);
+   
 
     return redirect()->route('users.create')->with('success','تم الإضافة بنجاح');
 
@@ -64,6 +67,9 @@ $add_user=DB::table('users')->insert([
 
 
     }
+
+
+
     public function edit(User $user )
     {
 

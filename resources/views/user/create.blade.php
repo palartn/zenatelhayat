@@ -25,7 +25,7 @@
 	</div>
 	@endif
     {{-- @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="text-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -96,9 +96,9 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name"  value="{{ old('name') }}">
+				<input type="text" class="form-control form-control-solid @error('name') is-invalid @enderror" name="name"  value="{{ old('name') }}" required>
                 @error('name')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
 				<!--end::Input-->
                 <div class="col">
@@ -111,9 +111,9 @@
 
 				<!--end::Label-->
 				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
+				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required>
                 @error('password')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
 				<!--end::Input-->
 					<!--end::Input group-->
@@ -136,9 +136,9 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+						<input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
                         @error('email')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
 						<!--end::Input-->
 					<div class="fv-plugins-message-container invalid-feedback"></div></div>
@@ -156,9 +156,9 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}">
+						<input type="number" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required>
                         @error('phone')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
 						<!--end::Input-->
 					</div>
@@ -180,9 +180,9 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}">
+						<input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"required>
                         @error('address')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
 						<!--end::Input-->
 					</div>
