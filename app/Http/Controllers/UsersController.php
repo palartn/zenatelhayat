@@ -100,7 +100,9 @@ class UsersController extends Controller
             'address' => 'required',
 
         ]);
-
+        if($request->status==null){
+            $request->status=0;
+        }
         $user->update([
             'name' => $name = $request->name,
             'password' => $password = $request->password,
@@ -109,8 +111,10 @@ class UsersController extends Controller
             'phone' => $phone = $request->phone,
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
-        ]);
+        
 
+        ]);
+    
         if($request->has('role')){
             $userRole = $user->getRoleNames();
             foreach($userRole as $role){
