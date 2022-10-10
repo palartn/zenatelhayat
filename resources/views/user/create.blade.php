@@ -207,6 +207,27 @@
 					</div>
 					<!--end::Input group-->
 				</div>
+				<div class="col">
+					<!--begin::Input group-->
+					<div class="fv-row mb-7">
+						<!--begin::Label-->
+						<label class="fs-4 fw-semibold form-label mt-3">
+							<span>الدور</span>
+							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
+						</label>
+						<!--end::Label-->
+						<!--begin::Input-->
+						<select name="role" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+							@foreach($roles as $role)
+							<option value="{{ $role->id }}">{{ $role->name }}</option>
+							@endforeach
+						
+							
+						</select>
+						<!--end::Input-->
+					</div>
+					<!--end::Input group-->
+				</div>
 			</div>
 			<!--end::Row-->
             <label class="form-check form-switch form-check-custom form-check-solid">

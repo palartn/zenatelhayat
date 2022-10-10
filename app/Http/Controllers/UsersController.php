@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -8,61 +9,67 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class UsersController extends Controller
 {
     /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
- 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function index()
     {
-    //    $users = User::orderBy('id','desc')->paginate(5);
+        //    $users = User::orderBy('id','desc')->paginate(5);
         //$users = User::all();
         return view('user.index');
     }
-    public function create( )
+    public function create()
     {
-       return view('user.create');
+        $roles = Role::all();
+        return view('user.create', compact('roles'));
     }
 
     public function store(Request $request)
     {
-$name=$request->name;
-$password=$request->password;
-$email=$request->email;
-$address=$request->address;
-$phone=$request->phone;
-$gender=$request->gender;
-$status=$request->status;
-if($status==''){
-$status=0;
-}
- $validated = $request->validate([
-            'name'=> 'required',
-            'password'=> 'required',
+        $name = $request->name;
+        $password = $request->password;
+        $email = $request->email;
+        $address = $request->address;
+        $phone = $request->phone;
+        $gender = $request->gender;
+        $status = $request->status;
+        if ($status == '') {
+            $status = 0;
+        }
+        $validated = $request->validate([
+            'name' => 'required',
+            'password' => 'required',
             'email' => 'required|unique:Users',
             'phone' => 'required|min:7',
             'address' => 'required',
 
         ]);
         //User::create([]);
-$add_user=DB::table('users')->insert([
-    'name'=>$name,
-    'password'=>bcrypt($password),
-    'email'=>$email,
-    'address'=>'123',
-    'phone'=>$phone,
-    'gender'=>$gender,
-    'status'=>$status]);
-   
+        $add_user = User::create([
+            'name' => $name,
+            'password' => bcrypt($password),
+            'email' => $email,
+            'address' => '123',
+            'phone' => $phone,
+            'gender' => $gender,
+            'status' => $status
+        ]);
 
-    return redirect()->route('users.create')->with('success','تم الإضافة بنجاح');
 
-// return redirect('/users/create');
+        $add_user->assignRole($request->role);
+
+
+        return redirect()->route('users.create')->with('success', 'تم الإضافة بنجاح');
+
+        // return redirect('/users/create');
 
 
 
@@ -70,45 +77,55 @@ $add_user=DB::table('users')->insert([
 
 
 
-    public function edit(User $user )
+    public function edit(User $user)
     {
-
-       if($user==null){
-        abort(404);
-       }
-       return view('user.edit',compact('user'));
-
+        $roles = Role::all();
+        // if ($user == null) {
+        //     abort(404);
+        // }
+        $roleSelected = $user->roles()->pluck('id')->toArray();
+  //   dd($roleSelected);
+        return view('user.edit', compact('user','roles', 'roleSelected'));
     }
 
 
-        public function update(Request $request,User $user)
-        {
-            // $user=User::findOrFail($id);
-             $validated = $request->validate([
-               'name'=> 'required',
-                 'password'=> 'required',
-             'email' => ['required',Rule::unique('users')->ignore($user->id)],
-               'phone' => 'required|min:7',
-                'address' => 'required',
+    public function update(Request $request, User $user)
+    {
+        // $user=User::findOrFail($id);
+        $validated = $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+            'email' => ['required', Rule::unique('users')->ignore($user->id)],
+            'phone' => 'required|min:7',
+            'address' => 'required',
 
-             ]);
+        ]);
 
-            $user->update(['name'=>$name=$request->name,
-            'password'=>$password=$request->password,
-            'email'=>$email=$request->email,
-            'address'=>$address=$request->address,
-            'phone'=>$phone=$request->phone,
-            'gender'=> $gender=$request->gender,
-            'status'=>$status=$request->status,]);
-            return redirect()->route('users.index')->with('success','تم التعديل بنجاح');
+        $user->update([
+            'name' => $name = $request->name,
+            'password' => $password = $request->password,
+            'email' => $email = $request->email,
+            'address' => $address = $request->address,
+            'phone' => $phone = $request->phone,
+            'gender' => $gender = $request->gender,
+            'status' => $status = $request->status,
+        ]);
 
+        if($request->has('role')){
+            $userRole = $user->getRoleNames();
+            foreach($userRole as $role){
+                $user->removeRole($role);
+            }
+            $user->assignRole($request->role);
         }
+        //return redirect()->back();
+       return redirect()->route('users.index')->with('success', 'تم التعديل بنجاح');
+    }
 
 
     public function show(User $user)
     {
         return response()->json($user);
-
     }
     public function getData(Request $request)
     {
@@ -148,7 +165,6 @@ $add_user=DB::table('users')->insert([
         if ($request->filter_2 != -1) {
 
             $filter_2 = $request->filter_2;
-
         } else {
             $filter_2 = -1;
         }
@@ -202,7 +218,7 @@ $add_user=DB::table('users')->insert([
             $items = $items->where('users.name', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
             $items = $items->where('users.email', 'like', '%' . $filter_2 . '%');
-            if ($filter_3 != -1)
+        if ($filter_3 != -1)
             $items = $items->where('users.address', $filter_3);
 
         $items = $items->select('users.*')
@@ -238,10 +254,9 @@ $add_user=DB::table('users')->insert([
         exit;
     }
 
-    public function destroy( User $user)
+    public function destroy(User $user)
     {
-       $user->delete();
-       return response()->json($user);
+        $user->delete();
+        return response()->json($user);
     }
-
 }
