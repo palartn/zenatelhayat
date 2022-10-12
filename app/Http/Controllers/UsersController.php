@@ -109,7 +109,9 @@ class UsersController extends Controller
             'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
 
         ]);
-
+        if($request->status==null){
+            $request->status=0;
+        }
         $user->update([
             'name' => $name = $request->name,
             'password' => $password = $request->password,
@@ -122,6 +124,8 @@ class UsersController extends Controller
 
         ]);
 
+        ]);
+    
         if($request->has('role')){
             $userRole = $user->getRoleNames();
             foreach($userRole as $role){
