@@ -57,7 +57,7 @@ class UsersController extends Controller
         ]);
         if ($request->hasFile('profile_photo')){
             $file=$request->file('profile_photo');
-            $path=$file->store('/users_photos','public');
+            $path=$file->store('users_photos','public');
         }
         //User::create([]);
         $add_user = User::create([
@@ -67,7 +67,8 @@ class UsersController extends Controller
             'address' => '123',
             'phone' => $phone,
             'gender' => $gender,
-            'status' => $status
+            'status' => $status,
+            'profile_photo_path'=>$path
         ]);
 
 
