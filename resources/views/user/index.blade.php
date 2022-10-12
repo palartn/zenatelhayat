@@ -24,7 +24,7 @@
 
 										<!--end::Header-->
 										<!--begin::Body-->
-                                     
+
 										<div class="card-body py-3 "  style="font-family:NotoKufiArabic">
 											@if (session()->has('success'))
 											<div class="alert alert-success alert-session-flash  ">
@@ -102,16 +102,10 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 							<div class="col-md-4">
-								<img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario">
-								<ul title="Ratings" class="list-inline ratings text-center">
-									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-									<li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
-								</ul>
+								<img alt="" style="width:600px;" title="" src="https://storage.jewheart.com/content/users/avatars/3746/avatar_3746_500.jpg?1558628223" class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
+
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-8">
 								<strong>بيانات المستخدم</strong><br>
 								<div class="table-responsive">
 								<table class="table table-user-information">
@@ -165,7 +159,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">خروج</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">فعال</button>
 
             </div>
         </div>
@@ -343,6 +337,7 @@
 					$('#user_gender').html(result.gender);
 					$('#user_address').html(result.address);
 					$('#user_status').html(result.status);
+                    $('#user_photo').html(result.profile_photo_path);
 					$('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
                 },

@@ -24,7 +24,7 @@ class UsersController extends Controller
     public function index()
     {
         //    $users = User::orderBy('id','desc')->paginate(5);
-        //$users = User::all();
+        //$user = User::all();
         return view('user.index');
     }
     public function create()
@@ -99,7 +99,7 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user)
     {
-        
+
         // $user=User::findOrFail($id);
         $validated = $request->validate([
             'name' => 'required',
@@ -110,12 +110,11 @@ class UsersController extends Controller
             'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
 
         ]);
-        
-  if ($request->hasFile('profile_photo')){
+
+
             $file=$request->file('profile_photo');
             $path=$file->store('users_photos','public');
-        }          
-    
+
         $user->update([
             'name' => $name = $request->name,
             'password' => bcrypt($password = $request->password),
@@ -124,8 +123,8 @@ class UsersController extends Controller
             'phone' => $phone = $request->phone,
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
-            'profile_photo_path' => $file,
-         
+            'profile_photo_path' =>$path,
+
 
         ]);
 

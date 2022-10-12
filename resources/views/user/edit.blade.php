@@ -162,7 +162,7 @@
 						</label>
 						<!--end::Label-->
 						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$user->phone}}" required>
+						<input type="number" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{$user->phone}}" required>
                         @error('phone')
                         <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -231,8 +231,8 @@
 						@foreach($roles as $role)
 						<option value="{{ $role->id }}" {{ in_array($role->id,$roleSelected) ? 'selected' : ''}}>{{ $role->name }}</option>
 						@endforeach
-					
-						
+
+
 					</select>
 					<!--end::Input-->
 				</div>
@@ -243,7 +243,7 @@
                 <input class="form-check-input" type="checkbox" value="1" name="status" checked="checked">
                 <span class="form-check-label fw-bold text-muted">فعال</span>
             </label>
-        
+
 			<!--begin::Separator-->
 			<div class="separator mb-6"></div>
 			<!--end::Separator-->
