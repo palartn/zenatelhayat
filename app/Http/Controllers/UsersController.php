@@ -110,15 +110,21 @@ class UsersController extends Controller
             'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
 
         ]);
-
+        
+  if ($request->hasFile('profile_photo')){
+            $file=$request->file('profile_photo');
+            $path=$file->store('users_photos','public');
+        }          
+    
         $user->update([
             'name' => $name = $request->name,
-            'password' => $password = $request->password,
+            'password' => bcrypt($password = $request->password),
             'email' => $email = $request->email,
             'address' => $address = $request->address,
             'phone' => $phone = $request->phone,
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
+            'profile_photo_path' => $file,
          
 
         ]);
