@@ -33,7 +33,7 @@
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{ route('users.update',$user->id) }}">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{ route('users.update',$user->id) }}" enctype="multipart/form-data">
             @csrf
             @method('put')
 			<!--begin::Input group-->
@@ -60,10 +60,13 @@
 							<!--begin::Inputs-->
 
 
-							<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+							<input type="file" name="profile_photo" accept=".png, .jpg, .jpeg">
 							<input type="hidden" name="avatar_remove">
 							<!--end::Inputs-->
 						</label>
+						@error('avatar')
+						<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 						<!--end::Edit-->
 						<!--begin::Cancel-->
 						<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-kt-initialized="1">

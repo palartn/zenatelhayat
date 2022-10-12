@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Dimensions;
 use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -50,8 +51,14 @@ class UsersController extends Controller
             'email' => 'required|unique:Users',
             'phone' => 'required|min:7',
             'address' => 'required',
+            'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
+
 
         ]);
+        if ($request->hasFile('profile_photo')){
+            $file=$request->file('profile_photo');
+            $path=$file->store('/users_photos','public');
+        }
         //User::create([]);
         $add_user = User::create([
             'name' => $name,
@@ -91,6 +98,7 @@ class UsersController extends Controller
 
     public function update(Request $request, User $user)
     {
+        
         // $user=User::findOrFail($id);
         $validated = $request->validate([
             'name' => 'required',
@@ -98,6 +106,7 @@ class UsersController extends Controller
             'email' => ['required', Rule::unique('users')->ignore($user->id)],
             'phone' => 'required|min:7',
             'address' => 'required',
+            'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
 
         ]);
 
@@ -109,6 +118,8 @@ class UsersController extends Controller
             'phone' => $phone = $request->phone,
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
+         
+
         ]);
 
         if($request->has('role')){

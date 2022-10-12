@@ -37,7 +37,7 @@
 	<!--begin::Card body-->
 	<div class="card-body pt-5">
 		<!--begin::Form-->
-		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('users.store')}}">
+		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
             @csrf
 			<!--begin::Input group-->
 			<div class="mb-7">
@@ -61,10 +61,13 @@
 						<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" aria-label="Change avatar" data-kt-initialized="1">
 							<i class="bi bi-pencil-fill fs-7"></i>
 							<!--begin::Inputs-->
-							<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+							<input type="file" name="profile_photo" accept=".png, .jpg, .jpeg">
 							<input type="hidden" name="avatar_remove">
 							<!--end::Inputs-->
 						</label>
+						@error('avatar')
+						<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 						<!--end::Edit-->
 						<!--begin::Cancel-->
 						<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" aria-label="Cancel avatar" data-kt-initialized="1">

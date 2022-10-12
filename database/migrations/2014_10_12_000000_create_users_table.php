@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('gender',['Male','Female'])->default('Female');
             $table->string('address');
+            $table->string('profile_photo_path')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
