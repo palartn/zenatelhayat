@@ -65,7 +65,7 @@
 							<input type="hidden" name="avatar_remove">
 							<!--end::Inputs-->
 						</label>
-						@error('avatar')
+						@error('profile_photo')
 						<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 						@enderror
 						<!--end::Edit-->

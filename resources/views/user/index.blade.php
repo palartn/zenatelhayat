@@ -102,7 +102,7 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 							<div class="col-md-4">
-								<img alt="" style="width:600px;" title="" src="https://storage.jewheart.com/content/users/avatars/3746/avatar_3746_500.jpg?1558628223" class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
+								<img alt="" style="width:600px;" title=""  src="" class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
 
 							</div>
 							<div class="col-md-8">

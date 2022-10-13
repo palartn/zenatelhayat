@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Dimensions;
 use Spatie\Permission\Models\Role;
@@ -21,11 +22,11 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(User $user)
     {
         //    $users = User::orderBy('id','desc')->paginate(5);
         //$user = User::all();
-        return view('user.index');
+        return view('user.index', compact('user'));
     }
     public function create()
     {
@@ -51,13 +52,13 @@ class UsersController extends Controller
             'email' => 'required|unique:Users',
             'phone' => 'required|min:7',
             'address' => 'required',
-            'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
+            'profile_photo_path' => ['nullable', 'image', 'dimensions:min_width=200,min_height=200'],
 
 
         ]);
-        if ($request->hasFile('profile_photo')){
-            $file=$request->file('profile_photo');
-            $path=$file->store('users_photos','public');
+        if ($request->hasFile('profile_photo')) {
+            $file = $request->file('profile_photo');
+            $path = $file->store('users_photos', 'public');
         }
         //User::create([]);
         $add_user = User::create([
@@ -68,7 +69,7 @@ class UsersController extends Controller
             'phone' => $phone,
             'gender' => $gender,
             'status' => $status,
-            'profile_photo_path'=>$path
+            'profile_photo_path' => $path
         ]);
 
 
@@ -92,8 +93,8 @@ class UsersController extends Controller
         //     abort(404);
         // }
         $roleSelected = $user->roles()->pluck('id')->toArray();
-  //   dd($roleSelected);
-        return view('user.edit', compact('user','roles', 'roleSelected'));
+        //   dd($roleSelected);
+        return view('user.edit', compact('user', 'roles', 'roleSelected'));
     }
 
 
@@ -104,18 +105,24 @@ class UsersController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'password' => 'required',
-            'email' => ['required', Rule::unique('users')->ignore($user->id)],
+            'email' => ['email','required', Rule::unique('users')->ignore($user->id)],
             'phone' => 'required|min:7',
             'address' => 'required',
-            'profile_photo_path'=>['nullable','image','dimensions:min_width=200,min_height=200'],
+            'profile_photo_path' => ['nullable', 'image', 'dimensions:min_width=200,min_height=200'],
 
-        ]);
+        ]);if ($request->file('profile_photo') == null) {
+            $file = "";
+        }else{
+        $previous = $user->profile_photo_path;
+        $file = $request->file('profile_photo');
+        $path = $file->store('users_photos', 'public');
 
-
-            $file=$request->file('profile_photo');
-            $path=$file->store('users_photos','public');
+        
+         
+ 
 
         $user->update([
+
             'name' => $name = $request->name,
             'password' => bcrypt($password = $request->password),
             'email' => $email = $request->email,
@@ -123,20 +130,21 @@ class UsersController extends Controller
             'phone' => $phone = $request->phone,
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
-            'profile_photo_path' =>$path,
-
-
+            'profile_photo_path' => $path,
         ]);
-
-        if($request->has('role')){
+        if ($previous && $previous != $user->profile_photo_path) {
+            Storage::disk('public')->delete($previous);
+        }
+    }
+        if ($request->has('role')) {
             $userRole = $user->getRoleNames();
-            foreach($userRole as $role){
+            foreach ($userRole as $role) {
                 $user->removeRole($role);
             }
             $user->assignRole($request->role);
         }
         //return redirect()->back();
-       return redirect()->route('users.index')->with('success', 'تم التعديل بنجاح');
+        return redirect()->route('users.index')->with('success', 'تم التعديل بنجاح');
     }
 
 
