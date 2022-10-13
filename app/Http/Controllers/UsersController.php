@@ -116,11 +116,6 @@ class UsersController extends Controller
         $previous = $user->profile_photo_path;
         $file = $request->file('profile_photo');
         $path = $file->store('users_photos', 'public');
-
-        
-         
- 
-
         $user->update([
 
             'name' => $name = $request->name,
