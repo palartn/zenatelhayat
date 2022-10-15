@@ -1769,7 +1769,7 @@
 
 					<div class="menu-item">
 
-						<a class="menu-link active" href='{{ route('users.index') }}'>
+						<a class="menu-link " href='{{ route('users.index') }}'>
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 								<span class="svg-icon svg-icon-2">
@@ -1803,955 +1803,49 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Pages</span>
+							<span class="menu-title">المرضى</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion menu-active-bg">
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Profile</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/overview.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Overview</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/projects.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Projects</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/campaigns.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Campaigns</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/documents.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Documents</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/connections.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Connections</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/profile/activity.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Activity</span>
-										</a>
-									</div>
+								<div class="menu-item">
+									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">كافة المرضى</span>
+									</a>
+								</div>
+
+								<div class="menu-item">
+									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">إضافة مريض</span>
+									</a>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">تعديل بيانات مريض</span>
+									</a>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title">حذف بيانات مريض</span>
+									</a>
 								</div>
 							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Projects</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/list.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">My Projects</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/project.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">View Project</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/targets.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Targets</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/budget.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Budget</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/users.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Users</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/files.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Files</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/activity.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Activity</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/projects/settings.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Settings</span>
-										</a>
-									</div>
-								</div>
 							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Wizards</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/wizards/horizontal.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Horizontal</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/wizards/vertical.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Vertical</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Search</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/search/horizontal.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Horizontal</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/search/vertical.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Vertical</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Blog</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/blog/home.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Blog Home</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/blog/post.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Blog Post</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Company</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/about.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">About Us</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/pricing.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Pricing</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/contact.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Contact Us</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/team.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Our Team</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/licenses.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Licenses</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/company/sitemap.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sitemap</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Careers</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/careers/list.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Careers List</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/careers/apply.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Careers Apply</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">FAQ</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/faq/classic.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Classic</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/pages/faq/extended.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Extended</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<span class="menu-link">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z" fill="black" />
-										<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Account</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<div class="menu-sub menu-sub-accordion menu-active-bg">
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/overview.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Overview</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/settings.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Settings</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/security.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Security</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/billing.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Billing</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/statements.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Statements</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/referrals.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Referrals</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/account/api-keys.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">API Keys</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<span class="menu-link">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/technology/teh004.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path opacity="0.3" d="M21 10.7192H3C2.4 10.7192 2 11.1192 2 11.7192C2 12.3192 2.4 12.7192 3 12.7192H6V14.7192C6 18.0192 8.7 20.7192 12 20.7192C15.3 20.7192 18 18.0192 18 14.7192V12.7192H21C21.6 12.7192 22 12.3192 22 11.7192C22 11.1192 21.6 10.7192 21 10.7192Z" fill="black" />
-										<path d="M11.6 21.9192C11.4 21.9192 11.2 21.8192 11 21.7192C10.6 21.4192 10.5 20.7191 10.8 20.3191C11.7 19.1191 12.3 17.8191 12.7 16.3191C12.8 15.8191 13.4 15.4192 13.9 15.6192C14.4 15.7192 14.8 16.3191 14.6 16.8191C14.2 18.5191 13.4 20.1192 12.4 21.5192C12.2 21.7192 11.9 21.9192 11.6 21.9192ZM8.7 19.7192C10.2 18.1192 11 15.9192 11 13.7192V8.71917C11 8.11917 11.4 7.71917 12 7.71917C12.6 7.71917 13 8.11917 13 8.71917V13.0192C13 13.6192 13.4 14.0192 14 14.0192C14.6 14.0192 15 13.6192 15 13.0192V8.71917C15 7.01917 13.7 5.71917 12 5.71917C10.3 5.71917 9 7.01917 9 8.71917V13.7192C9 15.4192 8.4 17.1191 7.2 18.3191C6.8 18.7191 6.9 19.3192 7.3 19.7192C7.5 19.9192 7.7 20.0192 8 20.0192C8.3 20.0192 8.5 19.9192 8.7 19.7192ZM6 16.7192C6.5 16.7192 7 16.2192 7 15.7192V8.71917C7 8.11917 7.1 7.51918 7.3 6.91918C7.5 6.41918 7.2 5.8192 6.7 5.6192C6.2 5.4192 5.59999 5.71917 5.39999 6.21917C5.09999 7.01917 5 7.81917 5 8.71917V15.7192V15.8191C5 16.3191 5.5 16.7192 6 16.7192ZM9 4.71917C9.5 4.31917 10.1 4.11918 10.7 3.91918C11.2 3.81918 11.5 3.21917 11.4 2.71917C11.3 2.21917 10.7 1.91916 10.2 2.01916C9.4 2.21916 8.59999 2.6192 7.89999 3.1192C7.49999 3.4192 7.4 4.11916 7.7 4.51916C7.9 4.81916 8.2 4.91918 8.5 4.91918C8.6 4.91918 8.8 4.81917 9 4.71917ZM18.2 18.9192C18.7 17.2192 19 15.5192 19 13.7192V8.71917C19 5.71917 17.1 3.1192 14.3 2.1192C13.8 1.9192 13.2 2.21917 13 2.71917C12.8 3.21917 13.1 3.81916 13.6 4.01916C15.6 4.71916 17 6.61917 17 8.71917V13.7192C17 15.3192 16.8 16.8191 16.3 18.3191C16.1 18.8191 16.4 19.4192 16.9 19.6192C17 19.6192 17.1 19.6192 17.2 19.6192C17.7 19.6192 18 19.3192 18.2 18.9192Z" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Authentication</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<div class="menu-sub menu-sub-accordion menu-active-bg">
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Basic Flow</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/basic/sign-in.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-in</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/basic/sign-up.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-up</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/basic/two-steps.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Two-steps</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/basic/password-reset.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Password Reset</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/basic/new-password.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Password</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Aside Flow</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/aside/sign-in.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-in</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/aside/sign-up.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-up</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/aside/two-steps.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Two-steps</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/aside/password-reset.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Password Reset</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/aside/new-password.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Password</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Dark Flow</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/dark/sign-in.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-in</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/dark/sign-up.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Sign-up</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/dark/two-steps.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Two-steps</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/dark/password-reset.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Password Reset</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/flows/dark/new-password.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Password</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/extended/multi-steps-sign-up.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Multi-steps Sign-up</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/extended/free-trial-sign-up.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Free Trial Sign-up</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/extended/coming-soon.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Coming Soon</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/welcome.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Welcome Message</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/verify-email.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Verify Email</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/password-confirmation.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Password Confirmation</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/deactivation.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Account Deactivation</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/error-404.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Error 404</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/authentication/general/error-500.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Error 500</span>
-								</a>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Email Templates</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/email/verify-email.html" target="blank">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Verify Email</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/email/invitation.html" target="blank">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Account Invitation</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/email/password-reset.html" target="blank">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Password Reset</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/authentication/email/password-change.html" target="blank">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Password Changed</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<span class="menu-link">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/art/art009.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path opacity="0.3" d="M21 18.3V4H20H5C4.4 4 4 4.4 4 5V20C10.9 20 16.7 15.6 19 9.5V18.3C18.4 18.6 18 19.3 18 20C18 21.1 18.9 22 20 22C21.1 22 22 21.1 22 20C22 19.3 21.6 18.6 21 18.3Z" fill="black" />
-										<path d="M22 4C22 2.9 21.1 2 20 2C18.9 2 18 2.9 18 4C18 4.7 18.4 5.29995 18.9 5.69995C18.1 12.6 12.6 18.2 5.70001 18.9C5.30001 18.4 4.7 18 4 18C2.9 18 2 18.9 2 20C2 21.1 2.9 22 4 22C4.8 22 5.39999 21.6 5.79999 20.9C13.8 20.1 20.1 13.7 20.9 5.80005C21.6 5.40005 22 4.8 22 4Z" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Modals</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<div class="menu-sub menu-sub-accordion menu-active-bg">
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">General</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/general/invite-friends.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Invite Friends</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/general/view-users.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">View Users</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/general/upgrade-plan.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Upgrade Plan</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/general/share-earn.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Share &amp; Earn</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Forms</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/forms/new-target.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Target</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/forms/new-card.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Card</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/forms/new-address.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">New Address</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/forms/create-api-key.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Create API Key</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Wizards</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/wizards/two-factor-authentication.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Two Factor Auth</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/wizards/create-app.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Create App</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/wizards/create-account.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Create Account</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/wizards/create-project.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Create Project</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/wizards/offer-a-deal.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Offer a Deal</span>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Search</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/search/users.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Users</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/modals/search/select-location.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Select Location</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<span class="menu-link">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
-										<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
-										<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
-										<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Widgets</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<div class="menu-sub menu-sub-accordion menu-active-bg">
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/lists.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Lists</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/statistics.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Statistics</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/charts.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Charts</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/mixed.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Mixed</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/tables.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Tables</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/widgets/feeds.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Feeds</span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="menu-item">
-						<div class="menu-content pt-8 pb-2">
-							<span class="menu-section text-muted text-uppercase fs-8 ls-1">Apps</span>
-						</div>
-					</div>
+					
+				
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 						<span class="menu-link">
 							<span class="menu-icon">
@@ -2764,7 +1858,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Customers</span>
+							<span class="menu-title">الزيارات والحجوزات</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -2773,7 +1867,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Getting Started</span>
+									<span class="menu-title">إضافة زيارة</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -2781,7 +1875,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Customer Listing</span>
+									<span class="menu-title">تعديل زيارة</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -2789,7 +1883,15 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Customer Details</span>
+									<span class="menu-title">حذف زيارة</span>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a class="menu-link" href="../../demo8/dist/apps/customers/view.html">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">زيارات اليوم</span>
 								</a>
 							</div>
 						</div>
@@ -2807,7 +1909,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Subscriptions</span>
+							<span class="menu-title">العمليات</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -2816,7 +1918,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Getting Started</span>
+									<span class="menu-title">عرض عمليات اليوم</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -2824,7 +1926,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Subscription List</span>
+									<span class="menu-title">إضافة عملية</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -2832,7 +1934,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Add Subscription</span>
+									<span class="menu-title">تعديل عملية</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -2840,7 +1942,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">View Subscription</span>
+									<span class="menu-title">حذف عملية</span>
 								</a>
 							</div>
 						</div>
@@ -2857,7 +1959,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Invoice Manager</span>
+							<span class="menu-title">التجميد</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -2866,7 +1968,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">View Invoices</span>
+									<span class="menu-title">تعديل أنواع التجميد</span>
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -2910,7 +2012,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">User Management</span>
+							<span class="menu-title">التحكم بصلاحيات المستخدمين</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -2919,7 +2021,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Users</span>
+									<span class="menu-title">المستخدمين</span>
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion">
@@ -2946,7 +2048,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Roles</span>
+									<span class="menu-title">الصلاحية</span>
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion">
@@ -2955,17 +2057,10 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">Roles List</span>
+											<span class="menu-title">عرض الصلاحيات</span>
 										</a>
 									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/apps/user-management/roles/view.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">View Role</span>
-										</a>
-									</div>
+									
 								</div>
 							</div>
 							<div class="menu-item">
@@ -2990,7 +2085,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Support Center</span>
+							<span class="menu-title">التقارير</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -2999,7 +2094,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Overview</span>
+									<span class="menu-title">حسب التاريخ</span>
 								</a>
 							</div>
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -3007,7 +2102,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">Tickets</span>
+									<span class="menu-title">حسب المريض</span>
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion">
@@ -3016,7 +2111,7 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">Tickets List</span>
+											<span class="menu-title">تقارير العمليات</span>
 										</a>
 									</div>
 									<div class="menu-item">
@@ -3024,38 +2119,12 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">View Ticket</span>
+											<span class="menu-title">تقارير مالية</span>
 										</a>
 									</div>
 								</div>
 							</div>
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
-								<span class="menu-link">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Tutorials</span>
-									<span class="menu-arrow"></span>
-								</span>
-								<div class="menu-sub menu-sub-accordion">
-									<div class="menu-item">
-										<a class="menu-link" href="#">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Tutorials List</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="#">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Tutorial Post</span>
-										</a>
-									</div>
-								</div>
-							</div>
+			
 							<div class="menu-item">
 								<a class="menu-link" href="#">
 									<span class="menu-bullet">
@@ -3082,7 +2151,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item">
+					{{-- <div class="menu-item">
 						<a class="menu-link" href="#">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
@@ -3097,53 +2166,11 @@
 							</span>
 							<span class="menu-title">Calendar</span>
 						</a>
-					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-						<span class="menu-link">
-							<span class="menu-icon">
-								<!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
-								<span class="svg-icon svg-icon-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="black" />
-										<rect x="6" y="12" width="7" height="2" rx="1" fill="black" />
-										<rect x="6" y="7" width="12" height="2" rx="1" fill="black" />
-									</svg>
-								</span>
-								<!--end::Svg Icon-->
-							</span>
-							<span class="menu-title">Chat</span>
-							<span class="menu-arrow"></span>
-						</span>
-						<div class="menu-sub menu-sub-accordion">
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/chat/private.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Private Chat</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/chat/group.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Group Chat</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/chat/drawer.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Drawer Chat</span>
-								</a>
-							</div>
-						</div>
-					</div>
+					</div> --}}
+					
 					<div class="menu-item">
 						<div class="menu-content pt-8 pb-0">
-							<span class="menu-section text-muted text-uppercase fs-8 ls-1">Layout</span>
+							<span class="menu-section text-muted text-uppercase fs-8 ls-1">التحكم بالصلاحيات</span>
 						</div>
 					</div>
 					<div class="menu-item">
@@ -3158,7 +2185,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Layout Builder</span>
+							<span class="menu-title">صلاحيات المستخدمين</span>
 						</a>
 					</div>
 					<div class="menu-item">
@@ -3167,7 +2194,7 @@
 						</div>
 					</div>
 					<div class="menu-item">
-						<a class="menu-link" href="../../demo8/dist/documentation/getting-started/changelog.html">
+						<a class="menu-link active" href="{{route('homepage')}}">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
 								<span class="svg-icon svg-icon-2">
@@ -3178,7 +2205,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">Changelog v8.0.24</span>
+							<span class="menu-title">مركز زينة الحياة</span>
 						</a>
 					</div>
 				</div>

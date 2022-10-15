@@ -20,7 +20,7 @@ Route::get('register',function(){
 Route::get('/', function () {
   
    return view('index');
-})->middleware('auth');
+})->middleware('auth')->name('homepage');
 
 Route::resource('users',UsersController::class)->middleware('auth');
 
