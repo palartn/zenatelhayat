@@ -7,7 +7,7 @@
 											<h3 class="card-title align-items-start flex-column">
 												<span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المستخدمين</span>
 												<span class="text-muted mt-1 fw-bold fs-7">count(Number)</span>
-											</h3>
+											</h3>profile_photo_path
 											<div style="font-family:NotoKufiArabic" class="card-toolbar "  data-bs-placement="top" data-bs-trigger="hover" >
 												<a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -89,7 +89,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title ">معلومات المستخدم</h5>
-
+                <p id="demo"></p>
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
 					<img src={{asset('assets\media\svg\close\close.svg')}}>
@@ -102,7 +102,7 @@
 					<div class="panel-body inf-content">
 						<div class="row">
 							<div class="col-md-4">
-								<img alt="" style="width:600px;" title=""  src="" class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
+								<img id="user_photo" alt="" style="width:600px;" title=""  class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
 
 							</div>
 							<div class="col-md-8">
@@ -110,6 +110,7 @@
 								<div class="table-responsive">
 								<table class="table table-user-information">
 									<tbody>
+
 										<tr>
 											<td>
 												<strong >
@@ -118,8 +119,9 @@
 												</strong>
 											</td>
 											<td class="text-primary" id="user_name">
-
+                                                <td class="text-primary" id="user_name">
 											</td>
+
 										</tr>
 										<tr>
 											<td>
@@ -338,7 +340,7 @@
 					$('#user_address').html(result.address);
 					$('#user_status').html(result.status);
                     $('#user_photo').html(result.profile_photo_path);
-					$('#user_created_at').html(result.created_at);
+                    $('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
                 },
 
@@ -363,9 +365,17 @@
 //     }, 5000);
 // });
 
-
 setTimeout(function() {
         $('.alert-session-flash').fadeOut('low');
     }, 3000); // <-- time in milliseconds
+
+    let text = document.setElementById("value",user_photo);
+
+    console.log(text);
+
+   // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
+    $('#user_photo').attr("src", text);
+
+
 </script>
 @endsection
