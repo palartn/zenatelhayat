@@ -23,8 +23,9 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">Shopping Cart</div>
-											<div class="fw-bold text-gray-400">Lands, Houses, Ranchos, Farms</div>
+											
+											<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{App\Models\User::count()}}</div>
+											<div class="fw-bold text-gray-400">إجمالي عدد المستخدمين</div>
 										</div>
 										<!--end::Body-->
 									</a>
