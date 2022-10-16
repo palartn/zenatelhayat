@@ -75,7 +75,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 data: {
                     // parameters for custom backend script demo
                     columnsDef: [
-                        'id', 'name', 'email', 'address', 'actions'],
+                        'id', 'name', 'mobile', 'address', 'actions'],
                     from_date:from_date,
                     to_date:to_date,
                     filter_1:filter_1,
@@ -88,7 +88,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 // {data: 'id',width: 100},
                 {data: 'id',width: 80},
                 {data: 'name',width: 180},
-                {data: 'email',width: 120},
+                {data: 'mobile',width: 120},
                 {data: 'address',width: 120},
                 {data: 'actions',width: 120},
 
@@ -103,7 +103,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
 							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
 								<i class="las la-info"></i>\
 							</a>\
-                            <a href="'+SITEURL+'/users/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
+                            <a href="'+SITEURL+'/patients/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
                             <i class="las la-edit"></i>\
                         </a>\
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\

@@ -80,7 +80,7 @@ class PatientsController extends Controller
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('patients.patient_fname', 'like', '%' . $searchValue . '%')
-                ->where('patients.email', 'like', '%' . $searchValue . '%')
+                ->where('patients.mobile', 'like', '%' . $searchValue . '%')
                 ->orWhere('patients.address', $searchValue);
 
         if ($from_date != -1)
@@ -88,7 +88,7 @@ class PatientsController extends Controller
         if ($filter_1 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.email', 'like', '%' . $filter_2 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.address', $filter_3);
 
@@ -101,7 +101,7 @@ class PatientsController extends Controller
         if ($searchValue != null)
             $items = $items
                 ->where('patients.patient_fname', 'like', '%' . $searchValue . '%')
-                ->orWhere('patients.email', 'like', '%' . $searchValue . '%')
+                ->orWhere('patients.mobile', 'like', '%' . $searchValue . '%')
                 ->orWhere('patients.address', $searchValue);
 
 
@@ -111,7 +111,7 @@ class PatientsController extends Controller
             $items = $items->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
        
             if ($filter_2 != -1)
-            $items = $items->where('patients.email', 'like', '%' . $filter_2 . '%');
+            $items = $items->where('patients.mobile', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $items = $items->whereIn('patients.address', $filter_3);
         $items = $items->select('patients.*')
@@ -130,7 +130,7 @@ class PatientsController extends Controller
             $data[] = [
                 'id' => $item->id,
                 'name' => $item->patient_fname .' '. $item->patient_sname .' '. $item->patient_tname .' '. $item->patient_lname,
-                'email' => $item->email,
+                'mobile' => $item->mobile,
                 'address' => $item->address,
                 "created_at" => Carbon::parse($item->patient_dob)->format('d-m-Y'), // h:i A
                 "actions" => null

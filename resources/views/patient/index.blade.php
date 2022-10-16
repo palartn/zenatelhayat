@@ -39,7 +39,7 @@
 													<tr class="fw-bolder  bg-secondary mb-3">
 														<th>رقم المريض</th>
 														<th>اسم المريض </th>
-														<th>الايميل</th>
+														<th>الهاتف</th>
 														<th>العنوان</th>
 														{{-- <th>تاريخ الميلاد</th> --}}
 														{{-- <th>الهاتف</th> --}}
@@ -102,76 +102,133 @@
                 <!--end::Close-->
             </div>
 
-            <div class="modal-body">
-				<div class="container bootstrap snippets bootdey">
-					<div class="panel-body inf-content">
-						<div class="row">
-							<div class="col-md-4">
-								<img id="user_photo" alt="" style="width:600px;" title=""  class="img-circle img-thumbnail isTooltip" src="" data-original-title="Usuario">
+            <div class="modal-body row">
+													<div class="row">
+											<div class="col-xl-12 mb-2">
+										<div class="card border-3 border-dark mb-1">
+										<div class="card-header alpha-brown p-1">
+										<h6 class="card-title">
+										البيانات الأساسية
+										</h6>
+										</div>
+										<div>
+										<div class="card-body">
+										<div class="row">
+										<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">رقم الهوية</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">803216977</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">الاسم رباعي</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">علاء عبد الرحيم سلامه اكي</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">تاريخ الميلاد</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">11/05/1991</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">العمر</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">30</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">اسم الأم</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">سحر</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">رقم هوية الأم</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">906885686</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">رقم هوية الأب</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">930975834</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">رقم هوية الزوجة</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">عدد الأبناء</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">الحالة الاجتماعية</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">اعزب</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">الجنس</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">ذكر</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">الديانة</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">مسلم</div>
+										</div>
+										</div>
+										</div>
+																																								<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">تاريخ تقديم الطلب</label>
+										<div class="col-lg-8">
+										<div class="form-control-plaintext border px-2 alpha-slate " style="">16/06/2021</div>
+										</div>
+										</div>
+										</div>
+																																																			<div class="col-xl-6">
+										<div class="form-group row mb-1">
+										<label class="col-form-label col-lg-4">إرفاق صورة شخصية حديثة</label>
+										<div class="col-lg-8">
+														<div class="form-control-plaintext border px-2 alpha-slate " style=""><a href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-9791.png" target="_blank">إرفاق صورة شخصية حديثة</a></div>
+										</div>
+										</div>
 
-							</div>
-							<div class="col-md-8">
-								<strong>بيانات المستخدم</strong><br>
-								<div class="table-responsive">
-								<table class="table table-user-information">
-									<tbody>
+       
 
-										<tr>
-											<td>
-												<strong >
-													<span class="glyphicon glyphicon-asterisk text-primary"></span>
-													الإسـم
-												</strong>
-											</td>
-											<td class="text-primary" id="user_name">
-                                                <td class="text-primary" id="user_name">
-											</td>
-
-										</tr>
-										<tr>
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-user  text-primary"></span>
-													 البريد الإلكتروني
-												</strong>
-											</td>
-											<td class="text-primary" id="user_email">
-
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-cloud text-primary"></span>
-													الهاتف
-												</strong>
-											</td>
-											<td class="text-primary" id="user_phone">
-
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<strong>
-													<span class="glyphicon glyphicon-bookmark text-primary"></span>
-													العنوان
-												</strong>
-											</td>
-											<td class="text-primary" id="user_address">
-
-											</td>
-										</tr>
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" id='user_status' class="btn" data-bs-dismiss="modal"></button>
-
-            </div>
-        </div>
-    </div>
-</div>
+         
 <!--end::Modal-->
 
 	@endsection
@@ -336,15 +393,8 @@
 
                 // return the result
                 success: function(result) {
-					if(result.status==0){
-						var status = 'غير فعال';
-						$('#user_status').removeClass('btn-success');
-						$('#user_status').addClass('btn-danger');
-					}else if (result.status==1){
-						var status = 'فعال';
-						$('#user_status').addClass('btn-success');
-						$('#user_status').removeClass('btn-danger');
-					}
+					
+						
 					//console.log(result)
                     $('#smallModal').modal("show");
 					$('#user_name').html(result.name);
