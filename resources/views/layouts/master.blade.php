@@ -1109,7 +1109,7 @@
 						<div class="menu-sub menu-sub-accordion menu-active-bg">
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 								<div class="menu-item">
-									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+									<a class="menu-link" href="{{ route('patients.index') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
@@ -1118,7 +1118,7 @@
 								</div>
 
 								<div class="menu-item">
-									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+									<a class="menu-link" href="{{ route('patients.create') }}patients.create">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
@@ -1126,7 +1126,7 @@
 									</a>
 								</div>
 								<div class="menu-item">
-									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+									<a class="menu-link" href="">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
@@ -1134,7 +1134,7 @@
 									</a>
 								</div>
 								<div class="menu-item">
-									<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+									<a class="menu-link" href="">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>

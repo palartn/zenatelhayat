@@ -9,7 +9,7 @@
 												<span class="text-muted mt-1 fw-bold fs-7">count(Number)</span>
 											</h3>profile_photo_path
 											<div style="font-family:NotoKufiArabic" class="card-toolbar "  data-bs-placement="top" data-bs-trigger="hover" >
-												<a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
+												<a href="{{ route('patients.create') }}" class="btn btn-sm btn-primary">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
 												<span class="svg-icon svg-icon-3" >
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -17,7 +17,7 @@
 														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
 													</svg>
 												</span >
-												<!--end::Svg Icon-->مستخدم جديد</a>
+												<!--end::Svg Icon-->إضافة مريض</a>
 
 											</div>
 										</div>
@@ -37,11 +37,16 @@
 												<table class="table table-striped table-row-bordered gy-5 gs-7" id="kt_datatable" style="margin-top: 13px !important">
 													<thead>
 													<tr class="fw-bolder  bg-secondary mb-3">
-														<th>رقم المستخدم</th>
-														<th>اسم المستخدم </th>
+														<th>رقم المريض</th>
+														<th>اسم المريض </th>
 														<th>الايميل</th>
 														<th>العنوان</th>
-														<th>الإجراءات</th>
+														{{-- <th>تاريخ الميلاد</th> --}}
+														{{-- <th>الهاتف</th> --}}
+														{{-- <th>الجنس</th> --}}
+														{{-- <th>تاريخ أخر زيارة</th> --}}
+														<th>الاجراءات  </th>
+													
 
 													</tr>
 													</thead>
@@ -201,7 +206,7 @@
 		}
 	});
 	var csrf = "{{csrf_token()}}";
-	var DATA_URL = "{{ route('users.getData') }}";
+	var DATA_URL = "{{ route('patients.getData') }}";
 	var SITEURL = '{{URL::to('')}}';
 	var from_date = -1;
 	var to_date = -1;
@@ -215,7 +220,7 @@
 
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 {{--    <script src="{{ asset('assets/js/pages/features/miscellaneous/sweetalert2.js') }}" type="text/javascript"></script>--}}
-<script src="{{ asset('assets/js/custom/pages/datatable/users/data-json.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-patients.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/custom/documentation/forms/select2.js') }}"></script>
 <script src="{{ asset('assets/js/custom/modals/new-target.js') }}"></script>
 <script src="{{ asset('assets/js/custom/iziModal/iziModal.min.js')}}"></script>

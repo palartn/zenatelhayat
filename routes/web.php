@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,10 @@ Route::get('/', function () {
 })->middleware('auth')->name('homepage');
 
 Route::resource('users',UsersController::class)->middleware('auth');
+Route::resource('patients',PatientsController::class)->middleware('auth');
 
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
+Route::post('patients/getData',[PatientsController::class, 'getData'])->name('patients.getData');
 
 
 Route::get('/dashboard', function () {

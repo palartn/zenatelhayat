@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
         //    $table->('idc'); //رقم هوية المريض
-        $table->string('username')->unique();
+        //$table->string('username')->unique();
+        //$table->string('password');
             $table->string('email')->nullable()->unique();
-            $table->string('password');
             $table->string('patient_fname'); // إسم المريض الأول
             $table->string('patient_sname'); // إسم المريض الثاني
             $table->string('patient_tname'); //  إسم المريض الثالث
