@@ -93,7 +93,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title ">معلومات المستخدم</h5>
+                <h5 class="modal-title ">البيانات الأساسية للمريض</h5>
                 <p id="demo"></p>
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -103,15 +103,6 @@
             </div>
 
             <div class="modal-body row">
-													<div class="row">
-											<div class="col-xl-12 mb-2">
-										<div class="card border-3 border-dark mb-1">
-										<div class="card-header alpha-brown p-1">
-										<h6 class="card-title">
-										البيانات الأساسية
-										</h6>
-										</div>
-										<div>
 										<div class="card-body">
 										<div class="row">
 										<div class="col-xl-6">
