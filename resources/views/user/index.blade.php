@@ -339,7 +339,7 @@
 					$('#user_gender').html(result.gender);
 					$('#user_address').html(result.address);
 					$('#user_status').html(result.status);
-                //    $('#user_photo').attr('src',`/storage/${result.profile_photo_path}`);
+                    $('#user_photo').attr('src',`/storage/${result.profile_photo_path}`);
                     // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                     $('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
