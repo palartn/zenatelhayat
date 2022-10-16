@@ -339,7 +339,8 @@
 					$('#user_gender').html(result.gender);
 					$('#user_address').html(result.address);
 					$('#user_status').html(result.status);
-                    $('#user_photo').html(result.profile_photo_path);
+                //    $('#user_photo').attr('src',`/storage/${result.profile_photo_path}`);
+                    // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                     $('#user_created_at').html(result.created_at);
                     $('#smallBody').html(result).show();
                 },
@@ -369,12 +370,9 @@ setTimeout(function() {
         $('.alert-session-flash').fadeOut('low');
     }, 3000); // <-- time in milliseconds
 
-    let text = document.setElementById("value",user_photo);
 
-    console.log(text);
-
-   // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
-    $('#user_photo').attr("src", text);
+    // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
+   // $('#user_photo').attr("src", text);
 
 
 </script>
