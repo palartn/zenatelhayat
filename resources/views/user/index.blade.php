@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+<div id="kt_content_container" class="container-xxl mt-6">
 
 									<div class="card mb-5 mb-xl-8">
 										<!--begin::Header-->
@@ -7,7 +8,7 @@
 											<h3 class="card-title align-items-start flex-column">
 												<span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المستخدمين</span>
 												<span class="text-muted mt-1 fw-bold fs-7">count(Number)</span>
-											</h3>profile_photo_path
+											</h3>
 											<div style="font-family:NotoKufiArabic" class="card-toolbar "  data-bs-placement="top" data-bs-trigger="hover" >
 												<a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -78,13 +79,14 @@
 		<!--end::Svg Icon-->
 	</div>
 	<!--end::Scrolltop-->
-
+</div>
 	<!--end::Main-->
 	<script>var hostUrl = "assets/";</script>
 
 
 <!--begin::Modal-->
-<div  class="modal fade" tabindex="-1" id="smallModal">
+
+<div  class="modal fade " tabindex="-1" id="smallModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

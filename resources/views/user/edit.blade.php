@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+<div id="kt_content_container" class="container-xxl mt-6">
 
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
@@ -260,5 +260,5 @@
 		<!--end::Form-->
 	</div>
 	<!--end::Card body-->
-</div>
+</div></div>
 @endsection

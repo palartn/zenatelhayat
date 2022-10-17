@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+<div id="kt_content_container" class="container-xxl mt-6">
 									<div class="card mb-5 mb-xl-8">
 										<!--begin::Header-->
 										<div class="card-header border-0 pt-5">
@@ -46,7 +46,7 @@
 														{{-- <th>الجنس</th> --}}
 														{{-- <th>تاريخ أخر زيارة</th> --}}
 														<th>الاجراءات  </th>
-													
+
 
 													</tr>
 													</thead>
@@ -217,9 +217,9 @@
 										</div>
 										</div>
 
-       
 
-         
+
+</div>
 <!--end::Modal-->
 
 	@endsection
@@ -384,8 +384,8 @@
 
                 // return the result
                 success: function(result) {
-					
-						
+
+
 					//console.log(result)
                     $('#smallModal').modal("show");
 					$('#user_name').html(result.name);

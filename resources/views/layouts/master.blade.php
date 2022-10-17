@@ -842,7 +842,7 @@
             <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
                 <!--begin::Symbol-->
                 <div class="symbol symbol-50px">
-                    <img src="assets/media/avatars/150-26.jpg" alt="">
+                    <img src="storage/{{ \Auth::user()->profile_photo_path;  }}" alt="">
                 </div>
                 <!--end::Symbol-->
                 <!--begin::Wrapper-->
@@ -852,10 +852,10 @@
                         <!--begin::Info-->
                         <div class="flex-grow-1 me-2">
                             <!--begin::Username-->
-                            <a href="#" class="text-white text-hover-primary fs-6 fw-bold">Paul Melone</a>
+                            <a href="#" class="text-white text-hover-primary fs-6 fw-bold">{{Auth::user()->name}}</a>
                             <!--end::Username-->
                             <!--begin::Description-->
-                            <span class="text-gray-600 fw-bold d-block fs-8 mb-1">Python Dev</span>
+                            <span class="text-gray-600 fw-bold d-block fs-8 mb-1">{{Auth::user()->name}}</span>
                             <!--end::Description-->
                             <!--begin::Label-->
                             <div class="d-flex align-items-center text-success fs-9">
@@ -1027,8 +1027,12 @@
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="../../demo8/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
+                                <div class="menu-item px-5 ">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="btn btn-primary btn-sm" type="submit">Logout</button>
+
+                                      </form>
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu separator-->
@@ -1069,7 +1073,7 @@
 
 					<div class="menu-item">
 
-						<a class="menu-link " href='{{ route('users.index') }}'>
+						<a class="menu-link {{ (request()->is('users')) ? 'active' : ''}} " href='{{ route('users.index') }}'>
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 								<span class="svg-icon svg-icon-2">
@@ -1103,39 +1107,39 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">المرضى</span>
+							<span class="menu-title ">المرضى</span>
 							<span class="menu-arrow"></span>
 						</span>
-						<div class="menu-sub menu-sub-accordion menu-active-bg">
+						<div class="menu-sub menu-sub-accordion menu-active-bg ">
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 								<div class="menu-item">
-									<a class="menu-link" href="{{ route('patients.index') }}">
+									<a  class="menu-link {{ (request()->is('patients')) ? 'active' : ''}}" href="{{ route('patients.index') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
-										<span class="menu-title">كافة المرضى</span>
+										<span class="menu-title ">كافة المرضى</span>
 									</a>
 								</div>
 
 								<div class="menu-item">
-									<a class="menu-link" href="{{ route('patients.create') }}patients.create">
+									<a class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
-										<span class="menu-title">إضافة مريض</span>
+										<span class="menu-title ">إضافة مريض</span>
+									</a>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link {{ (request()->is('patients/edit')) ? 'active' : ''}}" href="">
+										<span class="menu-bullet">
+											<span class="bullet bullet-dot"></span>
+										</span>
+										<span class="menu-title ">تعديل بيانات مريض</span>
 									</a>
 								</div>
 								<div class="menu-item">
 									<a class="menu-link" href="">
-										<span class="menu-bullet">
-											<span class="bullet bullet-dot"></span>
-										</span>
-										<span class="menu-title">تعديل بيانات مريض</span>
-									</a>
-								</div>
-								<div class="menu-item">
-									<a class="menu-link" href="">
-										<span class="menu-bullet">
+										<span class="menu-bullet {{ (request()->is('patients/delete')) ? 'active' : ''}}">
 											<span class="bullet bullet-dot"></span>
 										</span>
 										<span class="menu-title">حذف بيانات مريض</span>

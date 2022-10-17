@@ -13,6 +13,7 @@
 									<!--begin::Statistics Widget 5-->
 									<a href="#" class="card bg-body-white hoverable card-xl-stretch mb-xl-8">
 										<!--begin::Body-->
+
 										<div class="card-body">
 											<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
 											<span class="svg-icon svg-icon-primary svg-icon-3x ms-n1">
@@ -23,7 +24,7 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											
+
 											<div class="text-gray-900 fw-bolder fs-2 mb-2 mt-5">{{App\Models\User::count()}}</div>
 											<div class="fw-bold text-gray-400">إجمالي عدد المستخدمين</div>
 										</div>
@@ -607,7 +608,7 @@
 																	<td class="text-end">
 																		<span class="badge badge-light-danger">Rejected</span>
 																	</td>
-												
+
 									<!--end::List Widget 7-->
 								</div>
 								<div class="col-xl-6">
@@ -827,8 +828,8 @@
 					<!--end::Post-->
 				</div>
 				<!--end::Content-->
-		
-	
+
+
 
 	<!--begin::Scrolltop-->
 	<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">

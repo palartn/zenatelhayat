@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+<div id="kt_content_container" class="container-xxl mt-6">
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
 	<div class="card-header pt-7" id="kt_chat_contacts_header">
@@ -224,8 +224,8 @@
 							@foreach($roles as $role)
 							<option value="{{ $role->id }}">{{ $role->name }}</option>
 							@endforeach
-						
-							
+
+
 						</select>
 						<!--end::Input-->
 					</div>
@@ -254,7 +254,7 @@
 	</div>
 	<!--end::Card body-->
 </div>
-
+</div>
 	@endsection
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
