@@ -240,7 +240,7 @@
 			</div>
 			<!--end::Row-->
             <label class="form-check form-switch form-check-custom form-check-solid">
-                <input class="form-check-input" type="checkbox" value="1" name="status" checked="checked">
+                <input class="form-check-input" type="checkbox" value="{{$user->status}}" name="status" checked="checked">
                 <span class="form-check-label fw-bold text-muted">فعال</span>
             </label>
 

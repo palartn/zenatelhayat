@@ -53,8 +53,6 @@ class UsersController extends Controller
             'phone' => 'required|min:7',
             'address' => 'required',
             'profile_photo_path' => ['nullable', 'image', 'dimensions:min_width=200,min_height=200'],
-
-
         ]);
         if ($request->hasFile('profile_photo')) {
             $file = $request->file('profile_photo');
@@ -117,7 +115,7 @@ class UsersController extends Controller
         $file = $request->file('profile_photo');
         $path = $file->store('users_photos', 'public');
 
-       
+
         $user->update([
 
             'name' => $name = $request->name,
@@ -128,10 +126,13 @@ class UsersController extends Controller
             'gender' => $gender = $request->gender,
             'status' => $status = $request->status,
             'profile_photo_path' => $path,
-            
-        ]);  dd($status = $request->status);
-       
-     
+
+        ]);
+        if($request->status==''){
+$status=0;
+        }
+
+
 
         if ($previous && $previous != $user->profile_photo_path) {
             Storage::disk('public')->delete($previous);

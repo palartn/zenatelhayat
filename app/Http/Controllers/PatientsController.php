@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
+
 class PatientsController extends Controller
 {
     /**
@@ -13,25 +14,20 @@ class PatientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Patient $user)
     {
       //  dd(Patient::all());
-        return view('patient.index');
+        return view('patient.index',compact('user'));
     }
     public function getData(Request $request)
     {
-        
-
-
         $draw = $request->get('draw');
         $start = $request->get("start");
         $rowperpage = $request->get("length"); // Rows display per page
-
         $columnIndex_arr = $request->get('order');
         $columnName_arr = $request->get('columns');
         $order_arr = $request->get('order');
         $search_arr = $request->get('search');
-
         $columnIndex = $columnIndex_arr[0]['column']; // Column index
         $columnName = $columnName_arr[$columnIndex]['data']; // Column name
         $columnSortOrder = $order_arr[0]['dir']; // asc or desc
@@ -80,6 +76,7 @@ class PatientsController extends Controller
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('patients.patient_fname', 'like', '%' . $searchValue . '%')
+                ->where('patients.idc', 'like', '%' . $searchValue . '%')
                 ->where('patients.mobile', 'like', '%' . $searchValue . '%')
                 ->orWhere('patients.address', $searchValue);
 
@@ -91,6 +88,8 @@ class PatientsController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.address', $filter_3);
+        if ($filter_4 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.idc', $filter_4);
 
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
@@ -102,33 +101,33 @@ class PatientsController extends Controller
             $items = $items
                 ->where('patients.patient_fname', 'like', '%' . $searchValue . '%')
                 ->orWhere('patients.mobile', 'like', '%' . $searchValue . '%')
-                ->orWhere('patients.address', $searchValue);
+                ->orWhere('patients.address', $searchValue)
+                ->orWhere('patients.idc', $searchValue);
 
 
         if ($from_date != -1)
             $items = $items->whereBetween('patients.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
             $items = $items->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
-       
             if ($filter_2 != -1)
             $items = $items->where('patients.mobile', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $items = $items->whereIn('patients.address', $filter_3);
+            if ($filter_4 != -1)
+            $items = $items->where('patients.idc', 'like', '%' . $filter_4 . '%');
         $items = $items->select('patients.*')
             ->skip($start)
             ->take($rowperpage)
             ->get();
 
-       
+
 
 
         $data = [];
         foreach ($items as $item) {
-
-
-
             $data[] = [
                 'id' => $item->id,
+                'idc' => $item->idc,
                 'name' => $item->patient_fname .' '. $item->patient_sname .' '. $item->patient_tname .' '. $item->patient_lname,
                 'mobile' => $item->mobile,
                 'address' => $item->address,
@@ -136,6 +135,7 @@ class PatientsController extends Controller
                 "actions" => null
 
             ];
+
         }
 
         $response = array(

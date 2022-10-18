@@ -19,6 +19,7 @@ return new class extends Migration
         //$table->string('username')->unique();
         //$table->string('password');
             $table->string('email')->nullable()->unique();
+            $table->integer('idc')->unique();
             $table->string('patient_fname'); // إسم المريض الأول
             $table->string('patient_sname'); // إسم المريض الثاني
             $table->string('patient_tname'); //  إسم المريض الثالث
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->string('address'); // العنوان
             $table->integer('mobile'); // جوال
             $table->integer('mobile_second')->nullable(); // جوال ثاني
-            $table->boolean('gender'); // الجنس
+            $table->enum('gender',['Male','Female'])->default('Female'); // الجنس
             $table->string('husband_name')->nullable(); //اسم الزوج
             $table->string('husband_occupation')->nullable(); // عمل الزوج
             $table->date('husband_dob')->nullable(); // تاريخ ميلاد الزوج

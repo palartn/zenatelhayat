@@ -86,9 +86,10 @@ var KTDatatablesDataSourceAjaxServer = function() {
             },
             columns: [
                 // {data: 'id',width: 100},
-                {data: 'id',width: 80},
+                {data: 'id',width: 40},
+                {data: 'idc',width: 80},
                 {data: 'name',width: 180},
-                {data: 'mobile',width: 120},
+                {data: 'mobile',width: 80},
                 {data: 'address',width: 120},
                 {data: 'actions',width: 120},
 
@@ -100,7 +101,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     orderable: false,
                     render: function(data, type, full, meta) {
                             return '\
-							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
+							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
 								<i class="las la-info"></i>\
 							</a>\
                             <a href="'+SITEURL+'/patients/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
