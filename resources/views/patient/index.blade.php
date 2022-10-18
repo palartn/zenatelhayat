@@ -121,8 +121,8 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">رقم الهوية</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">
-                                            803216977</div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_idc">
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -139,8 +139,8 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">
-                                            11/05/1991</div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_dob">
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +155,9 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">اسم الأم</label>
+                                    <label class="col-form-label col-lg-4">البريد الإلكتروني</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">سحر
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_email">
                                         </div>
                                     </div>
                                 </div>
@@ -422,13 +422,13 @@
                                         // return the result
                                         success: function(result) {
 
-console.log(result);
+                                            console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
                                             $('#patient_name').html(result.patient_fname+' '+result.patient_sname+' '+result.patient_tname+' '+result.patient_lname);
+                                            $('#patient_idc').html(result.idc);
+                                            $('#patient_dob').html(result.patient_dob);
                                             $('#patient_email').html(result.email);
-                                            $('#patient_gender').html(result.gender);
-                                            $('#patient_address').html(result.address);
                                             $('#patient_status').html(status);
                                             $('#patient_photo').attr('src', `/storage/${result.profile_photo_path}`);
                                             $('#patient_phone').html(result.phone);
