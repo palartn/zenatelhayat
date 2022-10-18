@@ -119,18 +119,18 @@
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم الهوية</label>
+                                    <label class="col-form-label col-lg-4">الاسم رباعي</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_idc">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_name">
                                             </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الاسم رباعي</label>
+                                    <label class="col-form-label col-lg-4">رقم الهوية</label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_name"
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_idc"
                                             style=""></div>
                                     </div>
                                 </div>
@@ -164,10 +164,10 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم هوية الأم</label>
+                                    <label class="col-form-label col-lg-4">جـوال</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">
-                                            906885686</div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile">
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -198,24 +198,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الحالة الاجتماعية</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">اعزب
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الجنس</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">ذكر
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
+                           
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">الديانة</label>
@@ -227,10 +211,10 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ تقديم الطلب</label>
+                                    <label class="col-form-label col-lg-4">تاريخ التسجيل</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">
-                                            16/06/2021</div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_created_at">
+                                           </div>
                                     </div>
                                 </div>
                             </div>
@@ -429,6 +413,8 @@
                                             $('#patient_idc').html(result.idc);
                                             $('#patient_dob').html(result.patient_dob);
                                             $('#patient_email').html(result.email);
+                                            $('#patient_mobile').html(result.mobile);
+                                            $('#patient_created_at').html(result.created_at);
                                             $('#patient_status').html(status);
                                             $('#patient_photo').attr('src', `/storage/${result.profile_photo_path}`);
                                             $('#patient_phone').html(result.phone);
