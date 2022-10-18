@@ -130,7 +130,7 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">الاسم رباعي</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " id="patient_fname"
+                                                                               <div class="form-control-plaintext border px-2 alpha-slate " id="patient_fname"
                                             style=""></div>
                                     </div>
                                 </div>
@@ -422,11 +422,11 @@
                                             $('#smallModal').modal("show");
                                             $('#patient_name').html(result.fname);
                                             $('#patient_email').html(result.email);
-                                            $('#user_phone').html(result.phone);
-                                            $('#user_gender').html(result.gender);
-                                            $('#user_address').html(result.address);
-                                            $('#user_status').html(status);
-                                            $('#user_photo').attr('src', `/storage/${result.profile_photo_path}`);
+                                            $('#patient_gender').html(result.gender);
+                                            $('#patient_address').html(result.address);
+                                            $('#patient_status').html(status);
+                                            $('#patient_photo').attr('src', `/storage/${result.profile_photo_path}`);
+                                            $('#patient_phone').html(result.phone);
                                             // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                                             $('#user_created_at').html(result.created_at);
                                             $('#smallBody').html(result).show();
