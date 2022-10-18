@@ -100,10 +100,12 @@
 
 
     <!--begin::Modal-->
+
     <div class="modal fade" tabindex="-1" id="smallModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-secondary">
+
                     <h5 class="modal-title ">البيانات الأساسية للمريض</h5>
                     <p id="demo"></p>
                     <!--begin::Close-->
@@ -146,9 +148,9 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">العمر</label>
+                                    <label class="col-form-label col-lg-4">الوظيفة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">30
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_occupation">
                                         </div>
                                     </div>
                                 </div>
@@ -173,64 +175,52 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم هوية الأب</label>
+                                    <label class="col-form-label col-lg-4">جوال ثاني</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile_second">
                                             930975834</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم هوية الزوجة</label>
+                                    <label class="col-form-label col-lg-4">العنـوان</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_address">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">عدد الأبناء</label>
+                                    <label class="col-form-label col-lg-4">الجنس</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_gender">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                           
-                           
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الديانة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="">مسلم
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">تاريخ التسجيل</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_created_at">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_created_at">تاريخ التسجيل
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">ملاحظــات</label>
+                                    <div class="col-lg-12">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_notes">
                                            </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">إرفاق صورة شخصية حديثة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style=""><a
-                                                href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-9791.png"
-                                                target="_blank">إرفاق صورة شخصية حديثة</a></div>
-                                    </div>
-                                </div>
 
-
-
-                            </div>
                             <!--end::Modal-->
                         @endsection
 
@@ -392,21 +382,21 @@
                                 });
                                 // استدعاء المودال
                                 $(document).on('click', '#smallButton1', function(event) {
-                                
+
                                     event.preventDefault();
                                     let id = $(this).attr('data-attr');
                                     // console.log(id);
                                     // alert(1);
                                     // alert(id)
-                                    $.ajax({ 
+                                    $.ajax({
                                         type: "GET",
                                         url: SITEURL +'/patients/'+id,
-                                       
+
 
                                         // return the result
                                         success: function(result) {
 
-                                            console.log(result);
+                                          //  console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
                                             $('#patient_name').html(result.patient_fname+' '+result.patient_sname+' '+result.patient_tname+' '+result.patient_lname);
@@ -414,8 +404,12 @@
                                             $('#patient_dob').html(result.patient_dob);
                                             $('#patient_email').html(result.email);
                                             $('#patient_mobile').html(result.mobile);
+                                            $('#patient_occupation').html(result.occupation);
+                                            $('#patient_mobile_second').html(result.mobile_second);
+                                            $('#patient_address').html(result.address);
+                                            $('#patient_gender').html(result.gender);
                                             $('#patient_created_at').html(result.created_at);
-                                            $('#patient_status').html(status);
+                                            $('#patient_notes').html(result.notes);
                                             $('#patient_photo').attr('src', `/storage/${result.profile_photo_path}`);
                                             $('#patient_phone').html(result.phone);
                                             // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);

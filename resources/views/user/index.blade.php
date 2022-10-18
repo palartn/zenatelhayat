@@ -99,7 +99,7 @@
     <div class="modal fade " tabindex="-1" id="smallModal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-secondary">
                     <h5 class="modal-title ">معلومات المستخدم</h5>
                     <p id="demo"></p>
                     <!--begin::Close-->
