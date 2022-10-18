@@ -130,7 +130,7 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">الاسم رباعي</label>
                                     <div class="col-lg-8">
-                                                                               <div class="form-control-plaintext border px-2 alpha-slate " id="patient_fname"
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_name"
                                             style=""></div>
                                     </div>
                                 </div>
@@ -408,19 +408,24 @@
                                 });
                                 // استدعاء المودال
                                 $(document).on('click', '#smallButton1', function(event) {
+                                
                                     event.preventDefault();
                                     let id = $(this).attr('data-attr');
+                                    // console.log(id);
+                                    // alert(1);
                                     // alert(id)
-                                    $.ajax({
-                                        url: 'patients/' + id,
+                                    $.ajax({ 
+                                        type: "GET",
+                                        url: SITEURL +'/patients/'+id,
+                                       
 
                                         // return the result
                                         success: function(result) {
 
-
+console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
-                                            $('#patient_name').html(result.fname);
+                                            $('#patient_name').html(result.patient_fname+' '+result.patient_sname+' '+result.patient_tname+' '+result.patient_lname);
                                             $('#patient_email').html(result.email);
                                             $('#patient_gender').html(result.gender);
                                             $('#patient_address').html(result.address);

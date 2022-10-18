@@ -262,7 +262,7 @@
                                 $('#Form_').trigger("reset");
                                 $('#ajax-modal').iziModal('open');
                                 $('#ajax-modal').iziModal('setTitle', "إضافة ثابت جديد");
-                                $('#ajax-modal').iziModal('setIcon', 'fa fa-plus');
+                                $('#ajax- modal').iziModal('setIcon', 'fa fa-plus');
 
                             });
 
