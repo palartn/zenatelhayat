@@ -35,19 +35,80 @@
     @endif --}}
 	<!--end::Card header-->
 	<!--begin::Card body-->
+	<form class="kt-form kt-form--label-right" enctype="multipart/form-data" accept-charset="utf-8" id="from_view_cust" name="from_view_cust" autocomplete='off'>
+		<div class="kt-portlet__body">
+			<div class="form-group row">
+				<div class="col-lg-2">
+					<div class="form-group">
+						<label>رقم الهوية</label>
+						<input name="WORKER_ID_IN" id="WORKER_ID_IN" type="text"
+							   class="form-control kt-font-info kt-font-bolder rtlchange" maxlength="9" minlenght="9"
+							   data-inputmask="'alias' : 'integer'" placeholder="رقم الهوية"
+							   aria-describedby="basic-addon1">
+					</div>
+				</div>
+				
+				<div class="col-lg-2">
+					<div class="form-group">
+						<label>الاسم الأول</label>
+						<div class="input-group">
+							<div class="fs-4 fw-semibold form-label"><span class="input-group-text"><i
+										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
+							<input name="MOI_F_NAME_IN" id="MOI_F_NAME_IN" type="text"
+								   class="form-control form-control-solid " placeholder="الاسم الأول"
+								   aria-describedby="basic-addon1">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="form-group">
+						<label>الاسم الثاني</label>
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text"><i
+										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
+							<input name="MOI_S_NAME_IN" id="MOI_S_NAME_IN" type="text"
+								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الثاني"
+								   aria-describedby="basic-addon1">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="form-group">
+						<label>الاسم الثالث</label>
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text"><i
+										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
+							<input name="MOI_T_NAME_IN" id="MOI_T_NAME_IN" type="text"
+								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الثالث"
+								   aria-describedby="basic-addon1">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="form-group">
+						<label>الاسم الرابع</label>
+						<div class="input-group">
+							<div class="input-group-prepend"><span class="input-group-text"><i
+										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
+							<input name="MOI_L_NAME_IN" id="MOI_L_NAME_IN" type="text"
+								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الرابع"
+								   aria-describedby="basic-addon1">
+						</div>
+					</div>
+				</div>
+
+	
 	<div class="card-body pt-5">
-		<!--begin::Form-->
+	<!--begin::Form-->
 		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('patients.store')}}" enctype="multipart/form-data">
             @csrf
-           <div class="row xl-3 mb-7 ">
-            <label class="fs-4 fw-semibold form-label mt-3" for="fname"> الإسم الأول</label>
+           <div class="row xl-12">
+            <label class="fs-4 fw-semibold form-label " for="fname"> الإسم الأول</label>
                 <div class="col">
                   <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="الإسم الأول" aria-label="First name">
                 </div>
-
-                <div class="col">
-                <label class="fs-4 fw-semibold form-label mt-3" for="sname"> إسم الأب</label>
-
+                <div class="col xl-3">
+                <label class="fs-4 fw-semibold form-label" for="sname"> إسم الأب</label>
                   <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="Last name" aria-label="Last name">
                 </div>
                 <div class="col">
