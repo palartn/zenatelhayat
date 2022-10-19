@@ -1,4 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.mas<div id="kt_content_container" class="container-xxl mt-6">
+ter')
 @section('content')
 <div id="kt_content_container" class="container-xxl mt-6">
 

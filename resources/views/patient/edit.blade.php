@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+<div id="kt_content_container" class="container-xxl mt-6">
 
 <div class="row">
 	<div class="col-xl-12 mb-2">
@@ -16,7 +17,7 @@
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">رقم الهوية</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">803216977</div>
+<input class="form-control form-control-solid" type="text" value="90923333" >
 </div>
 </div>
 </div>
@@ -24,39 +25,35 @@
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">الاسم رباعي</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">علاء عبد الرحيم سلامه اكي</div>
-</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
 </div>
 </div>
 																														<div class="col-xl-6">
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">11/05/1991</div>
-</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
 </div>
 </div>
 																														<div class="col-xl-6">
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">العمر</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">30</div>
-</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
 </div>
 </div>
 																														<div class="col-xl-6">
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">اسم الأم</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">سحر</div>
-</div>
+<input class="form-control form-control-solid" type="text" value="90923333" ></div>
 </div>
 </div>
 																														<div class="col-xl-6">
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">رقم هوية الأم</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">906885686</div>
+    <input class="form-control form-control-solid" type="text" value="fffff" >
 </div>
 </div>
 </div>
@@ -64,15 +61,16 @@
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">رقم هوية الأب</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">930975834</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" >
 </div>
 </div>
 </div>
-																														<div class="col-xl-6">
+
+<div class="col-xl-6">
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">رقم هوية الزوجة</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" >
 </div>
 </div>
 </div>
@@ -80,7 +78,7 @@
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">عدد الأبناء</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">&nbsp;</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" >
 </div>
 </div>
 </div>
@@ -88,77 +86,21 @@
 <div class="form-group row mb-1">
 <label class="col-form-label col-lg-4">الحالة الاجتماعية</label>
 <div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">اعزب</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الجنس</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">ذكر</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الديانة</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">مسلم</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">تاريخ تقديم الطلب</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">16/06/2021</div>
-</div>
-</div>
-</div>
-																																									<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">إرفاق صورة شخصية حديثة</label>
-<div class="col-lg-8">
-				<div class="form-control-plaintext border px-2 alpha-slate " style=""><a href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-9791.png" target="_blank">إرفاق صورة شخصية حديثة</a></div>
-</div>
-</div>
-</div>
-																																								<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">بيانات جواز السفر</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>الاسم باللغة الانجليزية</th>
-<th>نوع الجواز</th>
-<th>تاريخ الانتهاء</th>
-<th>رقم جواز السفر</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-										</div>
+    <input class="form-control form-control-solid" type="text" value="90923333" >
 </div>
 </div>
 </div>
 </div>
-												<div class="col-xl-12 mb-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-12 mb-2">
 <div class="card border-3 border-dark mb-1">
 <div class="card-header alpha-brown p-1">
 <h6 class="card-title">
-عنوان السكن وبيانات الاتصال والتواصل المسجلة
+ملف المريض وبياناتة
 </h6>
 </div>
 <div>
@@ -926,8 +868,8 @@
 </div>
 </div>
 </div>
-</div>								
-
+</div>
+</div>
 
 
 @endsection
