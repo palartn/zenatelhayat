@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 
 class PatientsController extends Controller
@@ -155,7 +156,8 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        return view('patient.create');
+        $roles = Role::all();
+        return view('patient.create', compact('roles'));
     }
 
     /**
@@ -166,7 +168,57 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $fname = $request->fname;
+            $sname = $request->sname;
+            $tname = $request->tname;
+            $lname = $request->lname;
+            $idc = $request->idc;
+            $dob = $request->dob;
+            $occupation = $request->occupation;
+            $email = $request->email;
+            $mobile = $request->mobile;
+            $mobile_second = $request->mobile_second;
+            $address = $request->address;
+            $gender = $request->gender;
+            $husband_name = $request->husband_name;
+            $husband_occupation = $request->husband_occupation;
+            $husband_dob = $request->husband_dob;
+            $notes = $request->notes;
+
+            $validated = $request->validate([
+                'fname' => 'required',
+                'sname' => 'required',
+                'lname' => 'required',
+                'idc' => 'required|min:9|unique:Patients',
+                'mobile' => 'required|min:7',
+            ]);
+
+            //Patients::create([]);
+            $add_patients = Patient::create([
+                'patient_fname' => $fname,
+                'patient_sname' => $sname,
+                'patient_tname' => $tname,
+                'patient_lname' => $lname,
+                'idc' => $idc,
+                'email' => $email,
+                'patient_dob' => $dob,
+                'occupation' => $occupation,
+                'address' => $address,
+                'mobile' => $mobile,
+                'mobile_second' => $mobile_second,
+                'gender' => $gender,
+                'husband_name' => $husband_name,
+                'husband_occupation' => $husband_occupation,
+                'notes' => $notes
+            ]);
+
+
+            // $add_patients->assignRole($request->role);
+
+
+            return redirect()->route('patients.create')->with('success', 'تم الإضافة بنجاح');
+
+
     }
 
     /**

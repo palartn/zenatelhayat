@@ -24,6 +24,7 @@
 		<h1>{{session()->get('success')}}</h1>
 	</div>
 	@endif
+
     {{-- @if ($errors->any())
     <div class="text-danger">
         <ul>
@@ -32,77 +33,88 @@
             @endforeach
         </ul>
     </div>
-    @endif --}}
-	<!--end::Card header-->
-	<!--begin::Card body-->
-	<form class="kt-form kt-form--label-right" enctype="multipart/form-data" accept-charset="utf-8" id="from_view_cust" name="from_view_cust" autocomplete='off'>
-		<div class="kt-portlet__body">
-			<div class="form-group row">
-		
+    @endif  --}}
 
-	
+
+
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-		<form method="POST" action="{{route('patients.store')}}" enctype="multipart/form-data">
+		<form method="POST" action="{{route('patients.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
            <div class="row ">
                 <div class="col xl-3">
 					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الأول</label>
-                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname"  value="{{ old('fname') }}" placeholder="الإسم الأول" aria-label="First name">
+                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname"  value="{{ old('fname') }}" placeholder="الإسم الأول" required>
+                  @error('fname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
+
                 </div>
                 <div class="col xl-3">
                 <label class="fs-4 fw-semibold form-label" for="sname"> إسم الأب</label>
-                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="sname"  value="{{ old('sname') }}" placeholder="إسم الأب" aria-label="Last name">
+                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="sname"  value="{{ old('sname') }}" placeholder="إسم الأب" required  >
+                  @error('sname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="col xl-3">
 					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الجد</label>
-                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="tname"  value="{{ old('tname') }}" placeholder="إسم الجد" aria-label="Last name">
+                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="tname"  value="{{ old('tname') }}" placeholder="إسم الجد" >
                 </div>
                 <div class="col xl-3">
 					<label class="fs-4 fw-semibold form-label" for="lname"> إسم العائلة</label>
-                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname"  value="{{ old('lname') }}" placeholder="إسم العائلة" aria-label="Last name">
+                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname"  value="{{ old('lname') }}" placeholder="إسم العائلة" required >
+                  @error('lname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
                 </div>
              </div>
 
 			 <div class="row mt-6">
 			 <div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="idc"> رقم الهوية</label>
-			  <input type="text" class="form-control form-control-solid @error('idc') is-invalid @enderror" name="idc"  value="{{ old('idc') }}" placeholder="رقم الهوية" aria-label="Last name">
+			  <input type="number" class="form-control form-control-solid @error('idc') is-invalid @enderror" name="idc"  value="{{ old('idc') }}" placeholder="رقم الهوية" required>
+              @error('idc')
+              <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+              @enderror
 			</div>
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="dob"> تاريخ الميلاد</label>
-			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('dob') is-invalid @enderror" id="kt_datepicker_1" name="dob"  value="{{ old('dob') }}" placeholder="تاريخ الميلاد" aria-label="Last name">
+			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('dob') is-invalid @enderror" id="kt_datepicker_1" name="dob"  value="{{ old('dob') }}" placeholder="تاريخ الميلاد" >
 			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 			</div>
-			
+
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="occupation"> الوظيفة</label>
-			  <input type="text" class="form-control form-control-solid @error('occupation') is-invalid @enderror" name="occupation"  value="{{ old('occupation') }}" placeholder="الوظيفة" aria-label="Last name">
+			  <input type="text" class="form-control form-control-solid @error('occupation') is-invalid @enderror" name="occupation"  value="{{ old('occupation') }}" placeholder="الوظيفة" >
 			</div>
-		
-		</div>
+
+
 
 		<div class="row mt-6">
 			<div class="col xl-3">
 			   <label class="fs-4 fw-semibold form-label" for="email"> البريد الإلكتروني</label>
-			 <input type="text" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email"  value="{{ old('email') }}" placeholder="البريد الإلكتروني" aria-label="Last name">
+			 <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email"  value="{{ old('email') }}" placeholder="البريد الإلكتروني" >
 		   </div>
 		   <div class="col xl-3">
 			   <label class="fs-4 fw-semibold form-label" for="mobile"> جوال</label>
-			 <input type="text" class="form-control form-control-solid  @error('mobile') is-invalid @enderror"  name="mobile"  value="{{ old('mobile') }}" placeholder="جـــوال" aria-label="Last name">
-			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+			 <input type="number" class="form-control form-control-solid  @error('mobile') is-invalid @enderror"  name="mobile"  value="{{ old('mobile') }}" placeholder="جـــوال" >
+             @error('mobile')
+             <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+             @enderror
+
 		   </div>
-		   
+
 		   <div class="col xl-3">
 			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> جوال أخر</label>
-			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" aria-label="Last name">
+			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" >
 		   </div>
 	   	   </div>
 
 	   <div class="row mt-6">
 		<div class="col xl-3">
 		   <label class="fs-4 fw-semibold form-label" for="address"> العنوان</label>
-		 <input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address"  value="{{ old('address') }}" placeholder="عنوان السكن" aria-label="Last name">
+		 <input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address"  value="{{ old('address') }}" placeholder="عنوان السكن" >
 	   </div>
 
 	   <div class="col xl-3">
@@ -114,14 +126,15 @@
 		<!--begin::Input-->
 		<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
 
-			<option value="1">ذكر</option>
-			<option value="2" selected>أنثى</option>
+			<option value ="Male">ذكر</option>
+            <option value ="Female">أنثى</option>
 		</select>
 		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 	   </div>
 	</div>
 
 	<hr style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
+
 
 	<div class="row mt-6">
 			<div class="col xl-3">
@@ -133,10 +146,10 @@
 			 <input type="text" class="form-control form-control-solid  @error('husband_occupation') is-invalid @enderror"  name="husband_occupation"  value="{{ old('husband_occupation') }}" placeholder="عمل الزوج / الزوجة" >
 			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 		   </div>
-		   
+
 		   <div class="col xl-3">
 			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> تاريخ ميلاد الزوج/ة</label>
-			   <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror" id="kt_datepicker_1" name="husband_dob"  value="{{ old('husband_dob') }}" placeholder="تاريخ الميلاد" aria-label="Last name">
+			   <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror" id="kt_datepicker_1" name="husband_dob"  value="{{ old('husband_dob') }}" placeholder="تاريخ الميلاد" >
 			</div>
 	   	   </div>
 
@@ -145,16 +158,14 @@
 			<textarea class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" ></textarea>
 		</div>
 		<div class="d-flex">
-	
-				<button type="submit" id="btn" class="btn btn-primary   ">
+
+				<button type="submit" id="btn" class="btn btn-primary">
 				<span class="indicator-label btn-lg btn-block">حفظ</span>
 				</button>
 
-				
 </form>
-	   
-   
-   </div>
+ </div>
+</div>
 	@endsection
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
