@@ -94,7 +94,7 @@
 		   </div>
 		   
 		   <div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> الوظيفة</label>
+			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> جوال أخر</label>
 			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" aria-label="Last name">
 		   </div>
 	   	   </div>
@@ -106,7 +106,7 @@
 	   </div>
 
 	   <div class="col xl-3">
-		<label class="fs-4 fw-semibold form-label mt-3">
+		<label class="fs-4 fw-semibold form-label">
 			<span>الجنس</span>
 			<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
 		</label>
@@ -121,8 +121,24 @@
 	   </div>
 	</div>
 
-	  
-	
+	<hr style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
+
+	<div class="row mt-6">
+			<div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="husband_name"> إسم الزوج/ة</label>
+			 <input type="text" class="form-control form-control-solid @error('husband_name') is-invalid @enderror" name="husband_name"  value="{{ old('husband_name') }}" placeholder=" إسم الزوج / الزوجة" >
+		   </div>
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile"> عمل الزوج/ة</label>
+			 <input type="text" class="form-control form-control-solid  @error('husband_occupation') is-invalid @enderror"  name="husband_occupation"  value="{{ old('husband_occupation') }}" placeholder="عمل الزوج / الزوجة" >
+			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+		   </div>
+		   
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> تاريخ ميلاد الزوج/ة</label>
+			   <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror" id="kt_datepicker_1" name="husband_dob"  value="{{ old('husband_dob') }}" placeholder="تاريخ الميلاد" aria-label="Last name">
+			</div>
+	   	   </div>
 
 		<div class="d-flex flex-column mb-8 mt-6">
 			<label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
@@ -139,15 +155,6 @@
 	   
    
    </div>
-
-
-
-
-
-	   
-			
-
-
 	@endsection
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
