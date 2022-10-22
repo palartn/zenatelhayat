@@ -38,242 +38,116 @@
 	<form class="kt-form kt-form--label-right" enctype="multipart/form-data" accept-charset="utf-8" id="from_view_cust" name="from_view_cust" autocomplete='off'>
 		<div class="kt-portlet__body">
 			<div class="form-group row">
-				<div class="col-lg-2">
-					<div class="form-group">
-						<label>رقم الهوية</label>
-						<input name="WORKER_ID_IN" id="WORKER_ID_IN" type="text"
-							   class="form-control kt-font-info kt-font-bolder rtlchange" maxlength="9" minlenght="9"
-							   data-inputmask="'alias' : 'integer'" placeholder="رقم الهوية"
-							   aria-describedby="basic-addon1">
-					</div>
-				</div>
-				
-				<div class="col-lg-2">
-					<div class="form-group">
-						<label>الاسم الأول</label>
-						<div class="input-group">
-							<div class="fs-4 fw-semibold form-label"><span class="input-group-text"><i
-										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
-							<input name="MOI_F_NAME_IN" id="MOI_F_NAME_IN" type="text"
-								   class="form-control form-control-solid " placeholder="الاسم الأول"
-								   aria-describedby="basic-addon1">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="form-group">
-						<label>الاسم الثاني</label>
-						<div class="input-group">
-							<div class="input-group-prepend"><span class="input-group-text"><i
-										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
-							<input name="MOI_S_NAME_IN" id="MOI_S_NAME_IN" type="text"
-								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الثاني"
-								   aria-describedby="basic-addon1">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="form-group">
-						<label>الاسم الثالث</label>
-						<div class="input-group">
-							<div class="input-group-prepend"><span class="input-group-text"><i
-										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
-							<input name="MOI_T_NAME_IN" id="MOI_T_NAME_IN" type="text"
-								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الثالث"
-								   aria-describedby="basic-addon1">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2">
-					<div class="form-group">
-						<label>الاسم الرابع</label>
-						<div class="input-group">
-							<div class="input-group-prepend"><span class="input-group-text"><i
-										class="fa fa-user-edit kt-font-dark kt-font-bolder"></i></span></div>
-							<input name="MOI_L_NAME_IN" id="MOI_L_NAME_IN" type="text"
-								   class="form-control kt-font-info kt-font-bolder" placeholder="الاسم الرابع"
-								   aria-describedby="basic-addon1">
-						</div>
-					</div>
-				</div>
+		
 
 	
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-		<form class="form fv-plugins-bootstrap5 fv-plugins-framework" method="POST" action="{{route('patients.store')}}" enctype="multipart/form-data">
+		<form method="POST" action="{{route('patients.store')}}" enctype="multipart/form-data">
             @csrf
-           <div class="row xl-12">
-            <label class="fs-4 fw-semibold form-label " for="fname"> الإسم الأول</label>
-                <div class="col">
-                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="الإسم الأول" aria-label="First name">
+           <div class="row ">
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الأول</label>
+                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname"  value="{{ old('fname') }}" placeholder="الإسم الأول" aria-label="First name">
                 </div>
                 <div class="col xl-3">
                 <label class="fs-4 fw-semibold form-label" for="sname"> إسم الأب</label>
-                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="Last name" aria-label="Last name">
+                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="sname"  value="{{ old('sname') }}" placeholder="إسم الأب" aria-label="Last name">
                 </div>
-                <div class="col">
-                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="Last name" aria-label="Last name">
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الجد</label>
+                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="tname"  value="{{ old('tname') }}" placeholder="إسم الجد" aria-label="Last name">
                 </div>
-                <div class="col">
-                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="name"  value="{{ old('name') }}" placeholder="Last name" aria-label="Last name">
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="lname"> إسم العائلة</label>
+                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname"  value="{{ old('lname') }}" placeholder="إسم العائلة" aria-label="Last name">
                 </div>
-              </div>
+             </div>
 
-
-			<div class="fv-row mb-7 fv-plugins-icon-container">
-				<!--begin::Label-->
-				<label class="fs-4 fw-semibold form-label mt-3">
-					<span class="required">الإسم الأول</span>
-					<i class="fas fa-exclamation-circle ms-1 fs-7 " data-bs-toggle="tooltip" aria-label="الرجاء ادخال اسم المستخدم" data-kt-initialized="1"></i>
-				</label>
-
-				<!--end::Label-->
-				<!--begin::Input-->
-                <div class="col-xl-3 mb-2">
-				<input type="text" class="col-xs-3 form-control form-control-solid @error('fname') is-invalid @enderror" name="name"  value="{{ old('name') }}" required>
-                @error('name')
-                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
-                </div>
-                <div class="col-xl-3 mb-2">
-				<input type="text" class="col-xs-3 form-control form-control-solid @error('fname') is-invalid @enderror" name="name"  value="{{ old('name') }}" required>
-                @error('name')
-                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
-                </div>
-				<!--end::Input-->
-                <div class="col">
-					<!--begin::Input group-->
-					<!--begin::Label-->
-				<label class="fs-4 fw-semibold form-label mt-3">
-					<span class="required">كلمة المرور</span>
-					<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="الرجاء ادخال كلمة المرور" data-kt-initialized="1"></i>
-				</label>
-
-				<!--end::Label-->
-				<!--begin::Input-->
-				<input type="password" class="form-control form-control-solid @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required>
-                @error('password')
-                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
-				<!--end::Input-->
-					<!--end::Input group-->
-				</div>
-			<div class="fv-plugins-message-container invalid-feedback">
-
-            </div>
-			<!--end::Input group-->
-
-			<!--begin::Row-->
-			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-				<!--begin::Col-->
-				<div class="col">
-					<!--begin::Input group-->
-					<div class="fv-row mb-7 fv-plugins-icon-container">
-						<!--begin::Label-->
-						<label class="fs-4 fw-semibold form-label mt-3">
-							<span class="required">البريد الإلكتروني</span>
-							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's email." data-kt-initialized="1"></i>
-						</label>
-						<!--end::Label-->
-						<!--begin::Input-->
-						<input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
-                        @error('email')
-                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-						<!--end::Input-->
-					<div class="fv-plugins-message-container invalid-feedback"></div></div>
-					<!--end::Input group-->
-				</div>
-				<!--end::Col-->
-				<!--begin::Col-->
-				<div class="col">
-					<!--begin::Input group-->
-					<div class="fv-row mb-7">
-						<!--begin::Label-->
-						<label class="fs-4 fw-semibold form-label mt-3">
-							<span>رقم الهاتف</span>
-							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
-						</label>
-						<!--end::Label-->
-						<!--begin::Input-->
-						<input type="number" class="form-control form-control-solid @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required>
-                        @error('phone')
-                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-						<!--end::Input-->
-					</div>
-					<!--end::Input group-->
-				</div>
-				<!--end::Col-->
+			 <div class="row mt-6">
+			 <div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="idc"> رقم الهوية</label>
+			  <input type="text" class="form-control form-control-solid @error('idc') is-invalid @enderror" name="idc"  value="{{ old('idc') }}" placeholder="رقم الهوية" aria-label="Last name">
 			</div>
-			<!--end::Row-->
-			<!--begin::Row-->
-			<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-				<!--begin::Col-->
-				<div class="col">
-					<!--begin::Input group-->
-					<div class="fv-row mb-7">
-						<!--begin::Label-->
-						<label class="fs-4 fw-semibold form-label mt-3">
-							<span>العنوان</span>
-							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's city of residence (optional)." data-kt-initialized="1"></i>
-						</label>
-						<!--end::Label-->
-						<!--begin::Input-->
-						<input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}"required>
-                        @error('address')
-                        <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-						<!--end::Input-->
-					</div>
-					<!--end::Input group-->
-				</div>
-				<div class="col">
-					<!--begin::Input group-->
-					<div class="fv-row mb-7">
-						<!--begin::Label-->
-						<label class="fs-4 fw-semibold form-label mt-3">
-							<span>الجنس</span>
-							<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
-						</label>
-						<!--end::Label-->
-						<!--begin::Input-->
-						<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
-
-							<option value="1">ذكر</option>
-							<option value="2" selected>أنثى</option>
-						</select>
-						<!--end::Input-->
-					</div>
-					<!--end::Input group-->
-				</div>
-				<div class="col">
-					<!--begin::Input group-->
-
-					<!--end::Input group-->
-				</div>
+			<div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="dob"> تاريخ الميلاد</label>
+			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('dob') is-invalid @enderror" id="kt_datepicker_1" name="dob"  value="{{ old('dob') }}" placeholder="تاريخ الميلاد" aria-label="Last name">
+			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 			</div>
-			<!--end::Row-->
-
-			<!--begin::Separator-->
-			<div class="separator mb-6"></div>
-			<!--end::Separator-->
-			<!--begin::Action buttons-->
-			<div class="d-flex">
-				<!--begin::Button-->
-					<button type="submit" id="btn" class="btn btn-primary   ">
-					<span class="indicator-label btn-lg btn-block">حفظ</span>
-					</button>
-				<!--end::Button-->
+			
+			<div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="occupation"> الوظيفة</label>
+			  <input type="text" class="form-control form-control-solid @error('occupation') is-invalid @enderror" name="occupation"  value="{{ old('occupation') }}" placeholder="الوظيفة" aria-label="Last name">
 			</div>
-			<!--end::Action buttons-->
-		</form>
-		<!--end::Form-->
+		
+		</div>
+
+		<div class="row mt-6">
+			<div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="email"> البريد الإلكتروني</label>
+			 <input type="text" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email"  value="{{ old('email') }}" placeholder="البريد الإلكتروني" aria-label="Last name">
+		   </div>
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile"> جوال</label>
+			 <input type="text" class="form-control form-control-solid  @error('mobile') is-invalid @enderror"  name="mobile"  value="{{ old('mobile') }}" placeholder="جـــوال" aria-label="Last name">
+			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+		   </div>
+		   
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> الوظيفة</label>
+			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" aria-label="Last name">
+		   </div>
+	   	   </div>
+
+	   <div class="row mt-6">
+		<div class="col xl-3">
+		   <label class="fs-4 fw-semibold form-label" for="address"> العنوان</label>
+		 <input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address"  value="{{ old('address') }}" placeholder="عنوان السكن" aria-label="Last name">
+	   </div>
+
+	   <div class="col xl-3">
+		<label class="fs-4 fw-semibold form-label mt-3">
+			<span>الجنس</span>
+			<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
+		</label>
+		<!--end::Label-->
+		<!--begin::Input-->
+		<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+
+			<option value="1">ذكر</option>
+			<option value="2" selected>أنثى</option>
+		</select>
+		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+	   </div>
 	</div>
-	<!--end::Card body-->
-</div>
-</div>
+
+	  
+	
+
+		<div class="d-flex flex-column mb-8 mt-6">
+			<label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
+			<textarea class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" ></textarea>
+		</div>
+		<div class="d-flex">
+	
+				<button type="submit" id="btn" class="btn btn-primary   ">
+				<span class="indicator-label btn-lg btn-block">حفظ</span>
+				</button>
+
+				
+</form>
+	   
+   
+   </div>
+
+
+
+
+
+	   
+			
+
+
 	@endsection
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
