@@ -1,875 +1,173 @@
 @extends('layouts.master')
 @section('content')
 <div id="kt_content_container" class="container-xxl mt-6">
+<div class="card card-flush h-lg-100" id="kt_contacts_main">
+	<!--begin::Card header-->
+	<div class="card-header pt-7" id="kt_chat_contacts_header">
+		<!--begin::Card title-->
+		<div class="card-title">
+			<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+			<span class="svg-icon svg-icon-1 me-2">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M20 14H18V10H20C20.6 10 21 10.4 21 11V13C21 13.6 20.6 14 20 14ZM21 19V17C21 16.4 20.6 16 20 16H18V20H20C20.6 20 21 19.6 21 19ZM21 7V5C21 4.4 20.6 4 20 4H18V8H20C20.6 8 21 7.6 21 7Z" fill="currentColor"></path>
+					<path opacity="0.3" d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z" fill="currentColor"></path>
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+			<h2 >إضافة مريض</h2>
+		</div>
+		<!--end::Card title-->
+	</div>
 
-<div class="row">
-	<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-البيانات الأساسية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">رقم الهوية</label>
-<div class="col-lg-8">
-<input class="form-control form-control-solid" type="text" value="90923333" >
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الاسم رباعي</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">تاريخ الميلاد</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">العمر</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" ></div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">اسم الأم</label>
-<div class="col-lg-8">
-<input class="form-control form-control-solid" type="text" value="90923333" ></div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">رقم هوية الأم</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="fffff" >
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">رقم هوية الأب</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" >
-</div>
-</div>
-</div>
+	{{-- @if (session()->has('success'))
+	<div class="alert alert-success alert-session-flash  ">
+		<h1>{{session()->get('success')}}</h1>
+	</div>
+	@endif --}}
 
-<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">رقم هوية الزوجة</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" >
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">عدد الأبناء</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" >
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الحالة الاجتماعية</label>
-<div class="col-lg-8">
-    <input class="form-control form-control-solid" type="text" value="90923333" >
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-ملف المريض وبياناتة
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المحافظة</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">غزة</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المدينة</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">غزة</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الحي</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">التفاح</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">أقرب معلم</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">مسجد أبو عبيدة بن الجراح</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">شارع</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">التفاح</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هاتف المنزل</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">08N</div>
-</div>
-</div>
-</div>
-																														<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">جوال</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">0597131525</div>
-</div>
-</div>
-</div>
-									</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-عنوان السكن المحدث
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المحافظة</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">غزة</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المدينة</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">غزة</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الحي</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">التفاح</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">أقرب معلم</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">مسجد - أبو عبيدة بن الجراح</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">جوال آخر للتواصل</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">0597077605</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">ملكية السكن</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">ملك</div>
-</div>
-</div>
-</div>
-																																																																		<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">طبيعة السكن</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">باطون</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">مساحة السكن(متر مربع)</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">100</div>
-</div>
-</div>
-</div>
-																			</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات الحالة الصحية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الحالة الصحية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">سليم</div>
-</div>
-</div>
-</div>
-																																																																																																																																																										</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات المركبات ورخصة القيادة
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">بيانات المركبات المسجلة </label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>رقم المركبة</th>
-<th>الشركة المصنعة</th>
-<th>طبيعة الاستخدام</th>
-<th>طبيعة الملكية</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
+    {{-- @if ($errors->any())
+    <div class="text-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif  --}}
 
 
-</div>
-</div>
-</div>
-																															<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">بيانات الرخصة المسجلة</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>رقم الرخصة</th>
-<th>درجة الرخصة</th>
-<th>تاريخ الرخصة</th>
-<th>تاريخ الانتهاء</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
+
+	<div class="card-body pt-5">
+	<!--begin::Form-->
+		<form method="POST" action="{{route('patients.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+           <div class="row ">
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الأول</label>
+                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname"  value="{{$patient->patient_fname}}" placeholder="الإسم الأول" required>
+                  @error('fname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
+
+                </div>
+                <div class="col xl-3">
+                <label class="fs-4 fw-semibold form-label" for="sname"> إسم الأب</label>
+                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="sname"  value="{{$patient->patient_sname}}" placeholder="إسم الأب" required  >
+                  @error('sname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
+                </div>
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الجد</label>
+                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="tname"  value="{{$patient->patient_tname}}" placeholder="إسم الجد" >
+                </div>
+                <div class="col xl-3">
+					<label class="fs-4 fw-semibold form-label" for="lname"> إسم العائلة</label>
+                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname"  value="{{$patient->patient_lname}}" placeholder="إسم العائلة" required >
+                  @error('lname')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
+                </div>
+             </div>
+
+			 <div class="row mt-6">
+			 <div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="idc"> رقم الهوية</label>
+			  <input type="number" class="form-control form-control-solid @error('idc') is-invalid @enderror" name="idc"  value="{{$patient->idc}}" placeholder="رقم الهوية" required>
+              @error('idc')
+              <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+              @enderror
+			</div>
+			<div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="dob"> تاريخ الميلاد</label>
+			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('dob') is-invalid @enderror" id="kt_datepicker_1" name="dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
+			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+			</div>
+
+			<div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="occupation"> الوظيفة</label>
+			  <input type="text" class="form-control form-control-solid @error('occupation') is-invalid @enderror" name="occupation"  value="{{$patient->occupation}}" placeholder="الوظيفة" >
+			</div>
 
 
-</div>
-</div>
-</div>
-																															<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">السجلات التجارية</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>رقم السجل</th>
-<th>حالة السجل</th>
-<th>نوع السجل</th>
-<th>اسم الشركة</th>
-<th>تاريخ السجل</th>
-<th>تصنيف مجال العمل</th>
-<th>السمة التجارية</th>
-<th>صفة صاحب السجل</th>
-<th>تصنيف الشركة</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
+
+		<div class="row mt-6">
+			<div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="email"> البريد الإلكتروني</label>
+			 <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email"  value="{{$patient->email}}" placeholder="البريد الإلكتروني" >
+		   </div>
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile"> جوال</label>
+			 <input type="number" class="form-control form-control-solid  @error('mobile') is-invalid @enderror"  name="mobile"  value="{{$patient->mobile}}" placeholder="جـــوال" >
+             @error('mobile')
+             <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+             @enderror
+
+		   </div>
+
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> جوال أخر</label>
+			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{$patient->mobile_second}}" placeholder="جوال ثاني إن وجد" >
+		   </div>
+	   	   </div>
+
+	   <div class="row mt-6">
+		<div class="col xl-3">
+		   <label class="fs-4 fw-semibold form-label" for="address"> العنوان</label>
+		 <input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address"  value="{{$patient->address}}" placeholder="عنوان السكن" >
+	   </div>
+
+	   <div class="col xl-3">
+		<label class="fs-4 fw-semibold form-label">
+			<span>الجنس</span>
+			<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
+		</label>
+		<!--end::Label-->
+		<!--begin::Input-->
+		<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+
+			<option value ="Male">ذكر</option>
+            <option value ="Female">أنثى</option>
+		</select>
+		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+	   </div>
+	</div>
+
+	<hr style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
 
 
-</div>
-</div>
-</div>
-										</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات المساعدات
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">بيانات الشئون الاجتماعية</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>نوع المساعدة</th>
-<th>وصف المساعدة</th>
-<th>صفة المستفيد</th>
-<th>حالة المستفيد</th>
-</tr>
-</thead>
-<tbody>
-	<tr>
-<td>نقدية</td>
-<td>دورية/كل 3 شهور</td>
-<td>ابن / ابنه</td>
-<td>مستفيد (صرف دوري)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+	<div class="row mt-6">
+			<div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="husband_name"> إسم الزوج/ة</label>
+			 <input type="text" class="form-control form-control-solid @error('husband_name') is-invalid @enderror" name="husband_name"  value="{{$patient->husband_name}}" placeholder=" إسم الزوج / الزوجة" >
+		   </div>
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile"> عمل الزوج/ة</label>
+			 <input type="text" class="form-control form-control-solid  @error('husband_occupation') is-invalid @enderror"  name="husband_occupation"  value="{{$patient->husband_occupation}}" placeholder="عمل الزوج / الزوجة" >
+			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+		   </div>
 
+		   <div class="col xl-3">
+			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> تاريخ ميلاد الزوج/ة</label>
+			   <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror" id="kt_datepicker_1" name="husband_dob"  value="{{$patient->husband_dob}}" placeholder="تاريخ الميلاد" >
+			</div>
+	   	   </div>
 
-</div>
-</div>
-</div>
-										</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات مصادر الدخل-المسجلة
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">-المسجلة حالة العمل</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>رقم الهوية</th>
-<th>الوزارة/ المؤسسة</th>
-<th>تصنيف العمل</th>
-<th>حالة العمل</th>
-<th>حالة العمل الحالية</th>
-<th>مصدر البيانات</th>
-<th>الوظيفة</th>
-<th>تاريخ النهائية</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-</div>
-</div>
+		<div class="d-flex flex-column mb-8 mt-6">
+			<label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
+			<textarea class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" >{{$patient->notes}}</textarea>
+		</div>
+		<div class="d-flex">
 
+				<button type="submit" id="btn" class="btn btn-primary">
+				<span class="indicator-label btn-lg btn-block">حفظ</span>
+				</button>
 
-</div>
-</div>
-</div>
-										</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-الأخرى-بيانات مصادر الدخل
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل يوجد مصدر دخل</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																	</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-الذمم المالية والقروض
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك ذمم مالية </label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																																		<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل سبق وأن حصلت على قرض من أي جهة تمويل </label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																																																																<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل تم احتضانك في مؤسسات الاحتضان</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا يوجد</div>
-</div>
-</div>
-</div>
-																																		</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات إضافية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك رقم لجوء في وكالة الغوث</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																																																	<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل تجيد لغات غير العربية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">نعم</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">لغات إضافية غير العربية</label>
-<div class="col-lg-8">
-<div class="form-control-plaintext border px-2 alpha-slate " style="">الانجليزية</div>
-
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك عضوية نقابية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																																		<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">الأجهزة التكونولوجية المتوفرة</label>
-<div class="col-lg-8">
-
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك وسيلة نقل خاصة</label>
-<div class="col-lg-8">
-
-</div>
-</div>
-</div>
-																			</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات المؤهل العلمي المسجلة
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-													<div class="col-xl-12">
-<div class="form-group mb-1">
-<label class="col-form-label">بيانات المؤهل العملي المسجلة</label>
-<div>
-			<div class="col-xl-12 mb-2">
-<div class="table-responsive">
-<table class="table table-bordered">
-<thead>
-<tr class="bg-teal-700">
-<th>سنة الدراسة</th>
-<th>القسم/الفرع</th>
-<th>المؤهل العلمي</th>
-<th>المؤسسة التعليمية</th>
-<th>المعدل</th>
-</tr>
-</thead>
-<tbody>
-	<tr>
-<td>2007</td>
-<td>العلمي</td>
-<td>الثانوية العامة</td>
-<td>الزهراء الثانوية أ للبنات</td>
-<td>63.4</td>
-</tr>
-<tr>
-<td>2009</td>
-<td>العلوم الانسانية</td>
-<td>الثانوية العامة</td>
-<td>عبد الفتاح حمود الثانوية للبنين</td>
-<td>61</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-										</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات المؤهل العلمي
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">نوع المستوى التعليمي</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">خريج</div>
-</div>
-</div>
-</div>
-																																																																																																																																																																											<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">بلد التخرج</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">فلسطين</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المؤسسة التعليمية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">الكلية الجامعية للعلوم التطبيقية</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المؤهل العلمي</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">دبلوم متوسط</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">التخصص الأكاديمي</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">صيانة الحاسب الالي</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">مرفق الشهادة الأكاديمية وكشف الدرجات</label>
-<div class="col-lg-8">
-				<div class="form-control-plaintext border px-2 alpha-slate " style=""><a href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-326.jpeg" target="_blank">مرفق الشهادة الأكاديمية وكشف الدرجات</a></div>
-												<div class="form-control-plaintext border px-2 alpha-slate " style=""><a href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-4534.jpeg" target="_blank">مرفق الشهادة الأكاديمية وكشف الدرجات</a></div>
-												<div class="form-control-plaintext border px-2 alpha-slate " style=""><a href="https://e.services.gov.ps/upload/doc/service_no_40/service_v_1/id_no_803216977/16-06-2021/1623850075-3836.jpeg" target="_blank">مرفق الشهادة الأكاديمية وكشف الدرجات</a></div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">سنة التخرج</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">03/01/2016</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المعدل التراكمي</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">67.13</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">المهنة التي تستطيع ممارستها نتيجة دراستك الجامعية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">صيانة الحاسوب والشبكات</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل حصلت على شهادة مزاولة مهنة </label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																		</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-الخبرات العملية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">نوع الخبرة العملية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا يوجد</div>
-</div>
-</div>
-</div>
-																																																																																																													</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-الدورات التدريبية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل حصلت على دورات تدريبية</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا</div>
-</div>
-</div>
-</div>
-																																																																																														</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-الاحتياجات التدريبية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">ما الاحتياج التدريبي المطلوب للمساعدة في الانخراط بسوق العمل</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">لا أحتاج</div>
-</div>
-</div>
-</div>
-																																																																															</div>
-</div>
-</div>
-</div>
-</div>
-												<div class="col-xl-12 mb-2">
-<div class="card border-3 border-dark mb-1">
-<div class="card-header alpha-brown p-1">
-<h6 class="card-title">
-بيانات القدرات والمهارات والهوايات الشخصية
-</h6>
-</div>
-<div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك قدرات ومهارات وهوايات</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">نعم</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">النوع</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">قدرة</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">البيان</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">العمل تحت الضغط</div>
-</div>
-</div>
-</div>
-																																																	</div>
-</div>
-<div class="card-body">
-<div class="row">
-																								<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">هل لديك قدرات ومهارات وهوايات</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">نعم</div>
-</div>
-</div>
-</div>
-																																																			<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">النوع</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">مهارة</div>
-</div>
-</div>
-</div>
-																																																																		<div class="col-xl-6">
-<div class="form-group row mb-1">
-<label class="col-form-label col-lg-4">البيان</label>
-<div class="col-lg-8">
-	<div class="form-control-plaintext border px-2 alpha-slate " style="">العمل بشكل فعال ضمن فرق متعددة التخصصات والتواصل مع غير المختصين في المجال</div>
-</div>
-</div>
-</div>
-																																		</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-@endsection
+</form>
+ </div>
+</div>
+	@endsection
+<script>setTimeout(function() {
+	$('.alert-session-flash').fadeOut('low');
+}, 3000); // <-- time in milliseconds
+</script>

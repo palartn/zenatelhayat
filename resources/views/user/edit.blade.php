@@ -1,6 +1,5 @@
-@extends('layouts.mas<div id="kt_content_container" class="container-xxl mt-6">
-ter')
-@section('content')
+@extends('layouts.master');
+@section('content');
 <div id="kt_content_container" class="container-xxl mt-6">
 
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
