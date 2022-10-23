@@ -1121,7 +1121,7 @@
 									</a>
 								</div>
 
-								<div class="menu-item">
+								{{-- <div class="menu-item">
 									<a class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
@@ -1144,7 +1144,7 @@
 										</span>
 										<span class="menu-title">حذف بيانات مريض</span>
 									</a>
-								</div>
+								</div> --}}
 							</div>
 							</div>
 					</div>
