@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Dimensions;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rules\Dimensions;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class UsersController extends Controller
@@ -43,6 +44,8 @@ class UsersController extends Controller
         $phone = $request->phone;
         $gender = $request->gender;
         $status = $request->status;
+        
+
         if ($status == '') {
             $status = 0;
         }
@@ -73,8 +76,10 @@ class UsersController extends Controller
 
         $add_user->assignRole($request->role);
 
+        Alert::success('إضافة مستخدم جديد', 'تمت عملية الإضافة بنجاح');
 
-        return redirect()->route('users.create')->with('success', 'تم الإضافة بنجاح');
+        return redirect()->route('users.create');
+        //->with('success', 'تم الإضافة بنجاح');
 
         // return redirect('/users/create');
 
@@ -146,7 +151,10 @@ $status=0;
             $user->assignRole($request->role);
         }
         //return redirect()->back();
-        return redirect()->route('users.index')->with('success', 'تم التعديل بنجاح');
+        Alert::warning('تعديل بيانات مستخدم', 'تمت عملية التعديل بنجاح');
+
+        return redirect()->route('users.index');
+        //->with('success', 'تم التعديل بنجاح');
     }
 
 

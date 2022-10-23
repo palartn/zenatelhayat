@@ -8,6 +8,7 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class PatientsController extends Controller
@@ -221,8 +222,9 @@ class PatientsController extends Controller
 
             // $add_patients->assignRole($request->role);
 
+            Alert::success('إضافة مريض', 'تمت الإضافة بنجاح');
 
-            return redirect()->route('patients.index')->with('success', 'تم الإضافة بنجاح');
+            return redirect()->route('patients.index');
 
 
     }
@@ -269,7 +271,7 @@ class PatientsController extends Controller
         //     'mobile' => 'required|min:7',
         // ]);
 
-        
+
         $patient ->update([
             'patient_fname' => $request->patient_fname,
             'patient_sname' => $request->patient_sname,
@@ -287,7 +289,9 @@ class PatientsController extends Controller
             'husband_occupation' => $request->husband_occupation,
             'notes' => $request->notes
         ]);
-        return redirect()->route('patients.index')->with('success', 'تم التعديل بنجاح');
+        Alert::warning('تعديل بيانات مريض', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('patients.index');
+        //->with('success', 'تم التعديل بنجاح');
 
 
     }

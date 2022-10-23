@@ -1555,6 +1555,8 @@
 	</div>
 	<!--end::Container-->
 </div>
+@include('sweetalert::alert')
+
 <!--end::Footer-->
 		<!--begin::Javascript-->
 		<!--begin::Global Javascript Bundle(used by all pages)-->
@@ -1568,7 +1570,7 @@
 		<script src="{{ asset('assets/js/custom/widgets.js') }}"></script>
 		<script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
 		<script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
-	
+
 		@yield('scripts')
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->

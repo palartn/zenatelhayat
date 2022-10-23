@@ -30,11 +30,11 @@
             <!--begin::Body-->
 
             <div class="card-body py-3 " style="font-family:NotoKufiArabic">
-                @if (session()->has('success'))
+                {{-- @if (session()->has('success'))
                     <div class="alert alert-success alert-session-flash  ">
                         <h1>{{ session()->get('success') }}</h1>
                     </div>
-                @endif
+                @endif --}}
                 <!--begin::Table container-->
                 <div class="table-responsive">
                     <!--begin::Table-->
