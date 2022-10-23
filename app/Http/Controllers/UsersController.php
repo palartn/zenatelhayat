@@ -44,7 +44,7 @@ class UsersController extends Controller
         $phone = $request->phone;
         $gender = $request->gender;
         $status = $request->status;
-        
+
 
         if ($status == '') {
             $status = 0;
@@ -70,7 +70,7 @@ class UsersController extends Controller
             'phone' => $phone,
             'gender' => $gender,
             'status' => $status,
-            'profile_photo_path' => $path
+            'profile_photo_path' =>$path
         ]);
 
 
@@ -78,7 +78,7 @@ class UsersController extends Controller
 
         Alert::success('إضافة مستخدم جديد', 'تمت عملية الإضافة بنجاح');
 
-        return redirect()->route('users.create');
+        return redirect()->route('users.index');
         //->with('success', 'تم الإضافة بنجاح');
 
         // return redirect('/users/create');
