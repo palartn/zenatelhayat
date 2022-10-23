@@ -44,28 +44,28 @@
 			@method('put')
            <div class="row ">
                 <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الأول</label>
-                  <input type="text" id="fname" class="form-control form-control-solid @error('fname') is-invalid @enderror" name="fname"  value="{{$patient->patient_fname}}" placeholder="الإسم الأول" required>
-                  @error('fname')
+					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الأول</label>
+                  <input type="text" id="patient_fname" class="form-control form-control-solid @error('patient_fname') is-invalid @enderror" name="patient_fname"  value="{{$patient->patient_fname}}" placeholder="الإسم الأول" required>
+                  @error('patient_fname')
                   <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                   @enderror
 
                 </div>
                 <div class="col xl-3">
-                <label class="fs-4 fw-semibold form-label" for="sname"> إسم الأب</label>
-                  <input type="text" id="sname" class="form-control form-control-solid @error('sname') is-invalid @enderror" name="sname"  value="{{$patient->patient_sname}}" placeholder="إسم الأب" required  >
-                  @error('sname')
+                <label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الأب</label>
+                  <input type="text" id="patient_sname" class="form-control form-control-solid @error('patient_sname') is-invalid @enderror" name="patient_sname"  value="{{$patient->patient_sname}}" placeholder="إسم الأب" required  >
+                  @error('patient_sname')
                   <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الجد</label>
-                  <input type="text" class="form-control form-control-solid @error('tname') is-invalid @enderror" name="tname"  value="{{$patient->patient_tname}}" placeholder="إسم الجد" >
+					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الجد</label>
+                  <input type="text" class="form-control form-control-solid @error('patient_tname') is-invalid @enderror" name="patient_tname"  value="{{$patient->patient_tname}}" placeholder="إسم الجد" >
                 </div>
                 <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="lname"> إسم العائلة</label>
-                  <input type="text" class="form-control form-control-solid @error('lname') is-invalid @enderror" name="lname"  value="{{$patient->patient_lname}}" placeholder="إسم العائلة" required >
-                  @error('lname')
+					<label class="fs-4 fw-semibold form-label" for="patient_lname"> إسم العائلة</label>
+                  <input type="text" class="form-control form-control-solid @error('patient_lname') is-invalid @enderror" name="patient_lname"  value="{{$patient->patient_lname}}" placeholder="إسم العائلة" required >
+                  @error('patient_lname')
                   <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                   @enderror
                 </div>
@@ -80,8 +80,8 @@
               @enderror
 			</div>
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="dob"> تاريخ الميلاد</label>
-			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('dob') is-invalid @enderror" id="kt_datepicker_1" name="dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
+				<label class="fs-4 fw-semibold form-label" for="patient_dob"> تاريخ الميلاد</label>
+			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_dob') is-invalid @enderror" id="kt_datepicker_1" name="patient_dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
 			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 			</div>
 

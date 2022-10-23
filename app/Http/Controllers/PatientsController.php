@@ -271,13 +271,13 @@ class PatientsController extends Controller
 
         
         $patient ->update([
-            'patient_fname' => $request->fname,
-            'patient_sname' => $request->sname,
-            'patient_tname' => $request->tname,
-            'patient_lname' => $request->lname,
+            'patient_fname' => $request->patient_fname,
+            'patient_sname' => $request->patient_sname,
+            'patient_tname' => $request->patient_tname,
+            'patient_lname' => $request->patient_lname,
             'idc' => $request->idc,
             'email' => $request->email,
-            'patient_dob' => $request->dob,
+            'patient_dob' => $request->patient_dob,
             'occupation' => $request->occupation,
             'address' => $request->address,
             'mobile' => $request->mobile,
