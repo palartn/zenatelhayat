@@ -192,7 +192,7 @@ class PatientsController extends Controller
             $validated = $request->validate([
                 'patient_fname' => 'required',
                 'patient_sname' => 'required',
-                'patient_tname' => 'required',
+                'patient_lname' => 'required',
                 'gender' => 'required|in:male,female',
                 'idc' => 'required|min:9|unique:Patients',
                 'mobile' => 'required|min:7',
@@ -222,7 +222,7 @@ class PatientsController extends Controller
             // $add_patients->assignRole($request->role);
 
 
-            return redirect()->route('patients.create')->with('success', 'تم الإضافة بنجاح');
+            return redirect()->route('patients.index')->with('success', 'تم الإضافة بنجاح');
 
 
     }

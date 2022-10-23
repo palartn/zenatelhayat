@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('idc')->unique();
             $table->string('patient_fname'); // إسم المريض الأول
             $table->string('patient_sname'); // إسم المريض الثاني
-            $table->string('patient_tname'); //  إسم المريض الثالث
+            $table->string('patient_tname')->nullable(); //  إسم المريض الثالث
             $table->string('patient_lname'); // إسم المريض الرابع
             $table->date('patient_dob'); // تاريخ الميلاد
             $table->string('occupation'); // العمل

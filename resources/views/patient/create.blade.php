@@ -107,7 +107,7 @@
 
 		   <div class="col xl-3">
 			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> جوال أخر</label>
-			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" >
+			 <input type="number" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{ old('mobile_second') }}" placeholder="جوال ثاني إن وجد" >
 		   </div>
 	   	   </div>
 
