@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PatientResource;
 use Carbon\Carbon;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Validation\Rule;
 
 
 class PatientsController extends Controller
@@ -18,6 +20,7 @@ class PatientsController extends Controller
     public function index(Patient $user)
     {
       //  dd(Patient::all());
+    //   PatientResource::collection(Patient::all());
         return view('patient.index',compact('user'));
     }
     public function getData(Request $request)
@@ -168,49 +171,52 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-            $fname = $request->fname;
-            $sname = $request->sname;
-            $tname = $request->tname;
-            $lname = $request->lname;
-            $idc = $request->idc;
-            $dob = $request->dob;
-            $occupation = $request->occupation;
-            $email = $request->email;
-            $mobile = $request->mobile;
-            $mobile_second = $request->mobile_second;
-            $address = $request->address;
-            $gender = $request->gender;
-            $husband_name = $request->husband_name;
-            $husband_occupation = $request->husband_occupation;
-            $husband_dob = $request->husband_dob;
-            $notes = $request->notes;
+     //  dd($request->all(),['user_id' => auth()->id()]);
+            // $fname = $request->fname;
+            // $sname = $request->sname;
+            // $tname = $request->tname;
+            // $lname = $request->lname;
+            // $idc = $request->idc;
+            // $dob = $request->dob;
+            // $occupation = $request->occupation;
+            // $email = $request->email;
+            // $mobile = $request->mobile;
+            // $mobile_second = $request->mobile_second;
+            // $address = $request->address;
+            // $gender = $request->gender;
+            // $husband_name = $request->husband_name;
+            // $husband_occupation = $request->husband_occupation;
+            // $husband_dob = $request->husband_dob;
+            // $notes = $request->notes;
 
             $validated = $request->validate([
-                'fname' => 'required',
-                'sname' => 'required',
-                'lname' => 'required',
+                'patient_fname' => 'required',
+                'patient_sname' => 'required',
+                'patient_tname' => 'required',
+                'gender' => 'required|in:male,female',
                 'idc' => 'required|min:9|unique:Patients',
                 'mobile' => 'required|min:7',
             ]);
 
             //Patients::create([]);
-            $add_patients = Patient::create([
-                'patient_fname' => $fname,
-                'patient_sname' => $sname,
-                'patient_tname' => $tname,
-                'patient_lname' => $lname,
-                'idc' => $idc,
-                'email' => $email,
-                'patient_dob' => $dob,
-                'occupation' => $occupation,
-                'address' => $address,
-                'mobile' => $mobile,
-                'mobile_second' => $mobile_second,
-                'gender' => $gender,
-                'husband_name' => $husband_name,
-                'husband_occupation' => $husband_occupation,
-                'notes' => $notes
-            ]);
+            // $add_patients = Patient::create([
+            //     'patient_fname' => $fname,
+            //     'patient_sname' => $sname,
+            //     'patient_tname' => $tname,
+            //     'patient_lname' => $lname,
+            //     'idc' => $idc,
+            //     'email' => $email,
+            //     'patient_dob' => $dob,
+            //     'occupation' => $occupation,
+            //     'address' => $address,
+            //     'mobile' => $mobile,
+            //     'mobile_second' => $mobile_second,
+            //     'gender' => $gender,
+            //     'husband_name' => $husband_name,
+            //     'husband_occupation' => $husband_occupation,
+            //     'notes' => $notes
+            // ]);
+            Patient::create($request->all() + ['user_id' => auth()->id()]);
 
 
             // $add_patients->assignRole($request->role);
@@ -229,7 +235,9 @@ class PatientsController extends Controller
      */
     public function show(Patient $patient)
     {
-        return response()->json($patient);
+        // $patient['created_at'] = $patient->created_at->diffForHumans();
+        return new PatientResource($patient);
+      //  return response()->json($patient);
     }
 
     /**
@@ -250,9 +258,38 @@ class PatientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Patient $patient)
     {
-        //
+        // $validated = $request->validate([
+        //     'fname' => 'required',
+        //     'sname' => 'required',
+        //     'lname' => 'required',
+        //     'gender' => 'required|in:male,female',
+        //     'idc' => ['required', Rule::unique('Patients')->ignore($patient->id)],
+        //     'mobile' => 'required|min:7',
+        // ]);
+
+        
+        $patient ->update([
+            'patient_fname' => $request->fname,
+            'patient_sname' => $request->sname,
+            'patient_tname' => $request->tname,
+            'patient_lname' => $request->lname,
+            'idc' => $request->idc,
+            'email' => $request->email,
+            'patient_dob' => $request->dob,
+            'occupation' => $request->occupation,
+            'address' => $request->address,
+            'mobile' => $request->mobile,
+            'mobile_second' => $request->mobile_second,
+            'gender' => $request->gender,
+            'husband_name' => $request->husband_name,
+            'husband_occupation' => $request->husband_occupation,
+            'notes' => $request->notes
+        ]);
+        return redirect()->route('patients.index')->with('success', 'تم التعديل بنجاح');
+
+
     }
 
     /**
@@ -261,8 +298,9 @@ class PatientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+        return response()->json($patient);
     }
 }

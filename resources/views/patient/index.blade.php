@@ -178,7 +178,7 @@
                                     <label class="col-form-label col-lg-4">جوال ثاني</label>
                                     <div class="col-lg-8">
                                         <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile_second">
-                                            930975834</div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -211,6 +211,38 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr class = "mt-5" style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
+
+
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">اسم الزوج/ة</label>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_name">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_dob">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">عمل الزوج/ة</label>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_occupation">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-sm-12">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">ملاحظــات</label>
@@ -396,24 +428,27 @@
                                         // return the result
                                         success: function(result) {
 
-                                          //  console.log(result);
+                                           console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
-                                            $('#patient_name').html(result.patient_fname+' '+result.patient_sname+' '+result.patient_tname+' '+result.patient_lname);
-                                            $('#patient_idc').html(result.idc);
-                                            $('#patient_dob').html(result.patient_dob);
-                                            $('#patient_email').html(result.email);
-                                            $('#patient_mobile').html(result.mobile);
-                                            $('#patient_occupation').html(result.occupation);
-                                            $('#patient_mobile_second').html(result.mobile_second);
-                                            $('#patient_address').html(result.address);
-                                            $('#patient_gender').html(result.gender);
-                                            $('#patient_created_at').html(result.created_at);
-                                            $('#patient_notes').html(result.notes);
-                                            $('#patient_photo').attr('src', `/storage/${result.profile_photo_path}`);
-                                            $('#patient_phone').html(result.phone);
+                                            $('#patient_name').html(result.data.full_name);
+                                            $('#patient_idc').html(result.data.idc);
+                                            $('#patient_dob').html(result.data.patient_dob);
+                                            $('#patient_email').html(result.data.email);
+                                            $('#patient_mobile').html(result.data.mobile);
+                                            $('#patient_occupation').html(result.data.occupation);
+                                            $('#patient_mobile_second').html(result.data.mobile_second);
+                                            $('#patient_address').html(result.data.address);
+                                            $('#patient_gender').html(result.data.gender);
+                                            $('#patient_created_at').html(result.data.created_at);
+                                            $('#patient_notes').html(result.data.notes);
+                                            $('#patient_photo').attr('src', `/storage/${result.data.profile_photo_path}`);
+                                            $('#patient_phone').html(result.data.phone);
+                                            $('#husband_name').html(result.data.husband_name);
+                                            $('#husband_occupation').html(result.data.occupation);
+                                            $('#husband_dob').html(result.data.husband_dob);
                                             // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
-                                            $('#user_created_at').html(result.created_at);
+                                            $('#user_created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },
 
@@ -443,5 +478,9 @@
 
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
+
+                                _deleted(){
+
+                                }
                             </script>
                         @endsection

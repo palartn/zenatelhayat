@@ -18,6 +18,7 @@ return new class extends Migration
         //    $table->('idc'); //رقم هوية المريض
         //$table->string('username')->unique();
         //$table->string('password');
+        $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('email')->nullable()->unique();
             $table->integer('idc')->unique();
             $table->string('patient_fname'); // إسم المريض الأول

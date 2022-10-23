@@ -39,8 +39,9 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-		<form method="POST" action="{{route('patients.store')}}" method="POST" enctype="multipart/form-data">
+		<form method="POST" action="{{route('patients.update',$patient->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
+			@method('put')
            <div class="row ">
                 <div class="col xl-3">
 					<label class="fs-4 fw-semibold form-label" for="sname"> إسم الأول</label>
@@ -126,8 +127,8 @@
 		<!--begin::Input-->
 		<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
 
-			<option value ="Male">ذكر</option>
-            <option value ="Female">أنثى</option>
+			<option value ="Male" {{ $patient->gender == "Male" ? 'selected' : '' }}>ذكر</option>
+            <option value ="Female" {{ $patient->gender == "Female" ? 'selected' : '' }}>أنثى</option>
 		</select>
 		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 	   </div>
