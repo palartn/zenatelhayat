@@ -43,7 +43,7 @@
             @csrf
            <div class="row ">
                 <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الأول</label>
+					<label class="fs-4 fw-semibold form-label" for="patient_fname"> إسم الأول</label>
                   <input type="text" id="patient_fname" class="form-control form-control-solid @error('patient_fname') is-invalid @enderror" name="patient_fname"  value="{{ old('patient_fname') }}" placeholder="الإسم الأول" required>
                   @error('patient_fname')
                   <div class="text-danger mt-1 mb-1">{{ $message }}</div>
@@ -58,7 +58,7 @@
                   @enderror
                 </div>
                 <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الجد</label>
+					<label class="fs-4 fw-semibold form-label" for="patient_tname"> إسم الجد</label>
                   <input type="text" class="form-control form-control-solid @error('patient_tname') is-invalid @enderror" name="patient_tname"  value="{{ old('patient_tname') }}" placeholder="إسم الجد" >
                 </div>
                 <div class="col xl-3">
