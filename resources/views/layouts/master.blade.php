@@ -1167,7 +1167,7 @@
 						</span>
 						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/customers/getting-started.html">
+								<a class="menu-link" href="{{route('appointments.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -1175,7 +1175,7 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/customers/list.html">
+								<a class="menu-link" href="{{route('appointments.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
