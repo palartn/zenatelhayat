@@ -110,13 +110,15 @@
                     <!--end::Close-->
                 </div>
 
+
+
+                
                 <div class="modal-body">
                     <div class="container bootstrap snippets bootdey">
                         <div class="panel-body inf-content">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img id="user_photo" alt="" style="width:600px;" title=""
-                                        class="img-circle img-thumbnail isTooltip" src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png"
+                                    <img id="user_photo" alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png"
                                         data-original-title="Usuario">
 
                                 </div>
