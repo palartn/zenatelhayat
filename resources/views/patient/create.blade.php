@@ -129,7 +129,6 @@
 			<option value ="Male">ذكر</option>
             <option value ="Female">أنثى</option>
 		</select>
-		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 	   </div>
 	</div>
 
@@ -155,7 +154,7 @@
 
 		<div class="d-flex flex-column mb-8 mt-6">
 			<label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
-			<textarea class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" ></textarea>
+			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" ></textarea>
 		</div>
 		<div class="d-flex">
 
@@ -167,7 +166,22 @@
  </div>
 </div>
 	@endsection
+	@section('scripts')
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
 }, 3000); // <-- time in milliseconds
 </script>
+
+<script>
+
+$(".flatpickr-input").flatpickr({
+
+});
+
+</script>
+<script>
+tinymce.init({
+    selector: '#kt_docs_tinymce_basic'
+});
+</script>
+@endsection

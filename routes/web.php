@@ -32,6 +32,8 @@ Route::post('patients/getData',[PatientsController::class, 'getData'])->name('pa
 
 
 Route::resource('appointments',AppointmentsController::class)->middleware('auth');
+Route::get('calendar-event', [AppointmentsController::class, 'calendarEvent']);
+Route::post('calendar-crud-ajax', [AppointmentsController::class, 'calendarEvents']);
 
 
 Route::get('/dashboard', function () {

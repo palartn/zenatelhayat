@@ -116,7 +116,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <img id="user_photo" alt="" style="width:600px;" title=""
-                                        class="img-circle img-thumbnail isTooltip" src=""
+                                        class="img-circle img-thumbnail isTooltip" src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png"
                                         data-original-title="Usuario">
 
                                 </div>
@@ -183,6 +183,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div></div>
+                </div>
+        </div>
+    </div>
                         <!--end::Modal-->
                     @endsection
 
@@ -368,7 +372,10 @@
                                         $('#user_gender').html(result.gender);
                                         $('#user_address').html(result.address);
                                         $('#user_status').html(status);
-                                        $('#user_photo').attr('src', `/storage/${result.profile_photo_path}`);
+                                        if(result.profile_photo_path != null){
+                                            $('#user_photo').attr('src', `/storage/${result.profile_photo_path}`);
+
+                                        }
                                         // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                                         $('#user_created_at').html(result.created_at);
                                         $('#smallBody').html(result).show();

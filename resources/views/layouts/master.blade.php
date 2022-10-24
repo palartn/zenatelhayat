@@ -1572,6 +1572,7 @@
 		<script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
 
 		@yield('scripts')
+		@stack('scripts')
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

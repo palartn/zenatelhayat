@@ -81,7 +81,7 @@
 			</div>
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="patient_dob"> تاريخ الميلاد</label>
-			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_dob') is-invalid @enderror" id="kt_datepicker_1" name="patient_dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
+			  <input id="kt_datepicker_5" type="text" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_dob') is-invalid @enderror"  name="patient_dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
 			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 			</div>
 
@@ -148,9 +148,10 @@
 			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
 		   </div>
 
-		   <div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> تاريخ ميلاد الزوج/ة</label>
-			   <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror" id="kt_datepicker_1" name="husband_dob"  value="{{$patient->husband_dob}}" placeholder="تاريخ الميلاد" >
+		
+			<div class="col xl-3">
+				<label class="fs-4 fw-semibold form-label" for="husband_dob"> تاريخ الميلاد</label>
+			  <input id="husband_dob" type="text" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror"  name="husband_dob"  value="{{$patient->husband_dob}}" placeholder="تاريخ الميلاد" >
 			</div>
 	   	   </div>
 
@@ -168,7 +169,16 @@
  </div>
 </div>
 	@endsection
+	@section('scripts')
 <script>setTimeout(function() {
 	$('.alert-session-flash').fadeOut('low');
 }, 3000); // <-- time in milliseconds
 </script>
+<script>
+
+$(".flatpickr-input").flatpickr({
+
+});
+
+</script>
+@endsection
