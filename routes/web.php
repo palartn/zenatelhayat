@@ -29,8 +29,9 @@ Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
 
 Route::resource('patients',PatientsController::class)->middleware('auth');
-Route::get('patients/{patient}/file',[PatientsController::class,'file'])->name('file')->middleware('auth'); 
 
+Route::get('patients/{patient}/file',[PatientsController::class,'file'])->name('file')->middleware('auth'); 
+Route::post('patients/{patient}/store',[PatientsController::class,'store'])->name('upload_file');
 
 
 
