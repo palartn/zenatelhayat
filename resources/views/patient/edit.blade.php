@@ -14,7 +14,7 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >إضافة مريض</h2>
+			<h2 >تعديل بيانات مريض</h2>
 		</div>
 		<!--end::Card title-->
 	</div>

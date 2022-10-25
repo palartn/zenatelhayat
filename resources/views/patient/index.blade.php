@@ -30,13 +30,7 @@
             <!--begin::Body-->
 
             <div class="card-body py-3 " style="font-family:NotoKufiArabic">
-                {{-- @if (session()->has('success'))
-                    <div class="alert alert-success alert-session-flash  ">
-                        <h1>{{ session()->get('success') }}</h1>
-                    </div>
-                @endif --}}
-                <!--begin::Table container-->
-                <div class="table-responsive">
+             <div class="table-responsive">
                     <!--begin::Table-->
                     <table class="table table-striped table-row-bordered gy-5 gs-7" id="kt_datatable"
                         style="margin-top: 13px !important">
@@ -283,6 +277,7 @@
                                 }
                             </style>
                         @endsection
+                        
                         @section('scripts')
                             <script>
                                 $.ajaxSetup({

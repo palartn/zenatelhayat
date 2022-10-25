@@ -3,32 +3,51 @@
 <div id="kt_content_container" class="container-xxl mt-6">
 <div class="card card-flush h-lg-100" id="kt_contacts_main">
 	<!--begin::Card header-->
-	<div class="card-header pt-7" id="kt_chat_contacts_header">
-		<!--begin::Card title-->
-		<div class="card-title">
-			<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
-			<span class="svg-icon svg-icon-1 me-2">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M20 14H18V10H20C20.6 10 21 10.4 21 11V13C21 13.6 20.6 14 20 14ZM21 19V17C21 16.4 20.6 16 20 16H18V20H20C20.6 20 21 19.6 21 19ZM21 7V5C21 4.4 20.6 4 20 4H18V8H20C20.6 8 21 7.6 21 7Z" fill="currentColor"></path>
-					<path opacity="0.3" d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z" fill="currentColor"></path>
-				</svg>
-			</span>
-			<!--end::Svg Icon-->
-			<h2 >بيانات المريض التشخيصية</h2>
-		</div>
-		<!--end::Card title-->
+
+	<div class="modal-header bg-secondary">
+
+		<h5 class="modal-title card-label fw-bolder fs-3 mb-1 ">البيانات الأساسية للمريض</h5>
 	</div>
 
 
+	<div class="modal-body row">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-xl-6">
+					<div class="form-group row mb-1">
+						<label class="col-form-label col-lg-4 fs-4 fw-semibold form-label">الاسم رباعي</label>
+						<div class="col-lg-8">
+							<div class="form-control-plaintext border px-2 alpha-slate fs-4 fw-semibold form-label" style="" id="patient_name">{{$patient->patient_fname. ' ' . $patient->patient_sname .' '. $patient->patient_tname .' '.$patient->patient_lname}}
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="form-group row mb-1">
+						<label class="col-form-label col-lg-4 fs-4 fw-semibold form-label">رقم الهوية</label>
+						<div class="col-lg-8">
+						   <div class="form-control-plaintext border px-2 alpha-slate fs-4 fw-semibold form-label " id="patient_idc"
+								style="">{{$patient->idc}}</div>
+						</div>
+					</div>
+				</div>
+
 	<div class="card shadow-sm mt-5">
 		<div class="card-header">
-			<h3 class="card-title">Title</h3>
-			<div class="card-toolbar">
-				<button type="button" class="btn btn-sm btn-light">
-					Action
-				</button>
-			</div>
-		</div>
+			<h3 class="card-title col-xl-12">البيانات الشخصية</h3>
+	<div class="row col-sm">
+
+
+
+</div>
+</div>
+
+
+
+	</div>
+
+
+
 		<div class="card-body">
 			Lorem Ipsum is simply dummy text...
 		</div>
