@@ -14,171 +14,30 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >إضافة مريض</h2>
+			<h2 >بيانات المريض التشخيصية</h2>
 		</div>
 		<!--end::Card title-->
 	</div>
 
-	{{-- @if (session()->has('success'))
-	<div class="alert alert-success alert-session-flash  ">
-		<h1>{{session()->get('success')}}</h1>
-	</div>
-	@endif --}}
 
-    {{-- @if ($errors->any())
-    <div class="text-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif  --}}
-
-
-
-	<div class="card-body pt-5">
-	<!--begin::Form-->
-		<form method="POST" action="{{route('patients.update',$patient->id)}}" method="POST" enctype="multipart/form-data">
-            @csrf
-			@method('put')
-           <div class="row ">
-                <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الأول</label>
-                  <input type="text" id="patient_fname" class="form-control form-control-solid @error('patient_fname') is-invalid @enderror" name="patient_fname"  value="{{$patient->patient_fname}}" placeholder="الإسم الأول" required>
-                  @error('patient_fname')
-                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                  @enderror
-
-                </div>
-                <div class="col xl-3">
-                <label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الأب</label>
-                  <input type="text" id="patient_sname" class="form-control form-control-solid @error('patient_sname') is-invalid @enderror" name="patient_sname"  value="{{$patient->patient_sname}}" placeholder="إسم الأب" required  >
-                  @error('patient_sname')
-                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                  @enderror
-                </div>
-                <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="patient_sname"> إسم الجد</label>
-                  <input type="text" class="form-control form-control-solid @error('patient_tname') is-invalid @enderror" name="patient_tname"  value="{{$patient->patient_tname}}" placeholder="إسم الجد" >
-                </div>
-                <div class="col xl-3">
-					<label class="fs-4 fw-semibold form-label" for="patient_lname"> إسم العائلة</label>
-                  <input type="text" class="form-control form-control-solid @error('patient_lname') is-invalid @enderror" name="patient_lname"  value="{{$patient->patient_lname}}" placeholder="إسم العائلة" required >
-                  @error('patient_lname')
-                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                  @enderror
-                </div>
-             </div>
-
-			 <div class="row mt-6">
-			 <div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="idc"> رقم الهوية</label>
-			  <input type="number" class="form-control form-control-solid @error('idc') is-invalid @enderror" name="idc"  value="{{$patient->idc}}" placeholder="رقم الهوية" required>
-              @error('idc')
-              <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-              @enderror
-			</div>
-			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="patient_dob"> تاريخ الميلاد</label>
-			  <input id="kt_datepicker_5" type="text" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_dob') is-invalid @enderror"  name="patient_dob"  value="{{$patient->patient_dob}}" placeholder="تاريخ الميلاد" >
-			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
-			</div>
-
-			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="occupation"> الوظيفة</label>
-			  <input type="text" class="form-control form-control-solid @error('occupation') is-invalid @enderror" name="occupation"  value="{{$patient->occupation}}" placeholder="الوظيفة" >
-			</div>
-
-
-
-		<div class="row mt-6">
-			<div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="email"> البريد الإلكتروني</label>
-			 <input type="email" class="form-control form-control-solid @error('email') is-invalid @enderror" name="email"  value="{{$patient->email}}" placeholder="البريد الإلكتروني" >
-		   </div>
-		   <div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="mobile"> جوال</label>
-			 <input type="number" class="form-control form-control-solid  @error('mobile') is-invalid @enderror"  name="mobile"  value="{{$patient->mobile}}" placeholder="جـــوال" >
-             @error('mobile')
-             <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-             @enderror
-
-		   </div>
-
-		   <div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="mobile_second"> جوال أخر</label>
-			 <input type="text" class="form-control form-control-solid @error('mobile_second') is-invalid @enderror" name="mobile_second"  value="{{$patient->mobile_second}}" placeholder="جوال ثاني إن وجد" >
-		   </div>
-	   	   </div>
-
-	   <div class="row mt-6">
-		<div class="col xl-3">
-		   <label class="fs-4 fw-semibold form-label" for="address"> العنوان</label>
-		 <input type="text" class="form-control form-control-solid @error('address') is-invalid @enderror" name="address"  value="{{$patient->address}}" placeholder="عنوان السكن" >
-	   </div>
-
-	   <div class="col xl-3">
-		<label class="fs-4 fw-semibold form-label">
-			<span>الجنس</span>
-			<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" aria-label="Enter the contact's phone number (optional)." data-kt-initialized="1"></i>
-		</label>
-		<!--end::Label-->
-		<!--begin::Input-->
-		<select name="gender" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
-
-			<option value ="Male" {{ $patient->gender == "Male" ? 'selected' : '' }}>ذكر</option>
-            <option value ="Female" {{ $patient->gender == "Female" ? 'selected' : '' }}>أنثى</option>
-		</select>
-		 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
-	   </div>
-	</div>
-
-	<hr style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
-
-
-	<div class="row mt-6">
-			<div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="husband_name"> إسم الزوج/ة</label>
-			 <input type="text" class="form-control form-control-solid @error('husband_name') is-invalid @enderror" name="husband_name"  value="{{$patient->husband_name}}" placeholder=" إسم الزوج / الزوجة" >
-		   </div>
-		   <div class="col xl-3">
-			   <label class="fs-4 fw-semibold form-label" for="mobile"> عمل الزوج/ة</label>
-			 <input type="text" class="form-control form-control-solid  @error('husband_occupation') is-invalid @enderror"  name="husband_occupation"  value="{{$patient->husband_occupation}}" placeholder="عمل الزوج / الزوجة" >
-			 {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
-		   </div>
-
-		
-			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="husband_dob"> تاريخ الميلاد</label>
-			  <input id="husband_dob" type="text" class="form-control form-control-solid ps-12 flatpickr-input active @error('husband_dob') is-invalid @enderror"  name="husband_dob"  value="{{$patient->husband_dob}}" placeholder="تاريخ الميلاد" >
-			</div>
-	   	   </div>
-
-		<div class="d-flex flex-column mb-8 mt-6">
-			<label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
-			<textarea class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" >{{$patient->notes}}</textarea>
-		</div>
-		<div class="d-flex">
-
-				<button type="submit" id="btn" class="btn btn-primary">
-				<span class="indicator-label btn-lg btn-block">حفظ</span>
+	<div class="card shadow-sm mt-5">
+		<div class="card-header">
+			<h3 class="card-title">Title</h3>
+			<div class="card-toolbar">
+				<button type="button" class="btn btn-sm btn-light">
+					Action
 				</button>
+			</div>
+		</div>
+		<div class="card-body">
+			Lorem Ipsum is simply dummy text...
+		</div>
+		<div class="card-footer">
+			Footer
+		</div>
+	</div>
 
-</form>
- </div>
+
 </div>
-	@endsection
-	@section('scripts')
-<script>setTimeout(function() {
-	$('.alert-session-flash').fadeOut('low');
-}, 3000); // <-- time in milliseconds
-</script>
-<script>
-
-$(".flatpickr-input").flatpickr({
-
-});
-
-</script>
+</div>
 @endsection
