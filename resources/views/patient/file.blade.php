@@ -38,10 +38,10 @@
 							<div class="card">
 								<div class="card-header">Upload Form</div>
 								<div class="card-body">
-									<form method="POST" action="{{ route('upload_file') }}" enctype="multipart/form-data">
-										{{ csrf_field() }}
+									<form method="POST" action="{{ route('file',$patient->id) }}" enctype="multipart/form-data">
+										@csrf
 										<input type="file" name="file[]" multiple><br><br>
-										<button type="submit" class="btn btn-primary">Upload</button>
+										<button type="submit" class="btn btn-primary">رفع الصورة</button>
 									</form>
 								</div>
 							</div>
@@ -53,7 +53,7 @@
 									</div>
 								@endforeach
 							@endif
-				  
+
 							@if(session('success'))
 								<div class="alert alert-success text-center">
 									{{session('success')}}
@@ -77,7 +77,7 @@
 												<tr>
 													<td><img src='storage/{{$file->name}}' name="{{$file->name}}" style="width:90px;height:90px;"></td>
 													<td>{{ $file->name }}</td>
-													<td> 
+													<td>
 														@if($file->size < 1000)
 															{{ number_format($file->size,2) }} bytes
 														@elseif($file->size >= 1000000)
@@ -88,7 +88,7 @@
 													</td>
 													<td>{{ date('M d, Y h:i A', strtotime($file->created_at)) }}</td>
 													<td><a href="{{ $file->location }}">{{ $file->location }}</a></td>
-				 
+
 												</tr>
 											@endforeach
 										@else

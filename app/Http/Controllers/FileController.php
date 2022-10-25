@@ -38,11 +38,11 @@ class FileController extends Controller
         $messages = [
             'required' => 'الرجاء ارفق ملف أو صورة',
         ];
-  
+
         $this->validate($request, [
             'file' => 'required',
         ], $messages);
-  
+
         foreach ($request->file as $file) {
             $filename = time().'_'.$file->getClientOriginalName();
             $filesize = $file->getSize();
@@ -51,12 +51,12 @@ class FileController extends Controller
             $fileModel->name = $filename;
             $fileModel->size = $filesize;
             $fileModel->location = 'storage/'.$filename;
-            $fileModel->save();          
+            $fileModel->save();
         }
-  
-        return redirect('/')->with('success', 'File/s Uploaded Successfully');
-  
-    
+
+        return redirect()->route('file')->with('success', 'File/s Uploaded Successfully');
+
+
     }
 
     /**
