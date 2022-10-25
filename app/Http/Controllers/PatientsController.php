@@ -253,6 +253,12 @@ class PatientsController extends Controller
         return view('patient.edit',compact('patient'));
     }
 
+
+    public function file(Patient $patient)
+    {
+        return view('patient.file',compact('patient'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

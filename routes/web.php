@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,16 @@ Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
 
 Route::resource('patients',PatientsController::class)->middleware('auth');
+Route::get('patients/{patient}/file',[PatientsController::class,'file'])->name('file')->middleware('auth'); 
+
+
+
+
 Route::post('patients/getData',[PatientsController::class, 'getData'])->name('patients.getData');
+
+
+Route::resource('files',FileController::class)->middleware('auth');
+
 
 
 Route::resource('appointments',AppointmentsController::class)->middleware('auth');
