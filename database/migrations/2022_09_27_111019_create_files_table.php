@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('filesda', function (Blueprint $table) {
             $table->id();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
-            $table->date('create_at')->comment('تاريخ فتح الملف');
+            $table->string('file');
+            $table->string('title');
+            $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

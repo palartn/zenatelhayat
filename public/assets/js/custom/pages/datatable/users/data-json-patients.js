@@ -110,6 +110,9 @@ var KTDatatablesDataSourceAjaxServer = function() {
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
                         <i class="las la-trash"></i>\
                     </a>\
+                    <a href="'+SITEURL+'/patients/'+full.id+'/file"" class="btn btn-sm btn-clean btn-icon btn-success" title="ملفات المريض">\
+                    <i class="bi bi-file-diff"></i>\
+                    </a>\
 						';
                     },
                       },

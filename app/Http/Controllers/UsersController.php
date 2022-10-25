@@ -99,6 +99,7 @@ class UsersController extends Controller
         //   dd($roleSelected);
         return view('user.edit', compact('user', 'roles', 'roleSelected'));
     }
+    
 
 
     public function update(Request $request, User $user)

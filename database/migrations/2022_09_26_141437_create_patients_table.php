@@ -21,6 +21,7 @@ return new class extends Migration
         $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('email')->nullable()->unique();
             $table->integer('idc')->unique();
+            $table->date('create_at')->comment('تاريخ فتح الملف');
             $table->string('patient_fname'); // إسم المريض الأول
             $table->string('patient_sname'); // إسم المريض الثاني
             $table->string('patient_tname')->nullable(); //  إسم المريض الثالث
