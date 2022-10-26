@@ -48,8 +48,9 @@
 
                                                     <form method="POST" action="{{ route('upload_file', $patient->id) }}"
                                                         enctype="multipart/form-data">
-                                                        {{ csrf_field() }}                                                       
-                                                        <input type="file" name="file[]" multiple><br><br>
+                                                        {{ csrf_field() }}
+                                                        <input type="file" class="form-control form-control-solid mb-5" name="file[]" multiple>
+                                                        <input type="text" name="title" class="form-control form-control-solid mb-5" placeholder="اسم الملف">
                                                         <button type="submit" class="btn btn-primary">رفع الصورة</button>
                                                     </form>
                                                 </div>
@@ -72,7 +73,7 @@
                                         </div>
                                         <div class="col-8">
                                             {{-- <h2>ملفات المريض</h2> --}}
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped ">
                                                 <thead>
                                                     <th>الملف</th>
                                                     <th>إسم الملف</th>
@@ -84,7 +85,7 @@
                                                     @if (count($files) > 0)
                                                         @foreach ($files as $file)
                                                             <tr>
-                                                                <td><img src='/storage/{{$file->file }}'
+                                                                <td><img src='/storage/patient_files/{{$file->file }}'
                                                                         name="{{ $file->title }}"
                                                                         style="width:90px;height:90px;">
                                                                 </td>
@@ -101,7 +102,7 @@
                                                                 <td>{{ date('M d, Y h:i A', strtotime($file->created_at)) }}
                                                                 </td>
                                                                 <td><a
-                                                                        href="{{ $file->location }}">{{ $file->location }}</a>
+                                                                        href="{{$file->location }}">اضغط لرؤيةالملف</a>
                                                                 </td>
 
                                                             </tr>

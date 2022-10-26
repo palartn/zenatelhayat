@@ -42,17 +42,17 @@ class FileController extends Controller
     public function store(Request $request, Patient $patient)
     {
         $messages = [
-            'required' => 'الرجاء ارفق ملف أو صورة',
+            'required' => 'الرجاء ارفاق ملف أو صورة',
         ];
 
         $this->validate($request, [
             'file' => 'required',
         ], $messages);
-
+        $title=$request->title;
         foreach ($request->file as $file) {
             $filename = time() . '_' . $file->getClientOriginalName();
             $filesize = $file->getSize();
-            $file->storeAs('public/', $filename);
+            $file->storeAs('public/patient_files/', $filename);
             // $fileModel = new File;
             // $fileModel->name = $filename;
             // $fileModel->size = $filesize;
@@ -60,8 +60,9 @@ class FileController extends Controller
             // $fileModel->save();
             $patient->files()->create([
                 'file' => $filename,
+               'title' => $title,
                 'size' => $filesize,
-                'location' => 'storage/' . $filename,
+                'location' => 'storage/patient_files/' . $filename,
             ]);
         }
         Alert::warning('رفع الملفات', 'تمت عملية الإضافة بنجاح');
