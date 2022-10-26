@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\File;
+use App\Models\Patient;
+use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class FileController extends Controller
 {
     /**
@@ -11,10 +14,13 @@ class FileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function file(Patient $patient)
     {
-        $files = File::all();
-        return view('patient.file')->with(compact('files'));
+        //$files = File::all();
+
+        $files = $patient->files;
+
+        return view('patient.file')->with(compact('files', 'patient'));
     }
 
     /**
@@ -33,7 +39,7 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Patient $patient)
     {
         $messages = [
             'required' => 'الرجاء ارفق ملف أو صورة',
@@ -44,19 +50,24 @@ class FileController extends Controller
         ], $messages);
 
         foreach ($request->file as $file) {
-            $filename = time().'_'.$file->getClientOriginalName();
+            $filename = time() . '_' . $file->getClientOriginalName();
             $filesize = $file->getSize();
-            $file->storeAs('public/',$filename);
-            $fileModel = new File;
-            $fileModel->name = $filename;
-            $fileModel->size = $filesize;
-            $fileModel->location = 'storage/'.$filename;
-            $fileModel->save();
+            $file->storeAs('public/', $filename);
+            // $fileModel = new File;
+            // $fileModel->name = $filename;
+            // $fileModel->size = $filesize;
+            // $fileModel->location = 'storage/'.$filename;
+            // $fileModel->save();
+            $patient->files()->create([
+                'file' => $filename,
+                'size' => $filesize,
+                'location' => 'storage/' . $filename,
+            ]);
         }
+        Alert::warning('رفع الملفات', 'تمت عملية الإضافة بنجاح');
 
-        return redirect()->route('file')->with('success', 'File/s Uploaded Successfully');
-
-
+        return redirect()->back();
+        //->with('success', 'File/s Uploaded Successfully');
     }
 
     /**

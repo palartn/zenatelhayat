@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->string('file');
-            $table->string('title');
-            $table->string('name');
+            $table->string('title')->nullable();
             $table->string('size');
             $table->string('location');
             $table->string('notes')->nullable();

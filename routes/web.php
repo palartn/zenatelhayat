@@ -30,7 +30,7 @@ Route::post('users/getData',[UsersController::class, 'getData'])->name('users.ge
 
 Route::resource('patients',PatientsController::class)->middleware('auth');
 
-Route::get('patients/{patient}/file',[PatientsController::class,'file'])->name('file')->middleware('auth');
+Route::get('patients/{patient}/file',[FileController::class,'file'])->name('file')->middleware('auth');
 
 
 Route::post('patients/{patient}/store',[FileController::class,'store'])->name('upload_file');

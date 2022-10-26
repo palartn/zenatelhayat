@@ -14,5 +14,10 @@ class Patient extends Model
     protected $table = "patients";
     protected $guarded = [];
 
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
 
 }
