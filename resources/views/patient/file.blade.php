@@ -134,7 +134,7 @@
 
 
                         <div class="card-body">
-                            Lorem Ipsum is simply dummy text...
+                           زيارات المريض
                         </div>
                         <div class="card-footer">
                             Footer
