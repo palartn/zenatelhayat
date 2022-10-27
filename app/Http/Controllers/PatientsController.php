@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PatientResource;
 use Carbon\Carbon;
 use App\Models\Patient;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Date;
+use App\Http\Resources\PatientResource;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -132,6 +134,7 @@ class PatientsController extends Controller
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
+                'patient_number' => $item->patient_number,
                 'idc' => $item->idc,
                 'name' => $item->patient_fname .' '. $item->patient_sname .' '. $item->patient_tname .' '. $item->patient_lname,
                 'mobile' => $item->mobile,
@@ -160,6 +163,8 @@ class PatientsController extends Controller
      */
     public function create()
     {
+      
+    
         $roles = Role::all();
         return view('patient.create', compact('roles'));
     }
@@ -190,6 +195,7 @@ class PatientsController extends Controller
             // $husband_dob = $request->husband_dob;
             // $notes = $request->notes;
 
+
             $validated = $request->validate([
                 'patient_fname' => 'required',
                 'patient_sname' => 'required',
@@ -217,7 +223,22 @@ class PatientsController extends Controller
             //     'husband_occupation' => $husband_occupation,
             //     'notes' => $notes
             // ]);
-            Patient::create($request->all() + ['user_id' => auth()->id()]);
+
+          $patient_number = Patient::latest('id')->first()->patient_number;
+          $year = explode('/',$patient_number)[0];
+          $patient_number = explode('/',$patient_number)[1];
+
+          if(Date('Y') > $year){
+            $number = Date('Y').'/'.'100';
+          }else{
+            $number = Date('Y').'/'.$patient_number + 1;
+          };
+         
+        
+            Patient::create($request->all() + [
+                'user_id' => auth()->id(),
+                'patient_number' => $number,
+        ]);
 
 
             // $add_patients->assignRole($request->role);

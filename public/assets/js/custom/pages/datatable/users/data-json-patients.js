@@ -75,7 +75,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 data: {
                     // parameters for custom backend script demo
                     columnsDef: [
-                        'id', 'name', 'mobile', 'address', 'actions'],
+                        'id','patient_number', 'name', 'mobile', 'address', 'actions'],
                     from_date:from_date,
                     to_date:to_date,
                     filter_1:filter_1,
@@ -86,7 +86,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
             },
             columns: [
                 // {data: 'id',width: 100},
-                {data: 'id',width: 40},
+                {data: 'patient_number',width: 40},
                 {data: 'idc',width: 80},
                 {data: 'name',width: 180},
                 {data: 'mobile',width: 80},

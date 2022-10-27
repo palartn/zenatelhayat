@@ -442,6 +442,7 @@
                                             $('#husband_name').html(result.data.husband_name);
                                             $('#husband_occupation').html(result.data.occupation);
                                             $('#husband_dob').html(result.data.husband_dob);
+                                            $('#patient_number').html(result.data.patient_number);
                                             // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                                             $('#user_created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();

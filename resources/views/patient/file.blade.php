@@ -85,7 +85,7 @@
                                                     @if (count($files) > 0)
                                                         @foreach ($files as $file)
                                                             <tr>
-                                                                <td><img src='/storage/patient_files/{{$file->file }}'
+                                                                <td><img src="{{ asset('storage/patient_files').'/'.$file->file }}"
                                                                         name="{{ $file->title }}"
                                                                         style="width:90px;height:90px;">
                                                                 </td>
@@ -101,8 +101,8 @@
                                                                 </td>
                                                                 <td>{{ date('M d, Y h:i A', strtotime($file->created_at)) }}
                                                                 </td>
-                                                                <td><a
-                                                                        href="{{$file->location }}">اضغط لرؤيةالملف</a>
+                                                                <td><a target="_blank"
+                                                                        href="{{'/'.$file->location }}">اضغط لرؤيةالملف</a>
                                                                 </td>
 
                                                             </tr>
