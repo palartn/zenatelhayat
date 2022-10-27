@@ -22,12 +22,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6">
+                        <div class="col-xl-3">
                             <div class="form-group row mb-1">
                                 <label class="col-form-label col-lg-4 fs-4 fw-semibold form-label">رقم الهوية</label>
                                 <div class="col-lg-8">
                                     <div class="form-control-plaintext border px-2 alpha-slate fs-4 fw-semibold form-label "
                                         id="patient_idc" style="">{{ $patient->idc }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="form-group row mb-1">
+                                <label class="col-form-label col-lg-4 fs-4 fw-semibold form-label">رقم الملف</label>
+                                <div class="col-lg-8">
+                                    <div class="form-control-plaintext border px-2 alpha-slate fs-4 fw-semibold form-label "
+                                        id="patient_idc" style="">{{ $patient->patient_number }}</div>
                                 </div>
                             </div>
                         </div>

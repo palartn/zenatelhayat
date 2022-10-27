@@ -86,12 +86,12 @@ var KTDatatablesDataSourceAjaxServer = function() {
             },
             columns: [
                 // {data: 'id',width: 100},
-                {data: 'patient_number',width: 40},
-                {data: 'idc',width: 80},
+                {data: 'patient_number',width: 30},
+                {data: 'idc',width: 35},
                 {data: 'name',width: 180},
                 {data: 'mobile',width: 80},
-                {data: 'address',width: 120},
-                {data: 'actions',width: 120},
+                {data: 'address',width: 80},
+                {data: 'actions',width: 145},
 
             ],
             columnDefs: [
@@ -113,10 +113,13 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     <a href="'+SITEURL+'/patients/'+full.id+'/file"" class="btn btn-sm btn-clean btn-icon btn-success" title="ملفات المريض">\
                     <i class="bi bi-file-diff"></i>\
                     </a>\
+                    <a href="'+SITEURL+'/appointments/'+full.id+'" class="btn btn-sm btn-clean btn-icon btn-secondary" title="حجوزات المريض">\
+                    <i class="fa fa-calendar" aria-hidden="true"></i>\
+                    </a>\
 						';
                     },
                       },
-            ],
+            ]
         });
     };
     return {
