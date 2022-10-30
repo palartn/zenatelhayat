@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
     <div id="kt_content_container" class="container-xxl mt-6">
         <div class="card mb-5 mb-xl-8">
             <!--begin::Header-->
