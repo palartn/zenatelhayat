@@ -223,8 +223,9 @@ class PatientsController extends Controller
             //     'husband_occupation' => $husband_occupation,
             //     'notes' => $notes
             // ]);
+        
 
-          $patient_number = Patient::latest('id')->first()->patient_number;
+          $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
           $year = explode('/',$patient_number)[0];
           $patient_number = explode('/',$patient_number)[1];
 

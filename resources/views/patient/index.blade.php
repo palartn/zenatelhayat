@@ -26,7 +26,6 @@
 
                 </div>
             </div>
-
             <!--end::Header-->
             <!--begin::Body-->
 

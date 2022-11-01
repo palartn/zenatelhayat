@@ -1191,7 +1191,7 @@
                                                                 height="2" rx="1" fill="black"></rect>
                                                         </svg>
                                                     </span>
-                                                    <!--end::Svg Icon-->Add Event
+                                                    <!--end::Svg Icon-->إضافة زيـارة
                                                 </button>
                                             </div>
                                         </div>
@@ -6073,7 +6073,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-secondary">
-                            <h5 class="modal-title ">معلومات المستخدم</h5>
+                            <h5 class="modal-title ">معلومات الزيـارات</h5>
                             <p id="demo"></p>
                             <!--begin::Close-->
                             <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
@@ -6087,73 +6087,43 @@
                             <div class="container bootstrap snippets bootdey">
                                 <div class="panel-body inf-content">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <img id="user_photo" alt="" style="width:600px;" title=""
-                                                class="img-circle img-thumbnail isTooltip" src="https://cdn3.iconfinder.com/data/icons/3d-printing-icon-set/512/User.png"
-                                                data-original-title="Usuario">
-        
-                                        </div>
-                                        <div class="col-md-8">
-                                            <strong>بيانات المستخدم</strong><br>
-                                            <div class="table-responsive">
-                                                <table class="table table-user-information">
-                                                    <tbody>
-        
-                                                        <tr>
-                                                            <td>
-                                                                <strong>
-                                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                                    الإسـم
-                                                                </strong>
-                                                            </td>
-                                                            <select class="js-example-basic-single" name="state">
-                                                                <option value="AL">Alabama</option>
-                                                               <option value="WY">Wyoming</option>
-                                                              </select>
-                                                            </td>
-        
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <strong>
-                                                                    <span class="glyphicon glyphicon-user  text-primary"></span>
-                                                                    البريد الإلكتروني
-                                                                </strong>
-                                                            </td>
-                                                            <td class="text-primary" id="user_email">
-        
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <strong>
-                                                                    <span class="glyphicon glyphicon-cloud text-primary"></span>
-                                                                    الهاتف
-                                                                </strong>
-                                                            </td>
-                                                            <td class="text-primary" id="user_phone">
-        
-                                                            </td>
-                                                        </tr>
-        
-                                                        <tr>
-                                                            <td>
-                                                                <strong>
-                                                                    <span class="glyphicon glyphicon-bookmark text-primary"></span>
-                                                                    العنوان
-                                                                </strong>
-                                                            </td>
-                                                            <td class="text-primary" id="user_address">
-        
-                                                            </td>
-                                                        </tr>
-        
-                                            </div>
+                                        <form action="" method="POST"> 
+                                            <div class="row mt-6">
+                                                <div class="col xl-3">
+                                                    <label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم المريض</label>
+                                                    <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_id') is-invalid @enderror" id="kt_datepicker_1" name="patient_id"  value="{{ old('patient_id') }}">
+                                                 </div>
+                                                        <div class="col xl-3">
+                                                           <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
+                                                         <input type="text" readonly disabled class="form-control form-control-solid @error('visit_date') is-invalid @enderror" name="visit_date"  value="" >
+                                                       </div>
+                                                       <div class="col xl-3">
+                                                           <label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة القادمة</label>
+                                                         <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active" id="kt_datepicker_1"  @error('next_visit_date') is-invalid @enderror  name="next_visit_date"  value="{{ old('next_visit_date') }}" placeholder="الزيارة القادمة" >
+                                                       </div>
+                                            
+                                                       
+                                                          </div>
+                                            
+                                                    <div class="d-flex flex-column mb-8 mt-6">
+                                                        <label class="fs-4 fw-semibold form-label">ملاحظـــات</label>
+                                                        <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes" placeholder="ملاحظات" ></textarea>
+                                                    </div>
+                                                    <div class="d-flex">
+                                        
+                                                            <button type="submit" id="btn" class="btn btn-primary">
+                                                            <span class="indicator-label btn-lg btn-block">حفظ</span>
+                                                            </button>
+                                            
+                                            </form>
+                                     
+                                          
         
                                             <div class="modal-footer">
                                                 <button type="button" id='user_status' class="btn"
                                                     data-bs-dismiss="modal"></button>
-        
+
+                                                    
                                             </div>
                                         </div>
                                     </div>
@@ -6185,4 +6155,17 @@
     $('.js-example-basic-single').select2();
 });
       </script>
+      
+<script>
+
+    $(".flatpickr-input").flatpickr({
+    
+    });
+    
+    </script>
+    <script>
+    tinymce.init({
+        selector: '#kt_docs_tinymce_basic'
+    });
+    </script>
     @endpush
