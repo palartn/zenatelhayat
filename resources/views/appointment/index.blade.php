@@ -5948,8 +5948,9 @@
                     <div class="container bootstrap snippets bootdey">
                         <div class="panel-body inf-content">
                             <div class="row">
-                                <form method="POST" action="{{route('appointments.store')}}">
+                                <form method="POST" action="{{route('appointments.store',$patient->patient_id)}}">
                                @csrf
+                               {{-- <input type="hidden" value="{{$patient->patient_id}}" name="patient_id"> --}}
                                     <div class="col xl-3">
                                         <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
                                         <input type="text" readonly disabled

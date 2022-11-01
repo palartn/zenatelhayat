@@ -87,9 +87,37 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request, Patient $patient)
     {
+         $fname = $request->fname;
+            $visit_date = $request->visit_date;
+            $next_visit_date = $request->next_visit_date;
+            $patient_id = $request->patient_id;
+            // dd($patient_id);
+            $cost = $request->cost;
+            $currency = $request->currency;
+            $paid = $request->paid;
+            $remaining_amount = $request->remaining_amount;
+            $pay_date = $request->pay_date;
+            $notes = $request->notes;
+          
+           
         $validated = $request->validate([
             'next_visit_date' => 'required',]);
-            Appointment::create($request->all());
+            //Patients::create([]);
+            $add_appointment = Appointment::create([
+                'visit_date' => $visit_date,
+                'next_visit_date' => $next_visit_date,
+                // 'patient_id' => $patient_id,
+                'cost' => $cost,
+                'currency' => $currency,
+                'paid' => $paid,
+                'remaining_amount' => $remaining_amount,
+                'pay_date' => $pay_date,
+                'notes' => $notes,
+                
+            ]);
+            return redirect()->route('appointments.index',compact($patient->patient_id));
+
+           // Appointment::create($request->all());
                 
     
     }
