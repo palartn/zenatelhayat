@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
-use App\Models\Patient;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Patient;
+use App\Models\Appointment;
+use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AppointmentsController extends Controller
 {
@@ -20,10 +21,10 @@ class AppointmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
- 
+
     {
-        
-        if($request->ajax()) {  
+
+        if($request->ajax()) {
             $data = Appointment::whereDate('event_start', '>=', $request->start)
                 ->whereDate('event_end',   '<=', $request->end)
                 ->get(['id', 'event_name', 'event_start', 'event_end']);
@@ -31,10 +32,10 @@ class AppointmentsController extends Controller
         }
         return view('appointment.index');
     }
- 
+
     public function calendarEvents(Request $request)
     {
- 
+
         switch ($request->type) {
            case 'create':
               $event = Appointment::create([
@@ -42,32 +43,32 @@ class AppointmentsController extends Controller
                   'event_start' => $request->event_start,
                   'event_end' => $request->event_end,
               ]);
- 
+
               return response()->json($event);
              break;
-  
+
            case 'edit':
               $event = Appointment::find($request->id)->update([
                   'event_name' => $request->event_name,
                   'event_start' => $request->event_start,
                   'event_end' => $request->event_end,
               ]);
- 
+
               return response()->json($event);
              break;
-  
+
            case 'delete':
               $event = Appointment::find($request->id)->delete();
-  
+
               return response()->json($event);
              break;
-             
+
            default:
              # ...
              break;
         }
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -87,39 +88,43 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request, Patient $patient)
     {
-         $fname = $request->fname;
+
             $visit_date = $request->visit_date;
             $next_visit_date = $request->next_visit_date;
             $patient_id = $request->patient_id;
-            // dd($patient_id);
             $cost = $request->cost;
             $currency = $request->currency;
             $paid = $request->paid;
             $remaining_amount = $request->remaining_amount;
             $pay_date = $request->pay_date;
             $notes = $request->notes;
-          
-           
+
+
         $validated = $request->validate([
             'next_visit_date' => 'required',]);
-            //Patients::create([]);
-            $add_appointment = Appointment::create([
-                'visit_date' => $visit_date,
-                'next_visit_date' => $next_visit_date,
-                // 'patient_id' => $patient_id,
-                'cost' => $cost,
-                'currency' => $currency,
-                'paid' => $paid,
-                'remaining_amount' => $remaining_amount,
-                'pay_date' => $pay_date,
-                'notes' => $notes,
-                
-            ]);
-            return redirect()->route('appointments.index',compact($patient->patient_id));
+            $patient = Patient::with('appointments');
+            dd($patient);
+
+
+
+
+            // $patient->appointments()->create([
+            //     'visit_date' => $visit_date,
+            //     'next_visit_date' => $next_visit_date,
+
+            //     'cost' => $cost,
+            //     'currency' => $currency,
+            //     'paid' => $paid,
+            //     'remaining_amount' => $remaining_amount,
+            //     'pay_date' => $pay_date,
+            //     'notes' => $notes,
+            // ]);
+            Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
+            return redirect()->back();
 
            // Appointment::create($request->all());
-                
-    
+
+
     }
 
     /**

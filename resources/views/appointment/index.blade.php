@@ -5970,15 +5970,15 @@
                                         <div class="col xl-3 mt-6">
                                             <label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
                                                 القادمة</label>
-                                            <input type="date" class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror" id="kt_datepicker_1" 
+                                            <input type="date" class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror" id="kt_datepicker_1"
                                                 name="next_visit_date" value="{{ old('next_visit_date') }}"
                                                 placeholder="الزيارة القادمة">
                                                 @error('next_visit_date')
                                                 <div class="text-danger mt-1 mb-1">{{ $message }}</div>
                                                 @enderror
-                                                
+
                                         </div>
-                                      
+
                                             <div class="row">
                                                 <div class="col-sm-4 mt-6">
                                                     <label class="fs-4 fw-semibold form-label"
@@ -6004,7 +6004,7 @@
 
                                                 </div>
 
-                                                   
+
                                                       <div class="col-6 mt-6">
                                                         <label class="fs-4 fw-semibold form-label"
                                                         for="visit_date">المبلغ المتبقي</label>
@@ -6017,11 +6017,11 @@
                                                     <input type="date" name="pay_date" class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
                                                        value="{{ date('Y-m-d') }}" id="kt_datepicker_1" placeholder="تاريخ الدفع" >
                                                       </div>
-                                                     
+
                                                     </div></div>
 
-                                       
-                                                   
+
+
 
                                                 </div>
 
@@ -6037,8 +6037,8 @@
                                                 <button type="submit" id="btn" class="btn btn-primary mt-6">
                                                     <span class="indicator-label btn-lg btn-block">حفظ</span>
                                                 </button>
-                                                
-                                            
+
+
                                 </form>
 
 

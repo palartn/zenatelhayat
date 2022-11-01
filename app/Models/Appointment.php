@@ -11,5 +11,11 @@ class Appointment extends Model
     use HasFactory, SoftDeletes;
     protected $guarded = [];
 
-    
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class,'patient_id','id');
+    }
+
+
+
 }
