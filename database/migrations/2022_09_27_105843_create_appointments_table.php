@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->date('visit_date');
+            $table->timestamp('visit_date');
             $table->date('next_visit_date');
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->double('cost');

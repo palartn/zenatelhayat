@@ -5961,15 +5961,15 @@
                                             <label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
                                                 المريض</label>
                                             <input type="text"
-                                                class="form-control form-control-solid ps-12 @error('patient_id') is-invalid @enderror"
-                                                name="patient_id" value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
+                                                class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
+                                                name="patient_name" value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
                                         </div>
 
                                         <div class="col xl-3 mt-6">
                                             <label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
                                                 القادمة</label>
                                             <input type="date"
-                                                class="form-control form-control-solid ps-12 flatpickr-input active"
+                                                class="form-control form-control-solid  flatpickr-input active"
                                                 id="kt_datepicker_1" @error('next_visit_date') is-invalid @enderror
                                                 name="next_visit_date" value="{{ old('next_visit_date') }}"
                                                 placeholder="الزيارة القادمة">
@@ -6010,8 +6010,8 @@
                                                       <div class="col-6 mt-6">
                                                         <label class="fs-4 fw-semibold form-label"
                                                         for="visit_date">تاريخ الدفع</label>
-                                                    <input type="date" name="pay_date" class="form-control form-control-solid ps-12 flatpickr-input active @error('pay_date') is-invalid @enderror"
-                                                       value="" id="kt_datepicker_1" placeholder="تاريخ الدفع" >
+                                                    <input type="date" name="pay_date" class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
+                                                       value="{{ date('Y-m-d') }}" id="kt_datepicker_1" placeholder="تاريخ الدفع" >
                                                       </div>
                                                      
                                                     </div></div>
