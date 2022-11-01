@@ -200,6 +200,7 @@ class PatientsController extends Controller
                 'patient_fname' => 'required',
                 'patient_sname' => 'required',
                 'patient_lname' => 'required',
+                'patient_dob' => 'required',
                 //'gender' => 'required|in:male,female',
                 'idc' => 'required|min:9|unique:Patients',
                 'mobile' => 'required|min:7',

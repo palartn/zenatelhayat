@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/}" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
@@ -1164,7 +1164,7 @@
                                     <div class="card">
                                         <!--begin::Card header-->
                                         <div class="card-header">
-                                            <h2 class="card-title fw-bolder">Calendar</h2>
+                                            <h2 class="card-title fw-bolder">الرزنامة</h2>
                                             <div class="card-toolbar">
                                                 <button class="btn btn-flex btn-primary" data-kt-calendar="add"
                                                     data-bs-toggle="modal" data-bs-target="#kt_modal_1">
@@ -5948,7 +5948,8 @@
                     <div class="container bootstrap snippets bootdey">
                         <div class="panel-body inf-content">
                             <div class="row">
-                                <form action="" method="POST">
+                                <form method="POST" action="{{route('appointments.store')}}">
+                               @csrf
                                     <div class="col xl-3">
                                         <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
                                         <input type="text" readonly disabled
@@ -5968,11 +5969,13 @@
                                         <div class="col xl-3 mt-6">
                                             <label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
                                                 القادمة</label>
-                                            <input type="date"
-                                                class="form-control form-control-solid  flatpickr-input active"
-                                                id="kt_datepicker_1" @error('next_visit_date') is-invalid @enderror
+                                            <input type="date" class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror" id="kt_datepicker_1" 
                                                 name="next_visit_date" value="{{ old('next_visit_date') }}"
                                                 placeholder="الزيارة القادمة">
+                                                @error('next_visit_date')
+                                                <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                                                @enderror
+                                                
                                         </div>
                                       
                                             <div class="row">
@@ -5986,17 +5989,17 @@
 
                                                 <div class="col-sm-4 mt-6">
                                                     <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">العملة</label>
-                                                    <input type="text"
-                                                        class="form-control form-control-solid @error('currency') is-invalid @enderror"
-                                                        name="currency" value="" placeholder="عملة الدفوع">
-                                                </div>
-                                                <div class="col-sm-4 mt-6">
-                                                    <label class="fs-4 fw-semibold form-label"
                                                         for="visit_date">المبلغ المدفوع</label>
                                                     <input type="text"
                                                         class="form-control form-control-solid @error('paid') is-invalid @enderror"
-                                                        name="paid" value="" placeholder="المدفوع">
+                                                        name="paid" value="" placeholder="عملة الدفوع">
+                                                </div>
+                                                <div class="col-sm-4 mt-6">
+                                                    <label class="fs-4 fw-semibold form-label"
+                                                        for="visit_date">العملة</label>
+                                                    <input type="text"
+                                                        class="form-control form-control-solid @error('currency') is-invalid @enderror"
+                                                        name="currency" value="" placeholder="المدفوع">
 
                                                 </div>
 

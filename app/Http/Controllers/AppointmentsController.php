@@ -87,7 +87,11 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request, Patient $patient)
     {
-        //
+        $validated = $request->validate([
+            'next_visit_date' => 'required',]);
+            Appointment::create($request->all());
+                
+    
     }
 
     /**

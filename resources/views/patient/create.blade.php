@@ -39,7 +39,7 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-		<form method="POST" action="{{route('patients.store')}}" method="POST" enctype="multipart/form-data">
+		<form method="POST" action="{{route('patients.store')}}"  enctype="multipart/form-data">
             @csrf
            <div class="row ">
                 <div class="col xl-3">
@@ -81,7 +81,9 @@
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="patient_dob"> تاريخ الميلاد</label>
 			  <input type="date" class="form-control form-control-solid ps-12 flatpickr-input active @error('patient_dob') is-invalid @enderror" id="kt_datepicker_1" name="patient_dob"  value="{{ old('patient_dob') }}" placeholder="تاريخ الميلاد" >
-			  {{-- <input class="form-control form-control-solid ps-12 flatpickr-input active" name="date" placeholder="Pick a date" id="kt_datepicker_1" type="text" readonly="readonly"> --}}
+			  @error('patient_dob')
+                  <div class="text-danger mt-1 mb-1">{{ $message }}</div>
+                  @enderror
 			</div>
 
 			<div class="col xl-3">
