@@ -20,11 +20,11 @@ class PatientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Patient $user)
+    public function index()
     {
-      //  dd(Patient::all());
+    //    dd(Patient::all());
     //   PatientResource::collection(Patient::all());
-        return view('patient.index',compact('user'));
+        return view('patient.index');
     }
     public function getData(Request $request)
     {

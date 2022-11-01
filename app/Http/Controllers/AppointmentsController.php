@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Patient;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointmentsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +22,7 @@ class AppointmentsController extends Controller
     public function index(Request $request)
  
     {
+        
         if($request->ajax()) {  
             $data = Appointment::whereDate('event_start', '>=', $request->start)
                 ->whereDate('event_end',   '<=', $request->end)
@@ -66,7 +74,7 @@ class AppointmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Patient $patient)
     {
         //
     }
@@ -77,7 +85,7 @@ class AppointmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Patient $patient)
     {
         //
     }
@@ -90,7 +98,10 @@ class AppointmentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $patient = Patient::whereId($id)->first();
+        // dd($patient);
+        $today_date = date('Y-m-d H:i:s');
+        return view('appointment.index', compact('patient','today_date'));
     }
 
     /**
@@ -99,7 +110,7 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Patient $patient)
     {
         //
     }
@@ -111,7 +122,7 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Patient $patient)
     {
         //
     }
@@ -122,7 +133,7 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Patient $patient)
     {
         //
     }
