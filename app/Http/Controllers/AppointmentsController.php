@@ -25,9 +25,9 @@ class AppointmentsController extends Controller
     {
 
         if($request->ajax()) {
-            $data = Appointment::whereDate('event_start', '>=', $request->start)
-                ->whereDate('event_end',   '<=', $request->end)
-                ->get(['id', 'event_name', 'event_start', 'event_end']);
+            $data = Appointment::whereDate('visit_date', '>=', $request->start)
+                ->whereDate('next_visit_date',   '<=', $request->end)
+                ->get(['id', 'notes', 'visit_date', 'next_visit_date']);
             return response()->json($data);
         }
         return view('appointment.index');
@@ -86,43 +86,34 @@ class AppointmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Patient $patient)
+    public function store(Request $request)
     {
-
-            $visit_date = $request->visit_date;
-            $next_visit_date = $request->next_visit_date;
-            $patient_id = $request->patient_id;
-            $cost = $request->cost;
-            $currency = $request->currency;
-            $paid = $request->paid;
-            $remaining_amount = $request->remaining_amount;
-            $pay_date = $request->pay_date;
-            $notes = $request->notes;
+    
+            $patient=Patient::where('id',$request->patient_id)->first();
+            
+          
+        //     $visit_date = $request->visit_date;
+        //     $next_visit_date = $request->next_visit_date;
+        //    // $patient_id = $patient->id;
+        //     $cost = $request->cost;
+        //     $currency = $request->currency;
+        //     $paid = $request->paid;
+        //     $remaining_amount = $request->remaining_amount;
+        //     $pay_date = $request->pay_date;
+        //     $notes = $request->notes;
 
 
         $validated = $request->validate([
-            'next_visit_date' => 'required',]);
-            $patient = Patient::with('appointments');
-            dd($patient);
+            'next_visit_date' => 'required',
+        ]);
 
-
-
-
-            // $patient->appointments()->create([
-            //     'visit_date' => $visit_date,
-            //     'next_visit_date' => $next_visit_date,
-
-            //     'cost' => $cost,
-            //     'currency' => $currency,
-            //     'paid' => $paid,
-            //     'remaining_amount' => $remaining_amount,
-            //     'pay_date' => $pay_date,
-            //     'notes' => $notes,
-            // ]);
+           // $user=Patient::where('id',$id)->with()->appointments;
+           $patient->appointments()->create($request->except('patient_id','patient_name'));
+          
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
             return redirect()->back();
 
-           // Appointment::create($request->all());
+        
 
 
     }

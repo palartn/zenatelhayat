@@ -5948,9 +5948,10 @@
                     <div class="container bootstrap snippets bootdey">
                         <div class="panel-body inf-content">
                             <div class="row">
-                                <form method="POST" action="{{route('appointments.store',$patient->patient_id)}}">
-                               @csrf
-                               {{-- <input type="hidden" value="{{$patient->patient_id}}" name="patient_id"> --}}
+
+                                <form method="POST" action="{{ route('appointments.store') }}">
+                                    @csrf
+                                    <input type="hidden" value="{{ $patient->id }}" name="patient_id">
                                     <div class="col xl-3">
                                         <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
                                         <input type="text" readonly disabled
@@ -5964,92 +5965,98 @@
                                                 المريض</label>
                                             <input type="text"
                                                 class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
-                                                name="patient_name" value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
+                                                name="patient_name"
+                                                value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
                                         </div>
 
                                         <div class="col xl-3 mt-6">
                                             <label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
                                                 القادمة</label>
-                                            <input type="date" class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror" id="kt_datepicker_1"
-                                                name="next_visit_date" value="{{ old('next_visit_date') }}"
-                                                placeholder="الزيارة القادمة">
-                                                @error('next_visit_date')
+                                            <input type="date"
+                                                class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror"
+                                                id="kt_datepicker_1" name="next_visit_date"
+                                                value="{{ old('next_visit_date') }}" placeholder="الزيارة القادمة">
+                                            @error('next_visit_date')
                                                 <div class="text-danger mt-1 mb-1">{{ $message }}</div>
-                                                @enderror
+                                            @enderror
 
                                         </div>
 
-                                            <div class="row">
-                                                <div class="col-sm-4 mt-6">
-                                                    <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">التكلفة</label>
-                                                    <input type="text"
-                                                        class="form-control form-control-solid @error('cost') is-invalid @enderror"
-                                                        name="cost" value="" placeholder="المبلغ للدفع">
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-sm-4 mt-6">
+                                                <label class="fs-4 fw-semibold form-label"
+                                                    for="visit_date">التكلفة</label>
+                                                <input type="text"
+                                                    class="form-control form-control-solid @error('cost') is-invalid @enderror"
+                                                    name="cost" value="" placeholder="المبلغ للدفع">
+                                            </div>
 
-                                                <div class="col-sm-4 mt-6">
-                                                    <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">المبلغ المدفوع</label>
-                                                    <input type="text"
-                                                        class="form-control form-control-solid @error('paid') is-invalid @enderror"
-                                                        name="paid" value="" placeholder="عملة الدفوع">
-                                                </div>
-                                                <div class="col-sm-4 mt-6">
-                                                    <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">العملة</label>
-                                                    <input type="text"
-                                                        class="form-control form-control-solid @error('currency') is-invalid @enderror"
-                                                        name="currency" value="" placeholder="المدفوع">
-
-                                                </div>
-
-
-                                                      <div class="col-6 mt-6">
-                                                        <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">المبلغ المتبقي</label>
-                                                    <input type="text" name="remaining_amount" class="form-control form-control-solid @error('remaining_amount') is-invalid @enderror"
-                                                       value="" placeholder="الباقي" >
-                                                      </div>
-                                                      <div class="col-6 mt-6">
-                                                        <label class="fs-4 fw-semibold form-label"
-                                                        for="visit_date">تاريخ الدفع</label>
-                                                    <input type="date" name="pay_date" class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
-                                                       value="{{ date('Y-m-d') }}" id="kt_datepicker_1" placeholder="تاريخ الدفع" >
-                                                      </div>
-
-                                                    </div></div>
-
-
-
-
-                                                </div>
+                                            <div class="col-sm-4 mt-6">
+                                                <label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
+                                                    المدفوع</label>
+                                                <input type="text"
+                                                    class="form-control form-control-solid @error('paid') is-invalid @enderror"
+                                                    name="paid" value="" placeholder="عملة الدفوع">
+                                            </div>
+                                            <div class="col-sm-4 mt-6">
+                                                <label class="fs-4 fw-semibold form-label"
+                                                    for="visit_date">العملة</label>
+                                                <input type="text"
+                                                    class="form-control form-control-solid @error('currency') is-invalid @enderror"
+                                                    name="currency" value="" placeholder="المدفوع">
 
                                             </div>
 
-                                            <div >
-                                                <label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
-                                                <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-                                                    placeholder="ملاحظات"></textarea>
+
+                                            <div class="col-6 mt-6">
+                                                <label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
+                                                    المتبقي</label>
+                                                <input type="text" name="remaining_amount"
+                                                    class="form-control form-control-solid @error('remaining_amount') is-invalid @enderror"
+                                                    value="" placeholder="الباقي">
                                             </div>
-                                            <div class="d-flex">
+                                            <div class="col-6 mt-6">
+                                                <label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
+                                                    الدفع</label>
+                                                <input type="date" name="pay_date"
+                                                    class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
+                                                    value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
+                                                    placeholder="تاريخ الدفع">
+                                            </div>
 
-                                                <button type="submit" id="btn" class="btn btn-primary mt-6">
-                                                    <span class="indicator-label btn-lg btn-block">حفظ</span>
-                                                </button>
+                                        </div>
+                                    </div>
 
-
-                                </form>
 
 
 
                             </div>
+
                         </div>
 
+                        <div>
+                            <label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
+                            <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
+                                placeholder="ملاحظات"></textarea>
+                        </div>
+                        <div class="d-flex">
+
+                            <button type="submit" id="btn" class="btn btn-primary mt-6">
+                                <span class="indicator-label btn-lg btn-block">حفظ</span>
+                            </button>
+
+
+                            </form>
+
+
+
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     </body>
@@ -6057,6 +6064,106 @@
 
 @push('scripts')
     <script>
+        $(document).ready(function() {
+
+            var SITEURL = "{{ url('/') }}";
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+                events: SITEURL + "/appointments",
+                displayEventTime: false,
+                editable: true,
+                eventRender: function(event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end, allDay) {
+                    var title = prompt('Event Title:');
+                    if (title) {
+                        var start = $.fullCalendar.formatDate(start, "Y-MM-DD");
+                        var end = $.fullCalendar.formatDate(end, "Y-MM-DD");
+                        $.ajax({
+                            url: SITEURL + "/fullcalenderAjax",
+                            data: {
+                                title: title,
+                                start: start,
+                                end: end,
+                                type: 'add'
+                            },
+                            type: "POST",
+                            success: function(data) {
+                                displayMessage("Event Created Successfully");
+
+                                calendar.fullCalendar('renderEvent', {
+                                    id: data.id,
+                                    title: title,
+                                    start: start,
+                                    end: end,
+                                    allDay: allDay
+                                }, true);
+
+                                calendar.fullCalendar('unselect');
+                            }
+                        });
+                    }
+                },
+                eventDrop: function(event, delta) {
+                    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
+                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
+
+                    $.ajax({
+                        url: SITEURL + '/fullcalenderAjax',
+                        data: {
+                            title: event.title,
+                            start: start,
+                            end: end,
+                            id: event.id,
+                            type: 'update'
+                        },
+                        type: "POST",
+                        success: function(response) {
+                            displayMessage("Event Updated Successfully");
+                        }
+                    });
+                },
+                eventClick: function(event) {
+                    var deleteMsg = confirm("Do you really want to delete?");
+                    if (deleteMsg) {
+                        $.ajax({
+                            type: "POST",
+                            url: SITEURL + '/fullcalenderAjax',
+                            data: {
+                                id: event.id,
+                                type: 'delete'
+                            },
+                            success: function(response) {
+                                calendar.fullCalendar('removeEvents', event.id);
+                                displayMessage("Event Deleted Successfully");
+                            }
+                        });
+                    }
+                }
+
+            });
+
+        });
+
+        function displayMessage(message) {
+            toastr.success(message, 'Event');
+        }
+    </script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -6064,7 +6171,7 @@
             });
             calendar.render();
         });
-    </script>
+    </script> --}}
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();

@@ -10,6 +10,8 @@ class Appointment extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+    protected $table = "appointments";
+
 
     public function patient()
     {
