@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('next_visit_date');
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             // $table->double('cost');
-            $table->string('event');
+            $table->string('event'); //حالة الزيارة | منتهية - لا زالت قيد المتابعة
             // $table->double('paid');
             // $table->double('remaining_amount');
             // $table->date('pay_date');

@@ -5981,8 +5981,24 @@
                                             @enderror
 
                                         </div>
+                                        <div class="col xl-3 mt-6">
+                                            <label class="fs-4 fw-semibold form-label" for="mobile"> حالة الزيارة
+                                                </label>
 
-                                        <div class="row">
+                                                <select class="form-select form-select-lg form-select-solid  @error('event') is-invalid @enderror "
+                                                name="event" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+                                                    <option></option>
+                                                    <option value="1">قيد المتابعة</option>
+                                                    <option value="2">انتهت المراجعة</option>
+                                                </select>
+    
+
+                                          
+
+                                        </div>
+                                       
+
+                                        {{-- <div class="row">
                                             <div class="col-sm-4 mt-6">
                                                 <label class="fs-4 fw-semibold form-label"
                                                     for="visit_date">التكلفة</label>
@@ -6025,7 +6041,7 @@
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
 
