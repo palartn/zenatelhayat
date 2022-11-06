@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('surgery_kinds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('surgery_kind_id')->nullable()->constrained('surgery_kinds','id')->cascadeOnDelete();
             $table->string('name');
             $table->softDeletes();
             $table->timestamps();

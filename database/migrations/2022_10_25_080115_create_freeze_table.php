@@ -20,10 +20,7 @@ return new class extends Migration
             $table->enum('freez_type',['liquid','embryo'])->default('liquid');
             $table->date('freez_begin_date');
             $table->date('freez_end_date');
-            $table->double('total_price');
-            $table->double('currency');
-            $table->double('Payment');
-            $table->double('Remaining_amount');
+            $table->boolean('status')->default(false);
             $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();

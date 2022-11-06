@@ -52,7 +52,7 @@ class UsersController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'password' => 'required',
-            'email' => 'required|unique:Users',
+            'email' => 'required|unique:users',
             'phone' => 'required|min:7',
             'address' => 'required',
             'profile_photo_path' => ['nullable', 'image', 'dimensions:min_width=200,min_height=200'],

@@ -18,11 +18,11 @@ return new class extends Migration
             $table->timestamp('visit_date');
             $table->date('next_visit_date');
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
-            $table->double('cost');
-            $table->string('currency');
-            $table->double('paid');
-            $table->double('remaining_amount');
-            $table->date('pay_date');
+            // $table->double('cost');
+            $table->string('event');
+            // $table->double('paid');
+            // $table->double('remaining_amount');
+            // $table->date('pay_date');
             $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
