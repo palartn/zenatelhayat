@@ -32,5 +32,8 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             RoleSeeder::class,
         ]);
+        $this->call([
+            Surgery_kinds_Seeder::class,
+        ]);
     }
 }
