@@ -88,10 +88,10 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
-    
+
             $patient=Patient::where('id',$request->patient_id)->first();
-            
-          
+
+
         //     $visit_date = $request->visit_date;
         //     $next_visit_date = $request->next_visit_date;
         //    // $patient_id = $patient->id;
@@ -109,11 +109,11 @@ class AppointmentsController extends Controller
 
            // $user=Patient::where('id',$id)->with()->appointments;
            $patient->appointments()->create($request->except('patient_id','patient_name'));
-          
+
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
             return redirect()->back();
 
-        
+
 
 
     }
@@ -127,9 +127,10 @@ class AppointmentsController extends Controller
     public function show($id)
     {
         $patient = Patient::whereId($id)->first();
+
         // dd($patient);
         $today_date = date('Y-m-d H:i:s');
-        return view('appointment.index', compact('patient','today_date'));
+        return view('appointment.create', compact('patient','today_date'));
     }
 
     /**

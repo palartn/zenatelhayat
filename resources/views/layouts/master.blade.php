@@ -1112,14 +1112,15 @@
 						</span>
 						<div class="menu-sub menu-sub-accordion menu-active-bg ">
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-								<div class="menu-item">
-									<a  class="menu-link {{ (request()->is('patients')) ? 'active' : ''}}" href="{{ route('patients.index') }}">
+                                <div class="menu-item">
+									<a  class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
-										<span class="menu-title ">كافة المرضى</span>
+										<span class="menu-title ">إضافة مريض</span>
 									</a>
 								</div>
+
 
 								{{-- <div class="menu-item">
 									<a class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
@@ -1146,6 +1147,14 @@
 									</a>
 								</div> --}}
 							</div>
+                            <div class="menu-item">
+                                <a  class="menu-link {{ (request()->is('patients')) ? 'active' : ''}}" href="{{ route('patients.index') }}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title ">كافة المرضى</span>
+                                </a>
+                            </div>
 							</div>
 					</div>
 

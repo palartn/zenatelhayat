@@ -163,8 +163,8 @@ class PatientsController extends Controller
      */
     public function create()
     {
-      
-    
+
+
         $roles = Role::all();
         return view('patient.create', compact('roles'));
     }
@@ -224,7 +224,7 @@ class PatientsController extends Controller
             //     'husband_occupation' => $husband_occupation,
             //     'notes' => $notes
             // ]);
-        
+
 
           $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
           $year = explode('/',$patient_number)[0];
@@ -235,8 +235,8 @@ class PatientsController extends Controller
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };
-         
-        
+
+
             Patient::create($request->all() + [
                 'user_id' => auth()->id(),
                 'patient_number' => $number,
@@ -287,7 +287,7 @@ class PatientsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responses
      */
     public function update(Request $request, Patient $patient)
     {
