@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class Surgery_kinds_Seeder extends Seeder
 {
@@ -14,9 +15,12 @@ class Surgery_kinds_Seeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('password'),
+        DB::table('surgery_kinds')->insert([
+            'surgery_kind_id' => '1',
+            'name' => 'صورة', ]);
+        DB::table('surgery_kinds')->insert([
+            'surgery_kind_id' => '1',
+            'name' => 'تحاليل', ]);
+            
     }
 }
