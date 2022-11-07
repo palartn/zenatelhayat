@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attachments', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('file_id')->constrained()->cascadeOnDelete();
-            $table->string('file_name');
-            $table->string('file');
-            $table->text('notes')->nullable();
+            $table->foreignId('surgery_id')->constrained()->cascadeOnDelete();
+            $table->double('cost');
+            $table->string('currency');
+            $table->double('paid');
+            $table->double('remaining_amount');
+            $table->double('total_price');
+            $table->date('pay_date');
+            $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attachments');
+        Schema::dropIfExists('payment');
     }
 };
