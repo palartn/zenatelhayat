@@ -1184,8 +1184,10 @@
                                                                                 <select class="form-select form-select-lg form-select-solid  @error('event') is-invalid @enderror "
                                                                                 name="event" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
                                                                                     <option></option>
-                                                                                    <option value="1">قيد المتابعة</option>
-                                                                                    <option value="2">انتهت المراجعة</option>
+                                                                                    @foreach ($surgerykind as $surgerykind)
+                                                                                    <option value="{{$surgerykind->id;}}">{{$surgerykind->name;}}</option>
+                                                                                    @endforeach
+                                                                                    {{-- <option value="2">انتهت المراجعة</option> --}}
                                                                                 </select>
 
 

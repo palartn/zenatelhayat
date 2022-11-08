@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Patient;
 use App\Models\Appointment;
+use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -127,10 +128,10 @@ class AppointmentsController extends Controller
     public function show($id)
     {
         $patient = Patient::whereId($id)->first();
-
+        $surgerykind=SurgeryKind::all();
         // dd($patient);
         $today_date = date('Y-m-d H:i:s');
-        return view('appointment.create', compact('patient','today_date'));
+        return view('appointment.create', compact('patient','today_date','surgerykind'));
     }
 
     /**
