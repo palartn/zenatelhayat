@@ -114,7 +114,7 @@ class AppointmentsController extends Controller
            $fin=$input['event'] = implode('--',$event);
            //dd($fin);
            //Appointment::create($fin);
-           $patient->appointments()->create($request->except('patient_id','patient_name'));
+           $patient->appointments()->create($request->except('patient_id','patient_name')+ ['event'=>$fin]);
 
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
             return redirect()->back();
