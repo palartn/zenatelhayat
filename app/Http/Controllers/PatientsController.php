@@ -231,7 +231,7 @@ class PatientsController extends Controller
           $patient_number = explode('/',$patient_number)[1];
 
           if(Date('Y') > $year){
-            $number = Date('Y').'/'.'100';
+            $number = Date('Y').'/'.'101';
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };

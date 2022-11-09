@@ -109,12 +109,11 @@ class AppointmentsController extends Controller
         ]);
 
            // $user=Patient::where('id',$id)->with()->appointments;
-            $input=$request->all();
-            $event=$input['event'];
-           $fin=$input['event'] = implode('--',$event);
-           //dd($fin);
-           //Appointment::create($fin);
-           $patient->appointments()->create($request->except('patient_id','patient_name')+ ['event'=>$fin]);
+         
+           $input=$request->all();
+           $event=$input['event'];
+           $request['event'] = implode('--',$event);   
+           $patient->appointments()->create($request->except('patient_id','patient_name'));
 
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
             return redirect()->back();

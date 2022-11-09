@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('freeze', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('file_id')->constrained('files')->cascadeOnDelete();
+            $table->foreignId('patient_id')->constrained('patient')->cascadeOnDelete();
             $table->integer('sample_count');
             $table->enum('freez_type',['liquid','embryo'])->default('liquid');
             $table->date('freez_begin_date');
