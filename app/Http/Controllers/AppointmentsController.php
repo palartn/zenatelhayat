@@ -113,8 +113,7 @@ class AppointmentsController extends Controller
            $input=$request->all();
            $event=$input['event'];
            $request['event'] = implode('-',$event);  
-           $n=(explode('-',$request));
-           dd($n);
+       
          
            $patient->appointments()->create($request->except('patient_id','patient_name'));
 
