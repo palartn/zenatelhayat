@@ -96,8 +96,8 @@
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="text"
-						class="form-control form-control-solid @error('cost') is-invalid @enderror"
-						name="cost" value="" placeholder="المبلغ للدفع">
+						class="form-control form-control-solid @error('total_price') is-invalid @enderror"
+						name="total_price" value="" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-sm-4 mt-6">
@@ -105,15 +105,18 @@
 						المدفوع</label>
 					<input type="text"
 						class="form-control form-control-solid @error('paid') is-invalid @enderror"
-						name="paid" value="" placeholder="عملة الدفوع">
+						name="paid" value="" placeholder="المدفوع">
 				</div>
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">العملة</label>
-					<input type="text"
-						class="form-control form-control-solid @error('currency') is-invalid @enderror"
-						name="currency" value="" placeholder="المدفوع">
-
+						for="visit_date">عملة الدفع</label>
+						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
+					name="currency" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
+						<option value="شيكل" >شيكل</option>
+						<option value="دولار">دولار</option>
+						<option value="دينار">دينار</option>
+					</select>
+					
 				</div>
 
 

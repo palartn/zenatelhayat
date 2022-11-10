@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
-            $table->double('cost');
-            $table->string('currency');
+             $table->string('currency');
             $table->double('paid');
             $table->double('remaining_amount');
             $table->double('total_price');

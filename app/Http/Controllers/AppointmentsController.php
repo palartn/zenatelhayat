@@ -7,6 +7,7 @@ use App\Models\Patient;
 use App\Models\Appointment;
 use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AppointmentsController extends Controller
@@ -89,6 +90,7 @@ class AppointmentsController extends Controller
      */
     public function store(Request $request)
     {
+       //dd($request->all());
 
             $patient=Patient::where('id',$request->patient_id)->first();
 
@@ -108,17 +110,40 @@ class AppointmentsController extends Controller
             'next_visit_date' => 'required',
         ]);
 
-           // $user=Patient::where('id',$id)->with()->appointments;
-         
-           $input=$request->all();
-           $event=$input['event'];
-           $request['event'] = implode('-',$event);  
+        //  Payemnt::with('patient.appointments')->get();
+       
+           $event=$request->event;
+         //  $request['event'] = implode('-',$event);  
        
          
-           $patient->appointments()->create($request->except('patient_id','patient_name'));
+          DB::beginTransaction();
+          try{
+            $patient->appointments()->create([
+                'next_visit_date' => $request->next_visit_date,
+                'event' => implode('-',$request->event),
+               ]);
+    
+               $payment = $patient->payments()->create([
+                    'total_price' => $request->total_price,
+                    'currency' => $request->currency,
+                    'paid' => $request->paid,
+                    'remaining_amount' => $request->remaining_amount,
+                    'total_price' => $request->total_price,
+                    'pay_date' => $request->pay_date,
+                    // 'total_price' => $request->total_price,
+                    'notes' => $request->notes,
+               ]);
 
-            Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-            return redirect()->back();
+               DB::commit();
+
+               Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
+               return redirect()->back();
+    
+          }catch(\Exception $ex){
+            DB::rollBack();
+            dd($ex->getMessage());
+          }
+          
     }
 
     /**
