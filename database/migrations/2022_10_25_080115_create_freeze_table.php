@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('freeze', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('patient_id')->constrained('patient')->cascadeOnDelete();
-            $table->integer('sample_count');
-            $table->enum('freez_type',['liquid','embryo'])->default('liquid');
-            $table->date('freez_begin_date');
-            $table->date('freez_end_date');
-            $table->boolean('status')->default(false);
-            $table->text('notes')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+             $table->id();
+            // $table->foreignId('patient_id')->constrained('patient')->cascadeOnDelete();
+            // $table->integer('sample_count');
+            // $table->enum('freez_type',['liquid','embryo'])->default('liquid');
+            // $table->date('freez_begin_date');
+            // $table->date('freez_end_date');
+            // $table->boolean('status')->default(false);
+            // $table->text('notes')->nullable();
+            // $table->softDeletes();
+            // $table->timestamps();
         });
     }
 

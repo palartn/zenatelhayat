@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-        //    $table->('idc'); //رقم هوية المريض
+            $table->enum('patient_type',['زائر','مريض'])->default('مريض');
+        //$table->('idc'); //رقم هوية المريض
         //$table->string('username')->unique();
         //$table->string('password');
-        $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-        $table->string('patient_number')->unique();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('patient_number')->unique();
             $table->string('email')->nullable()->unique();
             $table->integer('idc')->unique();
             $table->date('create_at')->comment('تاريخ فتح الملف')->nullable();

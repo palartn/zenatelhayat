@@ -14,7 +14,7 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >إضافةزيارة</h2>
+			<h2 >إضافة زيارة</h2>
 		</div>
 		<!--end::Card title-->
 	</div>
@@ -52,7 +52,11 @@
 		<div class="col mt-6">
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
-					المريض</label>
+					المريض 
+				</label>
+				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">@if($patient->patient_type=='زائر')
+					{{ "زائر لمرة واحدة" }}
+				 @endif</span>
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
 					name="patient_name"
@@ -84,13 +88,10 @@
 						{{-- <option value="2">انتهت المراجعة</option> --}}
 					</select>
 
-
-
-
 			</div>
 
 
-			{{-- <div class="row">
+			<div class="row">
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
@@ -133,15 +134,7 @@
 				</div>
 
 			</div>
-		</div> --}}
-
-
-
-
-
-
-</div>
-
+		</div> 
 <div>
 <label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
@@ -153,7 +146,7 @@
 	<span class="indicator-label btn-lg btn-block">حفظ</span>
 </button>
 
-
+</div>
 </div>
 </div>
  </div>

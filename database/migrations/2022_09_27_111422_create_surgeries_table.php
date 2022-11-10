@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('surgeries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('surgery_num');
-            $table->string('surgery_name');
-            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('surgery_kind_id')->constrained('surgery_kinds')->cascadeOnDelete();         
-            $table->boolean('status')->default(false);
-            $table->text('notes')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
+            // $table->unsignedInteger('surgery_num');
+            // $table->string('surgery_name');
+            // $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            // $table->foreignId('surgery_kind_id')->constrained('surgery_kinds')->cascadeOnDelete();         
+            // $table->boolean('status')->default(false);
+            // $table->text('notes')->nullable();
+            // $table->softDeletes();
+            // $table->timestamps();
         });
     }
 

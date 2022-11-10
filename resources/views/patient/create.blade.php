@@ -42,6 +42,16 @@
 		<form method="POST" action="{{route('patients.store')}}"  enctype="multipart/form-data">
             @csrf
            <div class="row ">
+
+			<div class="d-flex flex-column mb-8 mt-6">
+				<label class="fs-4 fw-semibold form-label">الـزائـر</label>
+	
+				<select name="patient_type" class="form-select" data-control="select2" data-placeholder="الرجاء الإختيار">
+					<option value ="مريض" selected>مريض</option>
+					<option value ="زائر">زائر</option>
+				</select>
+			</div>
+
                 <div class="col xl-3">
 					<label class="fs-4 fw-semibold form-label" for="patient_fname"> إسم الأول</label>
                   <input type="text" id="patient_fname" class="form-control form-control-solid @error('patient_fname') is-invalid @enderror" name="patient_fname"  value="{{ old('patient_fname') }}" placeholder="الإسم الأول" required>
