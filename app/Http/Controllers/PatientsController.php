@@ -201,6 +201,7 @@ class PatientsController extends Controller
                 'patient_sname' => 'required',
                 'patient_lname' => 'required',
                 'patient_dob' => 'required',
+                'patient_type'=>'required',
                 //'gender' => 'required|in:male,female',
                 'idc' => 'required|min:9|unique:patients',
                 'mobile' => 'required|min:7',
@@ -235,7 +236,7 @@ class PatientsController extends Controller
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };
-
+dd($request->patient_type);
 
             Patient::create($request->all() + [
                 'user_id' => auth()->id(),
