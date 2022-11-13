@@ -236,7 +236,7 @@ class PatientsController extends Controller
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };
-dd($request->patient_type);
+//dd($request->patient_type);
 
             Patient::create($request->all() + [
                 'user_id' => auth()->id(),
