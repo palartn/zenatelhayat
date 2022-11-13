@@ -54,27 +54,30 @@
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
 					المريض 
 				</label>
-				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">@if($patient->patient_type=='زائر')
+				@if($patient->patient_type=='زائر')
+				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
 					{{ "زائر لمرة واحدة" }}
-				 @endif</span>
+				 @endif
+				</span>
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
 					name="patient_name"
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
 			</div>
-
+			@if($patient->patient_type=='مريض')
 			<div class="col xl-3 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
 				<input type="date"
 					class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror"
-					id="kt_datepicker_1" name="next_visit_date"
-					value="{{ old('next_visit_date') }}" placeholder="الزيارة القادمة">
+					id="kt_datepicker_1 next_visit_date" name="next_visit_date"
+					value="{{ old ('next_visit_date') }}" placeholder="الزيارة القادمة">
 				@error('next_visit_date')
 					<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 				@enderror
 
 			</div>
+			@endif
 			<div class="col xl-3 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> سبب الزيارة
 					</label>

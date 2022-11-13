@@ -105,10 +105,10 @@ class AppointmentsController extends Controller
         //     $pay_date = $request->pay_date;
         //     $notes = $request->notes;
 
-
+        if($request->next_visit_date=='مريض'){
         $validated = $request->validate([
             'next_visit_date' => 'required',
-        ]);
+        ]);}
 
         //  Payemnt::with('patient.appointments')->get();
        
