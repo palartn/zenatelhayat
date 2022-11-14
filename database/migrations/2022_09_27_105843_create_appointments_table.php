@@ -18,8 +18,10 @@ return new class extends Migration
             $table->timestamp('visit_date');
             $table->date('next_visit_date')->nullable();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('surgery_kind_id')->constrained('surgery_kinds')->cascadeOnDelete();
+            $table->foreignId('surgery_kind_id_child')->constrained('surgery_kinds')->cascadeOnDelete();
             // $table->double('cost');
-            $table->string('event'); //
+            //$table->string('event'); //
             // $table->double('paid');
             // $table->double('remaining_amount');
             // $table->date('pay_date');

@@ -16,23 +16,18 @@ class Surgery_kinds_Seeder extends Seeder
     public function run()
     {
         DB::table('surgery_kinds')->insert([
-            'surgery_kind_id' => '0',
             'name' => 'صور أشعة', ]);
 
             DB::table('surgery_kinds')->insert([
-                'surgery_kind_id' => '0',
                 'name' => 'عمليات', ]);
 
                 DB::table('surgery_kinds')->insert([
-                    'surgery_kind_id' => '0',
                     'name' => 'تجميد', ]);
 
                 DB::table('surgery_kinds')->insert([
-                    'surgery_kind_id' => '0',
                     'name' => 'تحاليل', ]);
 
                 DB::table('surgery_kinds')->insert([
-                    'surgery_kind_id' => '0',
                     'name' => 'أخرى', ]);
 
                     DB::table('surgery_kinds')->insert([

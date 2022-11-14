@@ -78,26 +78,21 @@
 
 			</div>
 			@endif
-			
-					
+			<div class="col xl-3 mt-6">
+				<label class="fs-4 fw-semibold form-label" for="mobile"> سبب الزيارة
+					</label>
 
-<label class="fs-4 fw-semibold form-label mt-6" for="mobile"> سبب الزيارة </label>
-
-<select name='surgery_kind_id' style="width: 200px" class="form-control form-control-solid productcategory" id="prod_cat_id">
-  	<option value="0" disabled="true" selected="true">-Select-</option>
-  	@foreach($surgerykind as $surgerykind)
-  		<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
-  	@endforeach
-
-  </select>
-			
-  <label class="fs-4 fw-semibold form-label mt-6" for="surgery_kind_id_child"> القسم</label>
-  <select  name='surgery_kind_id_child' style="width: 200px" class="form-control form-control-solid productname">
-  	<option value="0" disabled="true" selected="true">القسم</option>
-  </select>
-
+					<select class="form-select form-select-lg form-select-solid  @error('event') is-invalid @enderror "
+					name="event[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+						<option></option>
+						@foreach ($surgerykind as $surgerykind)
+						<option value="{{$surgerykind->name;}}">{{$surgerykind->name;}}</option>
+						@endforeach
+						{{-- <option value="2">انتهت المراجعة</option> --}}
+					</select>
 
 			</div>
+
 
 			<div class="row">
 				<div class="col-sm-4 mt-6">
@@ -151,7 +146,6 @@
 <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
 	placeholder="ملاحظات"></textarea>
 </div>
-
 <div class="d-flex">
 
 <button type="submit" id="btn" class="btn btn-primary mt-6">
@@ -159,7 +153,6 @@
 </button>
 
 </div>
-
 </div>
 </div>
  </div>
@@ -185,75 +178,4 @@ tinymce.init({
     selector: '#kt_docs_tinymce_basic'
 });
 </script>
-
-
-<script type="text/javascript">
-	$(document).ready(function(){
-
-		$(document).on('change','#prod_cat_id',function(){
-
-			var cat_id=$(this).val();
-			
-			var div=$(this).parent();
-			console.log(div);
-
-			var op=" ";
-
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id,},
-				success:function(data){
-					//console.log('success');
-
-					console.log(data);
-
-					//console.log(data.length);
-					op+='<option value="0" selected disabled>chose product</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
-				   }
-
-				   div.find('.productname').html(" ");
-				   div.find('.productname').append(op);
-				},
-				error:function(){
-
-				}
-			});
-		});
-
-		$(document).on('change','.productname',function () {
-			var prod_id=$(this).val();
-
-			var a=$(this).parent();
-			console.log(prod_id);
-			var op="";
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findPrice')!!}',
-				data:{'id':prod_id},
-				dataType:'json',//return data will be json
-				success:function(data){
-					console.log("price");
-					console.log(data.price);
-
-					// here price is coloumn name in products table data.coln name
-
-					a.find('.prod_price').val(data.price);
-
-				},
-				error:function(){
-
-				}
-			});
-
-
-		});
-
-	});
-</script>
-
-
-
 @endsection

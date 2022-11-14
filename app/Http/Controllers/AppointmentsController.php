@@ -82,6 +82,29 @@ class AppointmentsController extends Controller
         //
     }
 
+
+    public function prodfunct(){
+
+		$prod=Appointment::all();//get data from table
+        // dd($prod);
+		return view('appointment.index',compact('prod'));//sent data to view
+
+	}
+
+	public function findProductName(Request $request){
+
+		
+	    //if our chosen id and products table prod_cat_id col match the get first 100 data 
+
+        //$request->id here is the id of our chosen option id
+        $data = SurgeryKind::where('surgery_kind_id',$request->id)->get();
+        return response()->json($data);//then sent this data to ajax success
+	}
+
+
+	
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -120,7 +143,10 @@ class AppointmentsController extends Controller
           try{
             $patient->appointments()->create([
                 'next_visit_date' => $request->next_visit_date,
-                'event' => implode('-',$request->event),
+                'surgery_kind_id' => $request->surgery_kind_id,
+                'surgery_kind_id_child' => $request->surgery_kind_id_child,
+            
+                //'event' => implode('-',$request->event),
                ]);
     
                $payment = $patient->payments()->create([
@@ -141,7 +167,7 @@ class AppointmentsController extends Controller
     
           }catch(\Exception $ex){
             DB::rollBack();
-            dd($ex->getMessage());
+           return $ex->getMessage();
           }
           
     }
@@ -155,7 +181,7 @@ class AppointmentsController extends Controller
     public function show($id)
     {
         $patient = Patient::whereId($id)->first();
-        $surgerykind=SurgeryKind::all();
+        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
         // dd($patient);
         $today_date = date('Y-m-d H:i:s');
         return view('appointment.create', compact('patient','today_date','surgerykind'));
@@ -194,4 +220,5 @@ class AppointmentsController extends Controller
     {
         //
     }
+
 }

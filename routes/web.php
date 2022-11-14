@@ -25,6 +25,14 @@ Route::get('/', function () {
    return view('index');
 })->middleware('auth')->name('homepage');
 
+
+Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
+Route::get('/findProductName',[AppointmentsController::class,'findProductName']);
+Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
+
+
+
+
 Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
 
