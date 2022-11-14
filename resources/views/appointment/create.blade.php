@@ -77,24 +77,21 @@
 				@enderror
 
 			</div>
-			@endif
+			@endif	
 			
+			<label class="fs-4 fw-semibold form-label mt-6" for="mobile"> سبب الزيارة </label>
+			<select name='surgery_kind_id' style="width: 200px" class="form-control form-control-solid productcategory" id="prod_cat_id">
+			<option value="0" disabled="true" selected="true">سبب الزيارة</option>
+			@foreach($surgerykind as $surgerykind)
+				<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
+			@endforeach
+
+		</select>
 					
-
-<label class="fs-4 fw-semibold form-label mt-6" for="mobile"> سبب الزيارة </label>
-
-<select name='surgery_kind_id' style="width: 200px" class="form-control form-control-solid productcategory" id="prod_cat_id">
-  	<option value="0" disabled="true" selected="true">-Select-</option>
-  	@foreach($surgerykind as $surgerykind)
-  		<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
-  	@endforeach
-
-  </select>
-			
-  <label class="fs-4 fw-semibold form-label mt-6" for="surgery_kind_id_child"> القسم</label>
-  <select  name='surgery_kind_id_child' style="width: 200px" class="form-control form-control-solid productname">
-  	<option value="0" disabled="true" selected="true">القسم</option>
-  </select>
+		<label class="fs-4 fw-semibold form-label mt-6" for="surgery_kind_id_child"> القسم</label>
+		<select  name='surgery_kind_id_child' style="width: 200px" class="form-control form-control-solid productname">
+			<option value="0" disabled="true" selected="true">القسم</option>
+		</select>
 
 
 			</div>
@@ -143,28 +140,23 @@
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
 						placeholder="تاريخ الدفع">
 				</div>
-
+			</div> 
+			<div>
+			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
+			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
+			placeholder="ملاحظات"></textarea>
 			</div>
-		</div> 
-<div>
-<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
-<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-	placeholder="ملاحظات"></textarea>
-</div>
+			</div>
+	
 
-<div class="d-flex">
-
-<button type="submit" id="btn" class="btn btn-primary mt-6">
+	<div class="d-flex">
+	<button type="submit" id="btn" class="btn btn-primary mt-6">
 	<span class="indicator-label btn-lg btn-block">حفظ</span>
-</button>
+	</button>
+ 	</div>
 
-</div>
-
-</div>
-</div>
- </div>
-</div>
-</form>
+	</div>
+	</form>
 </div>
 	@endsection
 	@section('scripts')
@@ -209,7 +201,7 @@ tinymce.init({
 					console.log(data);
 
 					//console.log(data.length);
-					op+='<option value="0" selected disabled>chose product</option>';
+					op+='<option value="0" selected disabled>الرجاء الإختيار</option>';
 					for(var i=0;i<data.length;i++){
 					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
 				   }
