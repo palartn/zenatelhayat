@@ -64,8 +64,13 @@
 					name="patient_name"
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
 			</div>
-			@if($patient->patient_type=='مريض')
-			<div class="col xl-3 mt-6">
+			
+			
+			
+		
+				<div class="row">
+					@if($patient->patient_type=='مريض')
+			<div class="col xl-4 col-4 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
 				<input type="date"
@@ -78,44 +83,42 @@
 
 			</div>
 			@endif
-			
-			
-			<div>
-				<div class="row">
-				  <div class="col">
+				  <div class="col col-4">
 					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
-					<select name='surgery_kind_id' style="width: 200px" class="form-control form-control-solid productcategory" id="prod_cat_id">	
+					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">	
 					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
 					@foreach($surgerykind as $surgerykind)
 						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
 					@endforeach
+				</select>
+
 				</div>	
-			</select>
-					<div class="col">
+			
+					<div class="col col-4">
 						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
-						<select  name='surgery_kind_id_child' style="width: 200px" class="form-control form-control-solid productname">
-							<option value="0" disabled="true" selected="true">القسم</option>
+						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
+							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
 						</select>
 				  
 				</div>
 				</div>
-			</div>
+		
 
 			<div class="row">
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
-					<input type="text"
-						class="form-control form-control-solid @error('total_price') is-invalid @enderror"
-						name="total_price" value="" placeholder="المبلغ للدفع">
+					<input type="number"
+						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
+						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
-					<input type="text"
-						class="form-control form-control-solid @error('paid') is-invalid @enderror"
-						name="paid" value="" placeholder="المدفوع">
+					<input type="number"
+						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
+						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
@@ -133,9 +136,9 @@
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
-					<input type="text" name="remaining_amount"
-						class="form-control form-control-solid @error('remaining_amount') is-invalid @enderror"
-						value="" placeholder="الباقي">
+					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
+						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
+						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
 				</div>
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -143,7 +146,7 @@
 					<input type="date" name="pay_date"
 						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع">
+						placeholder="تاريخ الدفع" value="{{ old('pay_date') }}">
 				</div>
 			</div> 
 			<div>
@@ -212,8 +215,8 @@ tinymce.init({
 					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
 				   }
 
-				   div.find('.productname').html(" ");
-				   div.find('.productname').append(op);
+				   $('.productname').html(" ");
+				   $('.productname').append(op);
 				},
 				error:function(){
 
@@ -252,6 +255,17 @@ tinymce.init({
 	});
 </script>
 
+<script>
 
+	$('input.total_price,input.paid').on('change keyup',function(){
+		var total_price = $("#total_price").val()
+		var paid = $("#paid").val()
+		console.log(total_price);
+		
+	  $grand_total=$('.remaining_amount').val(total_price-paid);
+	
+	})
+	
+	</script>
 
 @endsection
