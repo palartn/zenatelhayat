@@ -1192,11 +1192,11 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/customers/view.html">
+								<a class="menu-link" href="{{ route('appointments.index') }}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">إدارة الزيارات</span>
+									<span class="menu-title {{ (request()->is('appointments')) ? 'active' : ''}}">إدارة الزيارات</span>
 								</a>
 							</div>
 							
