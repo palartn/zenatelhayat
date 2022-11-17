@@ -1188,25 +1188,18 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">تعديل زيارة</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/customers/view.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">حذف زيارة</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/customers/view.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
 									<span class="menu-title">زيارات اليوم</span>
 								</a>
 							</div>
+							<div class="menu-item">
+								<a class="menu-link" href="../../demo8/dist/apps/customers/view.html">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">إدارة الزيارات</span>
+								</a>
+							</div>
+							
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1222,7 +1215,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">العمليات</span>
+							<span class="menu-title">المصروفات</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -1231,7 +1224,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">عرض عمليات اليوم</span>
+									<span class="menu-title">إضافة مصروفات</span>
 								</a>
 							</div>
 							<div class="menu-item">
@@ -1239,25 +1232,11 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">إضافة عملية</span>
+									<span class="menu-title">إدارة المصروفات</span>
 								</a>
 							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/subscriptions/add.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">تعديل عملية</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/subscriptions/view.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">حذف عملية</span>
-								</a>
-							</div>
+							
+						
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1284,33 +1263,9 @@
 									<span class="menu-title">تعديل أنواع التجميد</span>
 									<span class="menu-arrow"></span>
 								</span>
-								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/apps/invoices/view/invoice-1.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Invoice 1</span>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a class="menu-link" href="../../demo8/dist/apps/invoices/view/invoice-2.html">
-											<span class="menu-bullet">
-												<span class="bullet bullet-dot"></span>
-											</span>
-											<span class="menu-title">Invoice 2</span>
-										</a>
-									</div>
-								</div>
+								
 							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/invoices/create.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Create Invoice</span>
-								</a>
-							</div>
+							
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -1376,14 +1331,7 @@
 
 								</div>
 							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="../../demo8/dist/apps/user-management/permissions.html">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Permissions</span>
-								</a>
-							</div>
+						
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -1438,30 +1386,9 @@
 								</div>
 							</div>
 
-							<div class="menu-item">
-								<a class="menu-link" href="#">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">FAQ</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="#">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Licenses</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link" href="#">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">Contact Us</span>
-								</a>
-							</div>
+							
+							
+							
 						</div>
 					</div>
 					{{-- <div class="menu-item">
