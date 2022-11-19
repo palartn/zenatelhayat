@@ -1199,7 +1199,7 @@
 									<span class="menu-title {{ (request()->is('appointments')) ? 'active' : ''}}">إدارة الزيارات</span>
 								</a>
 							</div>
-							
+
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1235,8 +1235,8 @@
 									<span class="menu-title">إدارة المصروفات</span>
 								</a>
 							</div>
-							
-						
+
+
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -1263,9 +1263,9 @@
 									<span class="menu-title">تعديل أنواع التجميد</span>
 									<span class="menu-arrow"></span>
 								</span>
-								
+
 							</div>
-							
+
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -1331,7 +1331,7 @@
 
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
@@ -1386,9 +1386,9 @@
 								</div>
 							</div>
 
-							
-							
-							
+
+
+
 						</div>
 					</div>
 					{{-- <div class="menu-item">
