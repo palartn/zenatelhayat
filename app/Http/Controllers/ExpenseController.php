@@ -42,7 +42,7 @@ class ExpenseController extends Controller
         $validated = $request->validate([
             'paied_for' => 'required',
             'amount' => 'required',
-            
+
         ]);
          Expense::create($request->all());
          Alert::success('إضافة مصروفات', 'تمت الإضافة بنجاح');
@@ -92,7 +92,8 @@ class ExpenseController extends Controller
      */
     public function destroy(expense $expense)
     {
-        //
+        $expense->delete();
+        return response()->json($expense);
     }
 
 

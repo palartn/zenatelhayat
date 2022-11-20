@@ -75,7 +75,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 data: {
                     // parameters for custom backend script demo
                     columnsDef: [
-                        'id','paid_for', 'amount', 'currency', 'pay_date','notes', 'actions'],
+                        'id','patient_id', 'next_visit_date', 'surgery_kind_id', 'surgery_kind_id_child','notes', 'actions'],
                     from_date:from_date,
                     to_date:to_date,
                     filter_1:filter_1,
@@ -88,10 +88,10 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 // {data: 'id',width: 100},
                 {data: 'id',width: 30},
                 //{data: 'patient_name',width: 100},
-                {data: 'paid_for',width: 80},
-                {data: 'amount',width: 100},
-                {data: 'currency',width: 80},
-                {data: 'pay_date',width: 80},
+                {data: 'patient_id',width: 100},
+                {data: 'next_visit_date',width: 80},
+                {data: 'surgery_kind_id',width: 80},
+                {data: 'surgery_kind_id_child',width: 80},
                 {data: 'notes',width: 80},
                 {data: 'actions',width: 145},
 
@@ -231,7 +231,7 @@ function deleted_(id) {
             console.log('sss')
             $.ajax({
                 type: "DELETE",
-                url: SITEURL + "/appointment/"+id,
+                url: SITEURL + "/appointments/"+id,
                 success: function (data) {
                     Swal.fire({
                         icon: "success",
