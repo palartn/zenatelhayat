@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\UsersController;
@@ -28,7 +29,7 @@ Route::get('/', function () {
 
 
 Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
-Route::post('appointment/getData',[Appointment::class, 'getData'])->name('appointment.getData');
+Route::post('appointment/getData',[AppointmentsController::class, 'getData'])->name('appointment.getData');
 
 
 
@@ -37,6 +38,7 @@ Route::get('/findProductName',[AppointmentsController::class,'findProductName'])
 Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
 
 
+Route::resource('expenses',ExpenseController::class)->middleware('auth');
 
 
 Route::resource('users',UsersController::class)->middleware('auth');

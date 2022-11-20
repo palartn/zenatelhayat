@@ -17,6 +17,14 @@ class Appointment extends Model
     {
         return $this->belongsTo(Patient::class,'patient_id','id');
     }
+    public function surgery_kind()
+    {
+        return $this->belongsTo(SurgeryKind::class);
+    }
+    public function surgery_kind_child()
+    {
+        return $this->belongsTo(SurgeryKind::class,'surgery_kind_id_child','id');
+    }
 
 
 

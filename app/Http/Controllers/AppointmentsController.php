@@ -328,13 +328,13 @@ class AppointmentsController extends Controller
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
-                'visit_date' => $item->visit_date,
+               // 'visit_date' => $item->id,
+                'patient_id' => $item->patient->patient_fname. ' '.$item->patient->patient_sname. ' '.$item->patient->patient_tname . ' '.$item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
-                'patient_id' => $item->patient_id,
-                'surgery_kind_id' => $item->surgery_kind_id,
-                'surgery_kind_id_child' => $item->surgery_kind_id_child,
+                'surgery_kind_id' => $item->surgery_kind->name,
+               'surgery_kind_id_child' => $item->surgery_kind_child->name,
                 'notes' => $item->notes,
-                "created_at" => Carbon::parse($item->patient_dob)->format('d-m-Y'), // h:i A
+                "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 
             ];
