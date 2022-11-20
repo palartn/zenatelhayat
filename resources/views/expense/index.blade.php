@@ -36,8 +36,8 @@
 
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
-					المريض 
+				<label class="fs-4 fw-semibold form-label" for="mobile_second"> 
+					الجهة المصروف لها 
 				</label>
 				
 				</span>
@@ -53,19 +53,13 @@
 			<div class="row">
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">التكلفة</label>
+						for="visit_date">المبلغ</label>
 					<input type="number"
 						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
 						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-4 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
-						المدفوع</label>
-					<input type="number"
-						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
-						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
-				</div>
+				
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
@@ -79,16 +73,10 @@
 				</div>
 
 
+				
 				<div class="col-6 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
-						المتبقي</label>
-					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
-						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
-						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
-				</div>
-				<div class="col-6 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
-						الدفع</label>
+					<label class="fs-4 fw-semibold form-label" for="visit_date">التاريخ
+						</label>
 					<input type="date" name="pay_date"
 						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
