@@ -29,21 +29,18 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-	<form method="POST" action="{{ route('expenses.create') }}">
-		@csrf
-		<input type="hidden" value="" name="patient_id">
-		
-
+	<form method="POST" action="{{ route('expenses.store') }}">
+		@csrf		
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="mobile_second"> 
+				<label class="fs-4 fw-semibold form-label" for="paied_for"> 
 					الجهة المصروف لها 
 				</label>
 				
 				</span>
 				<input type="text"
-					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
-					name="patient_name"
+					class="form-control form-control-solid @error('paied_for') is-invalid @enderror"
+					name="paied_for"
 					value="">
 			</div>
 	
@@ -55,12 +52,12 @@
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">المبلغ</label>
 					<input type="number"
-						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
-						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
+						class="form-control form-control-solid  @error('amount') is-invalid @enderror"
+						name="amount" id="total_price" value="{{ old('amount') }}" placeholder="المبلغ للدفع">
 				</div>
 
 				
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-4 mt-4">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -71,10 +68,7 @@
 					</select>
 					
 				</div>
-
-
-				
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-4">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">التاريخ
 						</label>
 					<input type="date" name="pay_date"

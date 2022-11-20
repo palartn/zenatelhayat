@@ -14,14 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('expenses', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('amount');
-            $table->string('total_amount');
-            $table->string('notes')->nullable();
-            $table->softDeletes();
-            $table->timestamps();
-        });
+                $table->id();
+                $table->string('paied_for');
+                $table->string('amount');
+                $table->string('currency');
+                $table->date('pay_date');
+                $table->string('notes')->nullable();
+                $table->softDeletes();
+                $table->timestamps();
+            });
+
     }
 
     /**
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('expense');
     }
 };

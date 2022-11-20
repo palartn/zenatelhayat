@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\expense;
+use App\Models\Expense;
 use Illuminate\Http\Request;
+use App\Models\Expense as ModelsExpense;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ExpenseController extends Controller
 {
@@ -14,7 +16,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        return view('expense.index');
+       // return view('expense.index');
     }
 
     /**
@@ -24,7 +26,8 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+        return view('expense.index');
+
     }
 
     /**
@@ -35,7 +38,15 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'paied_for' => 'required',
+            'amount' => 'required',
+            
+        ]);
+         Expense::create($request->all());
+         Alert::success('إضافة مصروفات', 'تمت الإضافة بنجاح');
+
+         return redirect()->route('expenses.create');
     }
 
     /**
