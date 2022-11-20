@@ -39,6 +39,8 @@ Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
 
 
 Route::resource('expenses',ExpenseController::class)->middleware('auth');
+Route::post('expenses/getData',[ExpenseController::class, 'getData'])->name('expenses.getData');
+
 
 
 Route::resource('users',UsersController::class)->middleware('auth');

@@ -75,7 +75,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 data: {
                     // parameters for custom backend script demo
                     columnsDef: [
-                        'id','paid_for', 'amount', 'currency', 'pay_date','notes', 'actions'],
+                        'id','visit_date', 'next_visit_date', 'surgery_kind_id', 'surgery_kind_id_child', 'actions'],
                     from_date:from_date,
                     to_date:to_date,
                     filter_1:filter_1,
@@ -88,8 +88,8 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 // {data: 'id',width: 100},
                 {data: 'id',width: 30},
                 //{data: 'patient_name',width: 100},
+                {data: 'expense_id',width: 100},
                 {data: 'paid_for',width: 80},
-                {data: 'amount',width: 100},
                 {data: 'currency',width: 80},
                 {data: 'pay_date',width: 80},
                 {data: 'notes',width: 80},
@@ -106,16 +106,16 @@ var KTDatatablesDataSourceAjaxServer = function() {
 							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
 								<i class="las la-info"></i>\
 							</a>\
-                            <a href="'+SITEURL+'/expenses/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
+                            <a href="'+SITEURL+'/appointments/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
                             <i class="las la-edit"></i>\
                         </a>\
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
                         <i class="las la-trash"></i>\
                     </a>\
-                    <a href="'+SITEURL+'/expenses/'+full.id+'/file"" class="btn btn-sm btn-clean btn-icon btn-success" title="ملفات المريض">\
+                    <a href="'+SITEURL+'/appointments/'+full.id+'/file"" class="btn btn-sm btn-clean btn-icon btn-success" title="ملفات المريض">\
                     <i class="bi bi-file-diff"></i>\
                     </a>\
-                    <a href="'+SITEURL+'/expenses/'+full.id+'" class="btn btn-sm btn-clean btn-icon btn-secondary" title="حجوزات المريض">\
+                    <a href="'+SITEURL+'/appointments/'+full.id+'" class="btn btn-sm btn-clean btn-icon btn-secondary" title="حجوزات المريض">\
                     <i class="fa fa-calendar" aria-hidden="true"></i>\
                     </a>\
 						';
@@ -231,7 +231,7 @@ function deleted_(id) {
             console.log('sss')
             $.ajax({
                 type: "DELETE",
-                url: SITEURL + "/appointment/"+id,
+                url: SITEURL + "/expense/"+id,
                 success: function (data) {
                     Swal.fire({
                         icon: "success",
