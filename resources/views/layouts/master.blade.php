@@ -1176,7 +1176,7 @@
 						</span>
 						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-								<a class="menu-link" href="{{route('appointments.index')}}">
+								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}"   href="{{route('appointments.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -1239,7 +1239,7 @@
 
 						</div>
 					</div>
-					
+
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
 						<span class="menu-link">
 							<span class="menu-icon">
