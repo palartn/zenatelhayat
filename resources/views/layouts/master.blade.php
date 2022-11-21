@@ -1093,7 +1093,8 @@
 					</div>
 
 
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='patients.index'
+					|| Route::currentRouteName() =='patients.create') hover show @endif">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
@@ -1113,7 +1114,7 @@
 						<div class="menu-sub menu-sub-accordion menu-active-bg ">
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                                 <div class="menu-item">
-									<a  class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
+									<a  class="menu-link @if(Route::currentRouteName() =='patients.create') active @endif" href="{{ route('patients.create') }}">
 										<span class="menu-bullet">
 											<span class="bullet bullet-dot"></span>
 										</span>
@@ -1122,33 +1123,9 @@
 								</div>
 
 
-								{{-- <div class="menu-item">
-									<a class="menu-link {{ (request()->is('patients/create')) ? 'active' : ''}}" href="{{ route('patients.create') }}">
-										<span class="menu-bullet">
-											<span class="bullet bullet-dot"></span>
-										</span>
-										<span class="menu-title ">إضافة مريض</span>
-									</a>
-								</div>
-								<div class="menu-item">
-									<a class="menu-link {{ (request()->is('patients/edit')) ? 'active' : ''}}" href="">
-										<span class="menu-bullet">
-											<span class="bullet bullet-dot"></span>
-										</span>
-										<span class="menu-title ">تعديل بيانات مريض</span>
-									</a>
-								</div>
-								<div class="menu-item">
-									<a class="menu-link" href="">
-										<span class="menu-bullet {{ (request()->is('patients/delete')) ? 'active' : ''}}">
-											<span class="bullet bullet-dot"></span>
-										</span>
-										<span class="menu-title">حذف بيانات مريض</span>
-									</a>
-								</div> --}}
 							</div>
                             <div class="menu-item">
-                                <a  class="menu-link {{ (request()->is('patients')) ? 'active' : ''}}" href="{{ route('patients.index') }}">
+                                <a  class="menu-link @if(Route::currentRouteName() =='patients.index') active @endif" href="{{ route('patients.index') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -1159,7 +1136,8 @@
 					</div>
 
 
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='appointments.index'
+					|| Route::currentRouteName() =='appointments.create') hover show @endif">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1202,7 +1180,8 @@
 
 						</div>
 					</div>
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='expenses.index'
+					|| Route::currentRouteName() =='expenses.create') hover show @endif">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
