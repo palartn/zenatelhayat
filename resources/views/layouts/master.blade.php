@@ -45,7 +45,7 @@
 					<!--begin::Brand-->
 					<div class="header-brand">
 						<!--begin::Logo-->
-						<a href="../../demo8/dist/index.html">
+						<a href="">
 							<img alt="Logo" src="{{ asset('assets/media/logos/logo.png')}}"  class="h-35px h-lg-35px" />
 						</a>
 						<!--end::Logo-->

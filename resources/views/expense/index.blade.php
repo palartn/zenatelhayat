@@ -62,13 +62,6 @@
             <!--begin::Body-->
         </div>
         <!--end::Tables Widget 9-->
-
-
-
-
-
-
-
         {{-- {!! $users->links() !!} --}}
     </div>
 
