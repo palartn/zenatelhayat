@@ -163,7 +163,7 @@ class AppointmentsController extends Controller
                DB::commit();
 
                Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-               return redirect()->back();
+               return redirect()->route('patients.index');
 
           }catch(\Exception $ex){
             DB::rollBack();

@@ -6,7 +6,7 @@
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المستخدمين</span>
+                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة الزيارات</span>
                     <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد الزيارات({{ App\Models\Appointment::count() }})</span>
                 </h3>
                 <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
