@@ -185,10 +185,10 @@ class AppointmentsController extends Controller
         $appointment = Appointment::findOrFail($id);
        $app_return=new AppointmentResource($appointment);
         return $app_return;
-       
+
     }
 
- 
+
 
     /**
      * Show the form for editing the specified resource.
@@ -196,9 +196,9 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Patient $patient)
+    public function edit(Appointment $appointment ,Patient $patient,SurgeryKind $surgerykind)
     {
-        //
+    return view('appointment.edit',compact('appointment','patient','surgerykind'));
     }
 
     /**
@@ -208,9 +208,17 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Patient $patient)
+    public function update(Request $request, $id, Appointment $appointment)
     {
-        //
+        $appointment ->update([
+            // 'paied_for' => $request->paied_for,
+            // 'amount' => $request->amount,
+            // 'currency' => $request->currency,
+            // 'pay_date' => $request->pay_date,
+            // 'notes' => $request->notes,
+        ]);
+        Alert::warning('تعديل بيانات زيارة', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('expenses.index');
     }
 
     /**

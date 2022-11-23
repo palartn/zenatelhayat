@@ -381,7 +381,7 @@
                                                 $('#ajax-modal:has(h2.iziModal-header-title:contains("تعديل بيانات الثابت"))')
                                                     .iziModal('close');
                                                 $('#btn-save').html('حفظ');
-                                                Swal.fire({
+                                                Swal.fire({زائر لمرة
                                                     icon: "success",
                                                     title: "تمت العملية بنجاح!",
                                                     showConfirmButton: false,

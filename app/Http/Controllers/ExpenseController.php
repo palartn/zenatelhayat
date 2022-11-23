@@ -71,7 +71,7 @@ class ExpenseController extends Controller
      */
     public function edit(expense $expense)
     {
-        //
+        return view ('expense.edit',compact('expense'));
     }
 
     /**
@@ -83,7 +83,15 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, expense $expense)
     {
-        //
+        $expense ->update([
+            'paied_for' => $request->paied_for,
+            'amount' => $request->amount,
+            'currency' => $request->currency,
+            'pay_date' => $request->pay_date,
+            'notes' => $request->notes,
+        ]);
+        Alert::warning('تعديل بيانات مصروفات', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('expenses.index');
     }
 
     /**
