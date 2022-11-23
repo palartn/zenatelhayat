@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Expense;
 use Illuminate\Http\Request;
+use App\Http\Resources\ExpenseResource;
 use App\Models\Expense as ModelsExpense;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -58,7 +59,8 @@ class ExpenseController extends Controller
      */
     public function show(expense $expense)
     {
-        //
+        return new ExpenseResource($expense);
+
     }
 
     /**

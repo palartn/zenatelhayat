@@ -94,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
 
-                    <h5 class="modal-title ">البيانات الأساسية للمريض</h5>
+                    <h5 class="modal-title "> المصروفات  </h5>
                     <p id="demo"></p>
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
@@ -106,141 +106,56 @@
 
                 <div class="modal-body row">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الاسم رباعي</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_name">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم الهوية</label>
-                                    <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_idc"
+                     <div class="row col-12">
+                        <div class="form-group row mb-6">
+                                    <label class="col-form-label col-lg-12">مدفوع إلى </label>
+                                    <div class="col-lg-12">
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="paied_for"
                                             style=""></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
+                                    <label class="col-form-label col-lg-4">المبلغ </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_dob">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="amount">
                                           </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الوظيفة</label>
+                                    <label class="col-form-label col-lg-4">العملة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_occupation">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="currency">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">البريد الإلكتروني</label>
+                                    <label class="col-form-label col-lg-4">تاريخ الدفع </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_email">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="pay_date">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">جـوال</label>
+                                    <label class="col-form-label col-lg-4">ملاحظات</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">جوال ثاني</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile_second">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">العنـوان</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_address">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الجنس</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_gender">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ التسجيل</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_created_at">تاريخ التسجيل
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class = "mt-5" style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
-
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">اسم الزوج/ة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_name">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_dob">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">عمل الزوج/ة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_occupation">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">ملاحظــات</label>
-                                    <div class="col-lg-12">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_notes">
-                                           </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                       
+                    </div>
+                </div>        
+        </div></div>
                             <!--end::Modal-->
                         @endsection
 
@@ -420,25 +335,13 @@
                                            console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
-                                            $('#patient_name').html(result.data.full_name);
-                                            $('#patient_idc').html(result.data.idc);
-                                            $('#patient_dob').html(result.data.patient_dob);
-                                            $('#patient_email').html(result.data.email);
-                                            $('#patient_mobile').html(result.data.mobile);
-                                            $('#patient_occupation').html(result.data.occupation);
-                                            $('#patient_mobile_second').html(result.data.mobile_second);
-                                            $('#patient_address').html(result.data.address);
-                                            $('#patient_gender').html(result.data.gender);
-                                            $('#patient_created_at').html(result.data.created_at);
-                                            $('#patient_notes').html(result.data.notes);
-                                            $('#patient_photo').attr('src', `/storage/${result.data.profile_photo_path}`);
-                                            $('#patient_phone').html(result.data.phone);
-                                            $('#husband_name').html(result.data.husband_name);
-                                            $('#husband_occupation').html(result.data.occupation);
-                                            $('#husband_dob').html(result.data.husband_dob);
-                                            $('#patient_number').html(result.data.patient_number);
+                                            $('#paied_for').html(result.data.paied_for);
+                                            $('#amount').html(result.data.amount);
+                                            $('#currency').html(result.data.currency);
+                                            $('#pay_date').html(result.data.pay_date);
+                                            $('#notes').html(result.data.notes);
                                             // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
-                                            $('#user_created_at').html(result.data.created_at);
+                                            $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },
 

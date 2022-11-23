@@ -9,6 +9,7 @@ use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Resources\AppointmentResource;
 
 class AppointmentsController extends Controller
 {
@@ -180,11 +181,20 @@ class AppointmentsController extends Controller
      */
     public function show($id)
     {
+        $appointment = Appointment::findOrFail($id);
+        $app_return=new AppointmentResource($appointment);
         $patient = Patient::whereId($id)->first();
         $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
-        // dd($patient);
+        
         $today_date = date('Y-m-d H:i:s');
-        return view('appointment.create', compact('patient','today_date','surgerykind'));
+        if(request()->expectsJson()){
+            return $app_return;
+        }else{
+            return view('appointment.create', compact('patient','today_date','surgerykind'));
+        }
+    
+   
+        
     }
 
     /**

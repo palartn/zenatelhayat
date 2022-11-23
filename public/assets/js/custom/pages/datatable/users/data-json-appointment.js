@@ -103,7 +103,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     orderable: false,
                     render: function(data, type, full, meta) {
                             return '\
-							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض المستخدم">\
+							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض الزيارة">\
 								<i class="las la-info"></i>\
 							</a>\
                             <a href="'+SITEURL+'/expenses/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\

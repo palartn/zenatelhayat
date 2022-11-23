@@ -116,137 +116,62 @@
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الاسم رباعي</label>
+                                    <label class="col-form-label col-lg-4"> إسم المريض</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_name">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_id">
                                             </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم الهوية</label>
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_idc"
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
                                             style=""></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_dob">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="next_visit_date">
                                           </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الوظيفة</label>
+                                    <label class="col-form-label col-lg-4">القسم</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_occupation">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">البريد الإلكتروني</label>
+                                    <label class="col-form-label col-lg-4">سبب الزيارة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_email">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">جـوال</label>
+                                    <label class="col-form-label col-lg-4">ملاحظات</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">جوال ثاني</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_mobile_second">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">العنـوان</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_address">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">الجنس</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_gender">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ التسجيل</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_created_at">تاريخ التسجيل
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr class = "mt-5" style="height:2px;border-width:0;color:gray;background-color:#dcd9d9">
-
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">اسم الزوج/ة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_name">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الميلاد</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_dob">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">عمل الزوج/ة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="husband_occupation">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">ملاحظــات</label>
-                                    <div class="col-lg-12">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_notes">
-                                           </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+    
 
                             <!--end::Modal-->
                         @endsection
@@ -418,40 +343,26 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/appointment/'+id,
+                                        url: SITEURL +'/appointments/'+id,
 
 
                                         // return the result
                                         success: function(result) {
 
-                                           console.log(result);
-                                            //console.log(result)
+                                         console.log(result);
                                             $('#smallModal').modal("show");
-                                            $('#patient_name').html(result.data.full_name);
-                                            $('#patient_idc').html(result.data.idc);
-                                            $('#patient_dob').html(result.data.patient_dob);
-                                            $('#patient_email').html(result.data.email);
-                                            $('#patient_mobile').html(result.data.mobile);
-                                            $('#patient_occupation').html(result.data.occupation);
-                                            $('#patient_mobile_second').html(result.data.mobile_second);
-                                            $('#patient_address').html(result.data.address);
-                                            $('#patient_gender').html(result.data.gender);
-                                            $('#patient_created_at').html(result.data.created_at);
-                                            $('#patient_notes').html(result.data.notes);
-                                            $('#patient_photo').attr('src', `/storage/${result.data.profile_photo_path}`);
-                                            $('#patient_phone').html(result.data.phone);
-                                            $('#husband_name').html(result.data.husband_name);
-                                            $('#husband_occupation').html(result.data.occupation);
-                                            $('#husband_dob').html(result.data.husband_dob);
-                                            $('#patient_number').html(result.data.patient_number);
-                                            // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
-                                            $('#user_created_at').html(result.data.created_at);
+                                            $('#patient_id').html(result.data.full_name);
+                                            $('#visit_date').html(result.data.visit_date);
+                                            $('#next_visit_date').html(result.data.next_visit_date);
+                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
+                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
+                                            $('#notes').html(result.data.notes);
+                                            $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },
-
                                         error: function(jqXHR, testStatus, error) {
                                             console.log(error);
-                                            alert("Page " + href + " cannot open. Error:" + error);
+                                             alert("Page " + href + " cannot open. Error:" + error);
 
                                         },
 
@@ -476,8 +387,6 @@
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
 
-                                _deleted(){
-
-                                }
+                              
                             </script>
                         @endsection
