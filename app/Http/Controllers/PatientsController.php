@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Patient;
+use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -336,5 +337,14 @@ class PatientsController extends Controller
     {
         $patient->delete();
         return response()->json($patient);
+    }
+
+    public function addAppointmentToPatient($id)
+    {
+        $patient = Patient::whereId($id)->first();
+        $today_date = date('Y-m-d H:i:s');
+        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
+        return view('appointment.create', compact('patient','today_date','surgerykind'));
+
     }
 }

@@ -181,21 +181,14 @@ class AppointmentsController extends Controller
      */
     public function show($id)
     {
+       //dd('dasd');
         $appointment = Appointment::findOrFail($id);
-        $app_return=new AppointmentResource($appointment);
-        $patient = Patient::whereId($id)->first();
-        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
-        
-        $today_date = date('Y-m-d H:i:s');
-        if(request()->expectsJson()){
-            return $app_return;
-        }else{
-            return view('appointment.create', compact('patient','today_date','surgerykind'));
-        }
-    
-   
-        
+       $app_return=new AppointmentResource($appointment);
+        return $app_return;
+       
     }
+
+ 
 
     /**
      * Show the form for editing the specified resource.

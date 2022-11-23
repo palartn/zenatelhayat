@@ -113,7 +113,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     <a href="'+SITEURL+'/patients/'+full.id+'/file"" class="btn btn-sm btn-clean btn-icon btn-success" title="ملفات المريض">\
                     <i class="bi bi-file-diff"></i>\
                     </a>\
-                    <a href="'+SITEURL+'/appointments/'+full.id+'" class="btn btn-sm btn-clean btn-icon btn-secondary" title="حجوزات المريض">\
+                    <a href="'+SITEURL+'/appointment/'+full.id+'/patient" class="btn btn-sm btn-clean btn-icon btn-secondary" title="حجوزات المريض">\
                     <i class="fa fa-calendar" aria-hidden="true"></i>\
                     </a>\
 						';

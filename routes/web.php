@@ -45,7 +45,7 @@ Route::post('expenses/getData',[ExpenseController::class, 'getData'])->name('exp
 
 Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
-
+Route::get('appointment/{id}/patient', [PatientsController::class, 'addAppointmentToPatient'])->name('addAppointmentToPatient');   
 Route::resource('patients',PatientsController::class)->middleware('auth');
 
 Route::get('patients/{patient}/file',[FileController::class,'file'])->name('file')->middleware('auth');
@@ -63,8 +63,7 @@ Route::resource('files',FileController::class)->middleware('auth');
 
 
 Route::resource('appointments',AppointmentsController::class)->middleware('auth');
-Route::get('calendar-event', [AppointmentsController::class, 'calendarEvent']);
-Route::post('calendar-crud-ajax', [AppointmentsController::class, 'calendarEvents']);
+
 
 
 Route::get('/dashboard', function () {
