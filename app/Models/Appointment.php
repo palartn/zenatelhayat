@@ -25,6 +25,10 @@ class Appointment extends Model
     {
         return $this->belongsTo(SurgeryKind::class,'surgery_kind_id_child','id');
     }
+    public function payment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
 
 
 

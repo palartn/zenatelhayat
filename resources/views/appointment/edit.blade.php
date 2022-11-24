@@ -55,10 +55,10 @@
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
 					المريض
 				</label>
-				@if($patient->patient_type=='زائر')
+				@foreach($patient as $patient)
 				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
 					{{ "زائر لمرة واحدة" }}
-				 @endif
+					@endforeach
 				</span>
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
@@ -77,7 +77,7 @@
 				<input type="date"
 					class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror"
 					id="kt_datepicker_1 next_visit_date" name="next_visit_date"
-					value="{{ old ('next_visit_date') }}" placeholder="الزيارة القادمة">
+					value="{{ $appointment->next_visit_date }}" placeholder="الزيارة القادمة">
 				@error('next_visit_date')
 					<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 				@enderror
@@ -88,9 +88,9 @@
 					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
 					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
 					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
-					{{-- @foreach($surgerykind as $surgerykind)
+					@foreach($surgerykind as $surgerykind)
 						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
-					@endforeach --}}
+					@endforeach
 				</select>
 
 				</div>
@@ -111,7 +111,7 @@
 						for="visit_date">التكلفة</label>
 					<input type="number"
 						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
-						name="total_price" id="total_price" value="{{ $appointment->total_price }}" placeholder="المبلغ للدفع">
+						name="total_price" id="total_price" value="{{ $appointment->payment->total_price }}" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-sm-4 mt-6">
@@ -119,7 +119,7 @@
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
-						name="paid" id="paid" value="{{ $appointment->paid }}" placeholder="المدفوع">
+						name="paid" id="paid" value="{{ $payment->paid }}" placeholder="المدفوع">
 				</div>
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
@@ -139,7 +139,7 @@
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
-						value="" placeholder="الباقي" value="{{ $appointment->remaining_amount }}">
+						 placeholder="الباقي" value="{{ $payment->remaining_amount }}">
 				</div>
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -147,13 +147,13 @@
 					<input type="date" name="pay_date"
 						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع" value="{{ $appointment->pay_date }}">
+						placeholder="تاريخ الدفع" value="{{ $payment->pay_date }}">
 				</div>
 			</div>
 			<div>
 			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-			placeholder="ملاحظات">{{$appointment->notes}}</textarea>
+			placeholder="ملاحظات">{{$data->notes}}</textarea>
 			</div>
 			<div class="d-flex">
 				<button type="submit" id="btn" class="btn btn-primary mt-6">

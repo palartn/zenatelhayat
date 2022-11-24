@@ -82,6 +82,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     filter_2:filter_2,
                     filter_3:filter_3,
                     filter_4:filter_4,
+                    // filter_5:filter_5,
                 },
             },
             columns: [
@@ -144,6 +145,7 @@ $('#filter').click(function(){
     filter_2 = $('#filter_2').val();
     filter_3 = $('#filter_3').val();
     filter_4 = $('#filter_4').val();
+    // filter_5 = $('#filter_5').val();
 
     if(from_date == ''){
         from_date=-1;
@@ -163,6 +165,9 @@ $('#filter').click(function(){
     if(filter_4 == ''){
         filter_4=-1;
     }
+    // if(filter_5 == ''){
+    //     filter_5=-1;
+    // }
     // if(filter_6 == ''){
     //     filter_6=-1;
     // }
@@ -177,14 +182,16 @@ $('#refresh').click(function(){
     $('#to_date').val('');
     $('#filter_1').val('');
     $('#filter_2').val('');
-    $('#filter_3').val('').trigger('change');
+    $('#filter_3').val('');
     $('#filter_4').val('').trigger('change');
+    // $('#filter_5').val('').trigger('change');
     from_date='';
     to_date = '';
     filter_1='';
     filter_2='';
     filter_3='';
     filter_4='';
+    // filter_5='';
 
     if(from_date == ''){
         from_date=-1;
@@ -204,6 +211,9 @@ $('#refresh').click(function(){
     if(filter_4 == ''){
         filter_4=-1;
     }
+    // if(filter_5 == ''){
+    //     filter_5=-1;
+    // }
 
     var oTable = $('#kt_datatable').DataTable();
     oTable.destroy();

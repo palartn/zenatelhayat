@@ -76,6 +76,12 @@ class PatientsController extends Controller
         } else {
             $filter_4 = -1;
         }
+        // if ($request->filter_5 != -1) {
+
+        //     $filter_5 = $request->filter_5;
+        // } else {
+        //     $filter_5 = -1;
+        // }
 
 
         $totalRecords = Patient::select('count(*) as allcount')->count();
@@ -90,14 +96,15 @@ class PatientsController extends Controller
 
         if ($from_date != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('patients.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
+            if ($filter_1 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_number', $filter_1);
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_2 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
+       
         if ($filter_3 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.address', $filter_3);
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_3 . '%');
         if ($filter_4 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.idc', $filter_4);
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.gender', $filter_4);
 
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
@@ -115,14 +122,14 @@ class PatientsController extends Controller
 
         if ($from_date != -1)
             $items = $items->whereBetween('patients.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $items = $items->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
-            if ($filter_2 != -1)
-            $items = $items->where('patients.mobile', 'like', '%' . $filter_2 . '%');
+            if ($filter_1 != -1)
+            $items = $items->where('patients.patient_number', $filter_1);
+        if ($filter_2 != -1)
+            $items = $items->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
-            $items = $items->whereIn('patients.address', $filter_3);
+            $items = $items->where('patients.mobile', 'like', '%' .$filter_3 . '%');
             if ($filter_4 != -1)
-            $items = $items->where('patients.idc', 'like', '%' . $filter_4 . '%');
+            $items = $items->where('patients.gender', $filter_4);
         $items = $items->select('patients.*')
             ->skip($start)
             ->take($rowperpage)

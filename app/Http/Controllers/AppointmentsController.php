@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\AppointmentResource;
+use App\Models\Payment;
 
 class AppointmentsController extends Controller
 {
@@ -142,7 +143,7 @@ class AppointmentsController extends Controller
 
           DB::beginTransaction();
           try{
-            $patient->appointments()->create([
+            $appointment=$patient->appointments()->create([
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
@@ -151,6 +152,7 @@ class AppointmentsController extends Controller
                ]);
 
                $payment = $patient->payments()->create([
+                'appointment_id'=>$appointment->id,
                     'total_price' => $request->total_price,
                     'currency' => $request->currency,
                     'paid' => $request->paid,
@@ -196,9 +198,13 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointment ,Patient $patient,SurgeryKind $surgerykind)
+    public function edit(Appointment $appointment)
     {
-    return view('appointment.edit',compact('appointment','patient','surgerykind'));
+        $surgerykind =SurgeryKind::all();
+        $patient = Patient::all();
+        $payment=Payment::all();
+        dd($appointment->payment->id);
+    return view('appointment.edit',compact('appointment','patient','surgerykind','payment'));
     }
 
     /**
@@ -211,12 +217,18 @@ class AppointmentsController extends Controller
     public function update(Request $request, $id, Appointment $appointment)
     {
         $appointment ->update([
-            // 'paied_for' => $request->paied_for,
-            // 'amount' => $request->amount,
-            // 'currency' => $request->currency,
-            // 'pay_date' => $request->pay_date,
-            // 'notes' => $request->notes,
+            'paied_for' => $request->paied_for,
+            'amount' => $request->amount,
+            'currency' => $request->currency,
+            'pay_date' => $request->pay_date,
+            'notes' => $request->notes,
         ]);
+
+
+
+
+        
+  
         Alert::warning('تعديل بيانات زيارة', 'تمت عملية التعديل بنجاح');
         return redirect()->route('expenses.index');
     }
