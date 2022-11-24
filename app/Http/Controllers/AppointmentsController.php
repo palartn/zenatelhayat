@@ -200,10 +200,10 @@ class AppointmentsController extends Controller
      */
     public function edit(Appointment $appointment)
     {
+        
         $surgerykind =SurgeryKind::all();
         $patient = Patient::all();
         $payment=Payment::all();
-        dd($appointment->payment->id);
     return view('appointment.edit',compact('appointment','patient','surgerykind','payment'));
     }
 

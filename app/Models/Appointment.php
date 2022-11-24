@@ -27,7 +27,7 @@ class Appointment extends Model
     }
     public function payment()
     {
-        return $this->hasOne(Appointment::class);
+        return $this->hasOne(Payment::class);
     }
 
 

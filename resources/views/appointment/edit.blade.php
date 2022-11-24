@@ -42,7 +42,7 @@
 	<form method="POST" action="{{ route('appointments.update',$appointment->id) }}">
 		@csrf
         @method('put')
-		<input type="hidden" value="{{ $appointment->id }}" name="appointment_id">
+		
 		<div class="col xl-3">
 			<label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
 			<input type="text" readonly disabled
@@ -65,12 +65,8 @@
 					name="patient_name"
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
 			</div>
-
-
-
-
 				<div class="row">
-					@if($patient->patient_type=='مريض')
+					@if($patient->patient_type == 'مريض')
 			<div class="col xl-4 col-4 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
@@ -119,7 +115,7 @@
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
-						name="paid" id="paid" value="{{ $payment->paid }}" placeholder="المدفوع">
+						name="paid" id="paid" value="{{ $appointment->payment->paid }}" placeholder="المدفوع">
 				</div>
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
@@ -139,7 +135,7 @@
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
-						 placeholder="الباقي" value="{{ $payment->remaining_amount }}">
+						 placeholder="الباقي" value="{{ $appointment->payment->remaining_amount }}">
 				</div>
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -147,13 +143,13 @@
 					<input type="date" name="pay_date"
 						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع" value="{{ $payment->pay_date }}">
+						placeholder="تاريخ الدفع" value="{{ $appointment->payment->pay_date }}">
 				</div>
 			</div>
 			<div>
 			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-			placeholder="ملاحظات">{{$data->notes}}</textarea>
+			placeholder="ملاحظات">{{$appointment->payment->notes}}</textarea>
 			</div>
 			<div class="d-flex">
 				<button type="submit" id="btn" class="btn btn-primary mt-6">
