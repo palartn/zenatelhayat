@@ -85,7 +85,7 @@
 					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
 					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
 					@foreach($surgerykind as $surgerykind)
-						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
+						<option {{$appointment->surgery_kind_id == $surgerykind->id ? 'selected' : '' }} value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
 					@endforeach
 				</select>
 
@@ -94,6 +94,9 @@
 					<div class="col col-4">
 						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
 						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
+							@if($appointment->surgery_kind_id_child != null)
+						<option id="sssss" selected value="{{$appointment->surgery_kind_id_child}}">{{$appointment->surgery_kind_child->name}}</option>
+							@endif
 							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
 						</select>
 
@@ -164,6 +167,10 @@
 	</div>
 	</form>
 </div>
+@endsection
+
+
+@section('scripts')
 <script>
 
 	$('input.total_price,input.paid').on('change keyup',function(){
@@ -177,4 +184,70 @@
 
 	</script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(document).on('change','#prod_cat_id',function(){
+			var cat_id=$(this).val();
+			
+			var div=$(this).parent();
+			console.log(div);
+
+			var op=" ";
+
+			$.ajax({
+				type:'get',
+				url:'{!!URL::to('findProductName')!!}',
+				data:{'id':cat_id,},
+				success:function(data){
+					//console.log('success');
+
+					console.log(data);
+					$("#sssss").remove();
+					//console.log(data.length);
+					op+='<option value="0" selected disabled>الرجاء الإختيار</option>';
+					for(var i=0;i<data.length;i++){
+					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+				   }
+
+				   $('.productname').html(" ");
+				   $('.productname').append(op);
+				},
+				error:function(){
+
+				}
+			});
+		});
+
+		$(document).on('change','.productname',function () {
+			var prod_id=$(this).val();
+
+			var a=$(this).parent();
+			console.log(prod_id);
+			var op="";
+			$.ajax({
+				type:'get',
+				url:'{!!URL::to('findPrice')!!}',
+				data:{'id':prod_id},
+				dataType:'json',//return data will be json
+				success:function(data){
+					console.log("price");
+					console.log(data.price);
+
+					// here price is coloumn name in products table data.coln name
+
+					a.find('.prod_price').val(data.price);
+
+				},
+				error:function(){
+
+				}
+			});
+
+
+		});
+
+	});
+</script>
 @endsection
+

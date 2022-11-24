@@ -120,16 +120,6 @@ class AppointmentsController extends Controller
             $patient=Patient::where('id',$request->patient_id)->first();
 
 
-        //     $visit_date = $request->visit_date;
-        //     $next_visit_date = $request->next_visit_date;
-        //    // $patient_id = $patient->id;
-        //     $cost = $request->cost;
-        //     $currency = $request->currency;
-        //     $paid = $request->paid;
-        //     $remaining_amount = $request->remaining_amount;
-        //     $pay_date = $request->pay_date;
-        //     $notes = $request->notes;
-
         if($request->next_visit_date=='مريض'){
         $validated = $request->validate([
             'next_visit_date' => 'required',
@@ -201,7 +191,7 @@ class AppointmentsController extends Controller
     public function edit(Appointment $appointment)
     {
         
-        $surgerykind =SurgeryKind::all();
+        $surgerykind =SurgeryKind::whereNull('surgery_kind_id')->get();
         $patient = Patient::all();
         $payment=Payment::all();
     return view('appointment.edit',compact('appointment','patient','surgerykind','payment'));
@@ -214,15 +204,24 @@ class AppointmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Appointment $appointment)
+    public function update(Request $request, Appointment $appointment)
     {
+        // dd($request->all());
         $appointment ->update([
-            'paied_for' => $request->paied_for,
-            'amount' => $request->amount,
+            'next_visit_date' => $request->next_visit_date,
+                'surgery_kind_id' => $request->surgery_kind_id,
+                'surgery_kind_id_child' => $request->surgery_kind_id_child,
+               
+        ]);
+        $appointment->payment->update([
+            'paid' => $request->paid,
+            'total_price' => $request->total_price,
             'currency' => $request->currency,
             'pay_date' => $request->pay_date,
+            'remaining_amount' => $request->remaining_amount,
             'notes' => $request->notes,
         ]);
+
 
 
 
@@ -230,7 +229,7 @@ class AppointmentsController extends Controller
         
   
         Alert::warning('تعديل بيانات زيارة', 'تمت عملية التعديل بنجاح');
-        return redirect()->route('expenses.index');
+        return redirect()->route('appointments.index');
     }
 
     /**
