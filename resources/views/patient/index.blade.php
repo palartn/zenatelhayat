@@ -74,7 +74,7 @@
                                 <div class="col-lg-2 mb-6">
                                     <label>رقم المريض:</label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card"></i></span></div>
+                                        <div class="input-group-prepend"><span class="input-group-text" style="padding:1.1rem;border-radius: 0px 5px 5px 0px"><i class="fa fa-id-card" ></i></span></div>
 
                                         <input type="text" class="form-control datatable-input" name="filter_1" id="filter_1" placeholder="رقم المريض" data-col-index="5"/>
                                     </div>
@@ -118,7 +118,7 @@
                                         <input class="form-control input_date_" placeholder="من" name="from_date" id="from_date"/>
                                         {{--                                        <input type="text" class="form-control datatable-input" name="from_date" id="from_date" placeholder="من" data-col-index="5"/>--}}
                                         <div class="input-group-append">
-                                            <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                            <span class="input-group-text" style="padding:1.1rem;border-radius: 0px"><i class="la la-ellipsis-h"></i></span>
                                         </div>
                                         <input class="form-control input_date_" placeholder="إلى" name="to_date" id="to_date"/>
                                         {{--                                        <input type="text" class="form-control datatable-input" name="to_date" id="to_date" placeholder="إلى" data-col-index="5"/>--}}

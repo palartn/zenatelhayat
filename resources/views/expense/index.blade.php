@@ -366,14 +366,9 @@
 
                                 setTimeout(function() {
                                     $('.alert-session-flash').fadeOut('low');
-                                }, 3000); // <-- time in milliseconds
-
-
+                                }, 3000); 
+                                // <-- time in milliseconds
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
-
-                                _deleted(){
-
-                                }
                             </script>
                         @endsection
