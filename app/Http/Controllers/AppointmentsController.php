@@ -81,7 +81,10 @@ class AppointmentsController extends Controller
      */
     public function create(Patient $patient)
     {
-        //
+        $today_date = date('Y-m-d H:i:s');
+        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
+        $prod=Appointment::all();
+        return view('appointment.create_appointment',compact('prod','patient','today_date','surgerykind'));
     }
 
 
@@ -190,7 +193,7 @@ class AppointmentsController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        
+
         $surgerykind =SurgeryKind::whereNull('surgery_kind_id')->get();
         $patient = Patient::all();
         $payment=Payment::all();
@@ -211,7 +214,7 @@ class AppointmentsController extends Controller
             'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
-               
+
         ]);
         $appointment->payment->update([
             'paid' => $request->paid,
@@ -226,8 +229,8 @@ class AppointmentsController extends Controller
 
 
 
-        
-  
+
+
         Alert::warning('تعديل بيانات زيارة', 'تمت عملية التعديل بنجاح');
         return redirect()->route('appointments.index');
     }

@@ -6,11 +6,11 @@
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المستخدمين</span>
+                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المصروفات</span>
                     <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد المصروفات({{ App\Models\Expense::count() }})</span>
                 </h3>
                 <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
-                    <a href="" class="btn btn-sm btn-primary">
+                    <a href="{{route('expenses.create')}}" class="btn btn-sm btn-primary">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                         <span class="svg-icon svg-icon-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -21,7 +21,7 @@
                                     fill="black" />
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->إضافة زيارة
+                        <!--end::Svg Icon-->إضافة مصروفات
                     </a>
 
                 </div>
@@ -152,9 +152,9 @@
                                     </div>
                                 </div>
                             </div>
-                       
+
                     </div>
-                </div>        
+                </div>
         </div></div>
                             <!--end::Modal-->
                         @endsection
@@ -366,7 +366,7 @@
 
                                 setTimeout(function() {
                                     $('.alert-session-flash').fadeOut('low');
-                                }, 3000); 
+                                }, 3000);
                                 // <-- time in milliseconds
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
