@@ -39,7 +39,7 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-	<form method="POST" action="{{ route('appointments.store') }}">
+	<form method="POST" action="{{ route('appointment.CreateNewAppointment') }}">
 		@csrf
 		<input type="hidden" value="{{ $patient->id }}" name="patient_id">
 
@@ -49,10 +49,10 @@
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
 					المريض
 				</label>
-				@if($patient->patient_type=='زائر')
+				{{-- @if($patient->patient_type=='زائر')
 				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
 					{{ "زائر لمرة واحدة" }}
-				 @endif
+				 @endif --}}
 				</span>
 				<input type="text" readonly
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"

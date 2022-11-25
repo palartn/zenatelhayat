@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
 Route::post('appointment/getData',[AppointmentsController::class, 'getData'])->name('appointment.getData');
+Route::post('appointment/createn',[AppointmentsController::class, 'CreateNewAppointment'])->name('appointment.CreateNewAppointment');
 
 
 
@@ -45,7 +46,8 @@ Route::post('expenses/getData',[ExpenseController::class, 'getData'])->name('exp
 
 Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
-Route::get('appointment/{id}/patient', [PatientsController::class, 'addAppointmentToPatient'])->name('addAppointmentToPatient');   
+Route::get('appointment/{id}/patient', [PatientsController::class, 'addAppointmentToPatient'])->name('addAppointmentToPatient');
+Route::get('appointment/createn', [PatientsController::class, 'addAppointmentToPatientn'])->name('addAppointmentToPatientn');
 Route::resource('patients',PatientsController::class)->middleware('auth');
 
 Route::get('patients/{patient}/file',[FileController::class,'file'])->name('file')->middleware('auth');
