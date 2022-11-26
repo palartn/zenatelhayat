@@ -504,7 +504,7 @@
                                                 $('#ajax-modal:has(h2.iziModal-header-title:contains("تعديل بيانات الثابت"))')
                                                     .iziModal('close');
                                                 $('#btn-save').html('حفظ');
-                                                Swal.fire({زائر لمرة
+                                                Swal.fire({
                                                     icon: "success",
                                                     title: "تمت العملية بنجاح!",
                                                     showConfirmButton: false,
@@ -546,7 +546,7 @@
                                         // return the result
                                         success: function(result) {
 
-                                           console.log(result);
+                                           //console.log(result);
                                             //console.log(result)
                                             $('#smallModal').modal("show");
                                             $('#patient_name').html(result.data.full_name);
@@ -598,8 +598,6 @@
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
 
-                                _deleted(){
-
-                                }
+                                
                             </script>
                         @endsection

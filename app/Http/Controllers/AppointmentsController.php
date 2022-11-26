@@ -137,6 +137,7 @@ class AppointmentsController extends Controller
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
+                'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
                ]);
@@ -180,6 +181,7 @@ class AppointmentsController extends Controller
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
+                'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
                ]);
