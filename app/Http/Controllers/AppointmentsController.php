@@ -79,9 +79,9 @@ class AppointmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Patient $patient)
+    public function create()
     {
-        //
+      //
     }
 
 
@@ -117,7 +117,7 @@ class AppointmentsController extends Controller
     {
        //dd($request->all());
 
-            $patient=Patient::where('id',$request->patient_id)->first();
+        $patient=Patient::where('id',$request->patient_id)->first();
 
 
         if($request->next_visit_date=='مريض'){
@@ -131,6 +131,49 @@ class AppointmentsController extends Controller
          //  $request['event'] = implode('-',$event);
 
 
+          DB::beginTransaction();
+          try{
+            $appointment=$patient->appointments()->create([
+                'next_visit_date' => $request->next_visit_date,
+                'surgery_kind_id' => $request->surgery_kind_id,
+                'surgery_kind_id_child' => $request->surgery_kind_id_child,
+
+                //'event' => implode('-',$request->event),
+               ]);
+
+               $payment = $patient->payments()->create([
+                'appointment_id'=>$appointment->id,
+                    'total_price' => $request->total_price,
+                    'currency' => $request->currency,
+                    'paid' => $request->paid,
+                    'remaining_amount' => $request->remaining_amount,
+                    'total_price' => $request->total_price,
+                    'pay_date' => $request->pay_date,
+                    // 'total_price' => $request->total_price,
+                    'notes' => $request->notes,
+               ]);
+
+               DB::commit();
+
+               Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
+               return redirect()->route('patients.index');
+
+          }catch(\Exception $ex){
+            DB::rollBack();
+           return $ex->getMessage();
+          }
+
+    }
+
+
+    public function CreateNewAppointment(Request $request)
+    {
+        $patient=Patient::all();
+        // if($request->next_visit_date=='مريض'){
+        // $validated = $request->validate([
+        //     'next_visit_date' => 'required',
+        // ]);}
+           $event=$request->event;
           DB::beginTransaction();
           try{
             $appointment=$patient->appointments()->create([
@@ -190,7 +233,7 @@ class AppointmentsController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        
+
         $surgerykind =SurgeryKind::whereNull('surgery_kind_id')->get();
         $patient = Patient::all();
         $payment=Payment::all();
@@ -211,7 +254,7 @@ class AppointmentsController extends Controller
             'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
-               
+
         ]);
         $appointment->payment->update([
             'paid' => $request->paid,
@@ -226,8 +269,8 @@ class AppointmentsController extends Controller
 
 
 
-        
-  
+
+
         Alert::warning('تعديل بيانات زيارة', 'تمت عملية التعديل بنجاح');
         return redirect()->route('appointments.index');
     }

@@ -1154,7 +1154,7 @@
 						</span>
 						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}"   href="{{route('appointments.index')}}">
+								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}"   href="{{route('addAppointmentToPatientn')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>

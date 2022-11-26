@@ -41,23 +41,19 @@
 	<!--begin::Form-->
 	<form method="POST" action="{{ route('appointment.CreateNewAppointment') }}">
 		@csrf
-		<input type="hidden" value="{{ $patient->id }}" name="patient_id">
+
 
 
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
-					المريض
-				</label>
-				{{-- @if($patient->patient_type=='زائر')
-				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
-					{{ "زائر لمرة واحدة" }}
-				 @endif --}}
-				</span>
-				<input type="text" readonly
-					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
-					name="patient_name"
-					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
+				<select class="form-select form-control form-control-solid" data-control="select2" data-placeholder="الرجاء اختيار اسم المريض">
+                    <option></option>
+                    @foreach ($patient as $patient)
+
+
+                    <option value="{{$patient->id}}">{{$patient->patient_fname. ' ' .$patient->patient_sname. ' '.$patient->patient_tname. ' '.$patient->patient_lname }}</option>
+                    @endforeach
+                </select>
 			</div>
             <div class="col xl-3 mt-6">
                 <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>

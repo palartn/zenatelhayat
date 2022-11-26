@@ -100,7 +100,7 @@ class PatientsController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_number', $filter_1);
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
-       
+
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_3 . '%');
         if ($filter_4 != -1)
@@ -352,6 +352,15 @@ class PatientsController extends Controller
         $today_date = date('Y-m-d H:i:s');
         $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
         return view('appointment.create', compact('patient','today_date','surgerykind'));
+
+    }
+
+    public function addAppointmentToPatientn()
+    {
+        $patient = Patient::all();
+        $today_date = date('Y-m-d H:i:s');
+        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
+        return view('appointment.create_appointment', compact('patient','today_date','surgerykind'));
 
     }
 }

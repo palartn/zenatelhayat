@@ -6,11 +6,11 @@
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المصروفات</span>
-                    <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد المصروفات({{ App\Models\Expense::count() }})</span>
+                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة الزيارات</span>
+                    <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد الزيارات({{ App\Models\Appointment::count() }})</span>
                 </h3>
                 <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
-                    <a href="{{route('expenses.create')}}" class="btn btn-sm btn-primary">
+                    <a href="" class="btn btn-sm btn-primary">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                         <span class="svg-icon svg-icon-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -21,7 +21,7 @@
                                     fill="black" />
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->إضافة مصروفات
+                        <!--end::Svg Icon-->إضافة زيارة
                     </a>
 
                 </div>
@@ -37,10 +37,10 @@
                         <thead>
                             <tr class="fw-bolder  bg-secondary mb-3">
                                 <th>الرقم </th>
-                                <th>مدفوع إلى</th>
-                                <th>المبلغ</th>
-                                <th>العملة</th>
-                                <th>تاريخ الدفع </th>
+                                <th>إسم المريض</th>
+                                <th>الزيارة القادمة</th>
+                                <th>القسم</th>
+                                <th>سبب الزيارة</th>
                                 <th>ملاحظات</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
@@ -62,6 +62,13 @@
             <!--begin::Body-->
         </div>
         <!--end::Tables Widget 9-->
+
+
+
+
+
+
+
         {{-- {!! $users->links() !!} --}}
     </div>
 
@@ -94,7 +101,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
 
-                    <h5 class="modal-title "> المصروفات  </h5>
+                    <h5 class="modal-title ">البيانات الأساسية للمريض</h5>
                     <p id="demo"></p>
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
@@ -106,39 +113,48 @@
 
                 <div class="modal-body row">
                     <div class="card-body">
-                     <div class="row col-12">
-                        <div class="form-group row mb-6">
-                                    <label class="col-form-label col-lg-12">مدفوع إلى </label>
-                                    <div class="col-lg-12">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="paied_for"
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4"> إسم المريض</label>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_id">
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
+                                    <div class="col-lg-8">
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
                                             style=""></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">المبلغ </label>
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="amount">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="next_visit_date">
                                           </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">العملة</label>
+                                    <label class="col-form-label col-lg-4">القسم</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="currency">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الدفع </label>
+                                    <label class="col-form-label col-lg-4">سبب الزيارة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="pay_date">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
                                         </div>
                                     </div>
                                 </div>
@@ -148,14 +164,15 @@
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
                                     <div class="col-lg-8">
                                         <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
                     </div>
                 </div>
-        </div></div>
+
+
                             <!--end::Modal-->
                         @endsection
 
@@ -195,7 +212,7 @@
                                     }
                                 });
                                 var csrf = "{{ csrf_token() }}";
-                                var DATA_URL = "{{ route('expenses.getData') }}";
+                                var DATA_URL = "{{ route('appointment.getData') }}";
                                 var SITEURL = '{{ URL::to('') }}';
                                 var from_date = -1;
                                 var to_date = -1;
@@ -209,7 +226,7 @@
 
                             <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
                             {{--    <script src="{{ asset('assets/js/pages/features/miscellaneous/sweetalert2.js') }}" type="text/javascript"></script> --}}
-                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-expense.js') }}" type="text/javascript">
+                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-appointment.js') }}" type="text/javascript">
                             </script>
                             <script src="{{ asset('assets/js/custom/documentation/forms/select2.js') }}"></script>
                             <script src="{{ asset('assets/js/custom/modals/new-target.js') }}"></script>
@@ -270,7 +287,7 @@
                                             var url_ = "{{ route('users.store') }}";
                                             var type_ = "POST";
                                         } else {
-                                            var url_ = SITEURL + '/Expense/' + status_id;
+                                            var url_ = SITEURL + '/appointment/' + status_id;
                                             var type_ = "PUT";
                                         }
                                         $.ajax({
@@ -326,28 +343,26 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/expenses/'+id,
+                                        url: SITEURL +'/appointments/'+id,
 
 
                                         // return the result
                                         success: function(result) {
 
-                                           console.log(result);
-                                            //console.log(result)
+                                         console.log(result);
                                             $('#smallModal').modal("show");
-                                            $('#paied_for').html(result.data.paied_for);
-                                            $('#amount').html(result.data.amount);
-                                            $('#currency').html(result.data.currency);
-                                            $('#pay_date').html(result.data.pay_date);
+                                            $('#patient_id').html(result.data.full_name);
+                                            $('#visit_date').html(result.data.visit_date);
+                                            $('#next_visit_date').html(result.data.next_visit_date);
+                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
+                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
                                             $('#notes').html(result.data.notes);
-                                            // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                                             $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },
-
                                         error: function(jqXHR, testStatus, error) {
                                             console.log(error);
-                                            alert("Page " + href + " cannot open. Error:" + error);
+                                             alert("Page " + href + " cannot open. Error:" + error);
 
                                         },
 
@@ -366,9 +381,12 @@
 
                                 setTimeout(function() {
                                     $('.alert-session-flash').fadeOut('low');
-                                }, 3000);
-                                // <-- time in milliseconds
+                                }, 3000); // <-- time in milliseconds
+
+
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
+
+
                             </script>
                         @endsection
