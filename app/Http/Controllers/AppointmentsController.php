@@ -167,7 +167,7 @@ class AppointmentsController extends Controller
     }
 
 
-    public function CreateNewAppointment(Request $request)
+    public function createnewappointment(Request $request)
     {
         $patient=Patient::all();
         // if($request->next_visit_date=='مريض'){
