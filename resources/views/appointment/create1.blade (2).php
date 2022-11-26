@@ -39,33 +39,38 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-	<form method="POST" action="{{ route('appointments.store') }}">
+	<form method="POST" action="{{ route('addAppointmentToPatient') }}">
 		@csrf
 		<input type="hidden" value="{{ $patient->id }}" name="patient_id">
-		<div class="col xl-3">
-			<label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
-			<input type="text" readonly disabled
-				class="form-control form-control-solid @error('visit_date') is-invalid @enderror"
-				name="visit_date" value="{{ $today_date }}" readonly disabled>
-		</div>
+
 
 		<div class="col mt-6">
 			<div class="col xl-3">
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
-					المريض 
+					المريض
 				</label>
-				@if($patient->patient_type=='زائر')
+				{{-- @if($patient->patient_type=='زائر')
 				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
 					{{ "زائر لمرة واحدة" }}
-				 @endif
+				 @endif --}}
 				</span>
-				<input type="text"
+				<input type="text" readonly
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
 					name="patient_name"
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
 			</div>
-			@if($patient->patient_type=='مريض')
-			<div class="col xl-3 mt-6">
+            <div class="col xl-3 mt-6">
+                <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
+                <input type="text" readonly disabled
+                    class="form-control form-control-solid @error('visit_date') is-invalid @enderror"
+                    name="visit_date" value="{{ $today_date }}" readonly disabled>
+            </div>
+
+
+
+				<div class="row">
+					@if($patient->patient_type=='مريض')
+			<div class="col xl-4 col-4 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
 				<input type="date"
@@ -78,37 +83,42 @@
 
 			</div>
 			@endif
-			<div class="col xl-3 mt-6">
-				<label class="fs-4 fw-semibold form-label" for="mobile"> سبب الزيارة
-					</label>
+				  <div class="col col-4">
+					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
+					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
+					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
+					@foreach($surgerykind as $surgerykind)
+						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
+					@endforeach
+				</select>
 
-					<select class="form-select form-select-lg form-select-solid  @error('event') is-invalid @enderror "
-					name="event[]" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
-						<option></option>
-						@foreach ($surgerykind as $surgerykind)
-						<option value="{{$surgerykind->name;}}">{{$surgerykind->name;}}</option>
-						@endforeach
-						{{-- <option value="2">انتهت المراجعة</option> --}}
-					</select>
+				</div>
 
-			</div>
+					<div class="col col-4">
+						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
+						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
+							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
+						</select>
+
+				</div>
+				</div>
 
 
 			<div class="row">
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
-					<input type="text"
-						class="form-control form-control-solid @error('total_price') is-invalid @enderror"
-						name="total_price" value="" placeholder="المبلغ للدفع">
+					<input type="number"
+						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
+						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
-					<input type="text"
-						class="form-control form-control-solid @error('paid') is-invalid @enderror"
-						name="paid" value="" placeholder="المدفوع">
+					<input type="number"
+						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
+						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
 				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
@@ -119,16 +129,16 @@
 						<option value="دولار">دولار</option>
 						<option value="دينار">دينار</option>
 					</select>
-					
+
 				</div>
 
 
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
-					<input type="text" name="remaining_amount"
-						class="form-control form-control-solid @error('remaining_amount') is-invalid @enderror"
-						value="" placeholder="الباقي">
+					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
+						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
+						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
 				</div>
 				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -136,28 +146,26 @@
 					<input type="date" name="pay_date"
 						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع">
+						placeholder="تاريخ الدفع" value="{{ old('pay_date') }}">
 				</div>
-
 			</div>
-		</div> 
-<div>
-<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
-<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-	placeholder="ملاحظات"></textarea>
-</div>
-<div class="d-flex">
+			<div>
+			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
+			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
+			placeholder="ملاحظات"></textarea>
+			</div>
+			<div class="d-flex">
+				<button type="submit" id="btn" class="btn btn-primary mt-6">
+				<span class="indicator-label btn-lg btn-block">حفظ</span>
+				</button>
+			</div>
 
-<button type="submit" id="btn" class="btn btn-primary mt-6">
-	<span class="indicator-label btn-lg btn-block">حفظ</span>
-</button>
 
-</div>
-</div>
-</div>
- </div>
-</div>
-</form>
+
+ 	</div>
+
+	</div>
+	</form>
 </div>
 	@endsection
 	@section('scripts')
@@ -178,4 +186,86 @@ tinymce.init({
     selector: '#kt_docs_tinymce_basic'
 });
 </script>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(document).on('change','#prod_cat_id',function(){
+
+			var cat_id=$(this).val();
+
+			var div=$(this).parent();
+			console.log(div);
+
+			var op=" ";
+
+			$.ajax({
+				type:'get',
+				url:'{!!URL::to('findProductName')!!}',
+				data:{'id':cat_id,},
+				success:function(data){
+					//console.log('success');
+
+					console.log(data);
+
+					//console.log(data.length);
+					op+='<option value="0" selected disabled>الرجاء الإختيار</option>';
+					for(var i=0;i<data.length;i++){
+					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
+				   }
+
+				   $('.productname').html(" ");
+				   $('.productname').append(op);
+				},
+				error:function(){
+
+				}
+			});
+		});
+
+		$(document).on('change','.productname',function () {
+			var prod_id=$(this).val();
+
+			var a=$(this).parent();
+			console.log(prod_id);
+			var op="";
+			$.ajax({
+				type:'get',
+				url:'{!!URL::to('findPrice')!!}',
+				data:{'id':prod_id},
+				dataType:'json',//return data will be json
+				success:function(data){
+					console.log("price");
+					console.log(data.price);
+
+					// here price is coloumn name in products table data.coln name
+
+					a.find('.prod_price').val(data.price);
+
+				},
+				error:function(){
+
+				}
+			});
+
+
+		});
+
+	});
+</script>
+
+<script>
+
+	$('input.total_price,input.paid').on('change keyup',function(){
+		var total_price = $("#total_price").val()
+		var paid = $("#paid").val()
+		console.log(total_price);
+
+	  $grand_total=$('.remaining_amount').val(total_price-paid);
+
+	})
+
+	</script>
+
 @endsection

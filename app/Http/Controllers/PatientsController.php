@@ -355,12 +355,12 @@ class PatientsController extends Controller
 
     }
 
-    public function addAppointmentToPatientn()
-    {
-        $patient = Patient::all();
-        $today_date = date('Y-m-d H:i:s');
-        $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
-        return view('appointment.create_appointment', compact('patient','today_date','surgerykind'));
+    // public function addAppointmentToPatientn()
+    // {
+    //     $patient = Patient::all();
+    //     $today_date = date('Y-m-d H:i:s');
+    //     $surgerykind=SurgeryKind::whereNull('surgery_kind_id')->get();
+    //     return view('appointment.create_appointment', compact('patient','today_date','surgerykind'));
 
-    }
+    // }
 }
