@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
 Route::post('appointment/getData',[AppointmentsController::class, 'getData'])->name('appointment.getData');
-Route::post('appointment/reatenewappointment',[AppointmentsController::class, 'CreateNewAppointment'])->name('appointment.CreateNewAppointment');
+Route::post('appointment/createnewappointment',[AppointmentsController::class, 'CreateNewAppointment'])->name('appointment.CreateNewAppointment');
 
 
 

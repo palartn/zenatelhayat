@@ -356,7 +356,7 @@ class PatientsController extends Controller
 
     }
 
-    public function addAppointmentToPatientn()
+    public function createnewappointment()
     {
         $patient = Patient::all();
         $today_date = date('Y-m-d H:i:s');

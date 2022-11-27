@@ -46,7 +46,7 @@
 
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<select class="form-select form-control form-control-solid" data-control="select2" data-placeholder="الرجاء اختيار اسم المريض">
+				<select name="patient_id" class="form-select form-control form-control-solid" data-control="select2" data-placeholder="الرجاء اختيار اسم المريض">
                     <option></option>
                     @foreach ($patient as $patient)
 
