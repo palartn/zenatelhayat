@@ -103,6 +103,16 @@ class AppointmentsController extends Controller
         return response()->json($data);//then sent this data to ajax success
 	}
 
+public function today_appointment (Request $request )
+{
+    $today_date = date('Y-m-d');
+    $n=Carbon::today();
+    $data = Appointment::where('visit_date',$today_date)->get();
+    // dd($data);
+
+    return view('appointment.today',compact('data'));
+
+}
 
 
 
@@ -169,7 +179,7 @@ class AppointmentsController extends Controller
 
     public function createnewappointment(Request $request)
     {
-        $patient=Patient::all();
+        
         // if($request->next_visit_date=='مريض'){
         // $validated = $request->validate([
         //     'next_visit_date' => 'required',
@@ -177,16 +187,17 @@ class AppointmentsController extends Controller
            $event=$request->event;
           DB::beginTransaction();
           try{
-            $appointment=$patient->appointments()->create([
+            $appointment=Appointment::create([
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
                 'notes' => $request->notes,
+                'patient_id' => $request->patient_id,
 
                 //'event' => implode('-',$request->event),
                ]);
 
-               $payment = $patient->payments()->create([
+               $payment = Payment::create([
                 'appointment_id'=>$appointment->id,
                     'total_price' => $request->total_price,
                     'currency' => $request->currency,
@@ -196,12 +207,13 @@ class AppointmentsController extends Controller
                     'pay_date' => $request->pay_date,
                     // 'total_price' => $request->total_price,
                     'notes' => $request->notes,
+                    'patient_id' => $request->patient_id,
                ]);
 
                DB::commit();
 
                Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-               return redirect()->route('patients.index');
+               return redirect()->route('appointments.index');
 
           }catch(\Exception $ex){
             DB::rollBack();
@@ -256,6 +268,7 @@ class AppointmentsController extends Controller
             'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
+                'notes' => $request->notes,
 
         ]);
         $appointment->payment->update([
