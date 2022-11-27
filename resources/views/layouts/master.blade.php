@@ -1137,7 +1137,7 @@
 
 
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='appointments.index'
-					|| Route::currentRouteName() =='appointments.create') hover show @endif">
+					|| Route::currentRouteName() =='createnewappointment') hover show @endif">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1152,9 +1152,9 @@
 							<span class="menu-title">الزيارات والحجوزات</span>
 							<span class="menu-arrow"></span>
 						</span>
-						<div class="menu-sub menu-sub-accordion">
+						<div class="menu-sub menu-sub-accordion  ">
 							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}"   href="{{route('createnewappointment')}}">
+								<a class="menu-link {{ (request()->is('appointment/createnewappointment')) ? 'active' : ''}}"   href="{{route('createnewappointment')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -1162,7 +1162,7 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="{{route('appointments.index')}}">
+								<a class="menu-link {{ (request()->is('today')) ? 'active' : ''}}" href="{{route('appointments.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
@@ -1170,11 +1170,11 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link" href="{{ route('appointments.index') }}">
+								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}" href="{{ route('appointments.index') }}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title {{ (request()->is('appointments')) ? 'active' : ''}}">إدارة الزيارات</span>
+									<span class="menu-title">إدارة الزيارات</span>
 								</a>
 							</div>
 

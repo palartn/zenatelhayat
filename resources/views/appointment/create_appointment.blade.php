@@ -57,9 +57,9 @@
 			</div>
             <div class="col xl-3 mt-6">
                 <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
-                <input type="text" readonly disabled
+                <input type="text" readonly 
                     class="form-control form-control-solid @error('visit_date') is-invalid @enderror"
-                    name="visit_date" value="{{ $today_date }}" readonly disabled>
+                    name="visit_date" value="{{ $today_date }}" readonly >
             </div>
 
 
