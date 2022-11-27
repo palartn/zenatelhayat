@@ -103,16 +103,6 @@ class AppointmentsController extends Controller
         return response()->json($data);//then sent this data to ajax success
 	}
 
-public function today_appointment (Request $request )
-{
-    $today_date = date('Y-m-d');
-    $n=Carbon::today();
-    $data = Appointment::where('visit_date',$today_date)->get();
-    // dd($data);
-
-    return view('appointment.today',compact('data'));
-
-}
 
 
 
