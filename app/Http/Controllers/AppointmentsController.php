@@ -178,7 +178,7 @@ public function today_appointment (Request $request )
     }
 
 
-    public function CreateNewAppointment(Request $request)
+    public function createnewappointment(Request $request)
     {
         
         // if($request->next_visit_date=='مريض'){
