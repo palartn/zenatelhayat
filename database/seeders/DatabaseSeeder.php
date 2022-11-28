@@ -35,5 +35,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Surgery_kinds_Seeder::class,
         ]);
+
     }
 }

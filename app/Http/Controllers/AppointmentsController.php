@@ -109,7 +109,7 @@ public function today_appointment (Request $request )
     $n=Carbon::today();
     $data = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->get();
     // $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
-    //dd($data);
+    //=dd($data);
     return view('appointment.today',compact('data'));
 
 }
@@ -379,6 +379,140 @@ public function today_appointment (Request $request )
         // Fetch records
 
         $items = Appointment::orderBy('appointments.id', 'desc');
+        if ($searchValue != null)
+            $items = $items
+                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.patient_id', $searchValue)
+                ->orWhere('appointments.surgery_kind_id', $searchValue);
+
+
+        if ($from_date != -1)
+            $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
+        if ($filter_1 != -1)
+            $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
+            if ($filter_2 != -1)
+            $items = $items->where('appointments.patient_id', 'like', '%' . $filter_2 . '%');
+        if ($filter_3 != -1)
+            $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
+            if ($filter_4 != -1)
+            $items = $items->where('surgery_kind_id.notes', 'like', '%' . $filter_4 . '%');
+        $items = $items->select('appointments.*')
+            ->skip($start)
+            ->take($rowperpage)
+            ->get();
+
+
+
+
+        $data = [];
+        foreach ($items as $item) {
+            $data[] = [
+                'id' => $item->id,
+               // 'visit_date' => $item->id,
+                'patient_id' => $item->patient->patient_fname. ' '.$item->patient->patient_sname. ' '.$item->patient->patient_tname . ' '.$item->patient->patient_lname,
+                'next_visit_date' => $item->next_visit_date,
+                'surgery_kind_id' => $item->surgery_kind->name,
+               'surgery_kind_id_child' => $item->surgery_kind_child->name,
+                'notes' => $item->notes,
+                "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
+                "actions" => null
+
+            ];
+
+        }
+
+        $response = array(
+            "draw" => intval($draw),
+            "iTotalRecords" => $totalRecords,
+            "iTotalDisplayRecords" => $totalRecordswithFilter,
+            "aaData" => $data
+        );
+
+        return response()->json($response);
+        exit;
+    }
+    public function getTodayData(Request $request)
+    {
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowperpage = $request->get("length"); // Rows display per page
+        $columnIndex_arr = $request->get('order');
+        $columnName_arr = $request->get('columns');
+        $order_arr = $request->get('order');
+        $search_arr = $request->get('search');
+        $columnIndex = $columnIndex_arr[0]['column']; // Column index
+        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+
+        $searchValue = $search_arr['value']; // Search value
+        $searchValue_filtered = str_replace(' ', '', str_replace(['أ', 'إ'], 'ا', str_replace(['ي', 'ئ'], 'ى', str_replace('ة', 'ه', $searchValue))));
+        if ($request->from_date != -1) {
+            $from_date = Carbon::parse($request->from_date)->format('Y-m-d H:i:s');
+        } else {
+            $from_date = $request->from_date;
+        }
+        if ($request->to_date != -1) {
+            $to_date = Carbon::parse($request->to_date)->format('Y-m-d H:i:s');
+        } else {
+            $to_date = $request->to_date;
+        }
+        if ($request->filter_1 != -1) {
+
+            $filter_1 = $request->filter_1;
+        } else {
+            $filter_1 = -1;
+        }
+        if ($request->filter_2 != -1) {
+
+            $filter_2 = $request->filter_2;
+        } else {
+            $filter_2 = -1;
+        }
+        if ($request->filter_3 != -1) {
+
+            $filter_3 = $request->filter_3;
+        } else {
+            $filter_3 = -1;
+        }
+        if ($request->filter_4 != -1) {
+
+            $filter_4 = $request->filter_4;
+        } else {
+            $filter_4 = -1;
+        }
+
+
+        // $totalRecords = Appointment::select('count(*) as allcount')->count();
+        $totalRecords = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->count();
+        $totalRecordswithFilter = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'));
+        // $totalRecordswithFilter = Appointment::select('count(patients.*) as allcount');
+
+        if ($searchValue != null)
+            $totalRecordswithFilter = $totalRecordswithFilter
+                ->where('appointments.patient_id', 'like', '%' . $searchValue . '%')
+                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
+                ->where('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.surgery_kind_id', $searchValue);
+
+        if ($from_date != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('patients.created_at', array($from_date, $to_date));
+        if ($filter_1 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_1 . '%');
+        if ($filter_2 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_2 . '%');
+        if ($filter_3 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.address', $filter_3);
+        if ($filter_4 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('patients.idc', $filter_4);
+
+
+        $totalRecordswithFilter = $totalRecordswithFilter->count();
+
+        // Fetch records
+
+        // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
+        $items = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
         if ($searchValue != null)
             $items = $items
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')

@@ -212,7 +212,7 @@
                                     }
                                 });
                                 var csrf = "{{ csrf_token() }}";
-                                var DATA_URL = "{{ route('appointment.getData') }}";
+                                var DATA_URL = "{{ route('appointment.getTodayData') }}";
                                 var SITEURL = '{{ URL::to('') }}';
                                 var from_date = -1;
                                 var to_date = -1;
