@@ -301,6 +301,13 @@ public function today_appointment (Request $request )
         $appointment->delete();
         return response()->json($appointment);
     }
+
+
+
+
+
+
+    
     public function getData(Request $request)
     {
         $draw = $request->get('draw');
@@ -322,7 +329,7 @@ public function today_appointment (Request $request )
             $from_date = $request->from_date;
         }
         if ($request->to_date != -1) {
-            $to_date = Carbon::parse($request->to_date)->format('Y-m-d');
+            $to_date = Carbon::parse($request->to_date)->format('Y-m-d H:i:s');
         } else {
             $to_date = $request->to_date;
         }
@@ -350,7 +357,6 @@ public function today_appointment (Request $request )
         } else {
             $filter_4 = -1;
         }
-
 
         $totalRecords = Appointment::select('count(*) as allcount')->count();
         $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
@@ -388,7 +394,7 @@ public function today_appointment (Request $request )
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('appointments.visit_date', array($from_date, $to_date));
+            $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
             $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
             if ($filter_2 != -1)
@@ -432,6 +438,14 @@ public function today_appointment (Request $request )
         return response()->json($response);
         exit;
     }
+
+
+
+
+
+
+
+
     public function getTodayData(Request $request)
     {
         $draw = $request->get('draw');
