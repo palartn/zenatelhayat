@@ -384,7 +384,7 @@ public function today_appointment (Request $request )
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
                 ->orWhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
                 ->orWhere('appointments.patient_id', $searchValue)
-                ->orWhere('appointments.surgery_kind_id', $searchValue);
+                ->orWhere('appointments.notes' ,'like', '%' . $searchValue . '%');
 
 
         if ($from_date != -1)
@@ -392,7 +392,7 @@ public function today_appointment (Request $request )
         if ($filter_1 != -1)
             $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
             if ($filter_2 != -1)
-            $items = $items->where('appointments.patient_id', $filter_2 );
+            $items = $items->where('appointments.patient_id',  'like', '%' . $filter_2 . '%' );
         if ($filter_3 != -1)
             $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
             if ($filter_4 != -1)
@@ -526,7 +526,7 @@ public function today_appointment (Request $request )
         if ($filter_1 != -1)
             $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
             if ($filter_2 != -1)
-            $items = $items->where('appointments.patient_id', $filter_2 );
+            $items = $items->where('appointments.patient_id','like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
             if ($filter_4 != -1)
