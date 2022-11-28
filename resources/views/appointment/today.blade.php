@@ -343,7 +343,7 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/appointments/today_appointment',
+                                        url: SITEURL +'/appointments/'+id,
 
 
                                         // return the result
