@@ -39,7 +39,7 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-	<form method="POST" action="{{ route('appointment.CreateNewAppointment') }}">
+	<form method="POST" action="{{ route('appointment.createnewappointment') }}">
 		@csrf
 
 

@@ -109,7 +109,6 @@ public function today_appointment (Request $request )
     $n=Carbon::today();
     $data = Appointment::where('visit_date',$today_date)->get();
     // dd($data);
-    //www
 
     return view('appointment.today',compact('data'));
 
@@ -178,7 +177,7 @@ public function today_appointment (Request $request )
     }
 
 
-    public function createnewappointment(Request $request)
+    public function createnewappointment (Request $request)
     {
         
         // if($request->next_visit_date=='مريض'){

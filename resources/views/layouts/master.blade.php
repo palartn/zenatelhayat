@@ -1162,7 +1162,7 @@
 								</a>
 							</div>
 							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('today')) ? 'active' : ''}}" href="{{route('appointment.today_appointment')}}">
+								<a class="menu-link {{ (request()->is('appointment/today_appointment')) ? 'active' : ''}}" href="{{route('appointment.today_appointment')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
