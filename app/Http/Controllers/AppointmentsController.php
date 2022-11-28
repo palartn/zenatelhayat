@@ -317,12 +317,12 @@ public function today_appointment (Request $request )
         $searchValue = $search_arr['value']; // Search value
         $searchValue_filtered = str_replace(' ', '', str_replace(['أ', 'إ'], 'ا', str_replace(['ي', 'ئ'], 'ى', str_replace('ة', 'ه', $searchValue))));
         if ($request->from_date != -1) {
-            $from_date = Carbon::parse($request->from_date)->format('Y-m-d H:i:s');
+            $from_date = Carbon::parse($request->from_date)->format('Y-m-d');
         } else {
             $from_date = $request->from_date;
         }
         if ($request->to_date != -1) {
-            $to_date = Carbon::parse($request->to_date)->format('Y-m-d H:i:s');
+            $to_date = Carbon::parse($request->to_date)->format('Y-m-d');
         } else {
             $to_date = $request->to_date;
         }
@@ -367,7 +367,7 @@ public function today_appointment (Request $request )
         if ($filter_1 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.patient_name', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.patient_id', 'like', '%' . $filter_2 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.created_at', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereIn('appointments.address', $filter_3);
         if ($filter_4 != -1)
@@ -388,11 +388,11 @@ public function today_appointment (Request $request )
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
+            $items = $items->whereBetween('appointments.visit_date', array($from_date, $to_date));
         if ($filter_1 != -1)
             $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
             if ($filter_2 != -1)
-            $items = $items->where('appointments.patient_id',  'like', '%' . $filter_2 . '%' );
+            $items = $items->where('appointments.created_at',  'like', '%' . $filter_2 . '%' );
         if ($filter_3 != -1)
             $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
             if ($filter_4 != -1)
@@ -500,7 +500,7 @@ public function today_appointment (Request $request )
         if ($filter_1 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.next_visit_date', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.patient_id', $filter_2);
+            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.created_at','like', '%' . $filter_2);
         // if ($filter_3 != -1)
         //     $totalRecordswithFilter = $totalRecordswithFilter->whereIn('appointments.address', $filter_3);
         // if ($filter_4 != -1)
@@ -524,9 +524,9 @@ public function today_appointment (Request $request )
         if ($from_date != -1)
             $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
+            $items = $items->where('appointments.created_at', 'like',$filter_1);
             if ($filter_2 != -1)
-            $items = $items->where('appointments.patient_id','like', '%' . $filter_2 . '%');
+            $items = $items->where('appointments.created_at','like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
             $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
             if ($filter_4 != -1)
