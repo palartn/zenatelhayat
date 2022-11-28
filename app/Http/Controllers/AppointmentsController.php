@@ -109,6 +109,7 @@ public function today_appointment (Request $request )
     $n=Carbon::today();
     $data = Appointment::where('visit_date',$today_date)->get();
     // dd($data);
+    //www
 
     return view('appointment.today',compact('data'));
 
