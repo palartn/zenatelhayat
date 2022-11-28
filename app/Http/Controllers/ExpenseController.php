@@ -159,51 +159,51 @@ class ExpenseController extends Controller
 
 
         $totalRecords = Expense::select('count(*) as allcount')->count();
-        $totalRecordswithFilter = Expense::select('count(Expenses.*) as allcount');
+        $totalRecordswithFilter = Expense::select('count(expenses.*) as allcount');
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
-                ->where('Expenses.pay_date', 'like', '%' . $searchValue . '%')
-                ->where('Expenses.amount', 'like', '%' . $searchValue . '%')
-                ->where('Expenses.pay_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('Expenses.notes', $searchValue);
+                ->where('expenses.pay_date', 'like', '%' . $searchValue . '%')
+                ->where('expenses.amount', 'like', '%' . $searchValue . '%')
+                ->where('expenses.pay_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('expenses.notes', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('Expenses.paied_for', array($from_date, $to_date));
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('expenses.paied_for', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('Expenses.amount', 'like', '%' . $filter_1 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.amount', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('Expenses.pay_date', 'like', '%' . $filter_2 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.pay_date', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('Expenses.currency', $filter_3);
+            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.currency', $filter_3);
         if ($filter_4 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('Expenses.notes', $filter_4);
+            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.notes', $filter_4);
 
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
         // Fetch records
 
-        $items = Expense::orderBy('Expenses.id', 'desc');
+        $items = Expense::orderBy('expenses.id', 'desc');
         if ($searchValue != null)
             $items = $items
-                ->where('Expenses.paied_for', 'like', '%' . $searchValue . '%')
-                ->orWhere('Expenses.currency', 'like', '%' . $searchValue . '%')
-                ->orWhere('Expenses.amount', $searchValue)
-                ->orWhere('Expenses.pay_date', $searchValue);
+                ->where('expenses.paied_for', 'like', '%' . $searchValue . '%')
+                ->orWhere('expenses.currency', 'like', '%' . $searchValue . '%')
+                ->orWhere('expenses.amount', $searchValue)
+                ->orWhere('expenses.pay_date', $searchValue);
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('Expenses.created_at', array($from_date, $to_date));
+            $items = $items->whereBetween('expenses.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $items = $items->where('Expenses.paied_for', 'like', '%' . $filter_1 . '%');
+            $items = $items->where('expenses.paied_for', 'like', '%' . $filter_1 . '%');
             if ($filter_2 != -1)
-            $items = $items->where('Expenses.amount', 'like', '%' . $filter_2 . '%');
+            $items = $items->where('expenses.amount', 'like', '%' . $filter_2 . '%');
         if ($filter_3 != -1)
-            $items = $items->whereIn('Expenses.pay_date', $filter_3);
+            $items = $items->whereIn('expenses.pay_date', $filter_3);
             if ($filter_4 != -1)
-            $items = $items->where('Expenses.notes', 'like', '%' . $filter_4 . '%');
-        $items = $items->select('Expenses.*')
+            $items = $items->where('expenses.notes', 'like', '%' . $filter_4 . '%');
+        $items = $items->select('expenses.*')
             ->skip($start)
             ->take($rowperpage)
             ->get();
