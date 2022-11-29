@@ -368,12 +368,12 @@ class AppointmentsController extends Controller
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.visit_date', $searchValue);
+                ->orwhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
+                ->orwhere('appointments.notes', 'like', '%' . $searchValue . '%')
+                 ->orWhere('appointments.created_at', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.visit_date', array($from_date, $to_date));
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.created_at', array($from_date, $to_date));
         // if ($filter_1 != -1)
         //     $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', $filter_1);
         if ($filter_2 != -1)
@@ -403,8 +403,8 @@ class AppointmentsController extends Controller
                 ->orWhere('appointments.notes','like', '%' . $searchValue);
 
 
-        if ($from_date != -1)
-            $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
+            if ($from_date != -1)
+                $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
         // if ($filter_1 != -1)
         //     $items = $items->where('appointments.visit_date', $filter_1);
         if ($filter_2 != -1)
