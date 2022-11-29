@@ -67,15 +67,17 @@
                         <form class="kt-form kt-form--fit mb-0">
 
 
-                            <div class="row mb-0 search_input">                            
+                            <div class="row mb-0 search_input">
+                            
+                              
                                 <div class="col-lg-4 mb-6">
                                     <label>اسم المريض :</label>
                                     <input type="text" class="form-control datatable-input" name="filter_2" id="filter_2" placeholder="اسم المريض" data-col-index="5"/>
 
                                 </div>
-                                <div class="col-lg-4 mb-6">
+                                <div class="col-lg-3 mb-6">
                                     <label>القسم:</label>
-                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="القسم" data-col-index="5"/>
+                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="اسم المريض" data-col-index="5"/>
 
                                 </div>
                                 <div class="col-lg-4 mb-6">
