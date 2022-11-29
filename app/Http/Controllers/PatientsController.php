@@ -100,6 +100,10 @@ class PatientsController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_number', $filter_1);
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
+          
+            // ->orWhere('patients.patient_sname', 'like', '%' . $filter_2 . '%')
+            // ->orWhere('patients.patient_tname', 'like', '%' . $filter_2 . '%')
+            // ->orWhere('patients.patient_lname', 'like', '%' . $filter_2 . '%');
 
         if ($filter_3 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.mobile', 'like', '%' . $filter_3 . '%');

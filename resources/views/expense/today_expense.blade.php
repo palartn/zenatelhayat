@@ -6,121 +6,25 @@
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة الزيارات</span>
-                    <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد الزيارات({{ App\Models\Appointment::count() }})</span>
+                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المصروفات</span>
+                    <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد المصروفات({{ App\Models\Expense::count() }})</span>
                 </h3>
-
-
-
-                <div class="d-flex flex-stack mb-5">
-                    <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative my-1">
-                    </div>
-                    <!--end::Search-->
-                    <!--begin::Toolbar-->
-                    <div class="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
-                        <div class="accordion m-auto" id="kt_accordion_1">
-                            <div class="accordion-item border-0">
-                        <!--begin::Filter-->
-                        <button type="button" id="kt_accordion_1_header_1" class="btn btn-sm btn-light-primary" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_1" aria-expanded="true" aria-controls="kt_accordion_1_body_1" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
-                                                            </svg>
-                                                        </span>
-                            <!--end::Svg Icon-->بحث متقدم</button>
-                        <!--begin::Menu 1-->
-                            </div>
-                            </div>
-                        <!--end::Menu 1-->
-                        <!--end::Filter-->
-                        <div style="font-family:NotoKufiArabic " class="card-toolbar ms-2" data-bs-placement="top" data-bs-trigger="hover">
-                            <a href="" class="btn btn-sm btn-primary">
-                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                                <span class="svg-icon svg-icon-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none">
-                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                            rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
-                                            fill="black" />
-                                    </svg>
-                                </span>
-                                <!--end::Svg Icon-->إضافة زيارة
-                            </a>
-        
-                        </div>
-    
-                        <!--end::Add customer-->
-    
-                    </div>
-                    <!--end::Toolbar-->
-                    <!--begin::Group actions-->
- 
-                </div>
-            </div>
-         
-            <div id="kt_accordion_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
-                <div class="accordion-body">
-                    <div class="card-body pt-0">
-                        <form class="kt-form kt-form--fit mb-0">
-
-
-                            <div class="row mb-0 search_input">                            
-                                <div class="col-lg-4 mb-6">
-                                    <label>اسم المريض :</label>
-                                    <input type="text" class="form-control datatable-input" name="filter_2" id="filter_2" placeholder="اسم المريض" data-col-index="5"/>
-
-                                </div>
-                                <div class="col-lg-4 mb-6">
-                                    <label>القسم:</label>
-                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="القسم" data-col-index="5"/>
-
-                                </div>
-                                <div class="col-lg-4 mb-6">
-                                    <label>الزيارات  :</label>
-                                    <div class="input-daterange input-group">
-                                        <input class="form-control input_date_ flatpickr-input active" placeholder="من" name="from_date" id="from_date"/>
-                                        {{--                                        <input type="text" class="form-control datatable-input" name="from_date" id="from_date" placeholder="من" data-col-index="5"/>--}}
-                                        <div class="input-group-append">
-                                            <span class="input-group-text" style="padding:1.1rem;border-radius: 0px"><i class="la la-ellipsis-h"></i></span>
-                                        </div>
-                                        <input class="form-control input_date_ flatpickr-input" placeholder="إلى" name="to_date" id="to_date"/>
-                                        {{--                                        <input type="text" class="form-control datatable-input" name="to_date" id="to_date" placeholder="إلى" data-col-index="5"/>--}}
-                                    </div>
-                                </div>
-
-
-                                {{--<div class="col-lg-3  mb-lg-0 mb-6">--}}
-                                {{--<label>Status:</label>--}}
-                                {{--<select class="form-control datatable-input" data-col-index="6">--}}
-                                {{--<option value="">اختر</option>--}}
-                                {{--</select>--}}
-                                {{--</div>--}}
-                                <div class="col-lg-3 mt-auto mb-auto" style="position: relative;top: 2px">
-                                    <button type="button" class="btn btn-primary btn-primary--icon" name="filter" id="filter" {{--id="kt_search"--}}>
-                        <span>
-                            <i class="la la-search"></i>
-                            <span>بحث</span>
+                <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
+                    <a href="{{route('expenses.create')}}" class="btn btn-sm btn-primary">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                        <span class="svg-icon svg-icon-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+                                    rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                    fill="black" />
+                            </svg>
                         </span>
-                                    </button>
-                                    &nbsp;
-                                    <button type="button" class="btn btn-secondary btn-secondary--icon" name="refresh" id="refresh" {{--id="kt_reset"--}}>
-                        <span>
-                            <i class="la la-close"></i>
-                            <span>إعادة تعيين</span>
-                        </span>
-                                    </button>
-                                </div>
-                            </div>
+                        <!--end::Svg Icon-->إضافة مصروفات
+                    </a>
 
-
-                        </form>
-                    </div>
                 </div>
-
-                
             </div>
             <!--end::Header-->
             <!--begin::Body-->
@@ -133,10 +37,10 @@
                         <thead>
                             <tr class="fw-bolder  bg-secondary mb-3">
                                 <th>الرقم </th>
-                                <th>إسم المريض</th>
-                                <th>الزيارة القادمة</th>
-                                <th>القسم</th>
-                                <th>سبب الزيارة</th>
+                                <th>مدفوع إلى</th>
+                                <th>المبلغ</th>
+                                <th>العملة</th>
+                                <th>تاريخ الدفع </th>
                                 <th>ملاحظات</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
@@ -158,13 +62,6 @@
             <!--begin::Body-->
         </div>
         <!--end::Tables Widget 9-->
-
-
-
-
-
-
-
         {{-- {!! $users->links() !!} --}}
     </div>
 
@@ -183,7 +80,7 @@
         <!--end::Svg Icon-->
     </div>
     <!--end::Scrolltop-->
-</div>
+
     <!--end::Main-->
     <script>
         var hostUrl = "assets/";
@@ -197,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
 
-                    <h5 class="modal-title ">البيانات الأساسية للمريض</h5>
+                    <h5 class="modal-title "> المصروفات  </h5>
                     <p id="demo"></p>
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
@@ -209,48 +106,39 @@
 
                 <div class="modal-body row">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4"> إسم المريض</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_id">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
-                                    <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
+                     <div class="row col-12">
+                        <div class="form-group row mb-6">
+                                    <label class="col-form-label col-lg-12">مدفوع إلى </label>
+                                    <div class="col-lg-12">
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="paied_for"
                                             style=""></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
+                                    <label class="col-form-label col-lg-4">المبلغ </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="next_visit_date">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="amount">
                                           </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">القسم</label>
+                                    <label class="col-form-label col-lg-4">العملة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="currency">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">سبب الزيارة</label>
+                                    <label class="col-form-label col-lg-4">تاريخ الدفع </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="pay_date">
                                         </div>
                                     </div>
                                 </div>
@@ -260,15 +148,14 @@
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
                                     <div class="col-lg-8">
                                         <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
-                                        </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
                     </div>
                 </div>
-            </div>
-
+        </div></div>
                             <!--end::Modal-->
                         @endsection
 
@@ -301,15 +188,6 @@
                         @endsection
 
                         @section('scripts')
-                        <script>
-                            $('#from_date').flatpickr({
-                                format : 'dd-mm-yyyy',
-                            });
-                            
-                            $('#to_date').flatpickr({
-                                format : 'dd-mm-yyyy',
-                            });
-                        </script>
                             <script>
                                 $.ajaxSetup({
                                     headers: {
@@ -317,7 +195,7 @@
                                     }
                                 });
                                 var csrf = "{{ csrf_token() }}";
-                                var DATA_URL = "{{ route('appointment.getData') }}";
+                                var DATA_URL = "{{ route('expenses.today_expenses') }}";
                                 var SITEURL = '{{ URL::to('') }}';
                                 var from_date = -1;
                                 var to_date = -1;
@@ -331,7 +209,7 @@
 
                             <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
                             {{--    <script src="{{ asset('assets/js/pages/features/miscellaneous/sweetalert2.js') }}" type="text/javascript"></script> --}}
-                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-appointment.js') }}" type="text/javascript">
+                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-expense.js') }}" type="text/javascript">
                             </script>
                             <script src="{{ asset('assets/js/custom/documentation/forms/select2.js') }}"></script>
                             <script src="{{ asset('assets/js/custom/modals/new-target.js') }}"></script>
@@ -392,7 +270,7 @@
                                             var url_ = "{{ route('users.store') }}";
                                             var type_ = "POST";
                                         } else {
-                                            var url_ = SITEURL + '/appointment/' + status_id;
+                                            var url_ = SITEURL + '/Expense/' + status_id;
                                             var type_ = "PUT";
                                         }
                                         $.ajax({
@@ -448,26 +326,28 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/appointments/'+id,
+                                        url: SITEURL +'/expenses/'+id,
 
 
                                         // return the result
                                         success: function(result) {
 
-                                         console.log(result);
+                                           console.log(result);
+                                            //console.log(result)
                                             $('#smallModal').modal("show");
-                                            $('#patient_id').html(result.data.full_name);
-                                            $('#visit_date').html(result.data.visit_date);
-                                            $('#next_visit_date').html(result.data.next_visit_date);
-                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
+                                            $('#paied_for').html(result.data.paied_for);
+                                            $('#amount').html(result.data.amount);
+                                            $('#currency').html(result.data.currency);
+                                            $('#pay_date').html(result.data.pay_date);
                                             $('#notes').html(result.data.notes);
+                                            // $('#user_photo').attr('src','/storage/'+result.profile_photo_path);
                                             $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },
+
                                         error: function(jqXHR, testStatus, error) {
                                             console.log(error);
-                                             alert("Page " + href + " cannot open. Error:" + error);
+                                            alert("Page " + href + " cannot open. Error:" + error);
 
                                         },
 
@@ -486,12 +366,9 @@
 
                                 setTimeout(function() {
                                     $('.alert-session-flash').fadeOut('low');
-                                }, 3000); // <-- time in milliseconds
-
-
+                                }, 3000);
+                                // <-- time in milliseconds
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
-
-
                             </script>
                         @endsection

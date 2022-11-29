@@ -14,6 +14,8 @@ class Patient extends Model
     protected $table = "patients";
     protected $guarded = [];
 
+    protected $appends = ['full_name'];
+
     public function files()
     {
         return $this->hasMany(File::class);
@@ -27,7 +29,12 @@ class Patient extends Model
     {
         return $this->hasMany(Payment::class,'patient_id','id');
     }
-//
+
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->patient_fname} {$this->patient_sname} {$this->patient_tname} {$this->patient_lname}";
+    }
 
 
 }

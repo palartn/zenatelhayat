@@ -30,8 +30,8 @@ Route::get('/', function () {
 
 Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
 Route::post('appointment/getData',[AppointmentsController::class, 'getData'])->name('appointment.getData');
-Route::post('appointment/getTodayData',[AppointmentsController::class, 'getTodayData'])->name('appointment.getTodayData');
 Route::post('appointment/createnewappointment',[AppointmentsController::class, 'createnewappointment'])->name('appointment.createnewappointment');
+Route::post('appointment/getTodayData',[AppointmentsController::class, 'getTodayData'])->name('appointment.getTodayData');
 Route::get('appointment/today_appointment',[AppointmentsController::class, 'today_appointment'])->name('appointment.today_appointment');
 
 
@@ -40,9 +40,11 @@ Route::get('appointment/today_appointment',[AppointmentsController::class, 'toda
 Route::get('/findProductName',[AppointmentsController::class,'findProductName']);
 Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
 
-
+Route::get('expenses/today_expenses',[ExpenseController::class, 'today_expenses'])->name('expenses.today_expenses');
 Route::resource('expenses',ExpenseController::class)->middleware('auth');
 Route::post('expenses/getData',[ExpenseController::class, 'getData'])->name('expenses.getData');
+
+Route::post('expenses/today_expenses',[ExpenseController::class, 'getData_Today'])->name('today_expenses');
 
 
 

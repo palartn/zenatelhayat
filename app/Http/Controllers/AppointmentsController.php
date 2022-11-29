@@ -28,7 +28,7 @@ class AppointmentsController extends Controller
 
     {
 
-        if($request->ajax()) {
+        if ($request->ajax()) {
             $data = Appointment::whereDate('visit_date', '>=', $request->start)
                 ->whereDate('next_visit_date',   '<=', $request->end)
                 ->get(['id', 'notes', 'visit_date', 'next_visit_date']);
@@ -41,35 +41,35 @@ class AppointmentsController extends Controller
     {
 
         switch ($request->type) {
-           case 'create':
-              $event = Appointment::create([
-                  'event_name' => $request->event_name,
-                  'event_start' => $request->event_start,
-                  'event_end' => $request->event_end,
-              ]);
+            case 'create':
+                $event = Appointment::create([
+                    'event_name' => $request->event_name,
+                    'event_start' => $request->event_start,
+                    'event_end' => $request->event_end,
+                ]);
 
-              return response()->json($event);
-             break;
+                return response()->json($event);
+                break;
 
-           case 'edit':
-              $event = Appointment::find($request->id)->update([
-                  'event_name' => $request->event_name,
-                  'event_start' => $request->event_start,
-                  'event_end' => $request->event_end,
-              ]);
+            case 'edit':
+                $event = Appointment::find($request->id)->update([
+                    'event_name' => $request->event_name,
+                    'event_start' => $request->event_start,
+                    'event_end' => $request->event_end,
+                ]);
 
-              return response()->json($event);
-             break;
+                return response()->json($event);
+                break;
 
-           case 'delete':
-              $event = Appointment::find($request->id)->delete();
+            case 'delete':
+                $event = Appointment::find($request->id)->delete();
 
-              return response()->json($event);
-             break;
+                return response()->json($event);
+                break;
 
-           default:
-             # ...
-             break;
+            default:
+                # ...
+                break;
         }
     }
 
@@ -81,38 +81,39 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
-      //
+        //
     }
 
 
-    public function prodfunct(){
+    public function prodfunct()
+    {
 
-		$prod=Appointment::all();//get data from table
+        $prod = Appointment::all(); //get data from table
         // dd($prod);
-		return view('appointment.index',compact('prod'));//sent data to view
+        return view('appointment.index', compact('prod')); //sent data to view
 
-	}
+    }
 
-	public function findProductName(Request $request){
+    public function findProductName(Request $request)
+    {
 
 
-	    //if our chosen id and products table prod_cat_id col match the get first 100 data
+        //if our chosen id and products table prod_cat_id col match the get first 100 data
 
         //$request->id here is the id of our chosen option id
-        $data = SurgeryKind::where('surgery_kind_id',$request->id)->get();
-        return response()->json($data);//then sent this data to ajax success
-	}
+        $data = SurgeryKind::where('surgery_kind_id', $request->id)->get();
+        return response()->json($data); //then sent this data to ajax success
+    }
 
-public function today_appointment (Request $request )
-{
-    $today_date = date('Y-m-d');
-    $n=Carbon::today();
-    $data = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->get();
-    // $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
-    //=dd($data);
-    return view('appointment.today',compact('data'));
-
-}
+    public function today_appointment(Request $request)
+    {
+        $today_date = date('Y-m-d');
+        $n = Carbon::today();
+        $data = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->get();
+        // $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
+        //=dd($data);
+        return view('appointment.today', compact('data'));
+    }
 
 
 
@@ -125,69 +126,68 @@ public function today_appointment (Request $request )
      */
     public function store(Request $request)
     {
-       //dd($request->all());
+        //dd($request->all());
 
-        $patient=Patient::where('id',$request->patient_id)->first();
+        $patient = Patient::where('id', $request->patient_id)->first();
 
 
-        if($request->next_visit_date=='مريض'){
-        $validated = $request->validate([
-            'next_visit_date' => 'required',
-        ]);}
+        if ($request->next_visit_date == 'مريض') {
+            $validated = $request->validate([
+                'next_visit_date' => 'required',
+            ]);
+        }
 
         //  Payemnt::with('patient.appointments')->get();
 
-           $event=$request->event;
-         //  $request['event'] = implode('-',$event);
+        $event = $request->event;
+        //  $request['event'] = implode('-',$event);
 
 
-          DB::beginTransaction();
-          try{
-            $appointment=$patient->appointments()->create([
+        DB::beginTransaction();
+        try {
+            $appointment = $patient->appointments()->create([
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
                 'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
-               ]);
+            ]);
 
-               $payment = $patient->payments()->create([
-                'appointment_id'=>$appointment->id,
-                    'total_price' => $request->total_price,
-                    'currency' => $request->currency,
-                    'paid' => $request->paid,
-                    'remaining_amount' => $request->remaining_amount,
-                    'total_price' => $request->total_price,
-                    'pay_date' => $request->pay_date,
-                    // 'total_price' => $request->total_price,
-                    'notes' => $request->notes,
-               ]);
+            $payment = $patient->payments()->create([
+                'appointment_id' => $appointment->id,
+                'total_price' => $request->total_price,
+                'currency' => $request->currency,
+                'paid' => $request->paid,
+                'remaining_amount' => $request->remaining_amount,
+                'total_price' => $request->total_price,
+                'pay_date' => $request->pay_date,
+                // 'total_price' => $request->total_price,
+                'notes' => $request->notes,
+            ]);
 
-               DB::commit();
+            DB::commit();
 
-               Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-               return redirect()->route('appointments.index');
-
-          }catch(\Exception $ex){
+            Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
+            return redirect()->route('appointments.index');
+        } catch (\Exception $ex) {
             DB::rollBack();
-           return $ex->getMessage();
-          }
-
+            return $ex->getMessage();
+        }
     }
 
 
-    public function createnewappointment (Request $request)
+    public function createnewappointment(Request $request)
     {
-        
+
         // if($request->next_visit_date=='مريض'){
         // $validated = $request->validate([
         //     'next_visit_date' => 'required',
         // ]);}
-           $event=$request->event;
-          DB::beginTransaction();
-          try{
-            $appointment=Appointment::create([
+        $event = $request->event;
+        DB::beginTransaction();
+        try {
+            $appointment = Appointment::create([
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
@@ -195,31 +195,29 @@ public function today_appointment (Request $request )
                 'patient_id' => $request->patient_id,
 
                 //'event' => implode('-',$request->event),
-               ]);
+            ]);
 
-               $payment = Payment::create([
-                'appointment_id'=>$appointment->id,
-                    'total_price' => $request->total_price,
-                    'currency' => $request->currency,
-                    'paid' => $request->paid,
-                    'remaining_amount' => $request->remaining_amount,
-                    'total_price' => $request->total_price,
-                    'pay_date' => $request->pay_date,
-                    // 'total_price' => $request->total_price,
-                    'notes' => $request->notes,
-                    'patient_id' => $request->patient_id,
-               ]);
+            $payment = Payment::create([
+                'appointment_id' => $appointment->id,
+                'total_price' => $request->total_price,
+                'currency' => $request->currency,
+                'paid' => $request->paid,
+                'remaining_amount' => $request->remaining_amount,
+                'total_price' => $request->total_price,
+                'pay_date' => $request->pay_date,
+                // 'total_price' => $request->total_price,
+                'notes' => $request->notes,
+                'patient_id' => $request->patient_id,
+            ]);
 
-               DB::commit();
+            DB::commit();
 
-               Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-               return redirect()->route('appointments.index');
-
-          }catch(\Exception $ex){
+            Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
+            return redirect()->route('appointments.index');
+        } catch (\Exception $ex) {
             DB::rollBack();
-           return $ex->getMessage();
-          }
-
+            return $ex->getMessage();
+        }
     }
 
     /**
@@ -230,11 +228,10 @@ public function today_appointment (Request $request )
      */
     public function show($id)
     {
-       //dd('dasd');
+        //dd('dasd');
         $appointment = Appointment::findOrFail($id);
-       $app_return=new AppointmentResource($appointment);
+        $app_return = new AppointmentResource($appointment);
         return $app_return;
-
     }
 
 
@@ -248,10 +245,10 @@ public function today_appointment (Request $request )
     public function edit(Appointment $appointment)
     {
 
-        $surgerykind =SurgeryKind::whereNull('surgery_kind_id')->get();
+        $surgerykind = SurgeryKind::whereNull('surgery_kind_id')->get();
         $patient = Patient::all();
-        $payment=Payment::all();
-    return view('appointment.edit',compact('appointment','patient','surgerykind','payment'));
+        $payment = Payment::all();
+        return view('appointment.edit', compact('appointment', 'patient', 'surgerykind', 'payment'));
     }
 
     /**
@@ -264,11 +261,11 @@ public function today_appointment (Request $request )
     public function update(Request $request, Appointment $appointment)
     {
         // dd($request->all());
-        $appointment ->update([
+        $appointment->update([
             'next_visit_date' => $request->next_visit_date,
-                'surgery_kind_id' => $request->surgery_kind_id,
-                'surgery_kind_id_child' => $request->surgery_kind_id_child,
-                'notes' => $request->notes,
+            'surgery_kind_id' => $request->surgery_kind_id,
+            'surgery_kind_id_child' => $request->surgery_kind_id_child,
+            'notes' => $request->notes,
 
         ]);
         $appointment->payment->update([
@@ -307,7 +304,7 @@ public function today_appointment (Request $request )
 
 
 
-    
+
     public function getData(Request $request)
     {
         $draw = $request->get('draw');
@@ -324,7 +321,7 @@ public function today_appointment (Request $request )
         $searchValue = $search_arr['value']; // Search value
         $searchValue_filtered = str_replace(' ', '', str_replace(['أ', 'إ'], 'ا', str_replace(['ي', 'ئ'], 'ى', str_replace('ة', 'ه', $searchValue))));
         if ($request->from_date != -1) {
-            $from_date = Carbon::parse($request->from_date)->format('Y-m-d');
+            $from_date = Carbon::parse($request->from_date)->format('Y-m-d H:i:s');
         } else {
             $from_date = $request->from_date;
         }
@@ -357,28 +354,39 @@ public function today_appointment (Request $request )
         } else {
             $filter_4 = -1;
         }
+        // if ($request->filter_5 != -1) {
+
+        //     $filter_5 = $request->filter_5;
+        // } else {
+        //     $filter_5 = -1;
+        // }
+
 
         $totalRecords = Appointment::select('count(*) as allcount')->count();
         $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
-                ->where('appointments.patient_id', 'like', '%' . $searchValue . '%')
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->where('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.surgery_kind_id', $searchValue);
+                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
+                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.visit_date', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.patient_name', 'like', '%' . $filter_1 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.visit_date', array($from_date, $to_date));
+        // if ($filter_1 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', $filter_1);
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.created_at', 'like', '%' . $filter_2 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_2) {
+                $query->where('patient_fname', 'like', '%' . $filter_2 . '%');
+            });
         if ($filter_3 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('appointments.address', $filter_3);
-        if ($filter_4 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('appointments.idc', $filter_4);
-
+            $totalRecordswithFilter = $totalRecordswithFilter->whereHas('surgery_kind', function ($query) use ($filter_3) {
+                $query->where('name', 'like', '%' . $filter_3 . '%');
+            });
+        // if ($filter_3 != -1)
+        //    $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', 'like', '%' . $filter_3 . '%');
+       
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
@@ -388,21 +396,27 @@ public function today_appointment (Request $request )
         if ($searchValue != null)
             $items = $items
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.patient_id', $searchValue)
-                ->orWhere('appointments.notes' ,'like', '%' . $searchValue . '%');
+                ->orWhereHas('patient', function ($query) use ($searchValue) {
+                    $query->where('patient_fname', 'like', '%' . $searchValue . '%');
+                })
+                ->orWhere('appointments.next_visit_date', 'like', '%' .  $searchValue)
+                ->orWhere('appointments.notes','like', '%' . $searchValue);
 
 
         if ($from_date != -1)
             $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $items = $items->where('appointments.visit_date', 'like', '%' . $filter_1 . '%');
-            if ($filter_2 != -1)
-            $items = $items->where('appointments.created_at',  'like', '%' . $filter_2 . '%' );
+        // if ($filter_1 != -1)
+        //     $items = $items->where('appointments.visit_date', $filter_1);
+        if ($filter_2 != -1)
+            $items = $items->whereHas('patient', function ($query) use ($filter_2) {
+                $query->where('patient_fname', 'like', '%' . $filter_2 . '%');
+            });
         if ($filter_3 != -1)
-            $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
-            if ($filter_4 != -1)
-            $items = $items->where('surgery_kind_id.notes', 'like', '%' . $filter_4 . '%');
+            $items = $items->whereHas('surgery_kind', function ($query) use ($filter_3) {
+                $query->where('name', 'like', '%' . $filter_3 . '%');
+            });
+        // if ($filter_4 != -1)
+        //     $items = $items->where('appointments.visit_date', $filter_4);
         $items = $items->select('appointments.*')
             ->skip($start)
             ->take($rowperpage)
@@ -415,17 +429,16 @@ public function today_appointment (Request $request )
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
-               // 'visit_date' => $item->id,
-                'patient_id' => $item->patient->patient_fname. ' '.$item->patient->patient_sname. ' '.$item->patient->patient_tname . ' '.$item->patient->patient_lname,
+                // 'visit_date' => $item->id,
+                'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
                 'surgery_kind_id' => $item->surgery_kind->name,
-               'surgery_kind_id_child' => $item->surgery_kind_child->name,
+                'surgery_kind_id_child' => $item->surgery_kind_child->name,
                 'notes' => $item->notes,
                 "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 
             ];
-
         }
 
         $response = array(
@@ -498,8 +511,8 @@ public function today_appointment (Request $request )
 
 
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
-        $totalRecords = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->count();
-        $totalRecordswithFilter = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'));
+        $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
+        $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'));
         // $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
 
         if ($searchValue != null)
@@ -514,7 +527,11 @@ public function today_appointment (Request $request )
         if ($filter_1 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.next_visit_date', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.created_at','like', '%' . $filter_2);
+            $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_2) {
+
+
+                $query->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
+            });
         // if ($filter_3 != -1)
         //     $totalRecordswithFilter = $totalRecordswithFilter->whereIn('appointments.address', $filter_3);
         // if ($filter_4 != -1)
@@ -538,12 +555,15 @@ public function today_appointment (Request $request )
         if ($from_date != -1)
             $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $items = $items->where('appointments.created_at', 'like',$filter_1);
-            if ($filter_2 != -1)
-            $items = $items->where('appointments.created_at','like', '%' . $filter_2 . '%');
+            $items = $items->where('appointments.created_at', 'like', $filter_1);
+        if ($filter_2 != -1)
+            $items = $items->whereHas('patient', function ($query) use ($filter_2) {
+
+                $query->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
+            });
         if ($filter_3 != -1)
             $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
-            if ($filter_4 != -1)
+        if ($filter_4 != -1)
             $items = $items->where('surgery_kind_id.notes', 'like', '%' . $filter_4 . '%');
         $items = $items->select('appointments.*')
             ->skip($start)
@@ -557,17 +577,16 @@ public function today_appointment (Request $request )
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
-               // 'visit_date' => $item->id,
-                'patient_id' => $item->patient->patient_fname. ' '.$item->patient->patient_sname. ' '.$item->patient->patient_tname . ' '.$item->patient->patient_lname,
+                // 'visit_date' => $item->id,
+                'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
                 'surgery_kind_id' => $item->surgery_kind->name,
-               'surgery_kind_id_child' => $item->surgery_kind_child->name,
+                'surgery_kind_id_child' => $item->surgery_kind_child->name,
                 'notes' => $item->notes,
                 "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 
             ];
-
         }
 
         $response = array(
@@ -580,5 +599,4 @@ public function today_appointment (Request $request )
         return response()->json($response);
         exit;
     }
-
 }

@@ -1206,6 +1206,16 @@
 									<span class="menu-title">إضافة مصروفات</span>
 								</a>
 							</div>
+
+							<div class="menu-item">
+								<a class="menu-link {{ (request()->is('expenses/today_expenses')) ? 'active' : ''}}" href="{{ route('expenses.today_expenses') }}">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title ">مصروفات اليوم </span>
+								</a>
+							</div>
+
 							<div class="menu-item">
 								<a class="menu-link {{ (request()->is('expenses')) ? 'active' : ''}}" href="{{ route('expenses.index') }}">
 									<span class="menu-bullet">
@@ -1214,7 +1224,7 @@
 									<span class="menu-title ">إدارة المصروفات</span>
 								</a>
 							</div>
-
+				
 
 						</div>
 					</div>
