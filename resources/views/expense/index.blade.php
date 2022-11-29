@@ -76,8 +76,7 @@
 
                                 </div> --}}
                                 {{-- <div class="col-lg-4 mb-6">
-                                    <label>القسم:</label>
-                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="القسم" data-col-index="5"/>
+                                    <label>القسم:</label><input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="القسم" data-col-index="5"/>
 
                                 </div> --}}
                                 <div class="col-lg-12 mb-6">
@@ -447,6 +446,15 @@
                                         },
 
                                     })
+                                });
+                            </script>
+                            <script>
+                                $('#from_date').flatpickr({
+                                    format : 'dd-mm-yyyy',
+                                });
+                                
+                                $('#to_date').flatpickr({
+                                    format : 'dd-mm-yyyy',
                                 });
                             </script>
                             <script>

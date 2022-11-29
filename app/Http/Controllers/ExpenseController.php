@@ -175,15 +175,15 @@ class ExpenseController extends Controller
                 ->orWhere('expenses.notes', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('expenses.paied_for', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.amount', 'like', '%' . $filter_1 . '%');
-        if ($filter_2 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.pay_date', 'like', '%' . $filter_2 . '%');
-        if ($filter_3 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.currency', $filter_3);
-        if ($filter_4 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.notes', $filter_4);
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('expenses.created_at', array($from_date, $to_date));
+        // if ($filter_1 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.amount', 'like', '%' . $filter_1 . '%');
+        // if ($filter_2 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->where('expenses.pay_date', 'like', '%' . $filter_2 . '%');
+        // if ($filter_3 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.currency', $filter_3);
+        // if ($filter_4 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->whereIn('expenses.notes', $filter_4);
 
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
@@ -201,14 +201,14 @@ class ExpenseController extends Controller
 
         if ($from_date != -1)
             $items = $items->whereBetween('expenses.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $items = $items->where('expenses.paied_for', 'like', '%' . $filter_1 . '%');
-        if ($filter_2 != -1)
-            $items = $items->where('expenses.amount', 'like', '%' . $filter_2 . '%');
-        if ($filter_3 != -1)
-            $items = $items->whereIn('expenses.pay_date', $filter_3);
-        if ($filter_4 != -1)
-            $items = $items->where('expenses.notes', 'like', '%' . $filter_4 . '%');
+        //  if ($filter_1 != -1)
+        //     $items = $items->where('expenses.paied_for', 'like', '%' . $filter_1 . '%');
+        // if ($filter_2 != -1)
+        //     $items = $items->where('expenses.amount', 'like', '%' . $filter_2 . '%');
+        // if ($filter_3 != -1)
+        //     $items = $items->whereIn('expenses.pay_date', $filter_3);
+        // if ($filter_4 != -1)
+        //     $items = $items->where('expenses.notes', 'like', '%' . $filter_4 . '%');
         $items = $items->select('expenses.*')
             ->skip($start)
             ->take($rowperpage)
