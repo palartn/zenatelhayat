@@ -36,7 +36,7 @@
                         <!--end::Menu 1-->
                         <!--end::Filter-->
                         <div style="font-family:NotoKufiArabic " class="card-toolbar ms-2" data-bs-placement="top" data-bs-trigger="hover">
-                            <a href="" class="btn btn-sm btn-primary">
+                            <a href="{{ route('createnewappointment') }}" class="btn btn-sm btn-primary">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

@@ -213,7 +213,7 @@ class AppointmentsController extends Controller
             DB::commit();
 
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
-            return redirect()->route('appointments.index');
+            return redirect()->route('appointment.today_appointment');
         } catch (\Exception $ex) {
             DB::rollBack();
             return $ex->getMessage();

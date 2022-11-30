@@ -55,7 +55,7 @@ class ExpenseController extends Controller
         Expense::create($request->all());
         Alert::success('إضافة مصروفات', 'تمت الإضافة بنجاح');
 
-        return redirect()->route('expenses.index');
+        return redirect()->route('expenses.today_expenses');
     }
 
     /**
