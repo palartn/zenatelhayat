@@ -1181,7 +1181,7 @@
 						</div>
 					</div>
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='expenses.index'
-					|| Route::currentRouteName() =='expenses.create') hover show @endif">
+					|| Route::currentRouteName() =='expenses.create' || Route::currentRouteName() =='expenses.today_expenses') hover show @endif">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
