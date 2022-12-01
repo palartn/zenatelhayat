@@ -47,8 +47,8 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-white fw-bolder fs-2 mb-2 mt-5">Appartments</div>
-											<div class="fw-bold text-white">Flats, Shared Rooms, Duplex</div>
+											<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ App\Models\appointment::count() }}</div>
+											<div class="fw-bold text-white">إجمالي عدد الزيارات</div>
 										</div>
 										<!--end::Body-->
 									</a>
@@ -69,8 +69,8 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">Sales Stats</div>
-											<div class="fw-bold text-gray-100">50% Increased for FY20</div>
+											<div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">{{ App\Models\Patient::count() }}</div>
+											<div class="fw-bold text-gray-100">إجمالي عدد المرضى</div>
 										</div>
 										<!--end::Body-->
 									</a>
