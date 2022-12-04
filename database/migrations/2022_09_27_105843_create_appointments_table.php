@@ -20,11 +20,9 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->foreignId('surgery_kind_id')->constrained('surgery_kinds')->cascadeOnDelete();
             $table->foreignId('surgery_kind_id_child')->constrained('surgery_kinds')->cascadeOnDelete();
-            // $table->double('cost');
-            //$table->string('event'); //
-            // $table->double('paid');
-            // $table->double('remaining_amount');
-            // $table->date('pay_date');
+            $table->double('qty_packages')->nullable();
+            $table->date('freez_start_date')->nullable();
+            $table->date('freez_end_date')->nullable();
             $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();

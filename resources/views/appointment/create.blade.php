@@ -51,7 +51,7 @@
 
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="mobile_second"> 
+				<label class="fs-4 fw-semibold form-label" for="mobile_second">
 				إسم ورقم المريض
 				</label>
 				@if($patient->patient_type=='زائر')
@@ -64,10 +64,10 @@
 					name="patient_name"
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname .' '.' '.' '.$patient->patient_number }}">
 			</div>
-			
-			
-			
-		
+
+
+
+
 				<div class="row">
 					@if($patient->patient_type=='مريض')
 			<div class="col xl-4 col-4 mt-6">
@@ -85,38 +85,38 @@
 			@endif
 				  <div class="col col-4">
 					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
-					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">	
+					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
 					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
 					@foreach($surgerykind as $surgerykind)
 						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
 					@endforeach
 				</select>
 
-				</div>	
-			
+				</div>
+
 					<div class="col col-4">
 						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
 						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
 							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
 						</select>
-				  
+
 				</div>
 				</div>
-				<div class="row d-none" id="specific">
+				<div class="row " id="specific">
 					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile">   
+						<label class="fs-4 fw-semibold form-label" for="mobile">
 							عدد العبوات</label>
 						<input type="number"
 							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
-							name="freez_start_date"
+							name="qty_packages"
 							value="{{ old ('qty_packages') }}" placeholder="عدد العبوات">
 						@error('qty_packages')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 						@enderror
-		
+
 					</div>
 					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية 
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية
 							التجميد</label>
 						<input type="date"
 							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
@@ -125,21 +125,21 @@
 						@error('freez_start_date')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 						@enderror
-		
+
 					</div>
 					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية 
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية
 							التجميد</label>
 						<input type="date"
-							class="form-control form-control-solid  flatpickr-input active @error('freeze_end_date') is-invalid @enderror"
-							id="kt_datepicker_1 freez_start_date" name="freeze_end_date"
-							value="{{ old ('freeze_end_date') }}" placeholder="تاريخ نهاية التجميد">
-						@error('freeze_end_date')
+							class="form-control form-control-solid  flatpickr-input active @error('freez_end_date') is-invalid @enderror"
+							id="kt_datepicker_1 " name="freez_end_date"
+							value="{{ old ('freez_end_date') }}" placeholder="تاريخ نهاية التجميد">
+						@error('freez_end_date')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
 						@enderror
-		
+
 					</div>
-		
+
 				</div>
 
 			<div class="row">
@@ -174,7 +174,7 @@
 						<option value="دولار">دولار</option>
 						<option value="دينار">دينار</option>
 					</select>
-					
+
 				</div>
 
 
@@ -193,7 +193,7 @@
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
 						placeholder="تاريخ الدفع" value="{{ old('pay_date') }}">
 				</div>
-			</div> 
+			</div>
 			<div>
 			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
@@ -204,9 +204,9 @@
 				<span class="indicator-label btn-lg btn-block">حفظ</span>
 				</button>
 			</div>
-	
 
-	
+
+
  	</div>
 
 	</div>
@@ -239,7 +239,7 @@ tinymce.init({
 		$(document).on('change','#prod_cat_id',function(){
 
 			var cat_id=$(this).val();
-			
+
 			var div=$(this).parent();
 			console.log(div);
 
@@ -308,9 +308,9 @@ tinymce.init({
 		var paid = $("#paid").val()
 		//console.log(total_price);
 	  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
-	
+
 	})
-	
+
 	</script>
 
 @endsection
