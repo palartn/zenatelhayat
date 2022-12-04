@@ -162,6 +162,7 @@ class AppointmentsController extends Controller
                 'remaining_amount' => $request->remaining_amount,
                 'total_price' => $request->total_price,
                 'pay_date' => $request->pay_date,
+                'discount' => $request->discount,
                 // 'total_price' => $request->total_price,
                 'notes' => $request->notes,
             ]);
@@ -205,11 +206,11 @@ class AppointmentsController extends Controller
                 'remaining_amount' => $request->remaining_amount,
                 'total_price' => $request->total_price,
                 'pay_date' => $request->pay_date,
+                'discount' => $request->discount,
                 // 'total_price' => $request->total_price,
                 'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
             ]);
-
             DB::commit();
 
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
@@ -274,6 +275,7 @@ class AppointmentsController extends Controller
             'currency' => $request->currency,
             'pay_date' => $request->pay_date,
             'remaining_amount' => $request->remaining_amount,
+            'discount' => $request->discount,
             'notes' => $request->notes,
         ]);
 

@@ -107,7 +107,7 @@
 
 
 			<div class="row">
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -115,14 +115,22 @@
 						name="total_price" id="total_price" value="{{ $appointment->payment->total_price }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ $appointment->payment->paid }}" placeholder="المدفوع">
 				</div>
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="visit_date">
+						خصم خاص</label>
+					<input type="number"
+						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
+						name="discount" id="discount" value="{{ $appointment->payment->discount }}" placeholder="مبلغ الخصم">
+				</div>
+
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -251,5 +259,17 @@
 
 	});
 </script>
+<script>
+
+	$('input.total_price,input.paid,input.discount').on('change keyup',function(){
+			var total_price = $("#total_price").val()
+			var discount = $("#discount").val()
+			var paid = $("#paid").val()
+			//console.log(total_price);
+		  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
+		
+		})
+	
+		</script>
 @endsection
 

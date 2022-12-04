@@ -82,6 +82,9 @@ class Surgery_kinds_Seeder extends Seeder
                         'surgery_kind_id' => '3',
                         'name' => 'تجميد أجنة', ]);
                     DB::table('surgery_kinds')->insert([
+                        'surgery_kind_id' => '3',
+                        'name' => 'تجميد سائل + أجنة', ]);
+                    DB::table('surgery_kinds')->insert([
                         'surgery_kind_id' => '1',
                         'name' => 'تركيب محلول', ]);
                     DB::table('surgery_kinds')->insert([

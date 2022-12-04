@@ -51,8 +51,8 @@
 
 		<div class="col mt-6">
 			<div class="col xl-3">
-				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
-					المريض 
+				<label class="fs-4 fw-semibold form-label" for="mobile_second"> 
+				إسم ورقم المريض
 				</label>
 				@if($patient->patient_type=='زائر')
 				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
@@ -62,7 +62,7 @@
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror"
 					name="patient_name"
-					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
+					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname .' '.' '.' '.$patient->patient_number }}">
 			</div>
 			
 			
@@ -102,10 +102,48 @@
 				  
 				</div>
 				</div>
+				<div class="row">
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile">   
+							عدد العبوات</label>
+						<input type="number"
+							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
+							name="freez_start_date"
+							value="{{ old ('qty_packages') }}" placeholder="عدد العبوات">
+						@error('qty_packages')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 		
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية 
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
+							id="kt_datepicker_1 freez_start_date" name="freez_start_date"
+							value="{{ old ('freez_start_date') }}" placeholder="تاريخ بداية التجميد">
+						@error('freez_start_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+		
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية 
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freeze_end_date') is-invalid @enderror"
+							id="kt_datepicker_1 freez_start_date" name="freeze_end_date"
+							value="{{ old ('freeze_end_date') }}" placeholder="تاريخ نهاية التجميد">
+						@error('freeze_end_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+		
+					</div>
+		
+				</div>
 
 			<div class="row">
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -113,14 +151,21 @@
 						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="visit_date">
+						خصم خاص</label>
+					<input type="number"
+						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
+						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
+				</div>
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -257,12 +302,12 @@ tinymce.init({
 
 <script>
 
-	$('input.total_price,input.paid').on('change keyup',function(){
+	$('input.total_price,input.paid,input.discount').on('change keyup',function(){
 		var total_price = $("#total_price").val()
+		var discount = $("#discount").val()
 		var paid = $("#paid").val()
-		console.log(total_price);
-		
-	  $grand_total=$('.remaining_amount').val(total_price-paid);
+		//console.log(total_price);
+	  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
 	
 	})
 	

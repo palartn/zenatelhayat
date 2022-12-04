@@ -51,7 +51,7 @@
                     @foreach ($patient as $patient)
 
 
-                    <option value="{{$patient->id}}">{{$patient->patient_fname. ' ' .$patient->patient_sname. ' '.$patient->patient_tname. ' '.$patient->patient_lname }}</option>
+                    <option value="{{$patient->id}}">{{$patient->patient_fname. ' ' .$patient->patient_sname. ' '.$patient->patient_tname. ' '.$patient->patient_lname .' '.' '.'('.$patient->patient_number.')'}}</option>
                     @endforeach
                 </select>
 			</div>
@@ -101,7 +101,7 @@
 
 
 			<div class="row">
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -109,14 +109,23 @@
 						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-4 mt-6">
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
-				<div class="col-sm-4 mt-6">
+
+				<div class="col-sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="visit_date">
+						خصم خاص</label>
+					<input type="number"
+						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
+						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
+				</div>
+
+				<div class="col-sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -253,13 +262,13 @@ tinymce.init({
 
 <script>
 
-	$('input.total_price,input.paid').on('change keyup',function(){
+$('input.total_price,input.paid,input.discount').on('change keyup',function(){
 		var total_price = $("#total_price").val()
+		var discount = $("#discount").val()
 		var paid = $("#paid").val()
-		console.log(total_price);
-
-	  $grand_total=$('.remaining_amount').val(total_price-paid);
-
+		//console.log(total_price);
+	  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
+	
 	})
 
 	</script>
