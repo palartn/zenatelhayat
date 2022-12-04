@@ -102,7 +102,7 @@
 
 				</div>
 				</div>
-				<div class="row " id="specific">
+				<div class="row specific" id="specific">
 					<div class="col-4 mt-6">
 						<label class="fs-4 fw-semibold form-label" for="mobile">
 							عدد العبوات</label>
@@ -235,7 +235,7 @@ tinymce.init({
 
 <script type="text/javascript">
 	$(document).ready(function(){
-
+        $('.specific').hide();
 		$(document).on('change','#prod_cat_id',function(){
 
 			var cat_id=$(this).val();
@@ -249,6 +249,7 @@ tinymce.init({
 				type:'get',
 				url:'{!!URL::to('findProductName')!!}',
 				data:{'id':cat_id,},
+
 				success:function(data){
 					//console.log('success');
 
@@ -261,7 +262,11 @@ tinymce.init({
 				   }
 
 				   $('.productname').html(" ");
-				   $('.productname').append(op);
+                 $('.productname').append(op);
+                 $('.productname').change(function(){
+                    $('.specific').show();
+                    });
+
 				},
 				error:function(){
 
