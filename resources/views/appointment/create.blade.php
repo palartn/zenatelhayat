@@ -102,7 +102,7 @@
 				  
 				</div>
 				</div>
-				<div class="row">
+				<div class="row d-none" id="specific">
 					<div class="col-4 mt-6">
 						<label class="fs-4 fw-semibold form-label" for="mobile">   
 							عدد العبوات</label>
