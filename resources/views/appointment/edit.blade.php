@@ -272,7 +272,7 @@
 					}
 					else {
 					$('.campaign').addClass('d-none');
-					$("#campaign_year").val('');
+					$('.campaign_year').val('');
 						
 				}
 			var cat_id=$(this).val();
