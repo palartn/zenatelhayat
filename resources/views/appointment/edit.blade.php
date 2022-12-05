@@ -105,7 +105,7 @@
 							عدد العبوات</label>
 						<input type="number"
 							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
-							name="qty_packages"
+							name="qty_packages" id="qty_packages"
 							value="{{$appointment->qty_packages }}" placeholder="عدد العبوات">
 						@error('qty_packages')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
@@ -116,8 +116,8 @@
 						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية
 							التجميد</label>
 						<input type="date"
-							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
-							id="kt_datepicker_1 freez_start_date" name="freez_start_date"
+							class="form-control form-control-solid  flatpickr-input active  @error('freez_start_date') is-invalid @enderror"
+							id="kt_datepicker_1" name="freez_start_date"
 							value="{{$appointment->freez_start_date }}" placeholder="تاريخ بداية التجميد">
 						@error('freez_start_date')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
@@ -128,8 +128,8 @@
 						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية
 							التجميد</label>
 						<input type="date"
-							class="form-control form-control-solid  flatpickr-input active @error('freez_end_date') is-invalid @enderror"
-							id="kt_datepicker_1 " name="freez_end_date"
+							class="form-control form-control-solid   flatpickr-input active @error('freez_end_date') is-invalid @enderror"
+							id="kt_datepicker_2" name="freez_end_date" id="freez_end_date"
 							value="{{$appointment->freez_end_date }}" placeholder="تاريخ نهاية التجميد">
 						@error('freez_end_date')
 							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
@@ -236,11 +236,16 @@
 		$(document).on('change','#prod_cat_id',function(){
 			var x=$(this).val();
 					if(x==3){
-                    $('.specific').removeClass('d-none');
+                    $('.specific').removeClass('d-none');	
+			
 					}
 				else {
 					$('.specific').addClass('d-none');
-
+					$("#qty_packages").attr('value','');
+					$("#kt_datepicker_1").val('');
+					$("#kt_datepicker_2").val('');
+				
+					
 				}
 			var cat_id=$(this).val();
 			
