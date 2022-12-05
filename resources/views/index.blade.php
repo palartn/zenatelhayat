@@ -47,7 +47,7 @@
 												</svg>
 											</span>
 											<!--end::Svg Icon-->
-											<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ App\Models\appointment::count() }}</div>
+											<div class="text-white fw-bolder fs-2 mb-2 mt-5">{{ App\Models\Appointment::count() }}</div>
 											<div class="fw-bold text-white">إجمالي عدد الزيارات</div>
 										</div>
 										<!--end::Body-->
