@@ -149,6 +149,9 @@ class AppointmentsController extends Controller
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
+                'qty_packages'=>$request->qty_packages,
+                'freez_start_date'=>$request->freez_start_date,
+                'freez_end_date'=>$request->freez_end_date,
                 'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
@@ -194,6 +197,10 @@ class AppointmentsController extends Controller
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
                 'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
+                'qty_packages'=>$request->qty_packages,
+                'freez_start_date'=>$request->freez_start_date,
+                'freez_end_date'=>$request->freez_end_date,
+                'notes'=>$request->notes,
 
                 //'event' => implode('-',$request->event),
             ]);
@@ -266,6 +273,9 @@ class AppointmentsController extends Controller
             'next_visit_date' => $request->next_visit_date,
             'surgery_kind_id' => $request->surgery_kind_id,
             'surgery_kind_id_child' => $request->surgery_kind_id_child,
+            'qty_packages' => $request->qty_packages,
+            'freez_start_date' => $request->freez_start_date,
+            'freez_end_date' => $request->freez_end_date,
             'notes' => $request->notes,
 
         ]);

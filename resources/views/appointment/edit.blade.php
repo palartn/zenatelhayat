@@ -57,10 +57,7 @@
 				</label>
 				
 				@foreach($patient as $patient)
-				@endforeach
-				<span class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-black bg-success bg-opacity-20 border border-success border-opacity-20 rounded-2 h6 ">
-					{{ "زائر لمرة واحدة" }}
-				
+				@endforeach				
 				</span>
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror" readonly
@@ -68,7 +65,6 @@
 					value="{{ $patient->patient_fname . ' ' . $patient->patient_sname . ' ' . $patient->patient_tname . ' ' . $patient->patient_lname }}">
 			</div>
 				<div class="row">
-					@if($patient->patient_type == 'مريض')
 			<div class="col xl-4 col-4 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
@@ -81,7 +77,6 @@
 				@enderror
 
 			</div>
-			@endif
 				  <div class="col col-4">
 					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
 					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
@@ -104,10 +99,48 @@
 
 				</div>
 				</div>
+				<div class="row specific {{ $appointment->surgery_kind_id !== 3 ? 'd-none' : '' }} " id="specific">
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile">
+							عدد العبوات</label>
+						<input type="number"
+							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
+							name="qty_packages"
+							value="{{$appointment->qty_packages }}" placeholder="عدد العبوات">
+						@error('qty_packages')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
+							id="kt_datepicker_1 freez_start_date" name="freez_start_date"
+							value="{{$appointment->freez_start_date }}" placeholder="تاريخ بداية التجميد">
+						@error('freez_start_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 
-			<div class="row">
-				<div class="col-sm-3 mt-6">
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freez_end_date') is-invalid @enderror"
+							id="kt_datepicker_1 " name="freez_end_date"
+							value="{{$appointment->freez_end_date }}" placeholder="تاريخ نهاية التجميد">
+						@error('freez_end_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+
+					</div>
+
+				</div>
+
+			<div class="row" >
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -115,14 +148,14 @@
 						name="total_price" id="total_price" value="{{ $appointment->payment->total_price }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ $appointment->payment->paid }}" placeholder="المدفوع">
 				</div>
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">
 						خصم خاص</label>
 					<input type="number"
@@ -130,7 +163,7 @@
 						name="discount" id="discount" value="{{ $appointment->payment->discount }}" placeholder="مبلغ الخصم">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -143,14 +176,14 @@
 				</div>
 
 
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
 						 placeholder="الباقي" value="{{ $appointment->payment->remaining_amount }}">
 				</div>
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
 					<input type="date" name="pay_date"
@@ -159,6 +192,8 @@
 						placeholder="تاريخ الدفع" value="{{ $appointment->payment->pay_date }}">
 				</div>
 			</div>
+
+			
 			<div>
 			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
@@ -172,13 +207,14 @@
 
 
 
- 	</div>
 
+ 	</div>
 	</div>
 	</form>
+
 </div>
 @endsection
-
+</div>
 
 @section('scripts')
 <script>
@@ -198,6 +234,14 @@
 	$(document).ready(function(){
 
 		$(document).on('change','#prod_cat_id',function(){
+			var x=$(this).val();
+					if(x==3){
+                    $('.specific').removeClass('d-none');
+					}
+				else {
+					$('.specific').addClass('d-none');
+
+				}
 			var cat_id=$(this).val();
 			
 			var div=$(this).parent();
@@ -271,5 +315,12 @@
 		})
 	
 		</script>
+		<script>
+
+			$(".flatpickr-input").flatpickr({
+			
+			});
+			
+			</script>
 @endsection
 

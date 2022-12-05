@@ -168,6 +168,48 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div col-12>
+
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                      
+                                    </div>
+                                    <div class="card-body ">
+                                      <h5 class="card-title">بيانات التجميد </h5>
+                                      <p class="card-text">
+                                       </p>
+                                      <div class="form-group row mb-1">
+                                       <label class="col-form-label col-lg-4">عدد العينات</label>
+                                       <div class="col-6 lg-8">
+                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
+                                           </div>
+                                       </div>
+                                   </div>             
+                                      <div class="form-group row mb-1">
+                                       <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
+                                       <div class="col-6 lg-8">
+                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
+                                           </div>
+                                       </div>
+                                   </div>             
+                                      <div class="form-group row mb-1">
+                                       <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
+                                       <div class="col-6 lg-8">
+                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
+                                           </div>
+                                       </div>
+                                   </div>             
+                                
+                                </div>
+                                    <div class="card-footer text-muted">
+                                    {{ Carbon\Carbon::now(); }} 
+                                    </div>
+                                  </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -356,6 +398,9 @@
                                             $('#next_visit_date').html(result.data.next_visit_date);
                                             $('#surgery_kind_id').html(result.data.surgery_kind_name);
                                             $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
+                                            $('#freez_start_date').html(result.data.freez_start_date);
+                                            $('#freez_end_date').html(result.data.freez_end_date);
+                                            $('#qty_packages').html(result.data.qty_packages);
                                             $('#notes').html(result.data.notes);
                                             $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();

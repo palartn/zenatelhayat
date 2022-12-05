@@ -98,10 +98,48 @@
 
 				</div>
 				</div>
+				<div class="row specific d-none" id="specific">
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile">
+							عدد العبوات</label>
+						<input type="number"
+							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
+							name="qty_packages"
+							value="{{ old ('qty_packages') }}" placeholder="عدد العبوات">
+						@error('qty_packages')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
 
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
+							id="kt_datepicker_1 freez_start_date" name="freez_start_date"
+							value="{{ old ('freez_start_date') }}" placeholder="تاريخ بداية التجميد">
+						@error('freez_start_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+
+					</div>
+					<div class="col-4 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية
+							التجميد</label>
+						<input type="date"
+							class="form-control form-control-solid  flatpickr-input active @error('freez_end_date') is-invalid @enderror"
+							id="kt_datepicker_1 " name="freez_end_date"
+							value="{{ old ('freez_end_date') }}" placeholder="تاريخ نهاية التجميد">
+						@error('freez_end_date')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+
+					</div>
+
+				</div>
 
 			<div class="row">
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -109,7 +147,7 @@
 						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
@@ -117,7 +155,7 @@
 						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">
 						خصم خاص</label>
 					<input type="number"
@@ -125,7 +163,7 @@
 						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -138,14 +176,14 @@
 				</div>
 
 
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
 						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
 				</div>
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
 					<input type="date" name="pay_date"
@@ -197,7 +235,14 @@ tinymce.init({
 	$(document).ready(function(){
 
 		$(document).on('change','#prod_cat_id',function(){
+			var x=$(this).val();
+					if(x==3){
+                    $('.specific').removeClass('d-none');
+					}
+				else {
+					$('.specific').addClass('d-none');
 
+				}
 			var cat_id=$(this).val();
 
 			var div=$(this).parent();

@@ -96,13 +96,13 @@
 
 					<div class="col col-4">
 						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
-						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
+						<select id='surgery_kind_id_child'  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
 							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
 						</select>
 
 				</div>
 				</div>
-				<div class="row specific" id="specific">
+				<div class="row specific d-none" id="specific">
 					<div class="col-4 mt-6">
 						<label class="fs-4 fw-semibold form-label" for="mobile">
 							عدد العبوات</label>
@@ -143,7 +143,7 @@
 				</div>
 
 			<div class="row">
-				<div class="col-sm-3 mt-6">
+				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
@@ -151,21 +151,21 @@
 						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-sm-3 mt-6">
+				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
 				</div>
-				<div class="col-sm-3 mt-6">
+				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">
 						خصم خاص</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
 						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
 				</div>
-				<div class="col-sm-3 mt-6">
+				<div class="col-sm-4 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
@@ -178,14 +178,14 @@
 				</div>
 
 
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
 						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
 				</div>
-				<div class="col-6 mt-6">
+				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
 					<input type="date" name="pay_date"
@@ -235,9 +235,15 @@ tinymce.init({
 
 <script type="text/javascript">
 	$(document).ready(function(){
-        $('.specific').hide();
 		$(document).on('change','#prod_cat_id',function(){
+			var x=$(this).val();
+					if(x==3){
+                    $('.specific').removeClass('d-none');
+					}
+				else {
+					$('.specific').addClass('d-none');
 
+				}
 			var cat_id=$(this).val();
 
 			var div=$(this).parent();
@@ -253,7 +259,7 @@ tinymce.init({
 				success:function(data){
 					//console.log('success');
 
-					console.log(data);
+					//console.log(data);
 
 					//console.log(data.length);
 					op+='<option value="0" selected disabled>الرجاء الإختيار</option>';
@@ -263,9 +269,9 @@ tinymce.init({
 
 				   $('.productname').html(" ");
                  $('.productname').append(op);
-                 $('.productname').change(function(){
-                    $('.specific').show();
-                    });
+       
+
+					
 
 				},
 				error:function(){
@@ -286,8 +292,8 @@ tinymce.init({
 				data:{'id':prod_id},
 				dataType:'json',//return data will be json
 				success:function(data){
-					console.log("price");
-					console.log(data.price);
+					// console.log("price");
+					// console.log(data.price);
 
 					// here price is coloumn name in products table data.coln name
 
