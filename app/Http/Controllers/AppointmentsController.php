@@ -152,6 +152,7 @@ class AppointmentsController extends Controller
                 'qty_packages'=>$request->qty_packages,
                 'freez_start_date'=>$request->freez_start_date,
                 'freez_end_date'=>$request->freez_end_date,
+                'campaign_year'=>$request->campaign_year,
                 'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
@@ -200,6 +201,7 @@ class AppointmentsController extends Controller
                 'qty_packages'=>$request->qty_packages,
                 'freez_start_date'=>$request->freez_start_date,
                 'freez_end_date'=>$request->freez_end_date,
+                'campaign_year'=>$request->campaign_year,
                 'notes'=>$request->notes,
 
                 //'event' => implode('-',$request->event),

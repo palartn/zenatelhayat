@@ -23,6 +23,7 @@ return new class extends Migration
             $table->double('qty_packages')->nullable();
             $table->date('freez_start_date')->nullable();
             $table->date('freez_end_date')->nullable();
+            $table->string('campaign_year')->nullable();
             $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();

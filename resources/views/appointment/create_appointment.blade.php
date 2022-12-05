@@ -65,7 +65,7 @@
 
 
 				<div class="row">
-					@if($patient->patient_type=='مريض')
+					{{-- @if($patient->patient_type=='مريض') --}}
 			<div class="col xl-4 col-4 mt-6">
 				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
 					القادمة</label>
@@ -78,7 +78,7 @@
 				@enderror
 
 			</div>
-			@endif
+			{{-- @endif --}}
 				  <div class="col col-4">
 					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
 					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
@@ -98,6 +98,23 @@
 
 				</div>
 				</div>
+
+				<div class="row campaign d-none " id="campaign">
+					<div class="col-12 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile">
+							حملة </label>
+						<input type="text"
+							class="form-control form-control-solid   @error('campaign_year') is-invalid @enderror"
+							name="campaign_year"
+							value="{{old('campaign_year')}}" placeholder="حملة ">
+						@error('campaign_year')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+
+					</div>
+
+				</div>
+
 				<div class="row specific d-none" id="specific">
 					<div class="col-4 mt-6">
 						<label class="fs-4 fw-semibold form-label" for="mobile">
@@ -137,7 +154,8 @@
 					</div>
 
 				</div>
-
+				
+				</div>
 			<div class="row">
 				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
@@ -241,6 +259,14 @@ tinymce.init({
 					}
 				else {
 					$('.specific').addClass('d-none');
+
+				}
+				var x=$(this).val();
+					if(x==2){
+                    $('.campaign').removeClass('d-none');
+					}
+				else {
+					$('.campaign').addClass('d-none');
 
 				}
 			var cat_id=$(this).val();

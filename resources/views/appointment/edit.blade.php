@@ -98,6 +98,27 @@
 						</select>
 
 				</div>
+
+
+				<div class="row campaign d-none " id="campaign">
+					<div class="col-12 mt-6">
+						<label class="fs-4 fw-semibold form-label" for="mobile">
+							حملة </label>
+						<input type="text"
+							class="form-control form-control-solid   @error('campaign_year') is-invalid @enderror"
+							name="campaign_year" id="campaign_year"
+							value="{{$appointment->campaign_year}}" placeholder="حملة ">
+						@error('campaign_year')
+							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
+						@enderror
+
+					</div>
+
+				</div>
+
+
+
+
 				</div>
 				<div class="row specific {{ $appointment->surgery_kind_id !== 3 ? 'd-none' : '' }} " id="specific">
 					<div class="col-4 mt-6">
@@ -237,15 +258,22 @@
 			var x=$(this).val();
 					if(x==3){
                     $('.specific').removeClass('d-none');	
-			
 					}
+			
 				else {
 					$('.specific').addClass('d-none');
 					$("#qty_packages").attr('value','');
 					$("#kt_datepicker_1").val('');
-					$("#kt_datepicker_2").val('');
-				
-					
+					$("#kt_datepicker_2").val('');			
+				}
+				var xn=$(this).val();
+					if(x==2){
+                    $('.campaign').removeClass('d-none');	
+					}
+					else {
+					$('.campaign').addClass('d-none');
+					$("#campaign_year").val('');
+						
 				}
 			var cat_id=$(this).val();
 			
