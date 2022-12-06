@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\DebtorsController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PatientsController;
@@ -34,6 +35,11 @@ Route::post('appointment/createnewappointment',[AppointmentsController::class, '
 Route::post('appointment/getTodayData',[AppointmentsController::class, 'getTodayData'])->name('appointment.getTodayData');
 Route::get('appointment/today_appointment',[AppointmentsController::class, 'today_appointment'])->name('appointment.today_appointment');
 
+
+
+
+Route::resource('debtors',DebtorsController::class)->middleware('auth');
+Route::post('debtors/getdebtorsData',[DebtorsController::class, 'getdebtorsData'])->name('debtors.getdebtorsData');
 
 
 

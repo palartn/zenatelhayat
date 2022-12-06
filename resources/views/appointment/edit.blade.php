@@ -98,14 +98,14 @@
 						</select>
 
 				</div>
-
+				
 
 				<div class="row campaign d-none " id="campaign">
 					<div class="col-12 mt-6">
 						<label class="fs-4 fw-semibold form-label" for="mobile">
 							حملة </label>
 						<input type="text"
-							class="form-control form-control-solid   @error('campaign_year') is-invalid @enderror"
+							class="form-control form-control-solid campaign_year  @error('campaign_year') is-invalid @enderror"
 							name="campaign_year" id="campaign_year"
 							value="{{$appointment->campaign_year}}" placeholder="حملة ">
 						@error('campaign_year')

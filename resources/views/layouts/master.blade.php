@@ -1231,7 +1231,7 @@
 
 
 
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion ">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='debtors.index') hover show @endif ">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1246,9 +1246,9 @@
 							<span class="menu-title">المعاملات المالية</span>
 							<span class="menu-arrow"></span>
 						</span>
-						<div class="menu-sub menu-sub-accordion ">
+						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('appointment/createnewappointment')) ? 'active' : ''}}"   href="{{route('createnewappointment')}}">
+								<a class="menu-link {{ (request()->is('debtors')) ? 'active' : ''}}"   href="{{route('debtors.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
