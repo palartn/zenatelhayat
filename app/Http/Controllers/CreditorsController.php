@@ -7,9 +7,11 @@ use App\Models\Payment;
 use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Resources\DebtorsResource;
+use App\Http\Resources\creditorsResource;
 use RealRashid\SweetAlert\Facades\Alert;
-class DebtorsController extends Controller
+
+
+class CreditorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +20,7 @@ class DebtorsController extends Controller
      */
     public function index()
     {
-        return view('debtors.index');
+        return view('creditors.index');
     }
 
     /**
@@ -52,7 +54,7 @@ class DebtorsController extends Controller
     {
         //dd('dasd');
         $payment = Payment::findOrFail($id);
-        $app_return = new DebtorsResource($payment);
+        $app_return = new creditorsResource($payment);
         return $app_return;
     }
 
@@ -92,7 +94,7 @@ class DebtorsController extends Controller
     }
 
     
-    public function getdebtorsData(Request $request)
+    public function getcreditorsData(Request $request)
     {
         $draw = $request->get('draw');
         $start = $request->get("start");
@@ -149,7 +151,7 @@ class DebtorsController extends Controller
         // ->get();
 
 
-        $totalRecords = DB::table('payments')->where('remaining_amount','>',0)->count();
+        $totalRecords = DB::table('payments')->where('remaining_amount','<',0)->count();
         $totalRecordswithFilter = DB::table('payments')->where('remaining_amount','>',0);
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
         // $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
@@ -184,7 +186,7 @@ class DebtorsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Payment::where('remaining_amount','>',0)->with('patient')->orderBy('payments.id', 'desc');
+        $items = Payment::where('remaining_amount','<',0)->with('patient')->orderBy('payments.id', 'desc');
         if ($searchValue != null)
             $items = $items
                 ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')

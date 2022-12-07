@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\DebtorsController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FileController;
@@ -40,6 +41,10 @@ Route::get('appointment/today_appointment',[AppointmentsController::class, 'toda
 
 Route::resource('debtors',DebtorsController::class)->middleware('auth');
 Route::post('debtors/getdebtorsData',[DebtorsController::class, 'getdebtorsData'])->name('debtors.getdebtorsData');
+
+
+Route::resource('creditors',CreditorsController::class)->middleware('auth');
+Route::post('creditors/getcreditorsData',[CreditorsController::class, 'getcreditorsData'])->name('debtors.getcreditorsData');
 
 
 
