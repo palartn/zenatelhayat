@@ -165,8 +165,8 @@ class DebtorsController extends Controller
 
         if ($from_date != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('payments.created_at', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('payments.remaining_amount', 'like', '%' . $filter_1 . '%');
+        // if ($filter_1 != -1)
+        //     $totalRecordswithFilter = $totalRecordswithFilter->where('payments.remaining_amount', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_2) {
 
@@ -194,9 +194,9 @@ class DebtorsController extends Controller
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('payments.remaining_amount', array($from_date, $to_date));
-        if ($filter_1 != -1)
-            $items = $items->where('payments.total_price', 'like', $filter_1);
+            $items = $items->whereBetween('payments.pay_date', array($from_date, $to_date));
+        // if ($filter_1 != -1)
+        //     $items = $items->where('payments.total_price', 'like', $filter_1);
         if ($filter_2 != -1)
             $items = $items->whereHas('patient', function ($query) use ($filter_2) {
 

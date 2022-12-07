@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col-lg-3 mb-6">
                                     <label>القسم:</label>
-                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="اسم المريض" data-col-index="5"/>
+                                    <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="سبب الزيارة" data-col-index="5"/>
 
                                 </div>
                                 <div class="col-lg-4 mb-6">
@@ -138,9 +138,9 @@
                                 <th>الرقم </th>
                                 <th>إسم المريض</th>
                                 <th>المبلغ الإجمالي</th>
-                                <th>المبلغ المدفوع</th>
-                                <th>خصم</th>
+                                <th>العملة</th>
                                 <th>المبلغ المتبقي</th>
+                                <th>ملاحظات</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
                                 {{-- <th>الجنس</th> --}}
