@@ -55,8 +55,8 @@ class DebtorsController extends Controller
     public function show($id)
     {
         //dd('dasd');
-        $appointment = Appointment::findOrFail($id);
-        $app_return = new DebtorsResource($appointment);
+        $payment = Payment::findOrFail($id);
+        $app_return = new DebtorsResource($payment);
         return $app_return;
     }
 
@@ -153,8 +153,8 @@ class DebtorsController extends Controller
         // ->get();
 
 
-        $totalRecords = DB::table('payments')->where('remaining_amount'>0)->count();
-        $totalRecordswithFilter = DB::table('payments')->where('remaining_amount'>0)->count();
+        $totalRecords = DB::table('payments')->where('remaining_amount','>',0)->count();
+        $totalRecordswithFilter = DB::table('payments')->where('remaining_amount','>',0);
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
         // $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
         // $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'));
@@ -162,15 +162,15 @@ class DebtorsController extends Controller
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
-                ->where('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.surgery_kind_id', $searchValue);
+                ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.remaining_amount', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.remaining_amount', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.remaining_amount', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.created_at', array($from_date, $to_date));
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('payments.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.next_visit_date', 'like', '%' . $filter_1 . '%');
+            $totalRecordswithFilter = $totalRecordswithFilter->where('payments.remaining_amount', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_2) {
 
@@ -188,29 +188,29 @@ class DebtorsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
+        $items = Payment::where('remaining_amount','>',0)->with('patient')->orderBy('payments.id', 'desc');
         if ($searchValue != null)
             $items = $items
-                ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
-                ->orWhere('appointments.patient_id', $searchValue)
-                ->orWhere('appointments.surgery_kind_id', $searchValue);
+                ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.total_price', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.patient_id', $searchValue)
+                ->orWhere('payments.currency', $searchValue);
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
+            $items = $items->whereBetween('payments.remaining_amount', array($from_date, $to_date));
         if ($filter_1 != -1)
-            $items = $items->where('appointments.created_at', 'like', $filter_1);
+            $items = $items->where('payments.total_price', 'like', $filter_1);
         if ($filter_2 != -1)
             $items = $items->whereHas('patient', function ($query) use ($filter_2) {
 
                 $query->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
             });
         if ($filter_3 != -1)
-            $items = $items->whereIn('appointments.surgery_kind_id', $filter_3);
+            $items = $items->whereIn('payments.currency', $filter_3);
         if ($filter_4 != -1)
-            $items = $items->where('surgery_kind_id.notes', 'like', '%' . $filter_4 . '%');
-        $items = $items->select('appointments.*')
+            $items = $items->where('payments.notes', 'like', '%' . $filter_4 . '%');
+        $items = $items->select('payments.*')
             ->skip($start)
             ->take($rowperpage)
             ->get();
@@ -225,10 +225,14 @@ class DebtorsController extends Controller
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'patient_number' => $item->patient->patient_number,
-                'remaining_amount' => $item->payment->remaining_amount,
-                'surgery_kind_id' => $item->surgery_kind->name,
-                'surgery_kind_id_child' => $item->surgery_kind_child->name,
+                'currency' => $item->patient->currency,
+                'remaining_amount' => $item->remaining_amount,
+                'pay_date' => $item->pay_date,
+                'total_price' => $item->total_price,
                 'notes' => $item->notes,
+                'discount' => $item->discount,
+                'currency' => $item->currency,
+                'pay_date' => $item->pay_date,
                 "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 

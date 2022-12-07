@@ -135,12 +135,12 @@
                         <thead>
                             <tr class="fw-bolder  bg-secondary mb-3">
                                 <th>#</th>
-                                <th>رقم المريض </th>
+                                <th>الرقم </th>
                                 <th>إسم المريض</th>
-                                <th>الزيارة القادمة</th>
-                                <th>القسم</th>
-                                <th>سبب الزيارة</th>
-                                <th>ملاحظات</th>
+                                <th>المبلغ الإجمالي</th>
+                                <th>المبلغ المدفوع</th>
+                                <th>خصم</th>
+                                <th>المبلغ المتبقي</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
                                 {{-- <th>الجنس</th> --}}
@@ -503,14 +503,14 @@
                                             $('#smallModal').modal("show");
                                            // $('#patient_number').html(result.data.patient_number);
                                             $('#patient_id').html(result.data.full_name);
-                                            $('#visit_date').html(result.data.visit_date);
+                                            $('#total_price').html(result.data.total_price);
+                                            $('#discount').html(result.data.discount);
                                             $('#remaining_amount').html(result.data.remaining_amount);
-                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
-                                            $('#freez_start_date').html(result.data.freez_start_date);
-                                            $('#freez_end_date').html(result.data.freez_end_date);
-                                            $('#qty_packages').html(result.data.qty_packages);
-                                             $('#notes').html(result.data.notes);
+                                            $('#currency').html(result.data.currency);
+                                            $('#pay_date').html(result.data.pay_date);
+                                            $('#notes').html(result.data.notes);
+                                          //  $('#qty_packages').html(result.data.qty_packages);
+                                            // $('#notes').html(result.data.notes);
                                             $('#created_at').html(result.data.created_at);
                                             $('#smallBody').html(result).show();
                                         },

@@ -16,22 +16,17 @@ class DebtorsResource extends JsonResource
     {
         return [
             'created_at' => $this->created_at->diffForHumans(),
-            'visit_date' => $this->visit_date,
-            'payment'  => $this->payment,
+            'total_price' => $this->total_price,
+            'discount'  => $this->discount,
             'remaining_amount' => $this->remaining_amount,
-            'surgery_kind_id' => $this->surgery_kind_id,
-            'surgery_kind_id_child' => $this->surgery_kind_id_child,
+            'currency' => $this->currency,
+            'pay_date' => $this->pay_date,
             'notes' => $this->notes,       
-            'freez_start_date' => $this->freez_start_date,       
-            'freez_end_date' => $this->freez_end_date,       
-            'qty_packages' => $this->qty_packages,       
+            //'created_at' => $this->created_at,       
+            'updated_at' => $this->updated_at,          
             'patient'  => $this->patient,
-            'patient_number'  => $this->patient->patient_number,
-            'surgery_kind'  => $this->surgery_kind,
-            'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,
-            'surgery_kind_name' => $this->surgery_kind->name,
-            'surgery_kind_id' => $this->surgery_kind_child->name
-
+            'patient_number' => $this->patient->patient_number,
+            'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,  
         ];
     }
 }
