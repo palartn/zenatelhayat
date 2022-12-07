@@ -437,7 +437,7 @@
                                             var url_ = "{{ route('users.store') }}";
                                             var type_ = "POST";
                                         } else {
-                                            var url_ = SITEURL + '/appointment/' + status_id;
+                                            var url_ = SITEURL + '/debtors/' + status_id;
                                             var type_ = "PUT";
                                         }
                                         $.ajax({

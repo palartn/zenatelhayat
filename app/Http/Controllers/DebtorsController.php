@@ -1,18 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Carbon\Carbon;
 use App\Models\Patient;
 use App\Models\Payment;
-use App\Models\Appointment;
 use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\DebtorsResource;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Resources\AppointmentResource;
-
 class DebtorsController extends Controller
 {
     /**
@@ -163,9 +159,9 @@ class DebtorsController extends Controller
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.remaining_amount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.remaining_amount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.remaining_amount', $searchValue);
+                ->orWhere('payments.total_price', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.discount', 'like', '%' . $searchValue . '%')
+                ->orWhere('payments.currency', $searchValue);
 
         if ($from_date != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('payments.created_at', array($from_date, $to_date));
@@ -249,9 +245,4 @@ class DebtorsController extends Controller
         return response()->json($response);
         exit;
     }
-
-
-
-
-
 }
