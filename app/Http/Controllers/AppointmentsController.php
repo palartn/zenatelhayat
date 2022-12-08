@@ -94,6 +94,7 @@ class AppointmentsController extends Controller
 
     }
 
+
     public function findProductName(Request $request)
     {
 
@@ -107,10 +108,10 @@ class AppointmentsController extends Controller
 
     public function today_appointment(Request $request)
     {
-        $today_date = date('Y-m-d');
+         $today_date = date('Y-m-d');
         $n = Carbon::today();
         $data = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->get();
-        // $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
+        $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
         //=dd($data);
         return view('appointment.today', compact('data'));
     }
@@ -129,7 +130,6 @@ class AppointmentsController extends Controller
         //dd($request->all());
 
         $patient = Patient::where('id', $request->patient_id)->first();
-
 
         if ($request->next_visit_date == 'مريض') {
             $validated = $request->validate([

@@ -145,8 +145,8 @@ class SurgeryKindsController extends Controller
 
 
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
-        $totalRecords = SurgeryKind::table('surgery_kinds')->get();
-        $totalRecordswithFilter = SurgeryKind::table('surgery_kinds')->get();
+        $totalRecords = SurgeryKind::all();
+        $totalRecordswithFilter = SurgeryKind::all();
         // $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
 
         if ($searchValue != null)
@@ -173,7 +173,7 @@ class SurgeryKindsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = SurgeryKind::table('surgery_kinds')->orderBy('surgery_kinds.id', 'desc');
+        $items = SurgeryKind::all()->orderBy('surgery_kinds.id', 'desc');
         if ($searchValue != null)
             $items = $items
                 ->where('surgery_kinds.name', 'like', '%' . $searchValue . '%')

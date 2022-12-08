@@ -1231,7 +1231,7 @@
 
 
 
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='debtors.index') hover show @endif ">
+					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='payments.index') hover show @endif ">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1248,7 +1248,16 @@
 						</span>
 						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('debtors')) ? 'active' : ''}}"   href="{{route('debtors.index')}}">
+								<a class="menu-link {{ (request()->is('payments')) ? 'active' : ''}}" href="{{route('payments.index')}}">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">إضافة مدفوعات للمريض</span>
+								</a>
+							</div>
+
+							<div class="menu-item">
+								<a class="menu-link {{ (request()->is('pay_patient')) ? 'active' : ''}}"   href="{{route('debtors.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>

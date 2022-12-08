@@ -10,6 +10,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SurgeryKindsController;
 
 /*
@@ -32,12 +33,12 @@ Route::get('/', function () {
 
 
 Route::get('/prodview',[AppointmentsController::class,'prodfunct']);
+
 Route::post('appointment/getData',[AppointmentsController::class, 'getData'])->name('appointment.getData');
 Route::post('appointment/createnewappointment',[AppointmentsController::class, 'createnewappointment'])->name('appointment.createnewappointment');
+
 Route::post('appointment/getTodayData',[AppointmentsController::class, 'getTodayData'])->name('appointment.getTodayData');
 Route::get('appointment/today_appointment',[AppointmentsController::class, 'today_appointment'])->name('appointment.today_appointment');
-
-
 
 
 Route::resource('debtors',DebtorsController::class)->middleware('auth');
@@ -53,6 +54,10 @@ Route::post('surgerykinds/getSurgerykindData',[CreditorsController::class, 'getS
 
 Route::get('/findProductName',[AppointmentsController::class,'findProductName']);
 Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
+
+Route::resource('payments',PaymentController::class)->middleware('auth');
+
+
 
 Route::get('expenses/today_expenses',[ExpenseController::class, 'today_expenses'])->name('expenses.today_expenses');
 Route::resource('expenses',ExpenseController::class)->middleware('auth');
