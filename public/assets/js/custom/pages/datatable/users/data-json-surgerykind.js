@@ -75,7 +75,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 data: {
                     // parameters for custom backend script demo
                     columnsDef: [
-                        'id','patient_number','patient_id', 'total_price', 'discount', 'currency','remaining_amount','pay_date','notes', 'actions'],
+                        'id','surgery_kind_id','name','actions'],
                     from_date:from_date,
                     to_date:to_date,
                     filter_1:filter_1,
@@ -88,12 +88,12 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 // {data: 'id',width: 100},
                 {data: 'id',width: 30},
                 //{data: 'patient_name',width: 100},
-                {data: 'patient_number',width: 30},
-                {data: 'patient_id',width: 130},
-                {data: 'total_price',width: 80},
-                {data: 'currency',width: 15},
-                {data: 'remaining_amount',width: 80},
-                {data: 'notes',width: 80},
+                {data: 'surgery_kind_id',width: 30},
+                {data: 'name',width: 130},
+                // {data: 'total_price',width: 80},
+                // {data: 'currency',width: 15},
+                // {data: 'remaining_amount',width: 80},
+                // {data: 'notes',width: 80},
                 {data: 'actions',width: 100},
 
             ],

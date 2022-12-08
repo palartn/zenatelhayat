@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AppointmentsController;
-use App\Http\Controllers\CreditorsController;
-use App\Http\Controllers\DebtorsController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\FileController;
-use App\Http\Controllers\PatientsController;
-use App\Http\Controllers\UsersController;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DebtorsController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\CreditorsController;
+use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\SurgeryKindsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,8 @@ Route::post('debtors/getdebtorsData',[DebtorsController::class, 'getdebtorsData'
 Route::resource('creditors',CreditorsController::class)->middleware('auth');
 Route::post('creditors/getcreditorsData',[CreditorsController::class, 'getcreditorsData'])->name('debtors.getcreditorsData');
 
+Route::resource('surgerykinds',SurgeryKindsController::class)->middleware('auth');
+Route::post('surgerykinds/getSurgerykindData',[CreditorsController::class, 'getSurgerykindData'])->name('surgerykind.getSurgerykindData');
 
 
 Route::get('/findProductName',[AppointmentsController::class,'findProductName']);
