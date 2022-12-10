@@ -8,6 +8,7 @@ use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\DebtorsResource;
+use App\Models\Appointment;
 use RealRashid\SweetAlert\Facades\Alert;
 class DebtorsController extends Controller
 {
@@ -86,9 +87,10 @@ class DebtorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(appointment $appointment)
     {
-        //
+        $appointment->delete();
+        return response()->json($appointment);
     }
 
     

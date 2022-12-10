@@ -1309,22 +1309,15 @@
 									<span class="menu-title">إدارة الأقسام</span>
 								</a>
 							</div>
-							<div class="menu-item">
+							{{-- <div class="menu-item">
 								<a class="menu-link {{ (request()->is('surgerykinds')) ? 'active' : ''}}" href="{{route('surgerykinds.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
 									<span class="menu-title">الدائنون</span>
 								</a>
-							</div>
-							{{-- <div class="menu-item">
-								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}" href="{{ route('appointments.index') }}">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title {{ (request()->is('appointments')) ? 'active' : ''}}">إدارة الزيارات</span>
-								</a>
 							</div> --}}
+							
 
 						</div>
 					</div>
