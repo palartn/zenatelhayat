@@ -181,8 +181,6 @@ class SurgeryKindsController extends Controller
                 ->orWhere('surgery_kinds.surgery_kind_id', 'like', '%' . $searchValue . '%')
                 ->orWhere('surgery_kinds.name', $searchValue)
                 ->orWhere('surgery_kinds.id', $searchValue);
-
-
         if ($from_date != -1)
             $items = $items->whereBetween('surgery_kinds.created_at', array($from_date, $to_date));
         if ($filter_1 != -1)
