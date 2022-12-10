@@ -145,16 +145,18 @@ class SurgeryKindsController extends Controller
 
 
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
-        $totalRecords = SurgeryKind::all();
-        $totalRecordswithFilter = SurgeryKind::all();
+        $totalRecords = DB::table('surgery_kinds')->orderBy('id');
+        alert($totalRecords);
+        //$totalRecords = SurgeryKind::all();
+        $totalRecordswithFilter = DB::table('surgery_kinds')->orderBy('id');
         // $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('surgery_kinds.name', 'like', '%' . $searchValue . '%')
-                ->orWhere('surgery_kinds.name', 'like', '%' . $searchValue . '%')
-                ->orWhere('surgery_kinds.name', 'like', '%' . $searchValue . '%')
-                ->orWhere('surgery_kinds.name', $searchValue);
+                ->orWhere('surgery_kinds.id', 'like', '%' . $searchValue . '%')
+                ->orWhere('surgery_kinds.surgery_kind_id', 'like', '%' . $searchValue . '%')
+                ->orWhere('surgery_kinds.created_at', $searchValue);
 
         if ($from_date != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('surgery_kinds.created_at', array($from_date, $to_date));

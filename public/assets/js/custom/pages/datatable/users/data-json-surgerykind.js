@@ -227,7 +227,7 @@ function deleted_(id) {
             console.log('sss')
             $.ajax({
                 type: "DELETE",
-                url: SITEURL + "/appointments/"+id,
+                url: SITEURL + "/surgerykinds/"+id,
                 success: function (data) {
                     Swal.fire({
                         icon: "success",

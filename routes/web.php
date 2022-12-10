@@ -49,7 +49,7 @@ Route::resource('creditors',CreditorsController::class)->middleware('auth');
 Route::post('creditors/getcreditorsData',[CreditorsController::class, 'getcreditorsData'])->name('debtors.getcreditorsData');
 
 Route::resource('surgerykinds',SurgeryKindsController::class)->middleware('auth');
-Route::post('surgerykinds/getSurgerykindData',[CreditorsController::class, 'getSurgerykindData'])->name('surgerykind.getSurgerykindData');
+Route::post('surgerykinds/getSurgerykindData',[SurgeryKindsController::class, 'getSurgerykindData'])->name('surgerykind.getSurgerykindData');
 
 
 Route::get('/findProductName',[AppointmentsController::class,'findProductName']);

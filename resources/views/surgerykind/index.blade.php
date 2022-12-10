@@ -262,7 +262,7 @@
 
                             <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
                             {{--    <script src="{{ asset('assets/js/pages/features/miscellaneous/sweetalert2.js') }}" type="text/javascript"></script> --}}
-                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-debtors.js') }}" type="text/javascript">
+                            <script src="{{ asset('assets/js/custom/pages/datatable/users/data-json-surgerykind.js') }}" type="text/javascript">
                             </script>
                             <script src="{{ asset('assets/js/custom/documentation/forms/select2.js') }}"></script>
                             <script src="{{ asset('assets/js/custom/modals/new-target.js') }}"></script>
