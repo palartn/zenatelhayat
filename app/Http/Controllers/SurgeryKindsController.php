@@ -174,13 +174,13 @@ class SurgeryKindsController extends Controller
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
         
-        $items = SurgeryKind::orderBy('surgery_kinds.id', 'desc');
+        $items = SurgeryKind::orderBy('surgery_kinds.id', 'asc');
         if ($searchValue != null)
             $items = $items
                 ->where('surgery_kinds.name', 'like', '%' . $searchValue . '%')
-                ->orWhere('surgery_kinds.next_visit_date', 'like', '%' . $searchValue . '%')
+                ->orWhere('surgery_kinds.surgery_kind_id', 'like', '%' . $searchValue . '%')
                 ->orWhere('surgery_kinds.name', $searchValue)
-                ->orWhere('surgery_kinds.name', $searchValue);
+                ->orWhere('surgery_kinds.id', $searchValue);
 
 
         if ($from_date != -1)
