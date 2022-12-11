@@ -18,6 +18,7 @@ class AppointmentResource extends JsonResource
             'created_at' => $this->created_at->diffForHumans(),
             'visit_date' => $this->visit_date,
             'next_visit_date' => $this->next_visit_date,
+          //  'surgery_kind_id' => $this->surgery_kind_id,
             'surgery_kind_id' => $this->surgery_kind_id,
             'surgery_kind_id_child' => $this->surgery_kind_id_child,
             'notes' => $this->notes,
