@@ -49,18 +49,18 @@
                                 </span>
                                 <!--end::Svg Icon-->إضافة زيارة
                             </a>
-        
+
                         </div>
-    
+
                         <!--end::Add customer-->
-    
+
                     </div>
                     <!--end::Toolbar-->
                     <!--begin::Group actions-->
- 
+
                 </div>
             </div>
-         
+
             <div id="kt_accordion_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
                 <div class="accordion-body">
                     <div class="card-body pt-0">
@@ -68,8 +68,8 @@
 
 
                             <div class="row mb-0 search_input">
-                            
-                              
+
+
                                 <div class="col-lg-4 mb-6">
                                     <label>اسم المريض :</label>
                                     <input type="text" class="form-control datatable-input" name="filter_2" id="filter_2" placeholder="اسم المريض" data-col-index="5"/>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
             <!--end::Header-->
             <!--begin::Body-->
@@ -137,9 +137,9 @@
                                 <th>#</th>
                                 <th>الرقم </th>
                                 <th>إسم المريض</th>
-                                <th>المبلغ الإجمالي</th>
-                                <th>العملة</th>
-                                <th>المبلغ المتبقي</th>
+                                <th>تاريخ الزيارة</th>
+                                <th>القسم</th>
+                                <th>المبلغ </th>
                                 <th>ملاحظات</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
@@ -258,7 +258,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
@@ -274,7 +274,7 @@
 
                                 <div class="card text-center">
                             <div class="card-header">
-                              
+
                             </div>
                             <div class="card-body ">
                               <h5 class="card-title">بيانات التجميد </h5>
@@ -286,25 +286,25 @@
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
                                    </div>
                                </div>
-                           </div>             
+                           </div>
                               <div class="form-group row mb-1">
                                <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
                                <div class="col-6 lg-8">
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
                                    </div>
                                </div>
-                           </div>             
+                           </div>
                               <div class="form-group row mb-1">
                                <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
                                <div class="col-6 lg-8">
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
                                    </div>
                                </div>
-                           </div>             
-                        
+                           </div>
+
                         </div>
                             <div class="card-footer text-muted">
-                            {{ Carbon\Carbon::now(); }} 
+                            {{ Carbon\Carbon::now(); }}
                             </div>
                           </div>
 </
@@ -350,7 +350,7 @@
                             $('#from_date').flatpickr({
                                 format : 'dd-mm-yyyy',
                             });
-                            
+
                             $('#to_date').flatpickr({
                                 format : 'dd-mm-yyyy',
                             });

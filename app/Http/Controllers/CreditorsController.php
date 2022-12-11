@@ -8,6 +8,7 @@ use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\creditorsResource;
+use App\Models\Appointment;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -93,7 +94,7 @@ class CreditorsController extends Controller
         //
     }
 
-    
+
     public function getcreditorsData(Request $request)
     {
         $draw = $request->get('draw');
@@ -151,8 +152,8 @@ class CreditorsController extends Controller
         // ->get();
 
 
-        $totalRecords = DB::table('payments')->where('remaining_amount','<',0)->count();
-        $totalRecordswithFilter = DB::table('payments')->where('remaining_amount','>',0);
+        $totalRecords = DB::table('appointments')->where('amount_after_discount','>',0)->count();
+        $totalRecordswithFilter = DB::table('appointments')->where('amount_after_discount','>',0);
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
         // $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
         // $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'));
@@ -160,15 +161,15 @@ class CreditorsController extends Controller
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
-                ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.total_price', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.discount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.currency', $searchValue);
+                ->where('appointments.amount_after_discount', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.amount_before_discount', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.campaign_year', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.patient_id', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('payments.pay_date', array($from_date, $to_date));
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.visit_date', array($from_date, $to_date));
         // if ($filter_1 != -1)
-        //     $totalRecordswithFilter = $totalRecordswithFilter->where('payments.remaining_amount', 'like', '%' . $filter_1 . '%');
+        //     $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.remaining_amount', 'like', '%' . $filter_1 . '%');
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_2) {
 
@@ -186,28 +187,28 @@ class CreditorsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Payment::where('remaining_amount','<',0)->with('patient')->orderBy('payments.id', 'desc');
+        $items = Appointment::where('amount_after_discount','>',0)->with('patient')->orderBy('appointments.id', 'desc');
         if ($searchValue != null)
             $items = $items
-                ->where('payments.remaining_amount', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.total_price', 'like', '%' . $searchValue . '%')
-                ->orWhere('payments.patient_id', $searchValue)
-                ->orWhere('payments.currency', $searchValue);
+                ->where('appointments.amount_after_discount', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.patient_id)', 'like', '%' . $searchValue . '%')
+                ->orWhere('appointments.campaign_year', $searchValue)
+                ->orWhere('appointments.discount_value', $searchValue);
 
 
         if ($from_date != -1)
-            $items = $items->whereBetween('payments.pay_date', array($from_date, $to_date));
+            $items = $items->whereBetween('appointments.visit_date', array($from_date, $to_date));
         // if ($filter_1 != -1)
-        //     $items = $items->where('payments.total_price', 'like', $filter_1);
+        //     $items = $items->where('appointments.total_price', 'like', $filter_1);
         if ($filter_2 != -1)
             $items = $items->whereHas('patient', function ($query) use ($filter_2) {
                 $query->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
             });
         if ($filter_3 != -1)
-            $items = $items->whereIn('payments.currency', $filter_3);
+            $items = $items->whereIn('appointments.next_visit_date', $filter_3);
         if ($filter_4 != -1)
-            $items = $items->where('payments.notes', 'like', '%' . $filter_4 . '%');
-        $items = $items->select('payments.*')
+            $items = $items->where('appointments.notes', 'like', '%' . $filter_4 . '%');
+        $items = $items->select('appointments.*')
             ->skip($start)
             ->take($rowperpage)
             ->get();
@@ -222,14 +223,14 @@ class CreditorsController extends Controller
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'patient_number' => $item->patient->patient_number,
-                'currency' => $item->patient->currency,
-                'remaining_amount' => $item->remaining_amount,
-                'pay_date' => $item->pay_date,
-                'total_price' => $item->total_price,
+                'next_visit_date' => $item->next_visit_date,
+                'campaign_year' => $item->campaign_year,
+                'full_name' => $item->full_name,
                 'notes' => $item->notes,
-                'discount' => $item->discount,
-                'currency' => $item->currency,
-                'pay_date' => $item->pay_date,
+                'surgery_kind_id_child'=>$item->surgery_kind_id_child,
+                'amount_before_discount' => $item->amount_before_discount,
+                'amount_after_discount' => $item->amount_after_discount,
+                'visit_date' => $item->visit_date,
                 "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 

@@ -16,17 +16,22 @@ class CreditorsResource extends JsonResource
     {
         return [
             'created_at' => $this->created_at->diffForHumans(),
-            'total_price' => $this->total_price,
-            'discount'  => $this->discount,
-            'remaining_amount' => $this->remaining_amount,
-            'currency' => $this->currency,
-            'pay_date' => $this->pay_date,
-            'notes' => $this->notes,       
-            //'created_at' => $this->created_at,       
-            'updated_at' => $this->updated_at,          
+            'visit_date' => $this->visit_date,
+            'next_visit_date'  => $this->next_visit_date,
+            'amount_before_discount' => $this->amount_before_discount,
+            'discount_value' => $this->discount_value,
+            'amount_after_discount' => $this->amount_after_discount,
+            'notes' => $this->notes,
+            //'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'surgery_kind_id' => $this->surgery_kindsurgery_kind_id_child,
+            'surgery_kind_id_child' => $this->surgery_kind_id_child,
+
+            // 'surgery_kinds' => $this->surgery_kinds,
+            // 'name' =>$this->surgery_kinds->name,
             'patient'  => $this->patient,
             'patient_number' => $this->patient->patient_number,
-            'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,  
+            'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,
         ];
     }
 }

@@ -193,6 +193,8 @@ class AppointmentsController extends Controller
             $appointment = Appointment::create([
                 'next_visit_date' => $request->next_visit_date,
                 'surgery_kind_id' => $request->surgery_kind_id,
+                'amount_before_discount' => $request->amount_before_discount,
+                'amount_after_discount' => $request->amount_after_discount,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
                 'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
@@ -207,13 +209,12 @@ class AppointmentsController extends Controller
 
             $payment = Payment::create([
                 'appointment_id' => $appointment->id,
-                'total_price' => $request->total_price,
                 'currency' => $request->currency,
                 'paid' => $request->paid,
-                'remaining_amount' => $request->remaining_amount,
-                'total_price' => $request->total_price,
+                //'remaining_amount' => $request->remaining_amount,
+                //'total_price' => $request->total_price,
                 'pay_date' => $request->pay_date,
-                'discount' => $request->discount,
+                //'discount' => $request->discount,
                 // 'total_price' => $request->total_price,
                 'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
@@ -402,7 +403,7 @@ class AppointmentsController extends Controller
             });
         // if ($filter_3 != -1)
         //    $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', 'like', '%' . $filter_3 . '%');
-       
+
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 

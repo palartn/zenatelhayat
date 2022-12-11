@@ -267,11 +267,12 @@ tinymce.init({
 					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
 				   }
 
+
 				   $('.productname').html(" ");
                  $('.productname').append(op);
-       
 
-					
+
+
 
 				},
 				error:function(){
