@@ -153,6 +153,9 @@ class AppointmentsController extends Controller
                 'freez_start_date'=>$request->freez_start_date,
                 'freez_end_date'=>$request->freez_end_date,
                 'campaign_year'=>$request->campaign_year,
+                'amount_before_discount'=>$request->amount_before_discount,
+                'discount_value'=>$request->discount_value,
+                'amount_after_discount'=>$request->amount_after_discount,
                 'notes' => $request->notes,
 
                 //'event' => implode('-',$request->event),
@@ -160,14 +163,9 @@ class AppointmentsController extends Controller
 
             $payment = $patient->payments()->create([
                 'appointment_id' => $appointment->id,
-                'total_price' => $request->total_price,
                 'currency' => $request->currency,
                 'paid' => $request->paid,
-                'remaining_amount' => $request->remaining_amount,
-                'total_price' => $request->total_price,
                 'pay_date' => $request->pay_date,
-                'discount' => $request->discount,
-                // 'total_price' => $request->total_price,
                 'notes' => $request->notes,
             ]);
 
@@ -275,20 +273,23 @@ class AppointmentsController extends Controller
             'next_visit_date' => $request->next_visit_date,
             'surgery_kind_id' => $request->surgery_kind_id,
             'surgery_kind_id_child' => $request->surgery_kind_id_child,
-            'qty_packages' => $request->qty_packages,
-            'freez_start_date' => $request->freez_start_date,
-            'freez_end_date' => $request->freez_end_date,
-            'campaign_year' => $request->campaign_year,
+            'qty_packages'=>$request->qty_packages,
+            'freez_start_date'=>$request->freez_start_date,
+            'freez_end_date'=>$request->freez_end_date,
+            'campaign_year'=>$request->campaign_year,
+            'amount_before_discount'=>$request->amount_before_discount,
+            'discount_value'=>$request->discount_value,
+            'amount_after_discount'=>$request->amount_after_discount,
             'notes' => $request->notes,
 
         ]);
         $appointment->payment->update([
             'paid' => $request->paid,
-            'total_price' => $request->total_price,
+           // 'total_price' => $request->total_price,
             'currency' => $request->currency,
             'pay_date' => $request->pay_date,
-            'remaining_amount' => $request->remaining_amount,
-            'discount' => $request->discount,
+            //'remaining_amount' => $request->remaining_amount,
+           // 'discount' => $request->discount,
             'notes' => $request->notes,
         ]);
 

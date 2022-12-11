@@ -165,8 +165,8 @@
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
-						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
-						name="total_price" id="total_price" value="{{ $appointment->payment->total_price }}" placeholder="المبلغ للدفع">
+						class="form-control form-control-solid amount_before_discount @error('amount_before_discount') is-invalid @enderror"
+						name="amount_before_discount" id="amount_before_discount" value="{{ $appointment->amount_before_discount }}" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-4 sm-3 mt-6">
@@ -180,8 +180,8 @@
 					<label class="fs-4 fw-semibold form-label" for="visit_date">
 						خصم خاص</label>
 					<input type="number"
-						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
-						name="discount" id="discount" value="{{ $appointment->payment->discount }}" placeholder="مبلغ الخصم">
+						class="form-control form-control-solid paid @error('discount_value') is-invalid @enderror"
+						name="discount_value" id="discount_value" value="{{ $appointment->discount_value }}" placeholder="مبلغ الخصم">
 				</div>
 
 				<div class="col-4 sm-3 mt-6">
@@ -200,9 +200,9 @@
 				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
-					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
-						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
-						 placeholder="الباقي" value="{{ $appointment->payment->remaining_amount }}">
+					<input type="number" name="amount_after_discount" readonly style="background: rgb(221, 228, 243)"
+						class="form-control form-control-solid amount_after_discount @error('amount_after_discount') is-invalid @enderror"
+						 placeholder="الباقي" value="{{ $appointment->amount_after_discount }}">
 				</div>
 				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -338,16 +338,16 @@
 </script>
 <script>
 
-	$('input.total_price,input.paid,input.discount').on('change keyup',function(){
-			var total_price = $("#total_price").val()
-			var discount = $("#discount").val()
-			var paid = $("#paid").val()
-			//console.log(total_price);
-		  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
-		
-		})
-	
-		</script>
+	$('input.amount_before_discount,input.discount_value,input.amount_after_discount,input.paid').on('change keyup',function(){
+		var amount_before_discount = $("#amount_before_discount").val()
+		var paid = $("#paid").val()
+		var discount_value = $("#discount_value").val()
+		//console.log(total_price);
+	  $grand_total=$('.amount_after_discount').val(amount_before_discount - paid - discount_value);
+
+	})
+
+	</script>
 		<script>
 
 			$(".flatpickr-input").flatpickr({
