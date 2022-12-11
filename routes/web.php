@@ -11,6 +11,7 @@ use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SubPayementsController;
 use App\Http\Controllers\SurgeryKindsController;
 
 /*
@@ -56,6 +57,9 @@ Route::get('/findProductName',[AppointmentsController::class,'findProductName'])
 Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
 
 Route::resource('payments',PaymentController::class)->middleware('auth');
+
+
+Route::resource('subpayments',SubPayementsController::class)->middleware('auth');
 
 
 

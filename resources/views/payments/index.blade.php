@@ -39,7 +39,7 @@
 
 	<div class="card-body pt-5">
 	<!--begin::Form-->
-	<form method="POST" action="{{ route('appointment.createnewappointment') }}">
+	<form method="POST" action="{{ route('subpayments.store') }}">
 		@csrf
 		<div class="col mt-6">
 			<div class="col xl-3">
@@ -50,49 +50,10 @@
                     @endforeach
                 </select>
 			</div>
-            <div class="col xl-3 mt-6">
-                <label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
-                <input type="text" readonly 
-                    class="form-control form-control-solid @error('visit_date') is-invalid @enderror"
-                    name="visit_date" value="{{ $today_date }}" readonly >
-            </div>
+            
 
 
 
-				<div class="row">
-					{{-- @if($patient->patient_type=='مريض') --}}
-			<div class="col xl-4 col-4 mt-6">
-				<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ الزيارة
-					القادمة</label>
-				<input type="date"
-					class="form-control form-control-solid  flatpickr-input active @error('next_visit_date') is-invalid @enderror"
-					id="kt_datepicker_1 next_visit_date" name="next_visit_date"
-					value="{{ old ('next_visit_date') }}" placeholder="الزيارة القادمة">
-				@error('next_visit_date')
-					<div class="text-danger mt-1 mb-1">{{ $message }}</div>
-				@enderror
-
-			</div>
-			{{-- @endif --}}
-				  <div class="col col-4">
-					<label class="fs-4 fw-semibold form-label mt-6"> سبب الزيارة </label>
-					<select name='surgery_kind_id'  class="form-control form-control-solid productcategory" id="prod_cat_id">
-					<option value="0" disabled="true" selected="true">سبب الزيارة</option>
-					@foreach($surgerykind as $surgerykind)
-						<option value="{{$surgerykind->id}}">{{$surgerykind->name}}</option>
-					@endforeach
-				</select>
-
-				</div>
-
-					<div class="col col-4">
-						<label class="fs-4 fw-semibold form-label mt-6" > القسم</label>
-						<select  name='surgery_kind_id_child'  class="form-control form-control-solid productname">
-							{{-- <option value="0" disabled="true" selected="true">القسم</option> --}}
-						</select>
-
-				</div>
-				</div>
 
 				<div class="row campaign d-none " id="campaign">
 					<div class="col-12 mt-6">
@@ -110,77 +71,33 @@
 
 				</div>
 
-				<div class="row specific d-none" id="specific">
-					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile">
-							عدد العبوات</label>
-						<input type="number"
-							class="form-control form-control-solid   @error('qty_packages') is-invalid @enderror"
-							name="qty_packages"
-							value="{{ old ('qty_packages') }}" placeholder="عدد العبوات">
-						@error('qty_packages')
-							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
-						@enderror
-
-					</div>
-					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ بداية
-							التجميد</label>
-						<input type="date"
-							class="form-control form-control-solid  flatpickr-input active @error('freez_start_date') is-invalid @enderror"
-							id="kt_datepicker_1 freez_start_date" name="freez_start_date"
-							value="{{ old ('freez_start_date') }}" placeholder="تاريخ بداية التجميد">
-						@error('freez_start_date')
-							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
-						@enderror
-
-					</div>
-					<div class="col-4 mt-6">
-						<label class="fs-4 fw-semibold form-label" for="mobile"> تاريخ نهاية
-							التجميد</label>
-						<input type="date"
-							class="form-control form-control-solid  flatpickr-input active @error('freez_end_date') is-invalid @enderror"
-							id="kt_datepicker_1 " name="freez_end_date"
-							value="{{ old ('freez_end_date') }}" placeholder="تاريخ نهاية التجميد">
-						@error('freez_end_date')
-							<div class="text-danger mt-1 mb-1">{{ $message }}</div>
-						@enderror
-
-					</div>
-
-				</div>
 				
-				</div>
+					
+				
+			
 			<div class="row">
-				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">التكلفة</label>
-					<input type="number"
-						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
-						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
-				</div>
-
-				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
+				
+				<div class="col-6 sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="amount_paid">المبلغ
 						المدفوع</label>
 					<input type="number"
-						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
-						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المدفوع">
+						class="form-control form-control-solid paid @error('amount_paid') is-invalid @enderror"
+						name="amount_paid" id="amount_paid" value="{{ old('amount_paid') }}" placeholder="المدفوع">
 				</div>
 
-				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">
+				<div class="col-6 sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="discount">
 						خصم خاص</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
 						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
 				</div>
 
-				<div class="col-4 sm-3 mt-6">
+				<div class="col-6 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">عملة الدفع</label>
-						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
-					name="currency" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
+						for="currancy">عملة الدفع</label>
+						<select class="form-select form-select-lg form-select-solid  @error('currancy') is-invalid @enderror "
+					name="currancy" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
 						<option value="شيكل" >شيكل</option>
 						<option value="دولار">دولار</option>
 						<option value="دينار">دينار</option>
@@ -189,20 +106,20 @@
 				</div>
 
 
-				<div class="col-4 mt-6">
+				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
 					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
 						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
 						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
 				</div>
-				<div class="col-4 mt-6">
+				<div class="col-12 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
-					<input type="date" name="pay_date"
-						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
+					<input type="date" name="paid_date"
+						class="form-control form-control-solid  flatpickr-input active @error('paid_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع" value="{{ old('pay_date') }}">
+						placeholder="تاريخ الدفع" value="{{ old('paid_date') }}">
 				</div>
 			</div>
 			<div>
