@@ -532,7 +532,6 @@
                                 //         $("#successMessage").hide('blind', {}, 500)
                                 //     }, 5000);
                                 // });
-//ddd
                                 setTimeout(function() {
                                     $('.alert-session-flash').fadeOut('low');
                                 }, 3000); // <-- time in milliseconds
