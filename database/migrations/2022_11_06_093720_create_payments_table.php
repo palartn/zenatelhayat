@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('appointment_id')->constrained()->cascadeOnDelete();
             $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->double('paid');
-            $table->double('total_price');
-            $table->string('discount')->nullable();
+           // $table->double('total_price');
+            //$table->string('discount')->nullable();
             $table->string('currency');
-            $table->double('remaining_amount');
+           // $table->double('remaining_amount');
             $table->date('pay_date');
             $table->string('notes')->nullable();
             $table->softDeletes();

@@ -24,6 +24,9 @@ return new class extends Migration
             $table->date('freez_start_date')->nullable();
             $table->date('freez_end_date')->nullable();
             $table->string('campaign_year')->nullable();
+            $table->double('amount_before_discount')->comment('المبلغ قبل الخصم '); //المبلغ قبل الخصم
+            $table->double('discount_value')->nullable()->comment('قيمة الخصم '); //قيمة الخصم 
+            $table->double('amount_after_discount')->comment('المبلغ بعد الخصم'); //المبلغ بعد الخصم
             $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -50,6 +50,14 @@ class SubPayementsController extends Controller
                 'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
             ]);
+            $pays = Payment::where('patient_id',$payment->patient_id)->get();
+            // dd($pay);
+            foreach ($pays as $pay) {
+                $pay->update([
+                    'remaining_amount' => $pay->remaining_amount - $payment->amount_paid
+                ]);
+            }
+            
      
            
           
