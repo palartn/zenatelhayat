@@ -161,12 +161,12 @@
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">التكلفة</label>
 					<input type="number"
-						class="form-control form-control-solid total_price @error('total_price') is-invalid @enderror"
-						name="total_price" id="total_price" value="{{ old('total_price') }}" placeholder="المبلغ للدفع">
+						class="form-control form-control-solid amount_before_discount @error('amount_before_discount') is-invalid @enderror"
+						name="amount_before_discount" id="amount_before_discount" value="{{ old('amount_before_discount') }}" placeholder="المبلغ للدفع">
 				</div>
 
 				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
+					<label class="fs-4 fw-semibold form-label" for="paid">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
@@ -174,11 +174,11 @@
 				</div>
 
 				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">
+					<label class="fs-4 fw-semibold form-label" for="discount_value">
 						خصم خاص</label>
 					<input type="number"
-						class="form-control form-control-solid paid @error('discount') is-invalid @enderror"
-						name="discount" id="discount" value="{{ old('discount') }}" placeholder="مبلغ الخصم">
+						class="form-control form-control-solid discount_value @error('discount_value') is-invalid @enderror"
+						name="discount_value" id="discount_value" value="{{ old('discount_value') }}" placeholder="مبلغ الخصم">
 				</div>
 
 				<div class="col-4 sm-3 mt-6">
@@ -197,9 +197,9 @@
 				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المتبقي</label>
-					<input type="number" name="remaining_amount" readonly style="background: rgb(221, 228, 243)"
-						class="form-control form-control-solid remaining_amount @error('remaining_amount') is-invalid @enderror"
-						value="" placeholder="الباقي" value="{{ old('remaining_amount') }}">
+					<input type="number" name="amount_after_discount" readonly style="background: rgb(221, 228, 243)"
+						class="form-control form-control-solid amount_after_discount @error('amount_after_discount') is-invalid @enderror"
+						value="" placeholder="الباقي" value="{{ old('amount_after_discount') }}">
 				</div>
 				<div class="col-4 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
@@ -333,15 +333,14 @@ tinymce.init({
 
 <script>
 
-$('input.total_price,input.paid,input.discount').on('change keyup',function(){
-		var total_price = $("#total_price").val()
-		var discount = $("#discount").val()
+	$('input.amount_before_discount,input.discount_value,input.amount_after_discount,input.paid').on('change keyup',function(){
+		var amount_before_discount = $("#amount_before_discount").val()
 		var paid = $("#paid").val()
+		var discount_value = $("#discount_value").val()
 		//console.log(total_price);
-	  $grand_total=$('.remaining_amount').val(total_price-paid-discount);
-	
+	  $grand_total=$('.amount_after_discount').val(amount_before_discount - paid - discount_value);
+
 	})
 
 	</script>
-
 @endsection
