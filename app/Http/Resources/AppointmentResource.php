@@ -29,7 +29,7 @@ class AppointmentResource extends JsonResource
             'surgery_kind'  => $this->surgery_kind,
             'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,
             'surgery_kind_name' => $this->surgery_kind->name,
-            'surgery_kind_id' => $this->surgery_kind_child->name
+            'surgery_kind_id' => $this->surgery_kind_child->name,
 
         ];
     }

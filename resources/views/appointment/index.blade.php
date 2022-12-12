@@ -121,7 +121,7 @@
                         </form>
                     </div>
                 </div>
-
+              
                 
             </div>
             <!--end::Header-->
@@ -267,7 +267,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-6">
+                                <div class="form-group row mb-1">
+                                    <label class="col-form-label col-lg-4">اجمالي المتبقي </label>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="total_amount">
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div col-12>
 
@@ -312,6 +321,9 @@
                     </div>
                 </div>
             </div>
+
+
+        
 
                             <!--end::Modal-->
                         @endsection
@@ -498,19 +510,20 @@
                                         // return the result
                                         success: function(result) {
 
-                                         console.log(result);
+                                        //  console.log(result.total_amount);
                                             $('#smallModal').modal("show");
-                                            $('#patient_id').html(result.data.full_name);
-                                            $('#visit_date').html(result.data.visit_date);
-                                            $('#next_visit_date').html(result.data.next_visit_date);
-                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
-                                            $('#freez_start_date').html(result.data.freez_start_date);
-                                            $('#freez_end_date').html(result.data.freez_end_date);
-                                            $('#qty_packages').html(result.data.qty_packages);
-                                             $('#notes').html(result.data.notes);
-                                            $('#created_at').html(result.data.created_at);
+                                            $('#patient_id').html(result.app_return.full_name);
+                                            $('#visit_date').html(result.app_return.visit_date);
+                                            $('#next_visit_date').html(result.app_return.next_visit_date);
+                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
+                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
+                                            $('#freez_start_date').html(result.app_return.freez_start_date);
+                                            $('#freez_end_date').html(result.app_return.freez_end_date);
+                                            $('#qty_packages').html(result.app_return.qty_packages);
+                                             $('#notes').html(result.app_return.notes);
+                                            $('#created_at').html(result.app_return.created_at);
                                             $('#smallBody').html(result).show();
+                                            $('#total_amount').html(result.total_amount);
                                         },
                                         error: function(jqXHR, testStatus, error) {
                                             console.log(error);

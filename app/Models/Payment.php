@@ -18,5 +18,10 @@ class Payment extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
+ public function surgery_kind()
+    {
+        return $this->belongsTo(SurgeryKind::class);
+    }
+
    
 }

@@ -163,48 +163,49 @@
 			<div class="row" >
 				<div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">التكلفة</label>
+						for="amount_before_discount">التكلفة</label>
 					<input type="number"
 						class="form-control form-control-solid amount_before_discount @error('amount_before_discount') is-invalid @enderror"
 						name="amount_before_discount" id="amount_before_discount" value="{{ $appointment->amount_before_discount }}" placeholder="المبلغ للدفع">
 				</div>
 
-				<div class="col-4 sm-3 mt-6">
+				{{-- <div class="col-4 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
 						المدفوع</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
 						name="paid" id="paid" value="{{ $appointment->payment->paid }}" placeholder="المدفوع">
-				</div>
+				</div> --}}
 				<div class="col-4 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">
+					<label class="fs-4 fw-semibold form-label" for="discount_value">
 						خصم خاص</label>
 					<input type="number"
 						class="form-control form-control-solid paid @error('discount_value') is-invalid @enderror"
 						name="discount_value" id="discount_value" value="{{ $appointment->discount_value }}" placeholder="مبلغ الخصم">
 				</div>
+				<div class="col-4 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="amount_after_discount">صافي المبلغ بعد الخصم
+						</label>
+					<input type="number" name="amount_after_discount"  style="background: rgb(221, 228, 243)"
+						class="form-control form-control-solid amount_after_discount @error('amount_after_discount') is-invalid @enderror"
+						 placeholder="الباقي" value="{{ $appointment->amount_after_discount }}">
+				</div>
 
-				<div class="col-4 sm-3 mt-6">
+				{{-- <div class="col-6 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="visit_date">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
 					name="currency" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
-						<option value="شيكل" >شيكل</option>
+						<option value="شيكل" selected >شيكل</option>
 						<option value="دولار">دولار</option>
 						<option value="دينار">دينار</option>
 					</select>
 
-				</div>
+				</div> --}}
 
 
-				<div class="col-4 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">المبلغ
-						المتبقي</label>
-					<input type="number" name="amount_after_discount" readonly style="background: rgb(221, 228, 243)"
-						class="form-control form-control-solid amount_after_discount @error('amount_after_discount') is-invalid @enderror"
-						 placeholder="الباقي" value="{{ $appointment->amount_after_discount }}">
-				</div>
-				<div class="col-4 mt-6">
+				
+				<div class="col-12 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
 					<input type="date" name="pay_date"
@@ -340,14 +341,14 @@
 
 	$('input.amount_before_discount,input.discount_value,input.amount_after_discount,input.paid').on('change keyup',function(){
 		var amount_before_discount = $("#amount_before_discount").val()
-		var paid = $("#paid").val()
 		var discount_value = $("#discount_value").val()
 		//console.log(total_price);
-	  $grand_total=$('.amount_after_discount').val(amount_before_discount - paid - discount_value);
+	  $grand_total=$('.amount_after_discount').val(amount_before_discount - discount_value);
 
 	})
 
 	</script>
+
 		<script>
 
 			$(".flatpickr-input").flatpickr({

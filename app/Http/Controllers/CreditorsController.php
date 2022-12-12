@@ -227,7 +227,7 @@ class CreditorsController extends Controller
                 'campaign_year' => $item->campaign_year,
                 'full_name' => $item->full_name,
                 'notes' => $item->notes,
-                'surgery_kind_id_child'=>$item->surgery_kind_id_child,
+                'surgery_kind_id_child'=>$item->surgery_kind->name,
                 'amount_before_discount' => $item->amount_before_discount,
                 'amount_after_discount' => $item->amount_after_discount,
                 'visit_date' => $item->visit_date,

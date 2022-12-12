@@ -161,13 +161,13 @@ class AppointmentsController extends Controller
                 //'event' => implode('-',$request->event),
             ]);
 
-            $payment = $patient->payments()->create([
-                'appointment_id' => $appointment->id,
-                'currency' => $request->currency,
-                'paid' => $request->paid,
-                'pay_date' => $request->pay_date,
-                'notes' => $request->notes,
-            ]);
+            // $payment = $patient->payments()->create([
+            //     'appointment_id' => $appointment->id,
+            //     'currency' => $request->currency,
+            //     'paid' => $request->paid,
+            //     'pay_date' => $request->pay_date,
+            //     'notes' => $request->notes,
+            // ]);
 
             DB::commit();
 
@@ -207,18 +207,14 @@ class AppointmentsController extends Controller
                 //'event' => implode('-',$request->event),
             ]);
 
-            $payment = Payment::create([
-                'appointment_id' => $appointment->id,
-                'currency' => $request->currency,
-                'paid' => $request->paid,
-                //'remaining_amount' => $request->remaining_amount,
-                //'total_price' => $request->total_price,
-                'pay_date' => $request->pay_date,
-                //'discount' => $request->discount,
-                // 'total_price' => $request->total_price,
-                'notes' => $request->notes,
-                'patient_id' => $request->patient_id,
-            ]);
+            // $payment = Payment::create([
+            //     'appointment_id' => $appointment->id,
+            //     'currency' => $request->currency,
+            //     'paid' => $request->paid,
+            //     'pay_date' => $request->pay_date,
+            //     'notes' => $request->notes,
+            //     'patient_id' => $request->patient_id,
+            // ]);
             DB::commit();
 
             Alert::warning('إضافة زيارة', 'تمت عملية الإضافة بنجاح');
@@ -240,7 +236,9 @@ class AppointmentsController extends Controller
         //dd('dasd');
         $appointment = Appointment::findOrFail($id);
         $app_return = new AppointmentResource($appointment);
-        return $app_return;
+        $total_amount = total_paid($appointment->patient_id);
+// dd($total_amount);
+        return ['app_return'=>$app_return,'total_amount'=>$total_amount];
     }
 
 
@@ -284,15 +282,15 @@ class AppointmentsController extends Controller
             'notes' => $request->notes,
 
         ]);
-        $appointment->payment->update([
-            'paid' => $request->paid,
-           // 'total_price' => $request->total_price,
-            'currency' => $request->currency,
-            'pay_date' => $request->pay_date,
-            //'remaining_amount' => $request->remaining_amount,
-           // 'discount' => $request->discount,
-            'notes' => $request->notes,
-        ]);
+        // $appointment->payment->update([
+        //    'paid' => $request->paid,
+        //    'total_price' => $request->total_price,
+        //     'currency' => $request->currency,
+        //     'pay_date' => $request->pay_date,
+        //     'remaining_amount' => $request->remaining_amount,
+        //    'discount' => $request->discount,
+        //    'notes' => $request->notes,
+        // ]);
 
 
 
