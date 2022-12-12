@@ -444,6 +444,7 @@ class AppointmentsController extends Controller
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
+                'p_id' => $item->patient_id,
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
@@ -613,5 +614,33 @@ class AppointmentsController extends Controller
 
         return response()->json($response);
         exit;
+    }
+
+
+
+    public function paid(Request $request,$appointment,$patient)
+    {
+        $paid_p = Payment::create([
+            'appointment_id'=> $appointment,
+            'patient_id'=> $patient,
+            'paid'=> $request->paid,
+            'currency'=> 'شيكل',
+            'pay_date'=> $request->pay_date,
+            'notes'=> $request->notes,
+            
+        ]);
+        $payment_paid = Payment::where('appointment_id',$appointment)->where('patient_id',$patient)->sum('paid');
+        $appointment_paid = Appointment::where('appointment_id',$appointment)->where('patient_id',$patient)->first();
+        if($payment_paid >= $appointment_paid->amount_after_discount){
+            $appointment_paid->update([
+                'is_paid_complete' => 1
+            ]);
+        }else{
+            $appointment_paid->update([
+                'is_paid_complete' => 0
+            ]); 
+        }
+       
+        return response()->json($payment_paid);
     }
 }

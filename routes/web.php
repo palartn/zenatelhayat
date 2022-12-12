@@ -93,6 +93,7 @@ Route::resource('files',FileController::class)->middleware('auth');
 
 Route::resource('appointments',AppointmentsController::class)->middleware('auth');
 
+Route::post('appointments/{appointment}/{patient}',[AppointmentsController::class,'paid'])->name('appointments.paid');
 
 
 Route::get('/dashboard', function () {

@@ -93,7 +93,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 {data: 'surgery_kind_id',width: 80},
                 {data: 'surgery_kind_id_child',width: 80},
                 {data: 'notes',width: 80},
-                {data: 'actions',width: 145},
+                {data: 'actions',width: 200},
 
             ],
             columnDefs: [
@@ -112,7 +112,9 @@ var KTDatatablesDataSourceAjaxServer = function() {
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
                         <i class="las la-trash"></i>\
                     </a>\
-                    \
+                    <a href="javascript:;" onclick="return paid_('+full.id+','+full.p_id+')" class="btn btn-sm btn-info" title="ترصيد دفعة">\
+                    ترصيد دفعة\
+                </a>\
 						';
                     },
                       },

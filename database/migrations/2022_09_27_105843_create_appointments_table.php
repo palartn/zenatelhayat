@@ -28,6 +28,7 @@ return new class extends Migration
             $table->double('discount_value')->nullable()->comment('قيمة الخصم '); //قيمة الخصم 
             $table->double('amount_after_discount')->comment('المبلغ بعد الخصم'); //المبلغ بعد الخصم
             $table->string('notes')->nullable();
+            $table->integer('is_paid_complete')->default(0)->comment('0 عليه فلوس');
             $table->softDeletes();
             $table->timestamps();
         });
