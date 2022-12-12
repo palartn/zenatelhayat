@@ -94,6 +94,79 @@
     </script>
 
 
+
+
+
+<div class="modal fade" tabindex="-1" id="kt_modal_1">
+    
+    <div class="modal-dialog">
+        <div class="modal-content w-75 p-3">
+            <div class="modal-header bg-secondary">
+
+                <h5 class="modal-title ">إضافة دفعات مالية للمريض</h5>
+                <p id="demo"></p>
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <img src={{ asset('assets\media\svg\close\close.svg') }}>
+                </div>
+                <!--end::Close-->
+            </div>
+
+            <div class="row">
+				
+				<div class="col-12 sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="amount_paid">المبلغ
+						المدفوع</label>
+					<input type="number"
+						class="form-control form-control-solid paid @error('paid') is-invalid @enderror"
+						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المبلغ المراد دفعة">
+				</div>
+
+				<div class="col-12 sm-3 mt-6">
+					<label class="fs-4 fw-semibold form-label"
+						for="currancy">عملة الدفع</label>
+						<select class="form-select form-select-lg form-select-solid  @error('currancy') is-invalid @enderror "
+					name="currancy" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
+						<option value="شيكل" selected >شيكل</option>
+					
+					</select>
+
+				</div>
+			
+				<div class="col-12 mt-6">
+					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
+						الدفع</label>
+					<input type="date" name="paid_date"
+						class="form-control form-control-solid  flatpickr-input active @error('paid_date') is-invalid @enderror"
+						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
+						placeholder="تاريخ الدفع" value="{{ old('paid_date') }}">
+				</div>
+                <div>
+                    <label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
+                    <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
+                    placeholder="ملاحظات"></textarea>
+                    </div>
+                    <div class="d-flex">
+                        <button type="submit" id="btn" class="btn btn-primary mt-6">
+                        <span class="indicator-label btn-lg btn-block">حفظ</span>
+                        </button>
+                    </div>
+			</div>
+			
+
+
+       </div>
+   </div>
+ </div>
+
+
+                <!--end::Close-->
+
+
+
+
+
     <!--begin::Modal-->
 
     <div class="modal fade" tabindex="-1" id="smallModal">
@@ -376,7 +449,7 @@
 
                                 });
                                 // استدعاء المودال
-                                $(document).on('click', '#smallButton1', function(event) {
+                                $(document).on('click', '#smallButton2', function(event) {
 
                                     event.preventDefault();
                                     let id = $(this).attr('data-attr');
@@ -434,4 +507,105 @@
 
 
                             </script>
+                            <script>
+
+                                $(".flatpickr-input").flatpickr({
+                                
+                                });
+                                
+                                </script>
+                                <script>
+                                     function paid_(appointment,patient) {
+                                        $('#kt_modal_1').modal("show");
+                                        var paid = $('#paid').val();
+                                        var currancy = $('#currancy').val();
+                                        var date_paid = $('#kt_datepicker_1').val();
+                                        var notes = $('#kt_docs_tinymce_basic').val();
+                                        $(document).ready(function() {
+                                    $("#btn-save").click(function(e) {
+                                        e.preventDefault();
+                                        $('#btn-save').html('جاري الحفظ');
+                                        var status_id = $("#status_id").val();
+                                        var status_name = $("#status_name").val();
+                                        var parent_id = $("#parent_id").val();
+                                        var description = $("#description").val();
+                                        if ($('#ajax-modal:has(h2.iziModal-header-title:contains("إضافة ثابت جديد"))')) {
+                                            var url_ = "{{ route('users.store') }}";
+                                            var type_ = "POST";
+                                        } else {
+                                            var url_ = SITEURL + '/appointment/' + status_id;
+                                            var type_ = "PUT";
+                                        }
+                                        $.ajax({
+                                            type: type_,
+                                            url: url_,
+                                            data: {
+                                                status_id: status_id,
+                                                status_name: status_name,
+                                                parent_id: parent_id,
+                                                description: description,
+                                                '_token': '{{ csrf_token() }}'
+                                            },
+                                            //                    dataType: 'json',
+                                            success: function(data) {
+                                                $('#Form_').trigger("reset");
+                                                $('#parent_id').select2().val('').trigger("change");
+                                                $('#ajax-modal:has(h2.iziModal-header-title:contains("تعديل بيانات الثابت"))')
+                                                    .iziModal('close');
+                                                $('#btn-save').html('حفظ');
+                                                Swal.fire({
+                                                    icon: "success",
+                                                    title: "تمت العملية بنجاح!",
+                                                    showConfirmButton: false,
+                                                    timer: 3000
+                                                });
+                                                var oTable = $('#kt_datatable').DataTable();
+                                                oTable.destroy();
+                                                KTDatatablesDataSourceAjaxServer.init();
+
+                                            },
+                                            error: function(data) {
+                                                $('#btn-save').html('حفظ');
+                                                Swal.fire({
+                                                    icon: "error",
+                                                    title: "خطأ!",
+                                                    text: "لم يتم الحفظ",
+                                                    showConfirmButton: false,
+                                                    timer: 3000
+                                                });
+                                            }
+                                        });
+                                    });
+
+
+                                });
+
+
+
+                                        $.ajax({
+                                        type: "post",
+                                        url: SITEURL +'/appointments/'+appointment+'/'+patient,
+                                        data:{
+                                            paid:paid,
+                                            currancy:currancy,
+                                            date_paid:date_paid,
+                                            notes:notes,
+                                        },
+
+                                        // return the result
+                                        success: function(result) {
+
+                                         console.log(result);
+                                          
+                                        },
+                                        error: function(error) {
+                                            console.log(error);
+                                        },
+
+                                    })
+
+
+
+                                     };
+                                </script>
                         @endsection

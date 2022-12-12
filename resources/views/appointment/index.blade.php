@@ -192,9 +192,15 @@
     </script>
 
 
+
+
+
+
+
     <!--begin::Modal-->
 
     <div class="modal fade" tabindex="-1" id="smallModal">
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-secondary">
@@ -315,13 +321,15 @@
                             {{ Carbon\Carbon::now(); }} 
                             </div>
                           </div>
-</
+
                             </div>
 
                     </div>
                 </div>
             </div>
-
+            </div>
+        </div>
+    </div>
 
         
 

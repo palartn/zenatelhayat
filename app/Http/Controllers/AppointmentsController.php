@@ -593,6 +593,7 @@ class AppointmentsController extends Controller
         foreach ($items as $item) {
             $data[] = [
                 'id' => $item->id,
+                'p_id' => $item->patient_id,
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
@@ -620,6 +621,7 @@ class AppointmentsController extends Controller
 
     public function paid(Request $request,$appointment,$patient)
     {
+        dd($request->all());
         $paid_p = Payment::create([
             'appointment_id'=> $appointment,
             'patient_id'=> $patient,
