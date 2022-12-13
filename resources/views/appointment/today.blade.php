@@ -112,9 +112,17 @@
                 </div>
                 <!--end::Close-->
             </div>
-
+            <form id="Form_">
             <div class="row">
-				
+				<div class="form-control form-control-solid sm-3 border mt-6 ">
+					<label class="fs-4 fw-semibold form-label" for="name_patient">إسم المريض ورقمه
+						</label>
+
+
+                    <input type="text" id="patient_name" class="patient_name form-control form-control-solid paid @error('paid') is-invalid @enderror" >
+                  
+				</div>
+
 				<div class="col-12 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="amount_paid">المبلغ
 						المدفوع</label>
@@ -127,7 +135,7 @@
 					<label class="fs-4 fw-semibold form-label"
 						for="currancy">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currancy') is-invalid @enderror "
-					name="currancy" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
+					name="currancy" id="currancy" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
 						<option value="شيكل" selected >شيكل</option>
 					
 					</select>
@@ -148,11 +156,12 @@
                     placeholder="ملاحظات"></textarea>
                     </div>
                     <div class="d-flex">
-                        <button type="submit" id="btn" class="btn btn-primary mt-6">
+                        <button type="submit" id="btn_paid" class="btn btn-primary mt-6">
                         <span class="indicator-label btn-lg btn-block">حفظ</span>
                         </button>
                     </div>
 			</div>
+        </form>
 			
 
 
@@ -358,96 +367,7 @@
                                 // });
                             </script>
                             <script>
-                                /* When click Add */
-                                $('#ajax-modal').iziModal();
-                                $('#create_item').click(function() {
-                                    $('#ajax-modal').removeClass('d-none');
-                                    $('#btn-save').val("create_item");
-                                    $('#status_id').removeAttr('disabled');
-                                    $('#status_id').css('background-color', '#F5F8FA');
-                                    $('#parent_id').select2().val('').trigger("change");
-                                    $('#Form_').trigger("reset");
-                                    $('#ajax-modal').iziModal('open');
-                                    $('#ajax-modal').iziModal('setTitle', "إضافة ثابت جديد");
-                                    $('#ajax-modal').iziModal('setIcon', 'fa fa-plus');
-
-                                });
-
-                                function updated_(id) {
-                                    $.get(SITEURL + '/users/' + id + '/edit', function(data) {
-                                        // $('#name-error').hide();
-                                        $('#ajax-modal').removeClass('d-none');
-                                        $('#btn-save').val("update_item");
-                                        $('#ajax-modal').iziModal('open');
-                                        $('#ajax-modal').iziModal('setTitle', "تعديل بيانات الثابت");
-                                        $('#ajax-modal').iziModal('setIcon', 'fa fa-edit');
-                                        $('#status_id').val(data.status_id);
-                                        $('#status_id').attr('disabled', 'disabled');
-                                        $('#status_id').css('background-color', '#cacdd0');
-                                        $('#status_name').val(data.status_name);
-                                        $('#parent_id').select2().val(data.parent_id).trigger("change");
-                                        $('#order').val(data.orderby);
-                                        $('#description').val(data.description);
-                                    })
-                                }
-                                $(document).ready(function() {
-                                    $("#btn-save").click(function(e) {
-                                        e.preventDefault();
-                                        $('#btn-save').html('جاري الحفظ');
-                                        var status_id = $("#status_id").val();
-                                        var status_name = $("#status_name").val();
-                                        var parent_id = $("#parent_id").val();
-                                        var description = $("#description").val();
-                                        if ($('#ajax-modal:has(h2.iziModal-header-title:contains("إضافة ثابت جديد"))')) {
-                                            var url_ = "{{ route('users.store') }}";
-                                            var type_ = "POST";
-                                        } else {
-                                            var url_ = SITEURL + '/appointment/' + status_id;
-                                            var type_ = "PUT";
-                                        }
-                                        $.ajax({
-                                            type: type_,
-                                            url: url_,
-                                            data: {
-                                                status_id: status_id,
-                                                status_name: status_name,
-                                                parent_id: parent_id,
-                                                description: description,
-                                                '_token': '{{ csrf_token() }}'
-                                            },
-                                            //                    dataType: 'json',
-                                            success: function(data) {
-                                                $('#Form_').trigger("reset");
-                                                $('#parent_id').select2().val('').trigger("change");
-                                                $('#ajax-modal:has(h2.iziModal-header-title:contains("تعديل بيانات الثابت"))')
-                                                    .iziModal('close');
-                                                $('#btn-save').html('حفظ');
-                                                Swal.fire({
-                                                    icon: "success",
-                                                    title: "تمت العملية بنجاح!",
-                                                    showConfirmButton: false,
-                                                    timer: 3000
-                                                });
-                                                var oTable = $('#kt_datatable').DataTable();
-                                                oTable.destroy();
-                                                KTDatatablesDataSourceAjaxServer.init();
-
-                                            },
-                                            error: function(data) {
-                                                $('#btn-save').html('حفظ');
-                                                Swal.fire({
-                                                    icon: "error",
-                                                    title: "خطأ!",
-                                                    text: "لم يتم الحفظ",
-                                                    showConfirmButton: false,
-                                                    timer: 3000
-                                                });
-                                            }
-                                        });
-                                    });
-
-
-                                });
+                    
                                 // استدعاء المودال
                                 $(document).on('click', '#smallButton2', function(event) {
 
@@ -467,6 +387,7 @@
                                          console.log(result);
                                             $('#smallModal').modal("show");
                                             $('#patient_id').html(result.data.full_name);
+                                            $('.patient_name').html(result.data.full_name);
                                             $('#visit_date').html(result.data.visit_date);
                                             $('#next_visit_date').html(result.data.next_visit_date);
                                             $('#surgery_kind_id').html(result.data.surgery_kind_name);
@@ -515,44 +436,36 @@
                                 
                                 </script>
                                 <script>
+
                                      function paid_(appointment,patient) {
                                         $('#kt_modal_1').modal("show");
+                                        $('#patient_name').val(patient);
+                                      
+                                        $(document).ready(function() {
+                                    $("#btn_paid").click(function(e) {
+                                        e.preventDefault();
                                         var paid = $('#paid').val();
                                         var currancy = $('#currancy').val();
                                         var date_paid = $('#kt_datepicker_1').val();
                                         var notes = $('#kt_docs_tinymce_basic').val();
-                                        $(document).ready(function() {
-                                    $("#btn-save").click(function(e) {
-                                        e.preventDefault();
-                                        $('#btn-save').html('جاري الحفظ');
-                                        var status_id = $("#status_id").val();
-                                        var status_name = $("#status_name").val();
-                                        var parent_id = $("#parent_id").val();
-                                        var description = $("#description").val();
-                                        if ($('#ajax-modal:has(h2.iziModal-header-title:contains("إضافة ثابت جديد"))')) {
-                                            var url_ = "{{ route('users.store') }}";
-                                            var type_ = "POST";
-                                        } else {
-                                            var url_ = SITEURL + '/appointment/' + status_id;
-                                            var type_ = "PUT";
-                                        }
+                                        console.log(paid);
+                                        $('#btn_paid').html('جاري الحفظ');
+                                
                                         $.ajax({
-                                            type: type_,
-                                            url: url_,
+                                            type: 'post',
+                                            url: SITEURL + '/appointments/' + appointment+'/'+patient,
                                             data: {
-                                                status_id: status_id,
-                                                status_name: status_name,
-                                                parent_id: parent_id,
-                                                description: description,
+                                                paid: paid,
+                                                currancy: currancy,
+                                                date_paid: date_paid,
+                                                notes: notes,
                                                 '_token': '{{ csrf_token() }}'
                                             },
                                             //                    dataType: 'json',
                                             success: function(data) {
                                                 $('#Form_').trigger("reset");
-                                                $('#parent_id').select2().val('').trigger("change");
-                                                $('#ajax-modal:has(h2.iziModal-header-title:contains("تعديل بيانات الثابت"))')
-                                                    .iziModal('close');
-                                                $('#btn-save').html('حفظ');
+                                                $('#kt_modal_1').modal("hide");
+                                                $('#btn_paid').html('حفظ');
                                                 Swal.fire({
                                                     icon: "success",
                                                     title: "تمت العملية بنجاح!",
@@ -565,7 +478,7 @@
 
                                             },
                                             error: function(data) {
-                                                $('#btn-save').html('حفظ');
+                                                $('#btn_paid').html('حفظ');
                                                 Swal.fire({
                                                     icon: "error",
                                                     title: "خطأ!",
@@ -579,32 +492,6 @@
 
 
                                 });
-
-
-
-                                        $.ajax({
-                                        type: "post",
-                                        url: SITEURL +'/appointments/'+appointment+'/'+patient,
-                                        data:{
-                                            paid:paid,
-                                            currancy:currancy,
-                                            date_paid:date_paid,
-                                            notes:notes,
-                                        },
-
-                                        // return the result
-                                        success: function(result) {
-
-                                         console.log(result);
-                                          
-                                        },
-                                        error: function(error) {
-                                            console.log(error);
-                                        },
-
-                                    })
-
-
 
                                      };
                                 </script>
