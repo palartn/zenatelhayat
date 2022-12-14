@@ -120,7 +120,9 @@
 
 
                     <input type="text" id="patient_name" class="patient_name form-control form-control-solid paid @error('paid') is-invalid @enderror" >
-                  
+                    <input type='hidden' name='seatNumbers' value='' id='seatNumbers'>
+
+
 				</div>
 
 				<div class="col-12 sm-3 mt-6">
@@ -449,9 +451,11 @@
                                         var currancy = $('#currancy').val();
                                         var date_paid = $('#kt_datepicker_1').val();
                                         var notes = $('#kt_docs_tinymce_basic').val();
+                                        var seatNumbers=$('#seatNumbers').val(patient);
                                         console.log(paid);
                                         $('#btn_paid').html('جاري الحفظ');
-                                
+
+
                                         $.ajax({
                                             type: 'post',
                                             url: SITEURL + '/appointments/' + appointment+'/'+patient,

@@ -108,6 +108,8 @@ class AppointmentsController extends Controller
 
     public function today_appointment(Request $request)
     {
+        $patient_name=$request->input('seatNumbers');
+        dd( $patient_name);
         $id=1;
         $new = DB::table('patients')->where('id',$id)->first();
 
