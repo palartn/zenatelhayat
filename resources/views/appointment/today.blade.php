@@ -161,6 +161,7 @@
                         </button>
                     </div>
 			</div>
+            <h2>{{ $new->patient_number}}</h2>
         </form>
 			
 

@@ -108,12 +108,15 @@ class AppointmentsController extends Controller
 
     public function today_appointment(Request $request)
     {
+        $id=1;
+        $new = DB::table('patients')->where('id',$id)->first();
+
          $today_date = date('Y-m-d');
         $n = Carbon::today();
         $data = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->get();
         $data = DB::table('appointments')->whereDate('visit_date', $n)->get();
         //=dd($data);
-        return view('appointment.today', compact('data'));
+        return view('appointment.today', compact('data','new'));
     }
 
 
