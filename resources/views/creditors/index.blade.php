@@ -362,7 +362,7 @@
                                     }
                                 });
                                 var csrf = "{{ csrf_token() }}";
-                                var DATA_URL = "{{ route('debtors.getcreditorsData') }}";
+                                var DATA_URL = "{{ route('creditors.getcreditorsData') }}";
                                 var SITEURL = '{{ URL::to('') }}';
                                 var from_date = -1;
                                 var to_date = -1;

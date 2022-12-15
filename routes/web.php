@@ -47,7 +47,7 @@ Route::post('debtors/getdebtorsData',[DebtorsController::class, 'getdebtorsData'
 
 
 Route::resource('creditors',CreditorsController::class)->middleware('auth');
-Route::post('creditors/getcreditorsData',[CreditorsController::class, 'getcreditorsData'])->name('debtors.getcreditorsData');
+Route::post('creditors/getcreditorsData',[CreditorsController::class, 'getcreditorsData'])->name('creditors.getcreditorsData');
 
 Route::resource('surgerykinds',SurgeryKindsController::class)->middleware('auth');
 Route::post('surgerykinds/getSurgerykindData',[SurgeryKindsController::class, 'getSurgerykindData'])->name('surgerykind.getSurgerykindData');
