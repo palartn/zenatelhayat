@@ -152,8 +152,8 @@ class CreditorsController extends Controller
         // ->get();
 
 
-        $totalRecords = DB::table('appointments')->where('is_paid_complete',1)->count();
-        $totalRecordswithFilter = DB::table('appointments')->where('is_paid_complete',1);
+        $totalRecords = DB::table('appointments')->where('is_paid_complete',0)->count();
+        $totalRecordswithFilter = DB::table('appointments')->where('is_paid_complete',0);
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
         // $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
         // $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'));
@@ -187,7 +187,7 @@ class CreditorsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Appointment::where('is_paid_complete',1)->with('patient')->orderBy('appointments.id', 'desc');
+        $items = Appointment::where('is_paid_complete',0)->with('patient')->orderBy('appointments.id', 'desc');
         if ($searchValue != null)
             $items = $items
                 ->where('appointments.amount_after_discount', 'like', '%' . $searchValue . '%')

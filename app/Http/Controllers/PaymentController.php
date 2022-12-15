@@ -16,12 +16,12 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $today_date = date('Y-m-d');
+        // $today_date = date('Y-m-d');
+        // // $surgerykind = SurgeryKind::whereNull('surgery_kind_id')->get();
         // $surgerykind = SurgeryKind::whereNull('surgery_kind_id')->get();
-        $surgerykind = SurgeryKind::whereNull('surgery_kind_id')->get();
-        $patient = Patient::all();
-        $payment = Payment::all();
-        return view('payments.index',compact('patient','payment','today_date','surgerykind'));
+        // $patient = Patient::all();
+        // $payment = Payment::all();
+        // return view('payments.index',compact('patient','payment','today_date','surgerykind'));
     }
 
     /**

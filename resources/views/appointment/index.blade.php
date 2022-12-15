@@ -98,7 +98,7 @@
 
 
 <div class="modal fade" tabindex="-1" id="kt_modal_1">
-    
+
     <div class="modal-dialog">
         <div class="modal-content w-75 p-3">
             <div class="modal-header bg-secondary">
@@ -137,11 +137,11 @@
 						<select class="form-select form-select-lg form-select-solid  @error('currancy') is-invalid @enderror "
 					name="currancy" id="currancy" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
 						<option value="شيكل" selected >شيكل</option>
-					
+
 					</select>
 
 				</div>
-			
+
 				<div class="col-12 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
@@ -163,7 +163,7 @@
 			</div>
             <h2></h2>
         </form>
-			
+
 
 
        </div>
@@ -257,7 +257,7 @@
 
                                 <div class="card text-center">
                                     <div class="card-header">
-                                      
+
                                     </div>
                                     <div class="card-body ">
                                       <h5 class="card-title">بيانات التجميد </h5>
@@ -269,31 +269,32 @@
                                            <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
                                            </div>
                                        </div>
-                                   </div>             
+                                   </div>
                                       <div class="form-group row mb-1">
                                        <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
                                        <div class="col-6 lg-8">
                                            <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
                                            </div>
                                        </div>
-                                   </div>             
+                                   </div>
                                       <div class="form-group row mb-1">
                                        <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
                                        <div class="col-6 lg-8">
                                            <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
                                            </div>
                                        </div>
-                                   </div>             
-                                
+                                   </div>
+
                                 </div>
-                                <h4><div class="border bg-body text-dark border-primary"></div>
-                                <label class="font-weight-bold text-danger" for='total_amount'>إجمالي المبلغ المتبقي</label>
-                                <div class="font-weight-bold " id='total_amount'></div> 
-                                    <div class="card-footer text-muted">
-                                    {{ Carbon\Carbon::now(); }} 
-                                    </div>
+                                <div class="d-flex flex-nowrap">
+                                    <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
+                                    <div class="col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
+
                                   </div>
-                                </h4>
+
+                                                <div class="card-footer text-muted">
+                                                {{ Carbon\Carbon::now(); }}
+                                                </div>
 
                             </div>
 
@@ -372,7 +373,7 @@
                                 // });
                             </script>
                             <script>
-                    
+
                                 // استدعاء المودال
                                 $(document).on('click', '#smallButton1', function(event) {
 
@@ -437,9 +438,9 @@
                             <script>
 
                                 $(".flatpickr-input").flatpickr({
-                                
+
                                 });
-                                
+
                                 </script>
                                 <script>
 

@@ -1224,15 +1224,9 @@
 									<span class="menu-title ">إدارة المصروفات</span>
 								</a>
 							</div>
-				
-
 						</div>
 					</div>
-
-
-
-					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='payments.index'
-					|| Route::currentRouteName() =='debtors.index' || Route::currentRouteName() =='creditors.index') hover show @endif ">
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='creditors.index') hover show @endif ">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1244,47 +1238,31 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">المعاملات المالية</span>
+							<span class="menu-title">الدائنون</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
 							<div class="menu-item">
-							<a class="menu-link {{ (request()->is('payments')) ? 'active' : ''}}" href="{{route('payments.index')}}">
+								<a class="menu-link {{ (request()->is('creditors')) ? 'active' : ''}}"   href="{{route('creditors.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">إضافة مدفوعات للمريض</span>
+									<span class="menu-title"> الدائنون</span>
 								</a>
 							</div>
-
-							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('debtors')) ? 'active' : ''}}"   href="{{route('debtors.index')}}">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title">المدينون</span>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a class="menu-link {{ (request()->is('creditors')) ? 'active' : ''}}" href="{{route('creditors.index')}}">
+							{{-- <div class="menu-item">
+								<a class="menu-link {{ (request()->is('surgerykinds')) ? 'active' : ''}}" href="{{route('surgerykinds.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
 									<span class="menu-title">الدائنون</span>
 								</a>
-							</div>
-							{{-- <div class="menu-item">
-								<a class="menu-link {{ (request()->is('appointments')) ? 'active' : ''}}" href="{{ route('appointments.index') }}">
-									<span class="menu-bullet">
-										<span class="bullet bullet-dot"></span>
-									</span>
-									<span class="menu-title {{ (request()->is('appointments')) ? 'active' : ''}}">إدارة الزيارات</span>
-								</a>
 							</div> --}}
+
 
 						</div>
 					</div>
-					
+
 
 					<div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='surgerykinds.index') hover show @endif ">
 						<span class="menu-link">
@@ -1318,7 +1296,7 @@
 									<span class="menu-title">الدائنون</span>
 								</a>
 							</div> --}}
-							
+
 
 						</div>
 					</div>

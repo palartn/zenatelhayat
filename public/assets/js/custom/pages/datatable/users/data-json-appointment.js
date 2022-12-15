@@ -88,7 +88,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                 // {data: 'id',width: 100},
                 {data: 'id',width: 30},
                 //{data: 'patient_name',width: 100},
-                {data: 'patient_id',width: 100},
+                {data: 'patient_id',width: 180},
                 {data: 'next_visit_date',width: 80},
                 {data: 'surgery_kind_id',width: 80},
                 {data: 'surgery_kind_id_child',width: 80},
