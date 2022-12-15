@@ -112,7 +112,7 @@ var KTDatatablesDataSourceAjaxServer = function() {
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\
                         <i class="las la-trash"></i>\
                     </a>\
-                    <a href="javascript:;" onclick="return paid_('+full.id+','+full.p_id+')"  class="btn btn-sm btn-info" title="ترصيد دفعة">\
+                    <a href="javascript:;" id="data_'+full.id+'_'+full.p_id+'" data-p-name="'+full.patient_id+'" data-p-no="'+full.patient_number+'" onclick="return paid_('+full.id+','+full.p_id+')"  class="btn btn-sm btn-info" title="ترصيد دفعة">\
                     ترصيد دفعة\
                 </a>\
 						';

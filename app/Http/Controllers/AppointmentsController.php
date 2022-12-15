@@ -109,7 +109,7 @@ class AppointmentsController extends Controller
     public function today_appointment(Request $request)
     {
         $patient_name=$request->input('seatNumbers');
-        dd( $patient_name);
+        // dd( $patient_name);
         $id=1;
         $new = DB::table('patients')->where('id',$id)->first();
 
@@ -450,6 +450,7 @@ class AppointmentsController extends Controller
             $data[] = [
                 'id' => $item->id,
                 'p_id' => $item->patient_id,
+                'patient_number' => $item->patient->patient_number,
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
@@ -599,6 +600,7 @@ class AppointmentsController extends Controller
             $data[] = [
                 'id' => $item->id,
                 'p_id' => $item->patient_id,
+                'patient_number' => $item->patient->patient_number,
                 // 'visit_date' => $item->id,
                 'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'next_visit_date' => $item->next_visit_date,
