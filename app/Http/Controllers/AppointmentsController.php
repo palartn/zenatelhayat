@@ -201,7 +201,6 @@ class AppointmentsController extends Controller
                 'amount_before_discount' => $request->amount_before_discount,
                 'amount_after_discount' => $request->amount_after_discount,
                 'surgery_kind_id_child' => $request->surgery_kind_id_child,
-                'notes' => $request->notes,
                 'patient_id' => $request->patient_id,
                 'qty_packages'=>$request->qty_packages,
                 'freez_start_date'=>$request->freez_start_date,

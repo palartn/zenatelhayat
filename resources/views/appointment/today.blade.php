@@ -10,7 +10,7 @@
                     <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد الزيارات({{ App\Models\Appointment::count() }})</span>
                 </h3>
                 <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
-                    <a href="createnewappointment" class="btn btn-sm btn-primary">
+                    <a href="{{ route('appointment.createnewappointment'); }}" class="btn btn-sm btn-primary">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                         <span class="svg-icon svg-icon-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -161,7 +161,7 @@
                         </button>
                     </div>
 			</div>
-            <h2></h2>
+           
         </form>
 			
 
@@ -287,7 +287,15 @@
                                 
                                 </div>
                                     <div class="card-footer text-muted">
-                                    {{ Carbon\Carbon::now(); }} 
+                                        
+                                        <h4><div class="border bg-body text-dark border-primary"></div>
+                                            <label class="font-weight-bold text-danger" for='total_amount'>إجمالي المبلغ المطلوب</label>
+                                            <div class="font-weight-bold " id='total_amount'></div> 
+                                                <div class="card-footer text-muted">
+                                                {{ Carbon\Carbon::now(); }} 
+                                                </div>
+                                              </div>
+                                            </h4>
                                     </div>
                                   </div>
 
@@ -370,7 +378,7 @@
                             <script>
                     
                                 // استدعاء المودال
-                                $(document).on('click', '#smallButton2', function(event) {
+                                $(document).on('click', '#smallButton1', function(event) {
 
                                     event.preventDefault();
                                     let id = $(this).attr('data-attr');
@@ -387,17 +395,18 @@
 
                                          console.log(result);
                                             $('#smallModal').modal("show");
-                                            $('#patient_id').html(result.data.full_name);
-                                            $('.patient_name').html(result.data.full_name);
-                                            $('#visit_date').html(result.data.visit_date);
-                                            $('#next_visit_date').html(result.data.next_visit_date);
-                                            $('#surgery_kind_id').html(result.data.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.data.surgery_kind_id);
-                                            $('#freez_start_date').html(result.data.freez_start_date);
-                                            $('#freez_end_date').html(result.data.freez_end_date);
-                                            $('#qty_packages').html(result.data.qty_packages);
-                                            $('#notes').html(result.data.notes);
-                                            $('#created_at').html(result.data.created_at);
+                                            $('#patient_id').html(result.app_return.full_name);
+                                            $('.patient_name').html(result.app_return.full_name);
+                                            $('#total_amount').html(result.total_amount);
+                                            $('#visit_date').html(result.app_return.visit_date);
+                                            $('#next_visit_date').html(result.app_return.next_visit_date);
+                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
+                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
+                                            $('#freez_start_date').html(result.app_return.freez_start_date);
+                                            $('#freez_end_date').html(result.app_return.freez_end_date);
+                                            $('#qty_packages').html(result.app_return.qty_packages);
+                                            $('#notes').html(result.app_return.notes);
+                                            $('#created_at').html(result.app_return.created_at);
                                             $('#smallBody').html(result).show();
                                         },
                                         error: function(jqXHR, testStatus, error) {
