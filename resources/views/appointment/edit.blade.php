@@ -42,7 +42,7 @@
 	<form method="POST" action="{{ route('appointments.update',$appointment->id) }}">
 		@csrf
         @method('put')
-		
+
 		<div class="col xl-3">
 			<label class="fs-4 fw-semibold form-label" for="visit_date"> التاريخ</label>
 			<input type="text" readonly disabled
@@ -55,9 +55,9 @@
 				<label class="fs-4 fw-semibold form-label" for="mobile_second"> إسم
 					المريض
 				</label>
-				
+
 				@foreach($patient as $patient)
-				@endforeach				
+				@endforeach
 				</span>
 				<input type="text"
 					class="form-control form-control-solid @error('patient_name') is-invalid @enderror" readonly
@@ -98,7 +98,7 @@
 						</select>
 
 				</div>
-				
+
 
 				<div class="row campaign d-none " id="campaign">
 					<div class="col-12 mt-6">
@@ -191,35 +191,11 @@
 						 placeholder="الباقي" value="{{ $appointment->amount_after_discount }}">
 				</div>
 
-				{{-- <div class="col-6 sm-3 mt-6">
-					<label class="fs-4 fw-semibold form-label"
-						for="visit_date">عملة الدفع</label>
-						<select class="form-select form-select-lg form-select-solid  @error('currency') is-invalid @enderror "
-					name="currency" data-control="select2" data-placeholder="Select an option" data-allow-clear="true">
-						<option value="شيكل" selected >شيكل</option>
-						<option value="دولار">دولار</option>
-						<option value="دينار">دينار</option>
-					</select>
 
-				</div> --}}
-
-
-				
-				<div class="col-12 mt-6">
-					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
-						الدفع</label>
-					<input type="date" name="pay_date"
-						class="form-control form-control-solid  flatpickr-input active @error('pay_date') is-invalid @enderror"
-						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
-						placeholder="تاريخ الدفع" value="{{ $appointment->payment->pay_date }}">
-				</div>
-			</div>
-
-			
 			<div>
 			<label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
 			<textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
-			placeholder="ملاحظات">{{$appointment->payment->notes}}</textarea>
+			placeholder="ملاحظات">{{$appointment->notes}}</textarea>
 			</div>
 			<div class="d-flex">
 				<button type="submit" id="btn" class="btn btn-primary mt-6">
@@ -258,26 +234,26 @@
 		$(document).on('change','#prod_cat_id',function(){
 			var x=$(this).val();
 					if(x==3){
-                    $('.specific').removeClass('d-none');	
+                    $('.specific').removeClass('d-none');
 					}
-			
+
 				else {
 					$('.specific').addClass('d-none');
 					$("#qty_packages").attr('value','');
 					$("#kt_datepicker_1").val('');
-					$("#kt_datepicker_2").val('');			
+					$("#kt_datepicker_2").val('');
 				}
 				var xn=$(this).val();
 					if(x==2){
-                    $('.campaign').removeClass('d-none');	
+                    $('.campaign').removeClass('d-none');
 					}
 					else {
 					$('.campaign').addClass('d-none');
 					$('.campaign_year').val('');
-						
+
 				}
 			var cat_id=$(this).val();
-			
+
 			var div=$(this).parent();
 			console.log(div);
 
@@ -352,9 +328,9 @@
 		<script>
 
 			$(".flatpickr-input").flatpickr({
-			
+
 			});
-			
+
 			</script>
 @endsection
 
