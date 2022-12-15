@@ -210,6 +210,15 @@ class AppointmentsController extends Controller
 
                 //'event' => implode('-',$request->event),
             ]);
+        // $payment = Payment::update([
+            //     'appointment_id' => $appointment->id,
+            //     'currency' => $request->currency,
+            //     'paid' => $request->paid,
+            //     'pay_date' => $request->pay_date,
+            //     'notes' => $request->notes,
+            //     'patient_id' => $request->patient_id,
+            // ]);
+           
 
             // $payment = Payment::create([
             //     'appointment_id' => $appointment->id,

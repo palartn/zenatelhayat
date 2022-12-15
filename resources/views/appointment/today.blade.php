@@ -289,7 +289,7 @@
                                     <div class="card-footer text-muted">
                                         
                                         <h4><div class="border bg-body text-dark border-primary"></div>
-                                            <label class="font-weight-bold text-danger" for='total_amount'>إجمالي المبلغ المطلوب</label>
+                                            <label class="font-weight-bold text-danger" for='total_amount'>إجمالي المبلغ المتبقي</label>
                                             <div class="font-weight-bold " id='total_amount'></div> 
                                                 <div class="card-footer text-muted">
                                                 {{ Carbon\Carbon::now(); }} 
