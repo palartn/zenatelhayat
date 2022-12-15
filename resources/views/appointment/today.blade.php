@@ -115,11 +115,9 @@
             <form id="Form_">
             <div class="row">
 				<div class="form-control form-control-solid sm-3 border mt-6 ">
-					<label class="fs-4 fw-semibold form-label" for="name_patient">إسم المريض ورقمه
+					<label class="fs-4 fw-semibold form-label" for="name_patient" >إسم المريض ورقمه
 						</label>
-
-
-                    <input type="text" id="patient_name" class="patient_name form-control form-control-solid paid @error('paid') is-invalid @enderror" >
+                    <input type="text" id="patient_name" class="patient_name form-control form-control-solid paid @error('paid') is-invalid @enderror" readonly >
                     <input type='hidden' name='seatNumbers' value='' id='seatNumbers'>
 
 
@@ -163,7 +161,7 @@
                         </button>
                     </div>
 			</div>
-            <h2>{{ $new->patient_number}}</h2>
+            <h2></h2>
         </form>
 			
 
