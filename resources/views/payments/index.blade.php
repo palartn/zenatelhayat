@@ -253,9 +253,8 @@
                             </div>
 
 
-                            <div col-12>
 
-                                <div class="card text-center">
+                                {{-- <div class="card text-center">
                                     <div class="card-header">
 
                                     </div>
@@ -285,9 +284,9 @@
                                        </div>
                                    </div>
 
-                                </div>
+                                </div> --}}
 
-                                <div class="d-flex flex-nowrap">
+                                <div class="d-flex flex-nowrap mt-6">
                                     <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
                                     <div class="col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
 
@@ -299,7 +298,6 @@
 
 
 
-                            </div>
 
                         </div>
                     </div>
