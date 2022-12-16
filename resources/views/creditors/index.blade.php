@@ -224,9 +224,9 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
+                                    <label class="col-form-label col-lg-4">رقم </label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_number"
                                             style=""></div>
                                     </div>
                                 </div>
@@ -268,44 +268,23 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <div col-12>
 
-                                <div class="card text-center">
-                            <div class="card-header">
 
-                            </div>
-                            <div class="card-body ">
-                              <h5 class="card-title">بيانات التجميد </h5>
-                              <p class="card-text">
-                               </p>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">عدد العينات</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
-                                   </div>
-                               </div>
-                           </div>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
-                                   </div>
-                               </div>
-                           </div>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
-                                   </div>
-                               </div>
-                           </div>
+
 
                         </div>
-                            <div class="card-footer text-muted">
-                            {{ Carbon\Carbon::now(); }}
-                            </div>
+                        <div class="d-flex flex-nowrap">
+                            <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
+                            <div class="col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
+
+                          </div>
+
+                                        <div class="card-footer text-muted">
+                                        {{ Carbon\Carbon::now(); }}
+                                        </div>
                           </div>
 </
                             </div>
@@ -502,16 +481,17 @@
                                          console.log(result);
                                             $('#smallModal').modal("show");
                                            // $('#patient_number').html(result.data.patient_number);
-                                            $('#patient_id').html(result.data.full_name);
-                                            $('#total_price').html(result.data.total_price);
-                                            $('#discount').html(result.data.discount);
-                                            $('#remaining_amount').html(result.data.remaining_amount);
-                                            $('#currency').html(result.data.currency);
-                                            $('#pay_date').html(result.data.pay_date);
-                                            $('#notes').html(result.data.notes);
+                                            $('#patient_id').html(result.app_return.full_name);
+                                            $('#total_amount').html(result.total_amount);
+                                            $('#patient_number').html(result.app_return.patient_number);
+                                            $('#next_visit_date').html(result.app_return.next_visit_date);
+                                            $('#remaining_amount').html(result.app_return.remaining_amount);
+                                            $('#currency').html(result.app_return.currency);
+                                            $('#pay_date').html(result.app_return.pay_date);
+                                            $('#notes').html(result.app_return.notes);
                                           //  $('#qty_packages').html(result.data.qty_packages);
                                             // $('#notes').html(result.data.notes);
-                                            $('#created_at').html(result.data.created_at);
+                                            $('#created_at').html(result.app_return.created_at);
                                             $('#smallBody').html(result).show();
                                         },
                                         error: function(jqXHR, testStatus, error) {

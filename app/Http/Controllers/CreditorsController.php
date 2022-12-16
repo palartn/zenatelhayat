@@ -56,7 +56,8 @@ class CreditorsController extends Controller
         //dd('dasd');
         $payment = Payment::findOrFail($id);
         $app_return = new creditorsResource($payment);
-        return $app_return;
+        $total_amount = total_paid($payment->patient_id);
+return ['app_return'=>$app_return,'total_amount'=>$total_amount];
     }
 
 
