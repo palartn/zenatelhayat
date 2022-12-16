@@ -57,9 +57,10 @@ Route::get('/findProductName',[AppointmentsController::class,'findProductName'])
 Route::get('/findPrice',[AppointmentsController::class,'findPrice']);
 
 Route::resource('payments',PaymentController::class)->middleware('auth');
+Route::post('payments/getData',[PaymentController::class, 'getData'])->name('payments.getData');
 
 
-Route::resource('subpayments',SubPayementsController::class)->middleware('auth');
+// Route::resource('subpayments',SubPayementsController::class)->middleware('auth');
 
 
 
@@ -73,7 +74,7 @@ Route::post('expenses/today_expenses',[ExpenseController::class, 'getData_Today'
 
 Route::resource('users',UsersController::class)->middleware('auth');
 Route::post('users/getData',[UsersController::class, 'getData'])->name('users.getData');
-Route::get('appointment/{id}/patient', [PatientsController::class, 'addAppointmentToPatient'])->name('addAppointmentToPatient');   
+Route::get('appointment/{id}/patient', [PatientsController::class, 'addAppointmentToPatient'])->name('addAppointmentToPatient');
 Route::get('appointment/createnewappointment', [PatientsController::class, 'createnewappointment'])->name('createnewappointment');
 Route::resource('patients',PatientsController::class)->middleware('auth');
 

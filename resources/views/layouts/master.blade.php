@@ -1226,7 +1226,7 @@
 							</div>
 						</div>
 					</div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='creditors.index') hover show @endif ">
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(Route::currentRouteName() =='creditors.index'|| Route::currentRouteName() =='payments.index' ) hover show @endif ">
 						<span class="menu-link">
 							<span class="menu-icon">
 								<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
@@ -1238,7 +1238,7 @@
 								</span>
 								<!--end::Svg Icon-->
 							</span>
-							<span class="menu-title">الدائنون</span>
+							<span class="menu-title">المعاملات المالية</span>
 							<span class="menu-arrow"></span>
 						</span>
 						<div class="menu-sub menu-sub-accordion">
@@ -1250,14 +1250,23 @@
 									<span class="menu-title"> الدائنون</span>
 								</a>
 							</div>
+
 							{{-- <div class="menu-item">
 								<a class="menu-link {{ (request()->is('surgerykinds')) ? 'active' : ''}}" href="{{route('surgerykinds.index')}}">
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title">الدائنون</span>
+									<span class="menu-title">مدفوعات اليوم</span>
 								</a>
 							</div> --}}
+							<div class="menu-item">
+								<a class="menu-link {{ (request()->is('payments')) ? 'active' : ''}}" href="{{route('payments.index')}}">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">إدارة المدفوعات  </span>
+								</a>
+							</div>
 
 
 						</div>

@@ -240,24 +240,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">القسم</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">سبب الزيارة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
@@ -485,8 +468,8 @@
                                             $('#total_amount').html(result.total_amount);
                                             $('#patient_number').html(result.app_return.patient_number);
                                             $('#next_visit_date').html(result.app_return.next_visit_date);
-                                            $('#remaining_amount').html(result.app_return.remaining_amount);
-                                            $('#currency').html(result.app_return.currency);
+                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_id);
+                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id_child);
                                             $('#pay_date').html(result.app_return.pay_date);
                                             $('#notes').html(result.app_return.notes);
                                           //  $('#qty_packages').html(result.data.qty_packages);
