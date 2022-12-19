@@ -14,7 +14,7 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >تعديل بيانات الأقسام</h2>
+			<h2 >إضافة قسم جديد</h2>
 		</div>
 		<!--end::Card title-->
 	</div>
@@ -39,15 +39,13 @@
 
 	<div class="card-body pt-5 row">
 	<!--begin::Form-->
-	<form method="POST"  action="{{route('surgerykinds.update',$surgerykind->id)}}">
+	<form method="POST"  action="{{route('surgerykinds.store')}}">
 		@csrf
-        @method('put')
-
 		<div class="row ">
 			<div class="col-6">
 				<label class="fs-4 fw-semibold form-label" for="name"> القسم الفرعي
 					</label>
-				<input type="text" value="{{$surgerykind->name}}"
+				<input type="text" value=""
 					class="form-control form-control-solid  active @error('name') is-invalid @enderror"
 					id="kt_datepicker_1 name" name="name"
 					placeholder=" القسم الفرعي">
@@ -76,119 +74,7 @@
 
 	</form>
 </div>
-@endsection
 </div>
-
-@section('scripts')
-<script>
-
-	$('input.total_price,input.paid').on('change keyup',function(){
-		var total_price = $("#total_price").val()
-		var paid = $("#paid").val()
-		console.log(total_price);
-
-	  $grand_total=$('.remaining_amount').val(total_price-paid);
-
-	})
-
-	</script>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-
-		$(document).on('change','#prod_cat_id',function(){
-			var x=$(this).val();
-					if(x==3){
-                    $('.specific').removeClass('d-none');
-					}
-
-				else {
-					$('.specific').addClass('d-none');
-					$("#qty_packages").attr('value','');
-					$("#kt_datepicker_1").val('');
-					$("#kt_datepicker_2").val('');
-				}
-				var xn=$(this).val();
-					if(x==2){
-                    $('.campaign').removeClass('d-none');
-					}
-					else {
-					$('.campaign').addClass('d-none');
-					$('.campaign_year').val('');
-
-				}
-			var cat_id=$(this).val();
-
-			var div=$(this).parent();
-			console.log(div);
-
-			var op=" ";
-
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id,},
-				success:function(data){
-					//console.log('success');
-
-					console.log(data);
-					$("#sssss").remove();
-					//console.log(data.length);
-					op+='<option value="0" selected disabled>الرجاء الإختيار</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].name+'</option>';
-				   }
-
-				   $('.productname').html(" ");
-				   $('.productname').append(op);
-				},
-				error:function(){
-
-				}
-			});
-		});
-
-		$(document).on('change','.productname',function () {
-			var prod_id=$(this).val();
-
-			var a=$(this).parent();
-			console.log(prod_id);
-			var op="";
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findPrice')!!}',
-				data:{'id':prod_id},
-				dataType:'json',//return data will be json
-				success:function(data){
-					console.log("price");
-					console.log(data.price);
-
-					// here price is coloumn name in products table data.coln name
-
-					a.find('.prod_price').val(data.price);
-
-				},
-				error:function(){
-
-				}
-			});
-
-
-		});
-
-	});
-</script>
-<script>
-
-	$('input.amount_before_discount,input.discount_value,input.amount_after_discount,input.paid').on('change keyup',function(){
-		var amount_before_discount = $("#amount_before_discount").val()
-		var discount_value = $("#discount_value").val()
-		//console.log(total_price);
-	  $grand_total=$('.amount_after_discount').val(amount_before_discount - discount_value);
-
-	})
-
-	</script>
 
 
 @endsection

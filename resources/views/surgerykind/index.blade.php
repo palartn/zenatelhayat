@@ -1,21 +1,38 @@
 @extends('layouts.master')
 @section('content')
 
+
+
     <div id="kt_content_container" class="container-xxl mt-6">
         <div class="card mb-5 mb-xl-8">
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة المدينون</span>
+                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة الأقسام</span>
                     <span class="text-muted mt-1 fw-bold fs-7"></span>
                 </h3>
 
+                <div style="font-family:NotoKufiArabic" class="card-toolbar ms-2" data-bs-placement="top" data-bs-trigger="hover">
+                    <a href="{{ route('surgerykinds.create') }}" class="btn btn-sm btn-primary">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                        <span class="svg-icon svg-icon-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+                                    rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->إضافة قسم
+                    </a>
+
+                </div>
 
 
-               
             </div>
-         
-           
+
+
             <!--end::Header-->
             <!--begin::Body-->
 
@@ -144,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
@@ -160,7 +177,7 @@
 
                                 <div class="card text-center">
                             <div class="card-header">
-                              
+
                             </div>
                             <div class="card-body ">
                               <h5 class="card-title">بيانات التجميد </h5>
@@ -172,25 +189,25 @@
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
                                    </div>
                                </div>
-                           </div>             
+                           </div>
                               <div class="form-group row mb-1">
                                <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
                                <div class="col-6 lg-8">
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
                                    </div>
                                </div>
-                           </div>             
+                           </div>
                               <div class="form-group row mb-1">
                                <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
                                <div class="col-6 lg-8">
                                    <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
                                    </div>
                                </div>
-                           </div>             
-                        
+                           </div>
+
                         </div>
                             <div class="card-footer text-muted">
-                            {{ Carbon\Carbon::now(); }} 
+                            {{ Carbon\Carbon::now(); }}
                             </div>
                           </div>
 </
@@ -236,7 +253,7 @@
                             $('#from_date').flatpickr({
                                 format : 'dd-mm-yyyy',
                             });
-                            
+
                             $('#to_date').flatpickr({
                                 format : 'dd-mm-yyyy',
                             });

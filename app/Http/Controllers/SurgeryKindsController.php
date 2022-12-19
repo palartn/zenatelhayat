@@ -30,9 +30,9 @@ class SurgeryKindsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(SurgeryKind $surgerykind)
     {
-        //
+        return view('surgerykind.create',compact('surgerykind'));
     }
 
     /**
@@ -41,9 +41,15 @@ class SurgeryKindsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,SurgeryKind $surgerykind)
     {
-        //
+        SurgeryKind::create([
+            'name' => $request->name,
+            'surgery_kind_id' => $request->parent,
+        ]);
+
+        Alert::warning('تعديل بيانات الأقسام', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('surgerykinds.index');
     }
 
     /**
@@ -77,20 +83,20 @@ class SurgeryKindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SurgeryKind $surgeykind)
+    public function update(Request $request, SurgeryKind $surgerykind)
     {
-        $surgeykind ->update([
+        $surgerykind ->update([
             'name' => $request->name,
-            'patient_sname' => $request->surgery_kind_id,
-           
+            'surgery_kind_id' => $request->parent,
         ]);
+
         Alert::warning('تعديل بيانات الأقسام', 'تمت عملية التعديل بنجاح');
         return redirect()->route('surgerykinds.index');
         //->with('success', 'تم التعديل بنجاح');
 
     }
 
-   
+
 
     /**
      * Remove the specified resource from storage.
@@ -98,9 +104,10 @@ class SurgeryKindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(SurgeryKind $surgerykind)
     {
-        //
+        $surgerykind->delete();
+        return response()->json($surgerykind);
     }
 
 
@@ -158,7 +165,7 @@ class SurgeryKindsController extends Controller
         $totalRecords = SurgeryKind::select('count(*) as allcount')->count();
         //alert($totalRecords);
         $totalRecordswithFilter = SurgeryKind::select('count(surgery_kinds.*) as allcount');
-       
+
 
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
@@ -177,14 +184,14 @@ class SurgeryKindsController extends Controller
         //     });
 
 
-   
+
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        
+
         $items = SurgeryKind::orderBy('surgery_kinds.id', 'asc');
         if ($searchValue != null)
             $items = $items
