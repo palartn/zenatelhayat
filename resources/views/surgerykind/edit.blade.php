@@ -76,13 +76,9 @@
 			<button type="submit" id="btn" class="btn btn-primary mt-10">
 				<span class="indicator-label btn-lg btn-block">حفظ</span>
 				</button>
-
-
-
  		</div>
 
 	</form>
-
 </div>
 @endsection
 </div>
