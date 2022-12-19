@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\SurgerykindResource;
 use App\Models\Payment;
 
+use function PHPUnit\Framework\returnSelf;
 
 class SurgeryKindsController extends Controller
 {
@@ -64,9 +65,9 @@ class SurgeryKindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(SurgeryKind $surgerykind)
     {
-        //
+        return view('surgerykind.edit',compact('surgerykind'));
     }
 
     /**
@@ -76,10 +77,20 @@ class SurgeryKindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, SurgeryKind $surgeykind)
     {
-        //
+        $surgeykind ->update([
+            'name' => $request->name,
+            'patient_sname' => $request->surgery_kind_id,
+           
+        ]);
+        Alert::warning('تعديل بيانات الأقسام', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('surgerykinds.index');
+        //->with('success', 'تم التعديل بنجاح');
+
     }
+
+   
 
     /**
      * Remove the specified resource from storage.
