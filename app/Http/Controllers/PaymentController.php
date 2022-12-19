@@ -242,31 +242,4 @@ class PaymentController extends Controller
         exit;
     }
 
-    public function paid(Request $request,$appointment,$patient)
-    {
-        // dd($request->all());
-        $paid_p = Payment::create([
-            'appointment_id'=> $appointment,
-            'patient_id'=> $patient,
-            'paid'=> $request->paid,
-            'currency'=> $request->currancy,
-            'pay_date'=> $request->date_paid,
-            'notes'=> $request->notes,
-
-        ]);
-        $payment_paid = Payment::where('appointment_id',$appointment)->where('patient_id',$patient)->sum('paid');
-        $appointment_paid = Appointment::where('id',$appointment)->where('patient_id',$patient)->first();
-        if($payment_paid >= $appointment_paid->amount_after_discount){
-            $appointment_paid->update([
-                'is_paid_complete' => 1
-            ]);
-        }else{
-            $appointment_paid->update([
-                'is_paid_complete' => 0
-            ]);
-        }
-
-        return response()->json($payment_paid);
-    }
-
 }

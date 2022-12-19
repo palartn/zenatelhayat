@@ -232,6 +232,7 @@ return ['app_return'=>$app_return,'total_amount'=>$total_amount];
                 'amount_before_discount' => $item->amount_before_discount,
                 'amount_after_discount' => $item->amount_after_discount,
                 'visit_date' => $item->visit_date,
+                'paid' => $item->paid,
                 "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                 "actions" => null
 

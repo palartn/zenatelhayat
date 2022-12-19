@@ -139,7 +139,8 @@
                                 <th>إسم المريض</th>
                                 <th>تاريخ الزيارة</th>
                                 <th>القسم</th>
-                                <th>المبلغ </th>
+                                <th>المبلغ للدفع  </th>
+                                <th>المبلغ المدفوع  </th>
                                 <th>ملاحظات</th>
                                 {{-- <th>تاريخ الميلاد</th> --}}
                                 {{-- <th>الهاتف</th> --}}
@@ -470,7 +471,7 @@
                                             $('#next_visit_date').html(result.app_return.next_visit_date);
                                             $('#surgery_kind_id').html(result.app_return.surgery_kind_id);
                                             $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id_child);
-                                            $('#pay_date').html(result.app_return.pay_date);
+                                            //$('#paid').html(result.app_return.paid);
                                             $('#notes').html(result.app_return.notes);
                                           //  $('#qty_packages').html(result.data.qty_packages);
                                             // $('#notes').html(result.data.notes);

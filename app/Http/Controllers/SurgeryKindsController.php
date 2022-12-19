@@ -209,6 +209,7 @@ class SurgeryKindsController extends Controller
                 // 'visit_date' => $item->id,
               //  'patient_id' => $item->patient->patient_fname . ' ' . $item->patient->patient_sname . ' ' . $item->patient->patient_tname . ' ' . $item->patient->patient_lname,
                 'surgery_kind_id' => $item->surgery_kind_id,
+                'surgery_kind_parent' => $item->parent->name,
                 'name' => $item->name,
                 // 'surgery_kind_id_child' => $item->surgery_kind_child->name,
                 // 'notes' => $item->notes,
