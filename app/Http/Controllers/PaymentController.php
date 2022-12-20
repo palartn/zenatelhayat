@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Payment;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use App\Http\Resources\PaymentResource;
 
 class PaymentController extends Controller
 {
@@ -49,7 +50,11 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+        $payment = Payment::findOrFail($id);
+        $app_return = new PaymentResource($payment);
+       // $total_amount = total_paid($appointment->patient_id);
+// dd($total_amount);
+        return ['app_return'=>$app_return];
     }
 
     /**

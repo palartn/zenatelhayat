@@ -15,13 +15,13 @@ class SurgerykindResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'created_at' => $this->created_at->diffForHumans(),
+           // 'created_at' => $this->created_at->diffForHumans(),
             'id' => $this->id,
-            'name' => $this->name,
-            'surgery_kind_id' => $this->surgery_kind_id,
-            'surgery_kind_id_child' => $this->surgery_kind_id_child,
-            'surgery_kind_name' => $this->surgery_kind->name,
-            'surgery_kind_id' => $this->surgery_kind_child->name
+            'name' => $this->parent->name,
+            'surgery_kind_id' => $this->parent->surgery_kind_id,
+            //'surgery_kind_id_child' => $this->parent->name,
+           // 'surgery_kind_name' => $this->surgery_kind->name,
+           // 'surgery_kind_id' => $this->surgery_kind_child->name
 
         ];
     }

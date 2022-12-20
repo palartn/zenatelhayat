@@ -4,28 +4,7 @@
     <div id="kt_content_container" class="container-xxl mt-6">
         <div class="card mb-5 mb-xl-8">
             <!--begin::Header-->
-            <div class="card-header border-0 pt-5">
-                <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1" style="font-family:NotoKufiArabic">قائمة الدفعات للمرضى</span>
-                    <span class="text-muted mt-1 fw-bold fs-7">إجمالي عدد الزيارات({{ App\Models\Appointment::count() }})</span>
-                </h3>
-                <div style="font-family:NotoKufiArabic" class="card-toolbar " data-bs-placement="top" data-bs-trigger="hover">
-                    <a href="{{ route('appointment.createnewappointment'); }}" class="btn btn-sm btn-primary">
-                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-                        <span class="svg-icon svg-icon-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none">
-                                <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                    rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
-                                    fill="black" />
-                            </svg>
-                        </span>
-                        <!--end::Svg Icon-->إضافة زيارة
-                    </a>
-
-                </div>
-            </div>
+           
             <!--end::Header-->
             <!--begin::Body-->
 
@@ -131,7 +110,7 @@
 						name="paid" id="paid" value="{{ old('paid') }}" placeholder="المبلغ المراد دفعة">
 				</div>
 
-				<div class="col-12 sm-3 mt-6">
+				<div class="col-6 sm-3 mt-6">
 					<label class="fs-4 fw-semibold form-label"
 						for="currancy">عملة الدفع</label>
 						<select class="form-select form-select-lg form-select-solid  @error('currancy') is-invalid @enderror "
@@ -142,16 +121,16 @@
 
 				</div>
 
-				<div class="col-12 mt-6">
+				<div class="col-6 mt-6">
 					<label class="fs-4 fw-semibold form-label" for="visit_date">تاريخ
 						الدفع</label>
-					<input type="date" name="paid_date"
+					<input type="date"
 						class="form-control form-control-solid  flatpickr-input active @error('paid_date') is-invalid @enderror"
 						value="{{ date('Y-m-d') }}" id="kt_datepicker_1"
 						placeholder="تاريخ الدفع" value="{{ old('paid_date') }}">
 				</div>
                 <div>
-                    <label class="fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
+                    <label class="col-12 fs-4 fw-semibold form-label mt-6">ملاحظـــات</label>
                     <textarea id="kt_docs_tinymce_basic" class="form-control form-control-solid" rows="3" name="notes"
                     placeholder="ملاحظات"></textarea>
                     </div>
@@ -208,28 +187,19 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
+                                    <label class="col-form-label col-lg-4">رقم الملف</label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
-                                            style=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="next_visit_date">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_number">
                                           </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">القسم</label>
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
-                                        </div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="visit_date">
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -237,68 +207,31 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">سبب الزيارة</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
-                                        </div>
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="visit_reason">
+                                          </div>
                                     </div>
                                 </div>
                             </div>
+                                        
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
                                     <div class="col-lg-8">
                                         <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
-                                        </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
-                                {{-- <div class="card text-center">
-                                    <div class="card-header">
-
-                                    </div>
-                                    <div class="card-body ">
-                                      <h5 class="card-title">بيانات التجميد </h5>
-                                      <p class="card-text">
-                                       </p>
-                                      <div class="form-group row mb-1">
-                                       <label class="col-form-label col-lg-4">عدد العينات</label>
-                                       <div class="col-6 lg-8">
-                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
-                                           </div>
-                                       </div>
-                                   </div>
-                                      <div class="form-group row mb-1">
-                                       <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
-                                       <div class="col-6 lg-8">
-                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
-                                           </div>
-                                       </div>
-                                   </div>
-                                      <div class="form-group row mb-1">
-                                       <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
-                                       <div class="col-6 lg-8">
-                                           <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
-                                           </div>
-                                       </div>
-                                   </div>
-
-                                </div> --}}
-
-                                <div class="d-flex flex-nowrap mt-6">
-                                    <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
-                                    <div class="col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
-
+                            
+                            
+                            <div class="d-flex flex-nowrap mt-6">
+                                    <div class="col-4 order-3 p-2  card text-white bg-success rounded-left text-center" id='total_paid'></div>
+                                    <div class="col-8 order-2 p-2 card text-white bg-dark rounded-right text-center">إجمالي المبلغ المدفوع</div>
                                   </div>
 
                                                 <div class="card-footer text-muted">
                                                 {{ Carbon\Carbon::now(); }}
                                                 </div>
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -385,7 +318,7 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/appointments/'+id,
+                                        url: SITEURL +'/payments/'+id,
 
 
                                         // return the result
@@ -394,17 +327,18 @@
                                          console.log(result);
                                             $('#smallModal').modal("show");
                                             $('#patient_id').html(result.app_return.full_name);
-                                            $('.patient_name').html(result.app_return.full_name);
-                                            $('#total_amount').html(result.total_amount);
+                                            $('#total_paid').html(result.app_return.paid);
+                                            $('#patient_number').html(result.app_return.patient_number);
                                             $('#visit_date').html(result.app_return.visit_date);
-                                            $('#next_visit_date').html(result.app_return.next_visit_date);
-                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
-                                            $('#freez_start_date').html(result.app_return.freez_start_date);
-                                            $('#freez_end_date').html(result.app_return.freez_end_date);
-                                            $('#qty_packages').html(result.app_return.qty_packages);
+                                            //$('#notes').html(result.app_return.visit_date);
+                                            $('#visit_reason').html(result.app_return.surgery_kind_id);
+                                            // $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
+                                            // $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
+                                            // $('#freez_start_date').html(result.app_return.freez_start_date);
+                                            // $('#freez_end_date').html(result.app_return.freez_end_date);
+                                            // $('#qty_packages').html(result.app_return.qty_packages);
                                             $('#notes').html(result.app_return.notes);
-                                            $('#created_at').html(result.app_return.created_at);
+                                            // $('#created_at').html(result.app_return.created_at);
                                             $('#smallBody').html(result).show();
                                         },
                                         error: function(jqXHR, testStatus, error) {

@@ -16,11 +16,11 @@ class Payment extends Model
     }
  public function appointment()
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class)->withDefault();
     }
  public function surgery_kind()
     {
-        return $this->belongsTo(SurgeryKind::class);
+        return $this->belongsTo(SurgeryKind::class)->withDefault();
     }
 
    

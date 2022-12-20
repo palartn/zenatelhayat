@@ -117,94 +117,26 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4"> إسم المريض</label>
+                                <div class="form-group row mb-5">
+                                    <label class="col-form-label col-lg-4"> القسم الرئيسي </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="patient_id">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
                                             </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة</label>
+                                <div class="form-group row mb-5">
+                                    <label class="col-form-label col-lg-4"> القسم الفرعي</label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="visit_date"
-                                            style=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="next_visit_date">
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">القسم</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_t">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">سبب الزيارة</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id_child">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">ملاحظات</label>
-                                    <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="notes">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div col-12>
-
-                                <div class="card text-center">
-                            <div class="card-header">
-
-                            </div>
-                            <div class="card-body ">
-                              <h5 class="card-title">بيانات التجميد </h5>
-                              <p class="card-text">
-                               </p>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">عدد العينات</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="qty_packages">
-                                   </div>
-                               </div>
-                           </div>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">تاريخ بداية التجميد</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_start_date">
-                                   </div>
-                               </div>
-                           </div>
-                              <div class="form-group row mb-1">
-                               <label class="col-form-label col-lg-4">تاريخ نهاية التجميد</label>
-                               <div class="col-6 lg-8">
-                                   <div class="form-control-plaintext border px-2 alpha-slate " style="" id="freez_end_date">
-                                   </div>
-                               </div>
-                           </div>
-
+                            
+                           
                         </div>
                             <div class="card-footer text-muted">
                             {{ Carbon\Carbon::now(); }}
@@ -340,7 +272,7 @@
                                             var url_ = "{{ route('users.store') }}";
                                             var type_ = "POST";
                                         } else {
-                                            var url_ = SITEURL + '/debtors/' + status_id;
+                                            var url_ = SITEURL + '/surgerykinds/' + status_id;
                                             var type_ = "PUT";
                                         }
                                         $.ajax({
@@ -396,7 +328,7 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/debtors/'+id,
+                                        url: SITEURL +'/surgerykinds/'+id,
 
 
                                         // return the result
@@ -405,13 +337,14 @@
                                          console.log(result);
                                             $('#smallModal').modal("show");
                                            // $('#patient_number').html(result.data.patient_number);
-                                            $('#patient_id').html(result.data.full_name);
-                                            $('#total_price').html(result.data.total_price);
-                                            $('#discount').html(result.data.discount);
-                                            $('#remaining_amount').html(result.data.remaining_amount);
-                                            $('#currency').html(result.data.currency);
-                                            $('#pay_date').html(result.data.pay_date);
-                                            $('#notes').html(result.data.notes);
+                                            //$('#patient_id').html(result.data.full_name);
+                                            $('#surgery_kind_id').html(result.data.name);
+                                            $('#name').html(result.data.id);
+                                             $('#surgery_t').html(result.data.surgery_kind_id);
+                                            // $('#remaining_amount').html(result.data.remaining_amount);
+                                            // $('#currency').html(result.data.currency);
+                                            // $('#pay_date').html(result.data.pay_date);
+                                            // $('#notes').html(result.data.notes);
                                           //  $('#qty_packages').html(result.data.qty_packages);
                                             // $('#notes').html(result.data.notes);
                                             $('#created_at').html(result.data.created_at);
