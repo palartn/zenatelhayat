@@ -22,8 +22,10 @@ class PaymentResource extends JsonResource
             'full_name' => $this->patient->patient_fname.' '.$this->patient->patient_sname.' '.$this->patient->patient_tname.' '.$this->patient->patient_lname,
             'patient_number' => $this->patient->patient_number,
             'visit_date'=> $this->appointment->visit_date,
-            'surgery_kind_id' => $this->surgery_kind->surgery_kind_id_child,
-            'surgery_kind_name' => $this->surgery_kind->name,
+            'surgery_kind_id' => $this->surgery_kind_id,
+          //  'surgery_kind_name' => $this->surgery_kind->name,
+            'surgery_kind_id' => $this->appointment->surgery_kind->name,
+            //'surgery_kind_id_child' => $this->surgery_kind_id_child,
            'notes' => $this->notes
 
         ];

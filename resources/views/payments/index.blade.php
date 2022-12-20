@@ -228,6 +228,11 @@
                                     <div class="col-4 order-3 p-2  card text-white bg-success rounded-left text-center" id='total_paid'></div>
                                     <div class="col-8 order-2 p-2 card text-white bg-dark rounded-right text-center">إجمالي المبلغ المدفوع</div>
                                   </div>
+                                  <div class="d-flex flex-nowrap mt-8">
+                                    <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left text-center " id='total_amount'></div>
+                                    <div class="col-8 order-2 p-2 card text-white bg-success rounded-right text-center" >إجمالي المبلغ المتبقي</div>
+
+                                  </div>
 
                                                 <div class="card-footer text-muted">
                                                 {{ Carbon\Carbon::now(); }}
@@ -330,8 +335,10 @@
                                             $('#total_paid').html(result.app_return.paid);
                                             $('#patient_number').html(result.app_return.patient_number);
                                             $('#visit_date').html(result.app_return.visit_date);
-                                            //$('#notes').html(result.app_return.visit_date);
+                                            $('#total_amount').html(result.total_amount);
                                             $('#visit_reason').html(result.app_return.surgery_kind_id);
+                                            //$('#notes').html(result.app_return.visit_date);
+                                           // $('#visit_reason').html(result.appointmentn);
                                             // $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
                                             // $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
                                             // $('#freez_start_date').html(result.app_return.freez_start_date);
