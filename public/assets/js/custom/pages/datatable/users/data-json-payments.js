@@ -103,10 +103,10 @@ var KTDatatablesDataSourceAjaxServer = function() {
                     orderable: false,
                     render: function(data, type, full, meta) {
                             return '\
-							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض الزيارة">\
+							<a href="javascript:;" data-attr="'+full.id+'" data-toggle="modal" id="smallButton1" data-target="#smallModal" class="btn btn-sm btn-clean btn-icon btn-warning" title="عرض">\
 								<i class="las la-info"></i>\
 							</a>\
-                            <a href="'+SITEURL+'/appointments/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
+                            <a href="'+SITEURL+'/payments/'+full.id+'/edit"  class="btn btn-sm btn-clean btn-icon btn-primary" title="تعديل">\
                             <i class="las la-edit"></i>\
                         </a>\
                         <a href="javascript:;" onclick="return deleted_('+full.id+')" class="btn btn-sm btn-clean btn-icon btn-danger" title="حذف">\

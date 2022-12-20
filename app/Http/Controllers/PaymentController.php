@@ -7,6 +7,7 @@ use App\Models\Payment;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Resources\PaymentResource;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\AppointmentResource;
 
 class PaymentController extends Controller
@@ -65,9 +66,9 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Payment $payment)
     {
-        //
+       return view('payments.edit',compact('payment'));
     }
 
     /**
@@ -77,10 +78,35 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Payment $payment)
     {
-        //
+        $payment->update([
+            'paid' => $request->paid,
+            'pay_date' => $request->pay_date,
+            'notes' => $request->notes,
+
+        ]);
+        // $appointment->payment->update([
+        //    'paid' => $request->paid,
+        //    'total_price' => $request->total_price,
+        //     'currency' => $request->currency,
+        //     'pay_date' => $request->pay_date,
+        //     'remaining_amount' => $request->remaining_amount,
+        //    'discount' => $request->discount,
+        //    'notes' => $request->notes,
+        // ]);
+
+
+
+
+
+
+
+        Alert::warning('تعديل بيانات الدفعة', 'تمت عملية التعديل بنجاح');
+        return redirect()->route('payments.index');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
