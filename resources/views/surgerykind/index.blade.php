@@ -120,23 +120,23 @@
                                 <div class="form-group row mb-5">
                                     <label class="col-form-label col-lg-4"> القسم الرئيسي </label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_t">
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-xl-6">
                                 <div class="form-group row mb-5">
                                     <label class="col-form-label col-lg-4"> القسم الفرعي</label>
                                     <div class="col-lg-8">
-                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_t">
+                                        <div class="form-control-plaintext border px-2 alpha-slate " style="" id="surgery_kind_id">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                           
+
+
                         </div>
                             <div class="card-footer text-muted">
                             {{ Carbon\Carbon::now(); }}
