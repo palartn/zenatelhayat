@@ -225,9 +225,9 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
+                                    <label class="col-form-label col-lg-4"> القسم </label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="next_visit_date"></div>
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="surgery_kind_id"></div>
                                     </div>
                                 </div>
                             </div>
@@ -463,11 +463,11 @@
 
                                          console.log(result);
                                             $('#smallModal').modal("show");
-                                          //  $('#patient_number').html(result.app_return.patient_number);
+                                            $('#patient_number').html(result.app_return.patient_number);
                                             $('#patient_id').html(result.app_return.full_name);
                                             $('#total_amount').html(result.total_amount);
                                             $('#next_visit_date').html(result.app_return.next_visit_date);
-                                            $('#next_visit_date').html(result.app_return.next_visit_date);
+                                           // $('#next_visit_date').html(result.app_return.next_visit_date);
                                             $('#surgery_kind_id').html(result.app_return.surgery_kind_id);
                                             $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id_child);
                                             //$('#paid').html(result.app_return.paid);
