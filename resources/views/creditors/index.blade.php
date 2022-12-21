@@ -225,10 +225,9 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
-                                    <label class="col-form-label col-lg-4">رقم </label>
+                                    <label class="col-form-label col-lg-4">تاريخ الزيارة القادمة</label>
                                     <div class="col-lg-8">
-                                       <div class="form-control-plaintext border px-2 alpha-slate " id="patient_number"
-                                            style=""></div>
+                                       <div class="form-control-plaintext border px-2 alpha-slate " id="next_visit_date"></div>
                                     </div>
                                 </div>
                             </div>
@@ -261,8 +260,8 @@
 
                         </div>
                         <div class="d-flex flex-nowrap">
-                            <div class="col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
-                            <div class="col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
+                            <div class="text-center col-4 order-3 p-2  card text-white bg-danger rounded-left " id='total_amount'></div>
+                            <div class="text-center col-8 order-2 p-2 card text-white bg-success rounded-right" >إجمالي المبلغ المتبقي</div>
 
                           </div>
 
@@ -456,7 +455,7 @@
                                     // alert(id)
                                     $.ajax({
                                         type: "GET",
-                                        url: SITEURL +'/creditors/'+id,
+                                        url: SITEURL +'/appointments/'+id,
 
 
                                         // return the result
@@ -464,10 +463,10 @@
 
                                          console.log(result);
                                             $('#smallModal').modal("show");
-                                           // $('#patient_number').html(result.data.patient_number);
+                                          //  $('#patient_number').html(result.app_return.patient_number);
                                             $('#patient_id').html(result.app_return.full_name);
                                             $('#total_amount').html(result.total_amount);
-                                            $('#patient_number').html(result.app_return.patient_number);
+                                            $('#next_visit_date').html(result.app_return.next_visit_date);
                                             $('#next_visit_date').html(result.app_return.next_visit_date);
                                             $('#surgery_kind_id').html(result.app_return.surgery_kind_id);
                                             $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id_child);

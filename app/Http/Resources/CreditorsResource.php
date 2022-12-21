@@ -28,7 +28,7 @@ class CreditorsResource extends JsonResource
             'surgery_kind'  => $this->surgery_kind,
             'paid'=> $this->paid,
             'patient'  => $this->patient,
-            'patient_number' => $this->patient->patient_number,
+            'patient_number'=> $this->patient->patient_number,
             'full_name' => $this->patient->patient_fname .' '. $this->patient->patient_sname .' '.$this->patient->patient_tname .' '. $this->patient->patient_lname,
         ];
     }
