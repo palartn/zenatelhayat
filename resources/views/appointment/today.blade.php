@@ -400,8 +400,8 @@
                                             $('#total_amount').html(result.total_amount);
                                             $('#visit_date').html(result.app_return.visit_date);
                                             $('#next_visit_date').html(result.app_return.next_visit_date);
-                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_name);
-                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id);
+                                            $('#surgery_kind_id').html(result.app_return.surgery_kind_id);
+                                            $('#surgery_kind_id_child').html(result.app_return.surgery_kind_id_child);
                                             $('#freez_start_date').html(result.app_return.freez_start_date);
                                             $('#freez_end_date').html(result.app_return.freez_end_date);
                                             $('#qty_packages').html(result.app_return.qty_packages);

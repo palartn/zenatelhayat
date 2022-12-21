@@ -397,12 +397,12 @@ class AppointmentsController extends Controller
         if ($searchValue != null)
             $totalRecordswithFilter = $totalRecordswithFilter
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
-                ->orwhere('appointments.next_visit_date', 'like', '%' . $searchValue . '%')
+                ->orwhere('appointments.amount_after_discount', 'like', '%' . $searchValue . '%')
                 ->orwhere('appointments.notes', 'like', '%' . $searchValue . '%')
                  ->orWhere('appointments.created_at', $searchValue);
 
         if ($from_date != -1)
-            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.created_at', array($from_date, $to_date));
+            $totalRecordswithFilter = $totalRecordswithFilter->whereBetween('appointments.visit_date', array($from_date, $to_date));
         // if ($filter_1 != -1)
         //     $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', $filter_1);
         if ($filter_2 != -1)
@@ -413,9 +413,10 @@ class AppointmentsController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->whereHas('surgery_kind', function ($query) use ($filter_3) {
                 $query->where('name', 'like', '%' . $filter_3 . '%');
             });
-        // if ($filter_3 != -1)
-        //    $totalRecordswithFilter = $totalRecordswithFilter->where('appointments.visit_date', 'like', '%' . $filter_3 . '%');
-
+            if ($filter_4 != -1)
+            $totalRecordswithFilter = $totalRecordswithFilter->whereHas('patient', function ($query) use ($filter_4) {
+                $query->where('gender', 'like', '%' . $filter_4 . '%');
+            });
 
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
@@ -433,7 +434,7 @@ class AppointmentsController extends Controller
 
 
             if ($from_date != -1)
-                $items = $items->whereBetween('appointments.created_at', array($from_date, $to_date));
+                $items = $items->whereBetween('appointments.visit_date', array($from_date, $to_date));
         // if ($filter_1 != -1)
         //     $items = $items->where('appointments.visit_date', $filter_1);
         if ($filter_2 != -1)
@@ -444,8 +445,11 @@ class AppointmentsController extends Controller
             $items = $items->whereHas('surgery_kind', function ($query) use ($filter_3) {
                 $query->where('name', 'like', '%' . $filter_3 . '%');
             });
-        // if ($filter_4 != -1)
-        //     $items = $items->where('appointments.visit_date', $filter_4);
+        if ($filter_4 != -1)
+            $items = $items->whereHas('patient', function ($query) use ($filter_4) {
+                $query->where('gender', 'like', '%' . $filter_4 . '%');
+            });
+      
         $items = $items->select('appointments.*')
             ->skip($start)
             ->take($rowperpage)
@@ -482,6 +486,7 @@ class AppointmentsController extends Controller
         return response()->json($response);
         exit;
     }
+
 
 
 
@@ -632,6 +637,8 @@ class AppointmentsController extends Controller
         return response()->json($response);
         exit;
     }
+
+
 
 
 
