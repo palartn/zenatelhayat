@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Carbon\Carbon;
+use App\Models\User;
+
 use App\Models\Patient;
+use App\Models\Payment;
 use App\Models\Appointment;
 use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\AppointmentResource;
-use App\Models\Payment;
+
 
 class AppointmentsController extends Controller
 {
@@ -255,7 +258,20 @@ class AppointmentsController extends Controller
         return ['app_return'=>$app_return,'total_amount'=>$total_amount];
     }
 
+    public function preview()
+    {
+        $tilte='PDF Preview';
+        $appointment=Appointment::all();
+        return view('appointment.mypdf',compact('appointment','tilte'));
+    }
+    public function generatePDF()
+    {
 
+        $data = User::all();
+
+        $pdf = PDF::loadView('appointment.mypdf',['data'=>$data])->setPaper('a4', 'portrait');
+        return $pdf->download('demo.pdf');
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -449,7 +465,7 @@ class AppointmentsController extends Controller
             $items = $items->whereHas('patient', function ($query) use ($filter_4) {
                 $query->where('gender', 'like', '%' . $filter_4 . '%');
             });
-      
+
         $items = $items->select('appointments.*')
             ->skip($start)
             ->take($rowperpage)
