@@ -46,7 +46,7 @@
                             </span>
                             <!--end::Svg Icon-->إضافة زيارة
                         </a>
-    
+
                     </div>
 
                     <!--end::Add customer-->
@@ -56,35 +56,35 @@
                 <!--begin::Group actions-->
 
             </div>
-           
+
         </div>
                     <div id="kt_accordion_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
                         <div class="accordion-body">
                             <div class="card-body pt-0">
                                 <form class="kt-form kt-form--fit mb-0">
-        
-        
+
+
                                     <div class="row mb-0 search_input">
                                         <div class="col-lg-2 mb-6">
                                             <label>رقم المريض:</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" style="padding:1.1rem;border-radius: 0px 5px 5px 0px"><i class="fa fa-id-card" ></i></span></div>
-        
+
                                                 <input type="text" class="form-control datatable-input" name="filter_1" id="filter_1" placeholder="رقم المريض" data-col-index="5"/>
                                             </div>
                                         </div>
-                                      
+
                                         <div class="col-lg-3 mb-6">
                                             <label>اسم المريض :</label>
                                             <input type="text" class="form-control datatable-input" name="filter_2" id="filter_2" placeholder="اسم المريض" data-col-index="5"/>
-        
+
                                         </div>
                                         <div class="col-lg-3 mb-6">
                                             <label>سبب الزيارة:</label>
                                             <input type="text" class="form-control datatable-input" name="filter_3" id="filter_3" placeholder="القسم" data-col-index="5"/>
-        
+
                                         </div>
-        
+
                                         <div class="col-lg-2 mb-6">
                                             <label>الجنس :</label>
                                             <div>
@@ -95,17 +95,17 @@
                                                 </select>
                                             </div>
                                         </div>
-        
+
                                         {{-- <div class="col-lg-2 mb-6">
                                             <label>العملة:</label>
                                             <div>
                                                 <select class="form-select form-select-solid" name="filter_5" id="filter_5">
                                                     <option value="">اختر ..</option>
-                                                  
+
                                                 </select>
                                             </div>
                                         </div> --}}
-        
+
                                         <div class="col-lg-4 mb-6">
                                             <label>تاريخ الإضافة:</label>
                                             <div class="input-daterange input-group">
@@ -118,8 +118,8 @@
                                                 {{--                                        <input type="text" class="form-control datatable-input" name="to_date" id="to_date" placeholder="إلى" data-col-index="5"/>--}}
                                             </div>
                                         </div>
-        
-        
+
+
                                         {{--<div class="col-lg-3  mb-lg-0 mb-6">--}}
                                         {{--<label>Status:</label>--}}
                                         {{--<select class="form-control datatable-input" data-col-index="6">--}}
@@ -142,15 +142,15 @@
                                             </button>
                                         </div>
                                     </div>
-        
-        
+
+
                                 </form>
                             </div>
                         </div>
         </div>
-  
-        
-  
+
+
+
             <!--end::Header-->
             <!--begin::Body-->
 
@@ -193,11 +193,11 @@
 
 
 </div>
-    
+
 
 
         {{-- {!! $users->links() !!} --}}
-   
+
 
     <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
