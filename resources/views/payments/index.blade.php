@@ -4,7 +4,7 @@
     <div id="kt_content_container" class="container-xxl mt-6">
         <div class="card mb-5 mb-xl-8">
             <!--begin::Header-->
-           
+
             <!--end::Header-->
             <!--begin::Body-->
 
@@ -212,7 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                                        
+
                             <div class="col-xl-6">
                                 <div class="form-group row mb-1">
                                     <label class="col-form-label col-lg-4">ملاحظات</label>
@@ -222,8 +222,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="d-flex flex-nowrap mt-6">
                                     <div class="col-4 order-3 p-2  card text-white bg-success rounded-left text-center" id='total_paid'></div>
                                     <div class="col-8 order-2 p-2 card text-white bg-dark rounded-right text-center">إجمالي المبلغ المدفوع</div>

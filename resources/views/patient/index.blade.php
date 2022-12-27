@@ -46,19 +46,19 @@
                                 </span>
                                 <!--end::Svg Icon-->إضافة مريض
                             </a>
-        
+
                         </div>
-    
+
                         <!--end::Add customer-->
-    
+
                     </div>
                     <!--end::Toolbar-->
                     <!--begin::Group actions-->
- 
+
                 </div>
-               
+
             </div>
-            
+
             <div id="kt_accordion_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
                 <div class="accordion-body">
                     <div class="card-body pt-0">
@@ -74,7 +74,7 @@
                                         <input type="text" class="form-control datatable-input" name="filter_1" id="filter_1" placeholder="رقم المريض" data-col-index="5"/>
                                     </div>
                                 </div>
-                              
+
                                 <div class="col-lg-3 mb-6">
                                     <label>اسم المريض :</label>
                                     <input type="text" class="form-control datatable-input" name="filter_2" id="filter_2" placeholder="اسم المريض" data-col-index="5"/>
@@ -102,7 +102,7 @@
                                     <div>
                                         <select class="form-select form-select-solid" name="filter_5" id="filter_5">
                                             <option value="">اختر ..</option>
-                                          
+
                                         </select>
                                     </div>
                                 </div> --}}
@@ -434,7 +434,7 @@
                                 $('#from_date').flatpickr({
                                 	format : 'dd-mm-yyyy',
                                 });
-                                
+
                                 $('#to_date').flatpickr({
                                 	format : 'dd-mm-yyyy',
                                 });
@@ -598,6 +598,6 @@
                                 // $('#user_photo').attr("src", 'https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png');
                                 // $('#user_photo').attr("src", text);
 
-                                
+
                             </script>
                         @endsection
