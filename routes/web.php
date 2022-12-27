@@ -96,6 +96,9 @@ Route::resource('appointments',AppointmentsController::class)->middleware('auth'
 
 Route::post('appointments/{appointment}/{patient}',[AppointmentsController::class,'paid'])->name('appointments.paid');
 
+Route::get('appointment/preview', [AppointmentsController::class, 'preview'])->name('pdf.preview');
+Route::get('appointment/generate', [AppointmentsController::class, 'generatePDF'])->name('pdf.generate');
+
 
 Route::get('/dashboard', function () {
 
