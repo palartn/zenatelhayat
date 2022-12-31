@@ -1247,7 +1247,7 @@
 									<span class="menu-bullet">
 										<span class="bullet bullet-dot"></span>
 									</span>
-									<span class="menu-title"> الدائنون</span>
+									<span class="menu-title"> المدينون</span>
 								</a>
 							</div>
 

@@ -266,15 +266,15 @@ class AppointmentsController extends Controller
 
 
       public function generatePDF() {
-        
+
             $data = User::all();
-        
+
             $pdf=PDF::loadView('appointment.mypdf', ['data' => $data]);
            // $pdf->setOptions('isPhpEnabled', true);
             $pdf->setPaper('L', 'landscape');
             return $pdf->stream('test_pdf.pdf');
         }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -565,8 +565,12 @@ class AppointmentsController extends Controller
 
 
         // $totalRecords = Appointment::select('count(*) as allcount')->count();
-        $totalRecords = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->count();
-        $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'));
+        $totalRecords = Appointment::whereDate('visit_date' , DB::raw('CURDATE()'))
+        or
+        $totalRecords = Appointment::whereDate('next_visi_date' , DB::raw('CURDATE()'))->count();
+        $totalRecordswithFilter = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))
+        or
+        $totalRecordswithFilter = Appointment::whereDate('next_visi_date', DB::raw('CURDATE()')) ;
         // $totalRecordswithFilter = Appointment::select('count(appointments.*) as allcount');
 
         if ($searchValue != null)
@@ -597,7 +601,9 @@ class AppointmentsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Appointment::whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
+        $items = Appointment::whereDate('visit_date' , DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc')
+        or
+        $items = Appointment::whereDate('next_visi_date' , DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc') ;
         if ($searchValue != null)
             $items = $items
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')

@@ -100,7 +100,7 @@ class PatientsController extends Controller
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_number', $filter_1);
         if ($filter_2 != -1)
             $totalRecordswithFilter = $totalRecordswithFilter->where('patients.patient_fname', 'like', '%' . $filter_2 . '%');
-          
+
             // ->orWhere('patients.patient_sname', 'like', '%' . $filter_2 . '%')
             // ->orWhere('patients.patient_tname', 'like', '%' . $filter_2 . '%')
             // ->orWhere('patients.patient_lname', 'like', '%' . $filter_2 . '%');
@@ -175,7 +175,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        
+
         $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
         $year = explode('/',$patient_number)[0];
         $patient_number = explode('/',$patient_number)[1];
@@ -210,17 +210,19 @@ class PatientsController extends Controller
                 'idc' => 'required|min:9|unique:patients',
                 'mobile' => 'required|min:7',
             ]);
-          $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
+
+          $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'100';
           $year = explode('/',$patient_number)[0];
           $patient_number = explode('/',$patient_number)[1];
 
           if(Date('Y') > $year){
-            $number = Date('Y').'/'.'101';
+            $number = Date('Y').'/'.'100';
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };
-//dd($request->patient_type);
-
+// if($request->patient_type=='زائر'){
+//     $number='null';
+// }
             Patient::create($request->all() + [
                 'user_id' => auth()->id(),
                 'patient_number' => $number,

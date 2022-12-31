@@ -16,7 +16,7 @@
 			<!--end::Svg Icon-->
 			<h2 class="p-3">إضافة مريض</h2>
 		</div>
-       <div><h2 class="text-danger pt-5">{{$patient_number}}</h2>
+       <div><h2 class="text-danger pt-5 ">{{$patient_number}}</h2>
        </div>
 		<!--end::Card title-->
 	</div>

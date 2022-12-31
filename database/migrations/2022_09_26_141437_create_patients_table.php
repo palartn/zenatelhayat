@@ -20,7 +20,7 @@ return new class extends Migration
         //$table->string('username')->unique();
         //$table->string('password');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('patient_number')->unique();
+            $table->string('patient_number')->unique()->nullable();
             $table->string('email')->nullable()->unique();
             $table->integer('idc')->unique();
             $table->date('create_at')->comment('تاريخ فتح الملف')->nullable();
