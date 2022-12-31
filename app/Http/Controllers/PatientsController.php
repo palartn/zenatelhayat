@@ -175,10 +175,21 @@ class PatientsController extends Controller
      */
     public function create()
     {
+        
+        $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
+        $year = explode('/',$patient_number)[0];
+        $patient_number = explode('/',$patient_number)[1];
+
+        if(Date('Y') > $year){
+          $number = Date('Y').'/'.'101';
+        }else{
+          $number = Date('Y').'/'.$patient_number + 1;
+        };
+        $patient_number=$patient_number+1 .' / '. $year;
 
 
         $roles = Role::all();
-        return view('patient.create', compact('roles'));
+        return view('patient.create', compact('roles','patient_number'));
     }
 
     /**
@@ -189,26 +200,7 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-     //  dd($request->all(),['user_id' => auth()->id()]);
-            // $fname = $request->fname;
-            // $sname = $request->sname;
-            // $tname = $request->tname;
-            // $lname = $request->lname;
-            // $idc = $request->idc;
-            // $dob = $request->dob;
-            // $occupation = $request->occupation;
-            // $email = $request->email;
-            // $mobile = $request->mobile;
-            // $mobile_second = $request->mobile_second;
-            // $address = $request->address;
-            // $gender = $request->gender;
-            // $husband_name = $request->husband_name;
-            // $husband_occupation = $request->husband_occupation;
-            // $husband_dob = $request->husband_dob;
-            // $notes = $request->notes;
-
-
-            $validated = $request->validate([
+        $validated = $request->validate([
                 'patient_fname' => 'required',
                 'patient_sname' => 'required',
                 'patient_lname' => 'required',
@@ -218,27 +210,6 @@ class PatientsController extends Controller
                 'idc' => 'required|min:9|unique:patients',
                 'mobile' => 'required|min:7',
             ]);
-
-            //Patients::create([]);
-            // $add_patients = Patient::create([
-            //     'patient_fname' => $fname,
-            //     'patient_sname' => $sname,
-            //     'patient_tname' => $tname,
-            //     'patient_lname' => $lname,
-            //     'idc' => $idc,
-            //     'email' => $email,
-            //     'patient_dob' => $dob,
-            //     'occupation' => $occupation,
-            //     'address' => $address,
-            //     'mobile' => $mobile,
-            //     'mobile_second' => $mobile_second,
-            //     'gender' => $gender,
-            //     'husband_name' => $husband_name,
-            //     'husband_occupation' => $husband_occupation,
-            //     'notes' => $notes
-            // ]);
-
-
           $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
           $year = explode('/',$patient_number)[0];
           $patient_number = explode('/',$patient_number)[1];

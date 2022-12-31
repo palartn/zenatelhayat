@@ -14,7 +14,8 @@
 				</svg>
 			</span>
 			<!--end::Svg Icon-->
-			<h2 >إضافة مريض</h2>
+			<h2 class="p-3">إضافة مريض</h2>
+			<h2 class="text-danger">{{$patient_number}}</h2>
 		</div>
 		<!--end::Card title-->
 	</div>

@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Payment;
+// use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Appointment;
 use App\Models\SurgeryKind;
@@ -264,25 +264,17 @@ class AppointmentsController extends Controller
         return view('appointment.mypdf',compact('employee','tilte'));
     }
 
-    public function generatePDF()
-    {
-        $employee =  User::all();
-        //$pdf = PDF::loadView('Home.report')->setPaper('a4', 'portrait');
-        $pdf = app('dompdf.wrapper');
-      $pdf->loadView('appointment.mypdf')->setPaper('a4', 'portrait');
-       // $fileName = $report->issue_number;
-        return $pdf->stream('sss.pdf');
 
-
-        // $data = User::all();
-        // // share data to view
-        // view()->share('employee',$data);
-        // $pdf = PDF::loadView('appointment.mypdf', $data)->setPaper('a4', 'portrait');
-        // // download PDF file with download method
-        // return $pdf->download('pdf_file.pdf');
-      }
+      public function generatePDF() {
+        
+            $data = User::all();
+        
+            $pdf=PDF::loadView('appointment.mypdf', ['data' => $data]);
+           // $pdf->setOptions('isPhpEnabled', true);
+            $pdf->setPaper('L', 'landscape');
+            return $pdf->stream('test_pdf.pdf');
+        }
     
-
     /**
      * Show the form for editing the specified resource.
      *
