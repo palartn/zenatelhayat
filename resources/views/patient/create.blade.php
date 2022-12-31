@@ -5,7 +5,7 @@
 	<!--begin::Card header-->
 	<div class="card-header pt-7" id="kt_chat_contacts_header">
 		<!--begin::Card title-->
-		<div class="card-title">
+		<div class="card-title d-flex justify-content-between">
 			<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
 			<span class="svg-icon svg-icon-1 me-2">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,8 +15,9 @@
 			</span>
 			<!--end::Svg Icon-->
 			<h2 class="p-3">إضافة مريض</h2>
-			<h2 class="text-danger">{{$patient_number}}</h2>
 		</div>
+       <div><h2 class="text-danger pt-5">{{$patient_number}}</h2>
+       </div>
 		<!--end::Card title-->
 	</div>
 
