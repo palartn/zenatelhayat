@@ -4,7 +4,6 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Payment;
-// use Barryvdh\DomPDF\PDF;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Appointment;
 use App\Models\SurgeryKind;
