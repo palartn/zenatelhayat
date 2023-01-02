@@ -9,6 +9,7 @@ use App\Models\Appointment;
 use App\Models\SurgeryKind;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use NunoMaduro\Collision\Provider;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Resources\AppointmentResource;
 
@@ -258,20 +259,25 @@ class AppointmentsController extends Controller
 
     public function preview()
     {
-        $tilte='PDF Preview';
-        $employee=User::all();
-        return view('appointment.mypdf',compact('employee','tilte'));
+     
+        $html = '<h1 style="color:red;">Hello World</h1>';
+        
+        // PDF::SetTitle('Hello World');
+        // PDF::AddPage();
+        // PDF::writeHTML($html, true, false, true, false, '');
+
+        // PDF::Output('hello_world.pdf');
     }
 
 
       public function generatePDF() {
 
-            $data = User::all();
+        //     $data = User::all();
 
-            $pdf=PDF::loadView('appointment.mypdf', ['data' => $data]);
-           // $pdf->setOptions('isPhpEnabled', true);
-            $pdf->setPaper('L', 'landscape');
-            return $pdf->stream('test_pdf.pdf');
+        //     $pdf=PDF::loadView('appointment.mypdf', ['data' => $data]);
+        //    // $pdf->setOptions('isPhpEnabled', true);
+        //     $pdf->setPaper('L', 'landscape');
+        //     return $pdf->stream('test_pdf.pdf');
         }
 
     /**

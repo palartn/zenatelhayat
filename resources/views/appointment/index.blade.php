@@ -578,7 +578,6 @@
                                         var p_name = $('#data_'+appointment+'_'+patient).attr('data-p-name');
                                         var p_no = $('#data_'+appointment+'_'+patient).attr('data-p-no');
                                         $('#patient_name').val(p_name+'_'+p_no);
-                                        $(document).ready(function() {
                                     $("#btn_paid").click(function(e) {
                                         e.preventDefault();
                                         var paid = $('#paid').val();
@@ -610,7 +609,11 @@
                                                     title: "تمت العملية بنجاح!",
                                                     showConfirmButton: false,
                                                     timer: 3000
+                                                    $('#kt_modal_1').dispose();
+
                                                 });
+                                               
+
                                                 var oTable = $('#kt_datatable').DataTable();
                                                 oTable.destroy();
                                                 KTDatatablesDataSourceAjaxServer.init();
@@ -630,7 +633,7 @@
                                     });
 
 
-                                });
+                           
 
                                      };
                                 </script>

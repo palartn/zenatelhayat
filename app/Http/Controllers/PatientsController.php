@@ -176,7 +176,7 @@ class PatientsController extends Controller
     public function create()
     {
 
-        $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'99';
+        $patient_number = Patient::latest('id')->first()->patient_number ?? Date('Y').'/'.'100';
         $year = explode('/',$patient_number)[0];
         $patient_number = explode('/',$patient_number)[1];
 
@@ -216,7 +216,7 @@ class PatientsController extends Controller
           $patient_number = explode('/',$patient_number)[1];
 
           if(Date('Y') > $year){
-            $number = Date('Y').'/'.'100';
+            $number = Date('Y').'/'.'101';
           }else{
             $number = Date('Y').'/'.$patient_number + 1;
           };

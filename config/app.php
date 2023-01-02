@@ -159,7 +159,8 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        
+        Elibyy\TCPDF\ServiceProvider::class,
+
         Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -219,6 +220,7 @@ return [
     ])->toArray(),
     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
     'PDF' => Barryvdh\DomPDF\Facade::class,
+    'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
 
 
 

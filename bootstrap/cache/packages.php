@@ -11,6 +11,17 @@
       'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
     ),
   ),
+  'elibyy/tcpdf-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Elibyy\\TCPDF\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'PDF' => 'Elibyy\\TCPDF\\Facades\\TCPDF',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 
