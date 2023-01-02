@@ -257,28 +257,7 @@ class AppointmentsController extends Controller
         return ['app_return'=>$app_return,'total_amount'=>$total_amount];
     }
 
-    public function preview()
-    {
-     
-        $html = '<h1 style="color:red;">Hello World</h1>';
-        
-        // PDF::SetTitle('Hello World');
-        // PDF::AddPage();
-        // PDF::writeHTML($html, true, false, true, false, '');
 
-        // PDF::Output('hello_world.pdf');
-    }
-
-
-      public function generatePDF() {
-
-        //     $data = User::all();
-
-        //     $pdf=PDF::loadView('appointment.mypdf', ['data' => $data]);
-        //    // $pdf->setOptions('isPhpEnabled', true);
-        //     $pdf->setPaper('L', 'landscape');
-        //     return $pdf->stream('test_pdf.pdf');
-        }
 
     /**
      * Show the form for editing the specified resource.

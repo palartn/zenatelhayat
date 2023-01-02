@@ -3,14 +3,15 @@
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DebtorsController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\AppointmentsController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubPayementsController;
 use App\Http\Controllers\SurgeryKindsController;
 
@@ -95,8 +96,10 @@ Route::resource('files',FileController::class)->middleware('auth');
 Route::resource('appointments',AppointmentsController::class)->middleware('auth');
 
 Route::post('appointments/{appointment}/{patient}',[AppointmentsController::class,'paid'])->name('appointments.paid');
+// Route::get('pdf', [PDFController::class,'index']);
 
-// Route::get('appointment/preview', [AppointmentsController::class, 'preview'])->name('pdf.preview');
+Route::get('pdf',[PDFController::class, 'index']);
+Route::get('download',[PDFController::class, 'download']);
 // Route::get('appointment/generate', [AppointmentsController::class, 'generatePDF'])->name('pdf.generate');
 
 
