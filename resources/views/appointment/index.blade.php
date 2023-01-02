@@ -609,10 +609,12 @@
                                                     title: "تمت العملية بنجاح!",
                                                     showConfirmButton: false,
                                                     timer: 3000
-                                                    $('#kt_modal_1').dispose();
+                                                  
 
                                                 });
-                                               
+                                              
+
+                                                $('#kt_modal_1').modal('dispose');
 
                                                 var oTable = $('#kt_datatable').DataTable();
                                                 oTable.destroy();
