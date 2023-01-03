@@ -612,9 +612,8 @@
                                                   
 
                                                 });
-                                              
+                                                $("#kt_modal_1").modal({ backdrop: "static ", keyboard: false });
 
-                                                $('#kt_modal_1').modal('dispose');
 
                                                 var oTable = $('#kt_datatable').DataTable();
                                                 oTable.destroy();

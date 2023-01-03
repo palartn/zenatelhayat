@@ -3,6 +3,7 @@
 body{
     margin-top:20px;
     background:#eee;
+    Width:50%;
 }
 
 .invoice {
@@ -120,7 +121,7 @@ body{
 }
 </style>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
+<div class="container" >
    <div class="col-md-12">
       <div class="invoice">
          <!-- begin invoice-company -->
