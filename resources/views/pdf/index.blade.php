@@ -3,7 +3,7 @@
 
 *
 {
-	border: 0;
+	border: 1px;
 	box-sizing: content-box;
 	color: inherit;
 	font-family: inherit;
@@ -13,7 +13,7 @@
 	line-height: inherit;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 2;
 	text-decoration: none;
 	vertical-align: top;
 }
@@ -156,10 +156,10 @@ tr:hover .cut { opacity: 1; }
 	</head>
 	<body dir="rtl">
 		
-		<article>
-			<h1>Recipient</h1>
+		<article style="padding-top: 250px">
+			<h1 >Recipient</h1>
 			<address contenteditable>
-				<p>Some Company<br>c/o Some Guy</p>
+				<p >الإسم :عباس ابن فرناس</p>
 			</address>
 			<table class="meta">
 				<tr>

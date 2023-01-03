@@ -46,7 +46,7 @@ class PDFController extends Controller
         // set document information
 //        $pdf::SetCreator(PDF_CREATOR);
 //        $pdf::SetAuthor($invoice->author->name);
-        $pdf::SetTitle('مستند إدخال لوازم');
+        $pdf::SetTitle('تقرير مالي');
 //        $pdf::SetSubject($invoice->title);
 //        $pdf::SetKeywords($invoice->title);
 
@@ -90,7 +90,7 @@ class PDFController extends Controller
 $invoice='ssssssss';
         $pdf::setHeaderCallback(function($pdf) use ($invoice) {
             $pdf->SetY(16);
-            $pdf->Image('@'.file_get_contents( K_PATH_IMAGES.'LOQO2018.png'), 160, 5, 27, '', 'PNG', '', 'R', false, 10, '', false, false, 0, false, false, false);
+            $pdf->Image('@'.file_get_contents( K_PATH_IMAGES.'LOQO2018.png'), 200, 5, 27, '', 'PNG', '', 'R', false, 10, '', false, false, 0, false, false, false);
             // $pdf->SetMargins(0, 20, 0);
             // $pdf->SetFont('time_n_r', '', 12);
             // $pdf->Cell(180, 0, 'رقم المسلسل: '.$invoice.'/'.$invoice, 0, false, 'L', false, '', 0, false, 'T', 'M');
@@ -130,6 +130,8 @@ $invoice='ssssssss';
 
         });
 // add a page
+$pdf::setCellPaddings(2, 1, 2, 2);
+
         $pdf::AddPage();
         $pdf::setRTL(true);
 
