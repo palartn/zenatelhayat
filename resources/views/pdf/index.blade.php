@@ -145,26 +145,17 @@ tr:hover .cut { opacity: 1; }
 	.add, .cut { display: none; }
 }
 
+
 @page { margin: 0; }
 </style>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Invoice</title>
-		<link rel="stylesheet" href="style.css">
-		<link rel="license" href="https://www.opensource.org/licenses/mit-license/">
-		<script src="script.js"></script>
+		
 	</head>
 	<body dir="rtl">
-		<header>
-			<h1>Invoice</h1>
-			<address contenteditable>
-				<p>Jonathan Neal</p>
-				<p>101 E. Chapman Ave<br>Orange, CA 92866</p>
-				<p>(800) 555-1234</p>
-			</address>
-			<span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span>
-		</header>
+		
 		<article>
 			<h1>Recipient</h1>
 			<address contenteditable>

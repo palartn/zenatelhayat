@@ -41,7 +41,8 @@ class PDFController extends Controller
 
     public function download()
     {
-        $pdf = new TCPDF;
+       
+        $pdf = new TCPDF('P', 'mm','A4', true, 'UTF-8', false);;
         // set document information
 //        $pdf::SetCreator(PDF_CREATOR);
 //        $pdf::SetAuthor($invoice->author->name);
