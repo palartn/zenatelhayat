@@ -15,30 +15,30 @@ class PDFController extends Controller
      *
      * @return response()
      */
-    public function index(Request $request)
-    {
+    // public function index(Request $request)
+    // {
 
     
-        $filename = 'hello_world.pdf';
+    //     $filename = 'hello_world.pdf';
 
-    	$data = [
-    		'title' => 'Hello world!'
-    	];
+    // 	$data = [
+    // 		'title' => 'Hello world!'
+    // 	];
 
-    	$view = \View::make('pdf.index', $data);
-        $html = $view->render();
+    // 	$view = \View::make('pdf.index', $data);
+    //     $html = $view->render();
 
-    	$pdf = new TCPDF;
+    // 	$pdf = new TCPDF;
         
-        $pdf::SetTitle('Hello World');
-        $pdf::AddPage();
-        $pdf::writeHTML($html, true, false, true, false, '');
+    //     $pdf::SetTitle('Hello World');
+    //     $pdf::AddPage();
+    //     $pdf::writeHTML($html, true, false, true, false, '');
 
-        $pdf::Output(public_path($filename), 'F');
+    //     $pdf::Output(public_path($filename), 'F');
 
-        return response()->download(public_path($filename));
-    }
-    
+    //     return response()->download(public_path($filename));
+    // }
+
     public function download()
     {
         $pdf = new TCPDF;
@@ -90,9 +90,9 @@ $invoice='ssssssss';
         $pdf::setHeaderCallback(function($pdf) use ($invoice) {
             $pdf->SetY(16);
             $pdf->Image('@'.file_get_contents( K_PATH_IMAGES.'LOQO2018.png'), 160, 5, 27, '', 'PNG', '', 'R', false, 10, '', false, false, 0, false, false, false);
-            $pdf->SetMargins(0, 20, 0);
-            $pdf->SetFont('time_n_r', '', 12);
-            $pdf->Cell(180, 0, 'رقم المسلسل: '.$invoice.'/'.$invoice, 0, false, 'L', false, '', 0, false, 'T', 'M');
+            // $pdf->SetMargins(0, 20, 0);
+            // $pdf->SetFont('time_n_r', '', 12);
+            // $pdf->Cell(180, 0, 'رقم المسلسل: '.$invoice.'/'.$invoice, 0, false, 'L', false, '', 0, false, 'T', 'M');
 //            $pdf->Ln();
 
 
@@ -134,7 +134,8 @@ $invoice='ssssssss';
 
         $html = view('pdf.index',['invoice'=>$invoice])->render();
         $pdf::WriteHTML($html, true, 0, true, 0);
-        $pdf::Output('example_018.pdf','I');
+      //  $pdf->Output('example_006.pdf', 'I');
+         $pdf::Output('example_018.pdf','I');
     }
     }
 
