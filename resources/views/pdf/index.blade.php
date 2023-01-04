@@ -147,8 +147,6 @@ tr:hover .cut { opacity: 1; }
 	span:empty { display: none; }
 	.add, .cut { display: none; }
 }
-
-
 @page { margin: 0; }
 </style>
 
@@ -161,13 +159,12 @@ tr:hover .cut { opacity: 1; }
 	<body dir="rtl">
 		<img src="{{ asset('assets/media/reports/header-right.png') }}" width="700px">
 		<article style="padding-top: 50px">
-			<h1 ></h1>
 			{{-- <address contenteditable>
 				<p dir="rtl"></p>
 			</address> --}}
 			<table class="meta">
 				<tr>
-					<th><span contenteditable>مجموع المصروفات</span></th>
+					<th><span >مجموع المصروفات</span></th>
 					<td><span contenteditable>{{ $sum_expense }}</span></td>
 				</tr>
 				<tr>
