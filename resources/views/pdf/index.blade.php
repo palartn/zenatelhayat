@@ -228,31 +228,18 @@ tr:hover .cut { opacity: 1; }
 						<td><span data-prefix>{{ $payment->notes; }}</span><span></span></td>
 					
 					</tr>
+					
 					@endforeach
+				
+
 				</tbody>
 				
 			</table>
 			{{-- <a class="add">+</a> --}}
-			<table class="balance">
-				<tr>
-					<th><span contenteditable>Total</span></th>
-					<td><span data-prefix>$</span><span>600.00</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Amount Paid</span></th>
-					<td><span data-prefix>$</span><span contenteditable>0.00</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Balance Due</span></th>
-					<td><span data-prefix>$</span><span>600.00</span></td>
-				</tr>
-			</table>
-		</article>
-		<aside>
-			<h1><span contenteditable>Additional Notes</span></h1>
-			<div contenteditable>
-				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
-			</div>
-		</aside>
+			{{ $ads->links() }}
+
+
+			
+
 	</body>
 </html>

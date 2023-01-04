@@ -19,14 +19,15 @@ class PDFController extends Controller
      *
      * @return response()
      */
-    public function index(Expense $expense){
+    public function index(){
+        $ads = Payment::paginate(5);
         $expense=Expense::all();
         $sum_expense=Expense::all()->sum('amount');
         $payment=Payment::all();
         $sum_payment=Payment::all()->sum('paid');
         $total=$sum_payment- $sum_expense;
         
-return view('pdf.index',compact('expense','payment','sum_payment','sum_expense','total'));
+return view('pdf.index',compact('expense','payment','sum_payment','sum_expense','total','ads'));
     
  }
 
