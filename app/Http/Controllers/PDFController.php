@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 //use Elibyy\TCPDF\TCPDF;
+
+use App\Models\Expense;
+use App\Models\Patient;
+use App\Models\Payment;
 use View;
 
 use Illuminate\Http\Request;
@@ -15,33 +19,24 @@ class PDFController extends Controller
      *
      * @return response()
      */
-    // public function index(Request $request)
-    // {
-
-    
-    //     $filename = 'hello_world.pdf';
-
-    // 	$data = [
-    // 		'title' => 'Hello world!'
-    // 	];
-
-    // 	$view = \View::make('pdf.index', $data);
-    //     $html = $view->render();
-
-    // 	$pdf = new TCPDF;
+    public function index(Expense $expense){
+        $expense=Expense::all();
+        $sum_expense=Expense::all()->sum('amount');
+        $payment=Payment::all();
+        $sum_payment=Payment::all()->sum('paid');
+        $total=$sum_payment- $sum_expense;
         
-    //     $pdf::SetTitle('Hello World');
-    //     $pdf::AddPage();
-    //     $pdf::writeHTML($html, true, false, true, false, '');
-
-    //     $pdf::Output(public_path($filename), 'F');
-
-    //     return response()->download(public_path($filename));
-    // }
+return view('pdf.index',compact('expense','payment','sum_payment','sum_expense','total'));
+    
+ }
 
     public function download()
     {
-       
+        $expense=Expense::all();
+        $sum_expense=Expense::all()->sum('amount');
+        $payment=Payment::all();
+        $sum_payment=Payment::all()->sum('paid');
+        $total=$sum_payment- $sum_expense;
         $pdf = new TCPDF('P', 'mm','A4', true, 'UTF-8', false);;
         // set document information
 //        $pdf::SetCreator(PDF_CREATOR);
@@ -51,19 +46,22 @@ class PDFController extends Controller
 //        $pdf::SetKeywords($invoice->title);
 
 // set default header data
+
         $pdf::SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 018', PDF_HEADER_STRING);
 
 // set header and footer fonts
         $pdf::setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf::setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set default monospaced font
         //$pdf::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-        //$pdf::SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-        //$pdf::SetHeaderMargin(PDF_MARGIN_HEADER);
-        $pdf::SetFooterMargin(PDF_MARGIN_FOOTER);
+$pdf::SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf::SetHeaderMargin(PDF_MARGIN_HEADER);
+$pdf::SetFooterMargin(PDF_MARGIN_FOOTER);
+
 
 // set auto page breaks
         //$pdf::SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
@@ -89,9 +87,9 @@ class PDFController extends Controller
 // Custom Header
 $invoice='ssssssss';
         $pdf::setHeaderCallback(function($pdf) use ($invoice) {
-            $pdf->SetY(16);
+            $pdf->SetY(-50);
             $pdf->Image('@'.file_get_contents( K_PATH_IMAGES.'LOQO2018.png'), 200, 5, 27, '', 'PNG', '', 'R', false, 10, '', false, false, 0, false, false, false);
-            // $pdf->SetMargins(0, 20, 0);
+            $pdf->SetMargins(0, 50, 0);
             // $pdf->SetFont('time_n_r', '', 12);
             // $pdf->Cell(180, 0, 'رقم المسلسل: '.$invoice.'/'.$invoice, 0, false, 'L', false, '', 0, false, 'T', 'M');
 //            $pdf->Ln();
@@ -100,9 +98,9 @@ $invoice='ssssssss';
         });
 
 // Custom Footer
-        $pdf::setFooterCallback(function($pdf) {
+       $pdf::setFooterCallback(function($pdf) {
             $pdf->SetY(-40);
-            $pdf->SetFont('time_n_r', '', 12);
+          /*   $pdf->SetFont('time_n_r', '', 12);
             $pdf->writeHTML('
             <table>
                 <tr>
@@ -120,7 +118,7 @@ $invoice='ssssssss';
                 <tr style="line-height: 3">
                     <td style="width: 200px">نموذج رقم (6) اللوازم العامة </td>
                 </tr>
-            </table>');
+            </table>');*/
             // Position at 15 mm from bottom
             $pdf->SetY(-15);
             // Set font
@@ -130,14 +128,20 @@ $invoice='ssssssss';
 
         });
 // add a page
+
 $pdf::setCellPaddings(2, 1, 2, 2);
 
         $pdf::AddPage();
         $pdf::setRTL(true);
-
-        $html = view('pdf.index',['invoice'=>$invoice])->render();
+        $html = view('pdf.index',['expense'=>$expense,
+        'payment'=>$payment,
+        'sum_payment'=>$sum_payment,
+        'sum_expense'=>$sum_expense,
+        'total'=>$total,
+        ])->render();
         $pdf::WriteHTML($html, true, 0, true, 0);
       //  $pdf->Output('example_006.pdf', 'I');
+
          $pdf::Output('example_018.pdf','I');
     }
     }

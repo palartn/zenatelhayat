@@ -161,22 +161,22 @@ tr:hover .cut { opacity: 1; }
 	<body dir="rtl">
 		<img src="{{ asset('assets/media/reports/header-right.png') }}" width="700px">
 		<article style="padding-top: 50px">
-			<h1 ></h1>
-			{{-- <address contenteditable>
-				<p dir="rtl"></p>
-			</address> --}}
+			<h1 >Recipient</h1>
+			<address contenteditable>
+				<p dir="rtl">الإسم :عباس ابن فرناس</p>
+			</address>
 			<table class="meta">
 				<tr>
-					<th><span contenteditable>مجموع المصروفات</span></th>
-					<td><span contenteditable>{{ $sum_expense }}</span></td>
+					<th><span contenteditable>Invoice #</span></th>
+					<td><span contenteditable>101138</span></td>
 				</tr>
 				<tr>
-					<th><span contenteditable>مجموع الإيردات</span></th>
-					<td><span contenteditable>{{ $sum_payment }}</span></td>
+					<th><span contenteditable>Date</span></th>
+					<td><span contenteditable>January 1, 2012</span></td>
 				</tr>
 				<tr>
-					<th><span contenteditable>الإجمالي</span></th>
-					<td><span id="prefix" contenteditable></span><span>{{ $total }}</span></td>
+					<th><span contenteditable>Amount Due</span></th>
+					<td><span id="prefix" contenteditable>$</span><span>600.00</span></td>
 				</tr>
 			</table>
 			<table class="inventory" dir="rtl">
@@ -205,35 +205,6 @@ tr:hover .cut { opacity: 1; }
 					</tr>
 					@endforeach
 				</tbody>
-				
-			</table>
-			<table class="inventory" dir="rtl">
-				<thead>
-					<tr >
-						<th width="50px"><span contenteditable>الرقم</span></th>
-						<th><span contenteditable>إسم المريض</span></th>
-						<th><span contenteditable>العملة</span></th>
-						<th><span contenteditable>المبلغ</span></th>
-						<th><span contenteditable>التاريخ</span></th>
-						<th><span contenteditable>مللاحظات</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach($payment as $payment)
-					<tr>
-					
-
-						<td><a class="cut"></a><span contenteditable>{{ $payment->id; }}</span></td>		
-						<td><span contenteditable>{{ $payment->patient->patient_fname.' '.$payment->patient->patient_sname.' '.$payment->patient->patient_tname.' '.$payment->patient->patient_lname; }}</span></td>
-						<td><span data-prefix>{{ $payment->currency; }}</span><span contenteditable></span></td>
-						<td><span data-prefix>{{ $payment->paid; }}</span><span contenteditable></span></td>
-						<td><span contenteditable>{{ $payment->pay_date; }}</span></td>
-						<td><span data-prefix>{{ $payment->notes; }}</span><span></span></td>
-					
-					</tr>
-					@endforeach
-				</tbody>
-				
 			</table>
 			{{-- <a class="add">+</a> --}}
 			<table class="balance">
