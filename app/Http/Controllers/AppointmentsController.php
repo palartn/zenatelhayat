@@ -585,9 +585,7 @@ class AppointmentsController extends Controller
         // Fetch records
 
         // $items = DB::table('appointments')->whereDate('visit_date', DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
-        $items = Appointment::whereDate('visit_date' , DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc')
-        or
-        $items = Appointment::whereDate('next_visi_date' , DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc') ;
+                $items = Appointment::whereDate('visit_date' , DB::raw('CURDATE()'))->orWhereDate('next_visit_date',DB::raw('CURDATE()'))->with('patient')->orderBy('appointments.id', 'desc');
         if ($searchValue != null)
             $items = $items
                 ->where('appointments.visit_date', 'like', '%' . $searchValue . '%')
