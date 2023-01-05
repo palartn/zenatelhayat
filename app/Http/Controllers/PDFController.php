@@ -20,14 +20,14 @@ class PDFController extends Controller
      * @return response()
      */
     public function index(){
-        $ads = Payment::paginate(5);
+        $payments = Payment::paginate(5);
         $expense=Expense::all();
         $sum_expense=Expense::all()->sum('amount');
-        $payment=Payment::all();
+        // $payment=Payment::all();
         $sum_payment=Payment::all()->sum('paid');
         $total=$sum_payment- $sum_expense;
         
-return view('pdf.index',compact('expense','payment','sum_payment','sum_expense','total','ads'));
+return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total'));
     
  }
 
@@ -35,7 +35,7 @@ return view('pdf.index',compact('expense','payment','sum_payment','sum_expense',
     {
         $expense=Expense::all();
         $sum_expense=Expense::all()->sum('amount');
-        $payment=Payment::all();
+        $payments=Payment::all();
         $sum_payment=Payment::all()->sum('paid');
         $total=$sum_payment- $sum_expense;
         $pdf = new TCPDF('P', 'mm','A4', true, 'UTF-8', false);;
@@ -131,14 +131,14 @@ $invoice='ssssssss';
 // add a page
 
 $pdf::setCellPaddings(2, 1, 2, 2);
-
         $pdf::AddPage();
         $pdf::setRTL(true);
         $html = view('pdf.index',['expense'=>$expense,
-        'payment'=>$payment,
+        'payments'=>$payments,
         'sum_payment'=>$sum_payment,
         'sum_expense'=>$sum_expense,
         'total'=>$total,
+        
         ])->render();
         $pdf::WriteHTML($html, true, 0, true, 0);
       //  $pdf->Output('example_006.pdf', 'I');

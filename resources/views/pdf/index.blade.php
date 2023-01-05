@@ -148,6 +148,32 @@ tr:hover .cut { opacity: 1; }
 	.add, .cut { display: none; }
 }
 @page { margin: 0; }
+.pagination {
+  display: inline-block;
+  text-align: center !important;
+}
+nav{
+	text-align: center !important;	
+}
+.pagination li {
+  color: black;
+  float: right;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
+.d-none{
+	display: none;
+}
+.pagination li.active {
+  background-color: #0c67b1;
+  color: white;
+  border-radius: 5px;
+}
+
+
+.pagination li:hover:not(.active) {background-color: #ddd;}
 </style>
 
 <html>
@@ -216,7 +242,7 @@ tr:hover .cut { opacity: 1; }
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($payment as $payment)
+					@foreach($payments as $payment)
 					<tr>
 					
 
@@ -230,16 +256,15 @@ tr:hover .cut { opacity: 1; }
 					</tr>
 					
 					@endforeach
-				
+
 
 				</tbody>
-				
+
 			</table>
-			{{-- <a class="add">+</a> --}}
-			{{ $ads->links() }}
-
-
 			
+			{{ $payments->links(); }}
 
+			{{-- <a class="add">+</a> --}}
 	</body>
+	
 </html>
