@@ -262,7 +262,9 @@ nav{
 
 			</table>
 			
+			@if(request()->is('pdf') )
 			{{ $payments->links(); }}
+			@endif
 
 			{{-- <a class="add">+</a> --}}
 	</body>
