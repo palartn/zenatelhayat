@@ -33,14 +33,11 @@ class PDFController extends Controller
         // $payment=Payment::all();
         $sum_payment=Payment::all()->sum('paid');
         $total=$sum_payment- $sum_expense;
-        
+
 return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total','expense2'));
-    
+
  }
- public function test()
- {
-        # code...
- }
+
 
     public function download()
     {
@@ -149,12 +146,32 @@ $pdf::setCellPaddings(2, 1, 2, 2);
         'sum_payment'=>$sum_payment,
         'sum_expense'=>$sum_expense,
         'total'=>$total,
-        
+
         ])->render();
         $pdf::WriteHTML($html, true, 0, true, 0);
       //  $pdf->Output('example_006.pdf', 'I');
 
          $pdf::Output('example_018.pdf','I');
-    }
+
+        }
+
+
+        public function test()
+        {
+
+            if (request()->start_date || request()->end_date) {
+                $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+                $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+                $data = Expense::whereBetween('pay_date',[$start_date,$end_date])->get();
+
+            } else {
+                $data = Expense::latest()->get();
+
+            }
+            $sum_expense=$data->sum('amount');
+
+
+            return view('pdf.test', compact('data','sum_expense'));
+        }
     }
 

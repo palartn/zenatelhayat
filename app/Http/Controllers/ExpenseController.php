@@ -364,9 +364,9 @@ class ExpenseController extends Controller
                     'notes' => $item->notes,
                     "created_at" => Carbon::parse($item->created_at)->format('d-m-Y'), // h:i A
                     "actions" => null
-    
+
                 ];
-    
+
         }
 
         $response = array(
@@ -386,7 +386,7 @@ class ExpenseController extends Controller
 
     // public function getData_Today(Request $request)
     // {
-     
+
     //     $draw = $request->get('draw');
     //     $start = $request->get("start");
     //     $rowperpage = $request->get("length"); // Rows display per page
@@ -438,7 +438,7 @@ class ExpenseController extends Controller
 
     //     $totalRecords = DB::table('expenses')->whereDate('pay_date', DB::raw('CURDATE()'))->count();
     //     $totalRecordswithFilter = DB::table('expenses')->whereDate('pay_date', DB::raw('CURDATE()'));
-      
+
 
     //     if ($searchValue != null)
     //         $totalRecordswithFilter = $totalRecordswithFilter
@@ -515,16 +515,5 @@ class ExpenseController extends Controller
     //     return response()->json($response);
     //     exit;
     // }
-    public function test()
-    {
-        if (request()->start_date || request()->end_date) {
-            $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
-            $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
-            $data = Expense::whereBetween('pay_date',[$start_date,$end_date])->get();
-        } else {
-            $data = Expense::latest()->get();
-        }
-        
-        return view('pdf.test', compact('data'));
-    }
+
 }
