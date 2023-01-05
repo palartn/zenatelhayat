@@ -515,4 +515,16 @@ class ExpenseController extends Controller
     //     return response()->json($response);
     //     exit;
     // }
+    public function test()
+    {
+        if (request()->start_date || request()->end_date) {
+            $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+            $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+            $data = Expense::whereBetween('pay_date',[$start_date,$end_date])->get();
+        } else {
+            $data = Expense::latest()->get();
+        }
+        
+        return view('pdf.test', compact('data'));
+    }
 }

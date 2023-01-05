@@ -37,6 +37,10 @@ class PDFController extends Controller
 return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total','expense2'));
     
  }
+ public function test()
+ {
+        # code...
+ }
 
     public function download()
     {

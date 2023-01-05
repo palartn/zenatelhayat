@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,7 @@ use App\Http\Controllers\CreditorsController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\SubPayementsController;
 use App\Http\Controllers\SurgeryKindsController;
+use Random\Randomizer;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,3 +111,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+Route::get('test',[ExpenseController::class, 'test'])->name('date_between');
+
+   
