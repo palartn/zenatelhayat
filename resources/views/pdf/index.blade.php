@@ -2,7 +2,6 @@
    /* reset */
 
 *
-
 {
 text-align: right; 
 direction: rtl
@@ -116,20 +115,18 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
 	text-align: center;
 	width: 0.6em;
 }
-/* 
-.add, .cut
-{
-	background: #9AF;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-	background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
-	background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
-	border-radius: 0.5em;
-	border-color: #0076A3;
-	color: #FFF;
-	cursor: pointer;
-	font-weight: bold;
-	text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
-} */
+      @media print
+      {
+         @page {
+           margin-top: 0;
+           margin-bottom: 0;
+         }
+         body  {
+           padding-top: 50px;
+           padding-bottom: 50px ;
+         }
+      } 
+
 
 .add { margin: -2.5em 0 0; }
 
@@ -180,10 +177,10 @@ nav{
 	<head>
 		<meta charset="utf-8">
 		<title>Invoice</title>
-		
+	
 	</head>
 	<body dir="rtl">
-		<img src="{{ asset('assets/media/reports/header-right.png') }}" width="700px">
+		<img src="{{ asset('assets/media/reports/header-right.png') }}" width="720px">
 		<article style="padding-top: 50px">
 			{{-- <address contenteditable>
 				<p dir="rtl"></p>
