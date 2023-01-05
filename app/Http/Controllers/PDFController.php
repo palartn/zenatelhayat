@@ -20,7 +20,7 @@ class PDFController extends Controller
      * @return response()
      */
     public function index(){
-        $payments = Payment::paginate(5);
+        $payments = Payment::paginate(7);
         $expense=Expense::all();
         $sum_expense=Expense::all()->sum('amount');
         // $payment=Payment::all();
