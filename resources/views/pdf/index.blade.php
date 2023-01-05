@@ -185,7 +185,9 @@ nav{
 			{{-- <address contenteditable>
 				<p dir="rtl"></p>
 			</address> --}}
+			
 			<table class="meta">
+			
 				<tr>
 					<th><span >مجموع المصروفات</span></th>
 					<td><span contenteditable>{{ $sum_expense }}</span></td>
@@ -260,10 +262,19 @@ nav{
 			</table>
 			
 			@if(request()->is('pdf') )
-			{{ $payments->links(); }}
+			{{ $expense2->links(); }}
 			@endif
 
 			{{-- <a class="add">+</a> --}}
 	</body>
 	
 </html>
+<script>
+	$('#from_date').flatpickr({
+		format : 'dd-mm-yyyy',
+	});
+	
+	$('#to_date').flatpickr({
+		format : 'dd-mm-yyyy',
+	});
+</script>

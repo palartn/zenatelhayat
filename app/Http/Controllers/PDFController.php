@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 //use Elibyy\TCPDF\TCPDF;
 
+use PDF;
+use View;
+use Carbon\Carbon;
 use App\Models\Expense;
+
 use App\Models\Patient;
 use App\Models\Payment;
-use View;
-
 use Illuminate\Http\Request;
 use Elibyy\TCPDF\Facades\TCPDF;
-use PDF;
+
 class PDFController extends Controller
 {
     /**
@@ -20,14 +22,19 @@ class PDFController extends Controller
      * @return response()
      */
     public function index(){
-        $payments = Payment::paginate(7);
-        $expense=Expense::all();
+        $now = date('Y-m-d');
+        $startDate = Carbon::createFromFormat('Y-m-d', '2023-01-02');
+        $endDate = Carbon::createFromFormat('Y-m-d', '2023-01-05');
+        $expense = Expense::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
+        $payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
+       // $payments = Payment::paginate(5);
+        $expense2=Payment::paginate(5);
         $sum_expense=Expense::all()->sum('amount');
         // $payment=Payment::all();
         $sum_payment=Payment::all()->sum('paid');
         $total=$sum_payment- $sum_expense;
         
-return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total'));
+return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total','expense2'));
     
  }
 
