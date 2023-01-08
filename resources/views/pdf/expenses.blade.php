@@ -6,12 +6,12 @@
             <div class="row">
                 <h2 class="fs-3 text-center my-3">البحث بالتاريخ</h2>
                 <div class="my-2">
-                    <form action="{{ route('date_between'); }}" method="GET">
+                    <form action="{{ route('expenses_date'); }}" method="GET">
                         <div class="input-group mb-3">
                             <input type="date" class="form-control border border-primary border form-control-solid ps-12 flatpickr-input active" name="start_date"  placeholder="من تاريخ">
                             <input type="date" class="form-control border border-primary form-control-solid ps-12 flatpickr-input active " name="end_date"   placeholder="إلى تاريخ">
 
-                            <button class="btn btn-primary" type="submit">GET</button>
+                            <button class="btn btn-primary" type="submit">استعلام</button>
                         </div>
                     </form>
                 </div>
@@ -21,9 +21,9 @@
                             <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200 ">
 
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Date</th>
+                            <th scope="col">الإســـم</th>
+                            <th scope="col">المبلغ</th>
+                            <th scope="col">التاريخ</th>
                         </tr>
                     </thead>
                     <tbody>

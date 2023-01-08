@@ -111,6 +111,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-Route::get('test',[PDFController::class, 'test'])->name('date_between');
+Route::get('pdf-expenses',[PDFController::class, 'expenses_date'])->name('expenses_date');
 
 
