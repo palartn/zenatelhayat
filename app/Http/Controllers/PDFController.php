@@ -24,7 +24,7 @@ class PDFController extends Controller
     public function index(){
         $now = date('Y-m-d');
         $startDate = Carbon::createFromFormat('Y-m-d', '2023-01-02');
-        $endDate = Carbon::createFromFormat('Y-m-d', '2023-01-05');
+        $endDate = Carbon::createFromFormat('Y-m-d', '2023-01-30');
         $expense = Expense::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
         $payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
        // $payments = Payment::paginate(5);
@@ -37,27 +37,10 @@ class PDFController extends Controller
 return view('pdf.index',compact('expense','payments','sum_payment','sum_expense','total','expense2'));
 
  }
-
-//     public function pdf_date(){
-//         $now = date('Y-m-d');
-//         $startDate = Carbon::createFromFormat('Y-m-d', '2023-01-02');
-//         $endDate = Carbon::createFromFormat('Y-m-d', '2023-01-05');
-//         $expense = Expense::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
-//         $payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
-//        // $payments = Payment::paginate(5);
-//         $expense2=Payment::paginate(5);
-//         $sum_expense=Expense::all()->sum('amount');
-//         // $payment=Payment::all();
-//         $sum_payment=Payment::all()->sum('paid');
-//         $total=$sum_payment- $sum_expense;
-
-// return view('pdf.expenses',compact('expense','payments','sum_payment','sum_expense','total','expense2'));
-
-//  }
-
-
     public function download()
     {
+        // $expense = Expense::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
+        // $payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
         $expense=Expense::all();
         $sum_expense=Expense::all()->sum('amount');
         $payments=Payment::all();

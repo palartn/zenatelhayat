@@ -1,6 +1,5 @@
 <style>
 	/* reset */
- 
  *
  {
  text-align: right; 
@@ -19,7 +18,9 @@
 	 text-decoration: none;
 	 vertical-align: top;
  }
- 
+ @media print {
+    #Header, #Footer { display: none !important; }
+}
  /* content editable */
  
  *[contenteditable] { border-radius: 0.25em; min-width: 1em; outline: 0; }
