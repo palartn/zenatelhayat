@@ -179,7 +179,8 @@ $pdf::setCellPaddings(2, 1, 2, 2);
             if (request()->start_date || request()->end_date) {
                 $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
                 $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
-                $data = Payment::whereBetween('pay_date',[$start_date,$end_date])->get();
+                $data = Payment::whereBetween('pay_date',[$start_date,$end_date])->paginate(10);
+               // $ads =Payment::paginate(10);
 
             } else {
                 $ads =Payment::paginate(10);

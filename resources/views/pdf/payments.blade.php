@@ -6,7 +6,7 @@
             <div class="row">
                 <h2 class="fs-3 text-center my-3">البحث بالتاريخ</h2>
                 <div class="my-2">
-                    <form action="{{ route('expenses_date'); }}" method="GET">
+                    <form action="{{ route('payments_date'); }}" method="GET">
                         <div class="input-group mb-3">
                             <input type="date" class="form-control border border-primary border form-control-solid ps-12 flatpickr-input active" name="start_date"  placeholder="من تاريخ">
                             <input type="date" class="form-control border border-primary form-control-solid ps-12 flatpickr-input active " name="end_date"   placeholder="إلى تاريخ">
