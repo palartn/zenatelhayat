@@ -182,9 +182,8 @@ $pdf::setCellPaddings(2, 1, 2, 2);
                 $data = Payment::whereBetween('pay_date',[$start_date,$end_date])->get();
 
             } else {
-                $ads =Payment::paginate(5);
-                //$payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
-                $data = Payment::latest()->get();
+                $ads =Payment::paginate(10);
+                $data = Payment::latest()->paginate(10);
 
             }
             $sum_expense=$data->sum('paid');
