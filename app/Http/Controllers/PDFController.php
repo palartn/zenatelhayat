@@ -173,5 +173,24 @@ $pdf::setCellPaddings(2, 1, 2, 2);
 
             return view('pdf.expenses', compact('data','sum_expense'));
         }
+        public function payments_date()
+        {
+
+            if (request()->start_date || request()->end_date) {
+                $start_date = Carbon::parse(request()->start_date)->toDateTimeString();
+                $end_date = Carbon::parse(request()->end_date)->toDateTimeString();
+                $data = Payment::whereBetween('pay_date',[$start_date,$end_date])->get();
+
+            } else {
+                $ads =Payment::paginate(5);
+                //$payments = Payment::paginate(5)->whereBetween('pay_date', [$startDate, $endDate]);
+                $data = Payment::latest()->get();
+
+            }
+            $sum_expense=$data->sum('paid');
+
+
+            return view('pdf.payments', compact('data','sum_expense','ads'));
+        }
     }
 

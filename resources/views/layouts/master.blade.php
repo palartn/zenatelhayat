@@ -1402,6 +1402,14 @@
 									<span class="menu-title">المصروفات</span>
 								</a>
 							</div>
+							<div class="menu-item">
+								<a class="menu-link" href="{{route('payments_date')}}">
+									<span class="menu-bullet">
+										<span class="bullet bullet-dot"></span>
+									</span>
+									<span class="menu-title">الإيرادات</span>
+								</a>
+							</div>
 							<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
 								<span class="menu-link">
 									<span class="menu-bullet">

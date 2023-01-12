@@ -112,5 +112,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 Route::get('pdf-expenses',[PDFController::class, 'expenses_date'])->name('expenses_date');
+Route::get('pdf-payments',[PDFController::class, 'payments_date'])->name('payments_date');
 
 
