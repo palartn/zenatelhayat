@@ -612,12 +612,13 @@
                                                   
 
                                                 });
-                                                $("#kt_modal_1").modal({ backdrop: "static ", keyboard: false });
+                                                location.reload();
+                                                // $("#kt_modal_1").modal({ backdrop: "static ", keyboard: false });
 
 
-                                                var oTable = $('#kt_datatable').DataTable();
-                                                oTable.destroy();
-                                                KTDatatablesDataSourceAjaxServer.init();
+                                                // var oTable = $('#kt_datatable').DataTable();
+                                                // oTable.destroy();
+                                                // KTDatatablesDataSourceAjaxServer.init();
 
                                             },
                                             error: function(data) {
