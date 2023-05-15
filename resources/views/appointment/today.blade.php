@@ -448,6 +448,7 @@
                                 <script>
 
                                      function paid_(appointment,patient) {
+                                        
                                         $('#kt_modal_1').modal("show");
                                         // $('#patient_name').val(patient);
                                         var p_name = $('#data_'+appointment+'_'+patient).attr('data-p-name');
